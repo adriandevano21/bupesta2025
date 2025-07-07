@@ -1,0 +1,127 @@
+/* Aturan CSS untuk layar lebar (desktop)
+@media screen and (min-width: 1200px) {
+  body {
+    background-color: navy;
+  }
+}
+
+/* Aturan CSS untuk layar menengah (tablet) */
+@media screen and (min-width: 768px) {
+    .dashboard {display:flex; flex-direction:row; align-items:center; justify-content:center; min-height:50vh; flex-wrap:wrap;
+      .kolom-dashboard-besar {flex:30%;
+    
+        .kotak-capkin-besar {border: solid 1px rgb(207, 207, 207);
+          .kotak-pie-besar {width:315px; height:378px; margin-top:50px; margin-left:auto; margin-right:auto;
+            .teks-pie-besar {text-align:center; font-size:15px; position:absolute; margin-top:110px; width:315px; z-index:-1;}
+            .teks-pie-besar-persen {text-align:center; font-size:30px; position:absolute; margin-top:160px; width:315px; z-index:-1;}
+            .lingkaran-putih-besar {width: 240px; height: 240px; margin-top: 40px; margin-left: 40px; position: absolute; border-radius: 50%; z-index: -2;}
+            .pie-besar-realisasi {width: 310px; height: 310px; margin-top: 5px; margin-left: 5px; position: absolute; border-radius: 50%; z-index: -3;}
+            .pie-besar-target {width: 300px; height: 300px; margin-top: 10px; margin-left: 10px; position: absolute; border-radius: 50%; z-index: -5;}
+          }
+          .kotak-triwulan-besar {display:flex; flex-wrap:wrap; justify-content:center; width:315px;
+            .bar-triwulan-warna-besar {font-size:11px; margin-right:6px; color:white; text-align:center; height:35px; width:35px; background-color:var(--warna); border-radius:5px;}
+          }
+        }
+    }
+      .kolom-sasaran-besar {flex:70%;
+        .kolom-sasaran {display:flex; flex-direction:row; height:calc(450px/4); margin:5px; border: solid 1px rgb(207, 207, 207);
+          .teks-vertikal-sasaran {font-size:13px; writing-mode: vertical-rl; rotate: 180deg; background-color:antiquewhite; text-align: center;}
+          .dua-kolom-sasaran {
+            
+            .kotak-sasaran {width:120px;margin:2px;
+                .nama-sasaran {float:left;width:120px; font-size:11px; margin:0px; text-align:center;background-color:antiquewhite; line-height:1.25;}
+                .kotak-pie-sasaran {float:left;width:120px; height:90px;
+                  .teks-persen-sasaran {width:100px; height:100px; margin-top:40px; margin-left:5px; text-align:center; font-size:12px; position:absolute; border-radius:50%; z-index:-1;}
+                  .lingkaran-putih-sasaran {width:70px; height:70px; margin-top:15px; margin-left:15px; position:absolute; border-radius:50%; z-index:-2;}
+                  .pie-sasaran-realisasi {width:90px; height:90px; margin-top:5px; margin-left:5px; position:absolute; border-radius:50%; z-index:-3;}
+                  .pie-sasaran-target {width:80px; height:80px; margin-top:10px; margin-left:10px; position:absolute; border-radius:50%; z-index: -5;}
+                }
+                .kotak-triwulan-sasaran{float:left; margin-top: 5px; width:120px;
+                  .bar-triwulan-warna-sasaran{float:left;font-size:8px; margin-top:2px; margin-left:2px; color:white; text-align:center;
+                    height: 10px; width: 45px; background-color: var(--warna); bottom: 0; border-radius: 3px;
+                  }
+                }
+            }
+            
+            
+            .kotak-iku{float:left; margin: 2px 2px 2px 0px; border: solid 1px rgb(207, 207, 207); height:86px;
+              .teks-vertikal-iku {float:left; height:84px; padding : 2px; font-size:11px; writing-mode: vertical-rl; rotate: 180deg; background-color:antiquewhite; text-align: center;}
+              .nama-iku{float:left; width:70px; height:80px; font-size:10px; text-align: center;  margin: 5px; line-height:1.25;}
+              .bar-iku-target{float:left; height:80px; border: solid 1px rgb(207, 207, 207); margin: 0px 6px 6px 6px; border-radius: 5px; width:20px;
+                .bar-iku-realisasi {height:45px;
+                  font-size:13px; text-align: center; padding-top: 1px; padding-bottom: 1px; color: white;
+                  width: 20px; background-color: var(--warna); border-radius: 5px;
+                }
+              }
+              .kotak-triwulan-iku{float:left; justify-content:center; width:60px;background-color:antiquewhite;
+                .bar-triwulan-warna-iku {font-size:8px; margin-top:2px; margin-left:2px; color:white; text-align:center;
+                  height: 10px; width: 45px; background-color: var(--warna); bottom: 0; border-radius: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+
+
+/* Aturan CSS untuk layar kecil (ponsel) */
+@media screen and (max-width: 768px) {
+    .dashboard {display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:50vh; flex-wrap:wrap;
+      .kolom-dashboard-besar {flex:30%;
+    
+        .kotak-capkin-besar {border: solid 1px rgb(207, 207, 207);
+          .kotak-pie-besar {width:315px; height:378px; margin-top:50px; margin-left:auto; margin-right:auto;
+            .teks-pie-besar {text-align:center; font-size:15px; position:absolute; margin-top:110px; width:315px; z-index:-1;}
+            .teks-pie-besar-persen {text-align:center; font-size:30px; position:absolute; margin-top:160px; width:315px; z-index:-1;}
+            .lingkaran-putih-besar {width: 240px; height: 240px; margin-top: 40px; margin-left: 40px; position: absolute; border-radius: 50%; z-index: -2;}
+            .pie-besar-realisasi {width: 310px; height: 310px; margin-top: 5px; margin-left: 5px; position: absolute; border-radius: 50%; z-index: -3;}
+            .pie-besar-target {width: 300px; height: 300px; margin-top: 10px; margin-left: 10px; position: absolute; border-radius: 50%; z-index: -5;}
+          }
+          .kotak-triwulan-besar {display:flex; flex-wrap:wrap; justify-content:center; width:315px;
+            .bar-triwulan-warna-besar {font-size:11px; margin-right:6px; color:white; text-align:center; height:35px; width:35px; background-color:var(--warna); border-radius:5px;}
+          }
+        }
+    }
+      .kolom-sasaran-besar {flex:70%;
+        .kolom-sasaran {display:flex; flex-direction:row; height:182px; margin:5px; border: solid 1px rgb(207, 207, 207);
+          .teks-vertikal-sasaran {font-size:13px; writing-mode: vertical-rl; rotate: 180deg; background-color:antiquewhite; text-align: center;}
+          .dua-kolom-sasaran {
+            
+            .kotak-sasaran {width:120px;margin:2px;
+                .nama-sasaran {float:left;width:120px; font-size:11px; margin:0px; text-align:center;background-color:antiquewhite; line-height:1.25;}
+                .kotak-pie-sasaran {float:left;width:120px; height:90px;
+                  .teks-persen-sasaran {width:100px; height:100px; margin-top:40px; margin-left:5px; text-align:center; font-size:12px; position:absolute; border-radius:50%; z-index:-1;}
+                  .lingkaran-putih-sasaran {width:70px; height:70px; margin-top:15px; margin-left:15px; position:absolute; border-radius:50%; z-index:-2;}
+                  .pie-sasaran-realisasi {width:90px; height:90px; margin-top:5px; margin-left:5px; position:absolute; border-radius:50%; z-index:-3;}
+                  .pie-sasaran-target {width:80px; height:80px; margin-top:10px; margin-left:10px; position:absolute; border-radius:50%; z-index: -5;}
+                }
+                .kotak-triwulan-sasaran{float:left; margin-top: 5px; width:120px;
+                  .bar-triwulan-warna-sasaran{float:left;font-size:8px; margin-top:2px; margin-left:2px; color:white; text-align:center;
+                    height: 10px; width: 45px; background-color: var(--warna); bottom: 0; border-radius: 3px;
+                  }
+                }
+            }
+            
+            
+            .kotak-iku{float:left; margin: 2px 2px 2px 0px; border: solid 1px rgb(207, 207, 207); height:86px;
+              .teks-vertikal-iku {float:left; height:84px; padding : 2px; font-size:11px; writing-mode: vertical-rl; rotate: 180deg; background-color:antiquewhite; text-align: center;}
+              .nama-iku{float:left; width:70px; height:80px; font-size:10px; text-align: center;  margin: 5px; line-height:1.25;}
+              .bar-iku-target{float:left; height:80px; border: solid 1px rgb(207, 207, 207); margin: 0px 6px 6px 6px; border-radius: 5px; width:20px;
+                .bar-iku-realisasi {height:45px;
+                  font-size:13px; text-align: center; padding-top: 1px; padding-bottom: 1px; color: white;
+                  width: 20px; background-color: var(--warna); border-radius: 5px;
+                }
+              }
+              .kotak-triwulan-iku{float:left; justify-content:center; width:60px;background-color:antiquewhite;
+                .bar-triwulan-warna-iku {font-size:8px; margin-top:2px; margin-left:2px; color:white; text-align:center;
+                  height: 10px; width: 45px; background-color: var(--warna); bottom: 0; border-radius: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}

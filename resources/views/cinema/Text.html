@@ -1,0 +1,12 @@
+use App\Models\UserActivity;
+use Illuminate\Support\Facades\Auth;
+
+function logActivity($activity)
+{
+UserActivity::create([
+'user_id' => Auth::check() ? Auth::id() : null,
+'activity' => $activity,
+'ip_address' => request()->ip(),
+'user_agent' => request()->header('User-Agent'),
+]);
+}
