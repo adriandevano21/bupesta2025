@@ -16,12 +16,12 @@ body {
     display: flex;
     align-items: center;
     background: #f4fdff;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    flex: 1;
+    min-width: 250px;
     max-width: 500px;
-    transition: all 0.3s ease;
 }
 
 .modern-search-box:hover {
@@ -134,6 +134,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 15px;
+    margin: 20px 0;
     flex-wrap: wrap;
 }
 
@@ -398,16 +399,47 @@ body {
     }
 }
 
-
-
-@media (max-width: 900px) {
-    .movie-gallery {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.welcome-banner {
+    text-align: center;
+    margin: 0px 0px 20px;
 }
 
-@media (max-width: 600px) {
-    .movie-gallery {
-        grid-template-columns: 1fr;
+#welcome {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+#typewriter {
+    font-size: 24px;
+    font-weight: 600;
+    color: #007bff;
+    white-space: nowrap;
+}
+
+.cursor {
+    display: inline-block;
+    color: #007bff;
+    animation: blink 0.8s infinite;
+}
+
+.welcome-banner h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
     }
 }

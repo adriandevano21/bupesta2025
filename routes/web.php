@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CinemaController;
+use App\Http\Controllers\DashboardActivityController;
 use App\Http\Controllers\DashboardkinerjaController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,6 @@ Route::controller(CinemaController::class)->group(function () {
     Route::post('/logout', 'logout');
 });
 
-Route::controller(DashboardkinerjaController::class)->group(function () {
-    Route::get('/kinerja', 'kinerja2025');
+Route::controller(DashboardActivityController::class)->group(function () {
+    Route::get('/activity-user', 'index')->name('user-activity');
 });

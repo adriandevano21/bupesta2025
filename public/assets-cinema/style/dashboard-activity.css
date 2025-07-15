@@ -1,0 +1,77 @@
+/* Dashboard Layout */
+.dashboard-wrapper {
+    padding: 30px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #b6dbff;
+    border-radius: 12px;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.dashboard-header h1 {
+    font-size: 28px;
+    color: #007bff;
+    margin-bottom: 6px;
+}
+
+.dashboard-header .subtitle {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* Filter Section */
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.date-control,
+.checkbox-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.date-picker {
+    padding: 7px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 180px;
+    font-size: 14px;
+}
+
+/* Table Card */
+.table-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+/* DataTables tweaks */
+table.dataTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: right;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.dataTables_wrapper .dataTables_length {
+    float: left;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    margin-top: 10px;
+}

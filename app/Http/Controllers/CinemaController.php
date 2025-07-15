@@ -14,7 +14,7 @@ class CinemaController extends Controller
     {
         UserActivity::log("https://bupesta.web.bps.go.id/cinema");
         $data = [];
-        $data["judul"] = "Beranda";
+        $data["judul"] = "Cinema";
         $data["cinema"] = Cinema::orderBy('tanggal_kegiatan', 'desc')->get();
         return view('cinema.cinema', compact('data'));
     }

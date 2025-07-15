@@ -1,75 +1,16 @@
-<style>
-    .dropdown-menuatas {
-        position: relative;
-        display: inline-block;
-        float: right;
-        padding: 25px 25px 0px 0px;
-        font-size: 13px;
-    }
-
-    .dropdown-menuatas li {
-        padding: 0;
-    }
-
-    .dropdown-menuatas>a {
-        color: #000000;
-        text-decoration: none;
-    }
-
-    .dropdown-menuatas:hover>a {
-        color: #1a71a7;
-        border-bottom: 3px solid #1a71a7;
-    }
-
-    ul.submenu-menuatas:hover {
-        display: flex;
-        flex-direction: column;
-    }
-
-    ul.submenu-menuatas li {
-        float: none;
-    }
-
-    .submenu-menuatas {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        background-color: #ffffff;
-        min-width: 200px;
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        border: 1px solid #ddd;
-    }
-
-    .submenu-menuatas li a {
-        display: block;
-        text-wrap: nowrap;
-        padding: 10px 15px;
-        text-decoration: none;
-        color: #000000;
-        font-size: 13px;
-    }
-
-    .submenu-menuatas li a:hover {
-        background-color: #f0f0f0;
-        color: #1a71a7;
-    }
-
-    .dropdown-menuatas:hover .submenu-menuatas {
-        display: block;
-    }
-</style>
-
 <div class="posisitengah">
     <div class="logobps">
         <a href="index.php"><img src="{{ asset('assets-cinema/') }}/img/logo.png" alt="#"></a>
     </div>
+
+    <!-- Tombol Menu Toggle (Burger) -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+    </div>
+    
     <div>
         <ul class="menuatas">
+            
             <li>
                 <form method="GET" action="" id="tahunForm">
                     <select id="tahunSelector" name="tahun" class="tahun-dropdown">
