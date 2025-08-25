@@ -30,4 +30,5 @@ Route::controller(CinemaController::class)->group(function () {
 
 Route::controller(DashboardActivityController::class)->group(function () {
     Route::get('/activity-user', 'index')->name('user-activity');
+    Route::get('/api-useractivities-bupesta', 'api_useractivities');
 });

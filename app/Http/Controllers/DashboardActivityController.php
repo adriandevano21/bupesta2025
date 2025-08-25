@@ -61,4 +61,31 @@ class DashboardActivityController extends Controller
 
         return view('aktivitasuser.dashboardaktivitas', compact('data'));
     }
+
+    public function store(Request $request)
+    {
+        $existing = DB::table('user_activities')
+            ->where('user_id', '340060473')
+            ->where('url', $request->url)
+            ->first();
+
+        if ($existing) {
+            return response()->json(['message' => 'Already logged']);
+        }
+
+        DB::table('user_activities')->insert([
+            'user_id' => '340060473',
+            'activity' => $request->url,
+            'ip_address' => $request->ip(),
+            'user_agent' => $request->header('User-Agent'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return response()->json(['message' => 'Access logged']);
+    }
+    public function api_useractivities()
+    {
+        return response()->json(UserActivity::orderBy('created_at', 'desc')->get());
+    }
 }

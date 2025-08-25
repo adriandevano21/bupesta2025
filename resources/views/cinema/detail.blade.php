@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Fitral CSS -->
 
-    <link rel="stylesheet" href="assets-cinema/load/load.css">
-    <script src="assets-cinema/load/load.js"></script>
+    <link rel="stylesheet" href="{{ asset('assets-cinema/') }}/load/load.css">
+    <script src="{{ asset('assets-cinema/') }}/load/load.js"></script>
     <title>BuPeSta - Kegiatan</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('fitral/') }}/img/favicon.png">
 
@@ -240,11 +240,23 @@
     </style>
     <link rel="stylesheet" href="{{ asset('assets-cinema/') }}/style/header.css">
     <link rel="stylesheet" href="{{ asset('assets-cinema/') }}/style/detail-cinema.css">
+        <link rel="stylesheet" href="{{ asset('assets-cinema/') }}/style/potrait-warning.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
 
+<!-- Peringatan Landscape -->
+        <div id="orientation-warning" style="display: none;">
+            <h1>Putar Perangkat Anda</h1>
+            <p>Untuk pengalaman terbaik, silakan ubah ke <strong>mode landscape</strong>.</p>
+            
+            <!-- Animasi HP diputar -->
+            <div class="phone-wrapper">
+            <div class="screen"></div>
+            <div class="button"></div>
+            </div>
+        </div>
     <div id="loading">
         <div id="loader-wrapper">
             <div id="loader"></div>
@@ -252,7 +264,7 @@
             <div class="loader-section section-right"></div>
         </div>
     </div>
-    <div id="page">
+    <div id="page" style="display: block;">
         <header>
             @include('layout2.navbar-cinema')
         </header>
@@ -501,6 +513,7 @@
     </form>
 </body>
 
+<script src="{{ asset('assets-cinema/') }}/style/potrait-warning.js"></script>
 <script>
     const tabs = document.querySelectorAll(".tab");
     const contents = document.querySelectorAll(".tab-content");

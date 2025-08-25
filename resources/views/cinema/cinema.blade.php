@@ -38,7 +38,7 @@
     <body>
 
         <!-- Peringatan Landscape -->
-        <div id="orientation-warning">
+        <div id="orientation-warning" style="display: none;">
             <h1>Putar Perangkat Anda</h1>
             <p>Untuk pengalaman terbaik, silakan ubah ke <strong>mode landscape</strong>.</p>
             
@@ -55,7 +55,7 @@
                 <div class="loader-section section-right"></div>
             </div>
         </div>
-        <div id="page">
+        <div id="page" style="display: block;">
             <header>
                 @include('layout2.navbar-cinema')
             </header>
