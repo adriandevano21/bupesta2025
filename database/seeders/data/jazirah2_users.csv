@@ -1,0 +1,701 @@
+id,name,username,kode_satker,nip_pegawai,role
+1,"Abd. Hakim, S.Si, M.Si",ahakim,1100,196712291991121001,operator
+2,"Cut Malahayati, SE",cut_mala,1100,196803101992122001,operator
+3,Zulkarnain,zulkarnain2,1100,196803081994011001,operator
+4,"Nurzakiah, SE",zakiah,1100,197005271992012001,operator
+5,"Azwar, S.E",azwar,1100,197109132001121003,operator
+6,"Oriza Santifa, S.Si, M.Si.",oriza,1100,197307011995121001,operator
+7,"Cut Emalita, SE.",emalita,1100,197409041993122001,operator
+8,"Tasdik Ilhamudin, S.Si, M.Si",tasdik,1100,197405171996121001,kepala
+9,"Ita Meriati, SE",ita.meriati,1100,197612182002122004,operator
+10,M. Sofyan,197610072025211021,1100,197610072025211021,operator
+11,"Mukhlis, S.E.",mukhlis7,1100,197709152007011002,operator
+12,Marhami,marhami,1100,197704092009012004,operator
+13,"Yan Yan Gustiana, S.ST., M.Stat",yanyan,1100,197808032002121006,operator
+14,"Faisal, S.E",fais-pppk,1100,197811292025211019,operator
+15,"Rodiah, S.E",rodiah2,1100,197904222005022001,operator
+16,"Munandar, S.Si",munandar,1100,198012212010031001,operator
+17,"Muhammad Ridha, SST",mridha,1100,198109132006021001,operator
+18,"Fadlun Andrian, SE, MM",fadlun.andrian,1100,198209142002121004,operator
+19,Alfisyahrin,alfisyah,1100,198207142007011001,evaluator
+20,"Nyimas Eka Yunia Hasnita, S.P",nyimas.hasnita,1100,198206252006042003,operator
+21,"Wahdini, S.Psi.",wahdini,1100,198207102011012017,operator
+22,"Edo Mara Nasution, S.E.",edomara,1100,198306172005021001,operator
+23,"Haifa Sari, SST, M.Si.",haifa,1100,198308122006022001,operator
+24,"Hendra Gunawan, SST, M.Si",goen,1100,198306042006021003,operator
+25,"Afrizal, S.Si",afrizal2,1100,198308072011011009,operator
+26,"Rediansyah Arief, SP, M.Si",reddy,1100,198308242011011014,operator
+27,"Cut Sandra Novalia, SE",cut.sandra,1100,198401132002122003,operator
+28,"Bambang Wahyudi, SE",b.wahyudi,1100,198407162006021002,operator
+29,"Dwi Susanti, SE",dwisusanti,1100,198411122006042002,operator
+30,"Fitral Pratomo, SST",fitral,1100,198407082008011003,operator
+31,"Akhmad Sugito, SST, M.Si",akh.sugito,1100,198410312008011005,operator
+32,"Dhani Fitri Yanthi, S.Si",dhani.fitri,1100,198406272011012022,operator
+33,"Dina Nirmala Sari, S.Si.",dina.niersa,1100,198404022011012022,operator
+34,"Teuku Yanisrullah, S.E.",teukuyanis-pppk,1100,198405012025211055,operator
+35,"M. Alimuddin, SST, M.T",alimuddin,1100,198512052008011002,operator
+36,"Reza Rezki Pulungan, SST",pulungan,1100,198504232008011001,operator
+37,"Kahar Muzzakar, SST, M.Si",kaharm,1100,198505122009021003,operator
+38,"Hendri Achmad Hudori, SST, M.Si.",hendri.hudori,1100,198504142009021005,operator
+39,"Hendra Dharmawan, SST, M.Si.",hendrad,1100,198512092009021002,operator
+40,"Juliana, SP",juliana.sp,1100,198507222011012015,operator
+41,"Chairina, S.M.",Chairina,1100,198603032005022001,operator
+42,"Ridha Mutia, SE, M.Si",ridha.mutia,1100,198608082006042005,operator
+43,"Maulidya, SE",maulid,1100,198612202006042001,operator
+44,"Raiski Ramadhoni, S.E.",raiski,1100,198605212006041003,operator
+45,"Meita Jumiartanti, SST, M.Si.",meitaj,1100,198605172008012002,operator
+46,"Nur Hasanah, SST, M.Si.",nurh,1100,198607312009022006,operator
+47,"Nilam Humaira, SST",nilam,1100,198607292009022005,operator
+48,"Melly, SST",melly2,1100,198604222009022005,operator
+49,"Nova Misrina, S.M.",nova.misrina,1100,198611192011012016,operator
+50,"Zukhra, SE",zukhra,1100,198712272011011011,operator
+51,"Hendra Saputra, S.E.",hendrasaputra-pppk,1100,198703132025211055,operator
+52,Apriliza,apriliza-pppk,1100,198704252025211038,operator
+53,"Fikri, SE, M.S.M",fikri2,1100,198804162008011001,operator
+54,"M. Reza, SE, M.Si.",mreza,1100,198806092008011001,operator
+55,"Darwis Abubakar, SE, M.Si",darwisab,1100,198806012008011003,operator
+56,"Ferfi Hamdina, SE",ferfi.hamdina,1100,198802102008012002,operator
+57,"Nelvi Istiqamah, SE",nelvi,1100,198909282011012010,operator
+58,"Dewi Putri Rahayu, A.Md.",dewirahayu,1100,198908192011012010,operator
+59,"Wira Junardi, SST, M.T.",wira,1100,198906132012111001,operator
+60,"Nasliyah Husna, S.P",nasliyah.husna,1100,198902272012122001,operator
+61,"Mirza Maulana, S.Pd",199007152025211064,1100,199007152025211064,operator
+62,Mirza Syaputra,199012102025211069,1100,199012102025211069,operator
+63,"Hilda Aprina, SST, M.Si.",haprina,1100,199104142014102001,operator
+64,"Cahya Danu Rahman, SST",cahya.rahman,1100,199202072017011001,operator
+65,Riza Fahmi,rizafahmi-pppk,1100,199201142025211047,operator
+66,"Mega Thursina, SST",mega.thursina,1100,199303312016022002,operator
+67,"Sumiati, A.Md.Kom",su.miati,1100,199308032025062004,operator
+68,"Elisa Ismi, S.Stat.",elisa.ismi,1100,199407262019032001,operator
+69,"Dhien Auliatu Asra, S.E.",dhien.asra,1100,199401102022032014,operator
+70,"Ismaturrahmi Suhaimi, SST",isma.suhaimi,1100,199504052017012001,operator
+71,"Kanasha Humaira, SST",kanasha.humaira,1100,199507292017012001,operator
+72,"Fitri Mulyani, SST",fitri.mulyani,1100,199503172018022001,operator
+73,"Ichsan Hasanudin, SST",ichsan.hasanudin,1100,199501232018021001,operator
+74,"Maulizasari, S.Stat.",maulizasari,1100,199509142019032002,operator
+75,"Cut Fatin Nabilah, A.Md.",cutfatin-pppk,1100,199508142024212010,operator
+76,"Reyhan Octavianri, S.I.Kom",reyhan.octavianri,1100,199510312025061003,operator
+77,"Mazaya Alifah Syadzwina, S.Tr.Stat.",mazaya.alifah,1100,199607132019012002,operator
+78,"Destiana Fitri, S.Tr.Stat.",destianaf,1100,199609292019012001,operator
+79,"Saiful Ambiya, S.H.",saiful.ambiya,1100,199609272025061003,operator
+80,"Gunadi Subagia, S.Tr.Stat.",gunadi.subagia,1100,199707072019011003,operator
+81,"Thariana Ayu Islami, S.Tr.Stat.",thariana.ayu,1100,199706102019122001,operator
+82,"Anandika Dian Pramesti, S.Tr.Stat.",dian.pramesti,1100,199711192021042001,operator
+83,Iskandar,199712012025211026,1100,199712012025211026,operator
+84,"M. Nigel Biaggi, S.Tr.Stat",nigel.biaggi,1100,199804242019121002,operator
+85,"Akhyarul Kamal, A.Md.Stat.",akhyarul.kamal,1100,199805032023021001,operator
+86,"Maulidin, A.Md.A.P",maulidin,1100,199808112025061003,operator
+87,Syahrul Ramadhan,syahrulrama-pppk,1100,199801292025211022,operator
+88,"Adrian Devano, S.Tr.Stat.",adrian.devano,1100,199906212022011001,admin
+89,"Muhammad Hafidz Al Ahmad Bit, S.Tr.Stat.",hafidz.alahmad,1100,199905312021041001,operator
+90,"Andi Arif Ginting, A.Md.Kb.N.",andi.arif,1100,200007152022011006,operator
+91,"Zahlul Fuadi, S.Tr.Stat.",zahlul.fuadi,1100,200101292023021004,operator
+92,"Sinta Nuriyah, S.Tr.Stat.",sintanuriyah,1100,200112232024122004,operator
+93,"Naura Shada Kirana, S.Tr.Stat.",naurashada,1100,200207272024122003,operator
+94,"Muhammad Farhan, S.Tr.Stat",muhammad.farhan,1100,200204232024121003,operator
+95,Jarlian,jarlian,1101,196809251990121001,operator
+96,"Rustim, SE",rustim,1101,196907221990121001,operator
+97,M. Rizal Zalmi,rizal.zalmi,1101,197004151991091001,operator
+98,Djamaluddin,djamaluddin,1101,197008031994021001,operator
+99,Hendra Prabisma,hendra.prabisma,1101,198203162014061002,operator
+100,Roni Lahanta,roni.lahanta,1101,198310272007011002,operator
+101,Subarno,subarno,1101,198303062014061003,operator
+102,"Zainal Amin, S.Si",zainal.amin,1101,198505292011011010,operator
+103,"Budi Kurniawan, S.Si",budi_kurniawan,1101,198504262010031001,kepala
+104,Marfiansyah,198605052025211074,1101,198605052025211074,operator
+105,"Roni Rahmadi, SP",roni.rahmadi,1101,198705122011011005,operator
+106,Rosmar Fitri Wahyuni,rosmarwahyuni-pppk,1101,198806102025212075,operator
+107,Junansah,junansah-pppk,1101,198806082025211057,operator
+108,Jaya Arjuna,199107032025211048,1101,199107032025211048,operator
+109,"Aidil Fajri, SST",aidil.fajri,1101,199302122017011001,kasubbag
+110,"Edhi Prabowo, SST",edhi.prabowo,1101,199403242018021001,operator
+111,"Widya Khairani, SST",widya.khairani,1101,199507282018022001,operator
+112,"Eri Alfanta, S.Sos.",erialfanta-pppk,1101,199509192025211048,operator
+113,"Alfredo Abdul Aziz, S.Tr.Stat.",alfredoaziz,1101,200004212023021005,operator
+114,"Salsabila Latifah Putri, S.Tr.Stat.",salsabila.putri,1101,200004182023022001,operator
+115,"Fajar Akhmad Anshori, S.Tr.Stat.",fajar.anshori,1101,200005152023021004,operator
+116,"Zuhdi Ali Hisyam, S.Tr.Stat.",zuhdi.ali,1101,200107242024121002,operator
+117,"Meutia Sari, S.Mn",meutiasari,1102,197305262002122003,operator
+118,"Asmuddin, SE",asmuddin,1102,197812312011011017,operator
+119,"Andi Sanjaya, SE, M.Si.",andi.sanjaya,1102,198103202005021003,operator
+120,Arwin Rafit Hidayat,arwit.rafit,1102,198202282002121003,operator
+121,Ahmad Dayan,ahmad.dayan,1102,198205152007011001,operator
+122,"Subhan, SST, M.Si",subhan,1102,198307182006021002,kepala
+123,Asbar Ibrati,198509172025211044,1102,198509172025211044,operator
+124,"Husnil Hidayat, A.Md",husnil,1102,198705232010031001,operator
+125,"Muhammad Nasyiruddin, S.M.",m.nasyiruddin,1102,198806192008011003,operator
+126,"Zati Azmiana, A.Md",zati.azmiana,1102,199005082022032009,operator
+127,"Siti Suratemi, S.Si",siti.suratemi,1102,199306272022032010,operator
+128,"Syahrul Yuanda, A.Md",syahruly-pppk,1102,199309012024211003,operator
+129,"Desriansyah Putra, S.Kel.",199312152025211045,1102,199312152025211045,operator
+130,"Muhammad Aidil, S.Kel.",199304012025211043,1102,199304012025211043,operator
+131,"Raina Sari, SST",raina.sari,1102,199402022018022001,operator
+132,"Fitria, S.Si.",fitria-pppk,1102,199504142025212058,operator
+133,"Erisya Desi Deria, S.Tr.Stat.",erisya,1102,199607192019012002,kasubbag
+134,"Qori Nur Laeli, S.Tr.Stat.",qori.laeli,1102,199612292019122001,operator
+135,"Delita Arianti, S.Tr.Stat.",delita.ari,1102,199612252021042001,operator
+136,"Najwan Yusnianda, S.Tr.Stat",najwan.yusnianda,1102,199706082019121001,operator
+137,"Juliana Santi, S.Si.",julianasanti-pppk,1102,199710042025212035,operator
+138,"Nadia Ariska, S.Tr.Stat.",nadiaariska,1102,199911192023022001,operator
+139,"Anwar Ibrahim, S.Tr.Stat.",anwar.ibrahim,1102,200007042023021003,operator
+140,"Nurul Isna, S.Tr.Stat.",nurul.isna,1102,200110142023102002,operator
+141,"Muhammad Azzam, S.Tr.Stat",muhammad.azzam,1102,200204022024121003,operator
+142,"Adlin, SE",adlin,1103,197112011993121001,operator
+143,Yenni Yati,yenni.yati,1103,197104242007012003,operator
+144,Bustami,bustami,1103,197311202006041010,operator
+145,"Patria Nusa, S.E.",patria.nusa,1103,197409132006041001,operator
+146,"Rabbal Amsyah, S.E",rabbal.amsyah,1103,197704022007011002,operator
+147,"Irama Ahmadi, S.E.",irama.ahmadi,1103,197701012006041038,operator
+148,"Haslim, S.E.",haslim,1103,197707192006041002,operator
+149,Juniadi,197706102025211045,1103,197706102025211045,operator
+150,Armia,armia2,1103,198012152007011001,operator
+151,"Masri, S.M.",masri2,1103,198208202007011002,operator
+152,"Kusni Rohani Rumahorbo, SST, M.Si",kusni,1103,198401302007012004,kepala
+153,Fajri Hendra,fajri.hendra,1103,198405272009111001,operator
+154,Firdaus,firdaus4,1103,198510252006041001,operator
+155,"Agustamardian, S.PKP",agustam,1103,198508282010031001,operator
+156,"Firmansyah, S.H.",firmansyah-pppk,1103,198511012025211043,operator
+157,"Reni Harpianti, S.Si.",reniharpianti-pppk,1103,199203192025212054,operator
+158,"Diana Ayu Ratnasari, SST",diana.ayu,1103,199606092018022002,operator
+159,"Amirudin Romansyah, S.Tr.Stat",amirudin.romansyah,1103,199611052019121001,operator
+160,"Isabella Ratna Putri, S.Tr.Stat.",isabella.putri,1103,199701112019122001,kasubbag
+161,"Muksalmina, A.Md.Kom.",muksalmina-pppk,1103,199803282024211002,operator
+162,"Thalita Silmi Azrani, S.Tr.Stat.",silmi.azrani,1103,200006012023022003,operator
+163,"Ananda Fortuna, S.Tr.Stat.",anandafortuna,1103,200108122023102001,operator
+164,"Bayu Rayhan Anassai, S.Tr.Stat",bayu.rayhan,1103,200103062024121002,operator
+165,Adelio Asyadda,200403202025211001,1103,200403202025211001,operator
+166,"Nur Asiah Pulungan, A. Md",nurasiah.pulungan,1104,197506112002122003,operator
+167,Suhada,suhada2,1104,197910032007011002,operator
+168,Azhari,azhari4,1104,198005032003121002,operator
+169,Hajidan Saidi,hajidan.saidi,1104,198007312007011002,operator
+170,Ahmad Dani,ahmad.dani,1104,198007262007011001,operator
+171,"Hasbi Adami, S.Sos.",198003062025211027,1104,198003062025211027,operator
+172,Idrus Sardi,idrus.sardi,1104,198110222003121005,operator
+173,"Raja Maulana, S.Si, M.Sc",raja,1104,198212252011011007,kepala
+174,"Mustapa Kamal, SE",mustapa.kamal,1104,198306012011011012,kasubbag
+175,Chici Freni,chici.freni,1104,198409232007012001,operator
+176,Hervan Syachri,hervan.syachri,1104,198511082007011003,operator
+177,"Sanrianika Simarmata, S.Stat.",ika_simarmata,1104,198601252009022006,operator
+178,"Sehrul Amri, A.Md",sehrul.amri,1104,198605162011011017,operator
+179,Abdul Rajak,198610012025211053,1104,198610012025211053,operator
+180,"Titianingrum, SST",titianingrum,1104,198810272013112001,operator
+181,"Indri Hafsari, S.Si.",indri.hafsari,1104,198803212022032003,operator
+182,"Soffia Zaronah Desky, A.Md.",soffiadesky-pppk,1104,199102252025212046,operator
+183,"Tri Widiantoro, SST, M.Stat",tri.widiantoro,1104,199205262014121002,operator
+184,"Irwan Jaya Deski, A.Md.Kep.",199303302025211037,1104,199303302025211037,operator
+185,Hendra Syah Putra,hendraputra-pppk,1104,199310042025211052,operator
+186,"Novita Sari, S.Si.",sari.novita,1104,199611212022032007,operator
+187,"Efriandi, S.Tr.Stat.",efriandi,1104,199804292022011001,operator
+188,"Aditya Faizal Arifin, S.Tr.Stat.",faizal.arifin,1104,199803262021041001,operator
+189,"Muhammad Imam Al Matin, S.Tr.Stat.",imam.almatin,1104,200006122023021002,operator
+190,"Santi Maudila Putri, S.Tr.Stat.",santi.maudila,1104,200009042023022001,operator
+191,"Siti Nur Wulan Sha Bana, S.Tr.Stat.",wulan.shabana,1104,200011252023102001,operator
+192,"Fika Fuza Syahdana, S.Tr.Stat.",fika.fuza,1104,200105262024122002,operator
+193,Zainuddin,zainuddin6,1105,196912311992031036,operator
+194,Zahniar Abdullah Aqsa,zahniar,1105,197110101992012001,operator
+195,"Nurmanuddin, SE",nurmanuddin,1105,197112161994011001,kepala
+196,Iskandar,iskandar6,1105,197310052014061002,operator
+197,Novizal,novizal,1105,197406092007101001,operator
+198,Musliyadi,musliyadi,1105,197604211996031003,operator
+199,Kamala Devie,kamala,1105,197803062003122005,operator
+200,Yusrizal,yusrizal,1105,197811202009011005,operator
+201,Jamaluddin,jamal,1105,197906262007011002,operator
+202,"Irwandi, S.E.",irwandi2,1105,198003062006041015,operator
+203,"Zubaidah, S.E.",zubaidah,1105,198009062011012009,operator
+204,"Jufri, SE",jufri2,1105,198012112011011007,kasubbag
+205,"Muzakkir, S.E.",muzakkir,1105,198104102007011002,operator
+206,Muhammad Ali,muhali,1105,198309062014061002,operator
+207,"Mukhlis, S.E.",mukhlis5,1105,198406102007011003,operator
+208,"Supiandi, S.H.",supiandi-pppk,1105,198408122025211062,operator
+209,"Wahyu Septia Irawan, S.E.",wahyu.septia,1105,198609102010031001,operator
+210,"Nurmasyithah, A.Md, S.E.",nurmasyithah,1105,198701132010032001,operator
+211,"Maulini Septya, SST",maulini.septya,1105,199109202014102002,operator
+212,"Wahyu Nur Wijayanto, SST, M.E.K.K.",wahyu.nw,1105,199107112014101001,operator
+213,"Akhmad Zaki, S.Si., M.M.",azaki,1105,199203072019031001,operator
+214,Subandi Putra,subandiputra-pppk,1105,199203032025211060,operator
+215,"Sarina Ayu Meilanda, S.Stat.",sarina.ayu,1105,199405032019032002,operator
+216,"Idawati, S.Pi",idawati-pppk,1105,199409032025212045,operator
+217,"Muhammad Agus Mauliza, S.Tr.Stat.",agus.mauliza,1105,199508282019011004,operator
+218,"Suraiya Istiqlal Annisa, S.Sos.",suraiyaannisa-pppk,1105,199508132025212049,operator
+219,"Nurmitra Sari Purba, S.Tr.Stat",nurmitra.spurba,1105,199704032019122002,operator
+220,"Annisa Ramadhanty, S.Tr.Stat.",annisa.ramadhanty,1105,199801052019122003,operator
+221,"Eizatie Rahmatika, A.Md",eizatie.rahmatika,1105,199911272022032005,operator
+222,"Dwi Kartika Sari, S.Tr.Stat.",dwikartika,1105,199904092023022001,operator
+223,"Rizki Nazhif Nur, S.Tr.Stat.",rizki.nazhif,1105,200006282023021002,operator
+224,"Alfajri Hidayat, S.Tr.Stat.",alfajri.hidayat,1105,200004062023101002,operator
+225,"Muhammad Saleh, A.Md.",m.saleh,1106,197112272006041017,operator
+226,Agus Irawan,agus.irawan,1106,197308282006041020,operator
+227,Winsyah,winsyah,1106,197506272006041015,operator
+228,"Effendy, S.Si",effen,1106,197605051996121001,operator
+229,"Andi Hardiyanto, SST",andihdy,1106,197605281999011001,kepala
+230,"Dadi Rusmansyah, S.S.",dadirusman-pppk,1106,198112072025211021,operator
+231,"Zulviyana, SE",vieya,1106,198302262006042003,operator
+232,"Firdaus, S.Si",firdaus3,1106,198308292011011013,operator
+233,"Muhammad Iman Sukriyansyah, SST",imans,1106,198410272008011003,operator
+234,"Hendra Saputra, SST",hendra.saputra,1106,198407162008011004,kasubbag
+235,Ade Afianum Kurniawati,ade.kurniawati,1106,198503012006042008,operator
+236,"Syukri, S.H.",syukri-pppk,1106,198512172025211033,operator
+237,"Nuelda Amalia, SST, M.SE",nuelda,1106,198601142008012001,operator
+238,"Ruzi Simatra, SE",ruzi_simatra,1106,198710162008011001,operator
+239,"Syeifienny Oktarima, SST",syeifienny,1106,198910212010122006,operator
+240,Sabarudin,sabarudin-pppk,1106,198903182025211048,operator
+241,"Adi Fadli Rajab, SST",adi.rajab,1106,199202132014121001,operator
+242,"Siti Nurrahmah, A.Md",siti.nurrahmah,1106,199705172022032016,operator
+243,Hendri Syahputra,hendrisyah-pppk,1106,199701272025211042,operator
+244,"Rania Sahira, A.Md",rania.sahira,1106,199811142022032014,operator
+245,"Alif Muhammad Arrasyid, S.Tr.Stat.",alif.arrasyid,1106,199912192023021004,operator
+246,"Fani Visara, S.Tr.Stat.",fani.visara,1106,200009302023022002,operator
+247,"Satya Indra Kusworo, S.Tr.Stat",satya.indra,1106,200104282024121003,operator
+248,"Salsabila Shafa Putri Rahadian, S.Tr.Stat",shafarahadian,1106,200206242024122001,operator
+249,Darwis,darwis,1107,197208012001121003,operator
+250,"T. Hamdani, SE",thamdani,1107,197204092006041013,operator
+251,Cut Suriati,197704122025212020,1107,197704122025212020,operator
+252,"Rudi Hermanto, SST, M.Si.",rhermanto,1107,197804192002121002,kepala
+253,"Titiek Zurriyati, S.Si",titiek,1107,197902252002122004,operator
+254,"Jufrizal, SE",jufrizal,1107,198204232005021002,operator
+255,"M. Nazaruddin Z, SP",nazaruddin,1107,198211272011011011,operator
+256,"Teuku Ariansyah, SE",ariansyah,1107,198304112011011014,kasubbag
+257,"Saifuddin, S.E.",198307162025211060,1107,198307162025211060,operator
+258,"Firmansyah, SE",firmans,1107,198411172011011010,operator
+259,"Rusli. A, S.E.",198408042025211043,1107,198408042025211043,operator
+260,Riniwati,riniwati,1107,198611132006042002,operator
+261,"Lisnadiani, SE",lisnadiani,1107,198811102008012001,operator
+262,"Safriadi, A.Md",safriadi,1107,198807152011011004,operator
+263,"Tika Widya Wardani, S.Si",tika.widya,1107,198807112014032003,operator
+264,Yuli Candra,198907192025211041,1107,198907192025211041,operator
+265,"Yulia Geubrina, SST, M.Si",yuliageubrina,1107,199107012014102001,operator
+266,"Azhar Bahagia, S.P.",199102032025211051,1107,199102032025211051,operator
+267,"Muhammad Khumaidi, A.Md",muh.khumaidi,1107,199411102022031003,operator
+268,"Haris Yusuf, A.Md",haris.yusuf,1107,199402182022031002,operator
+269,"Farazilla Ummaira, S.Stat.",farazilla,1107,199508052019032001,operator
+270,"Afriyani, S.Stat.",afriyani,1107,199509102019032001,operator
+271,"Dhia Ulfakhirah, S.Tr.Stat",dhia.ulfakhirah,1107,199707152019122002,operator
+272,"Gharisa Nur Fitri, S.Tr.Stat.",gharisa.nur,1107,199711132021042001,operator
+273,"Muarrif, S.A.P.",199712292025211030,1107,199712292025211030,operator
+274,"Salsabila Ainayafani, S.Tr.Stat.",salsabila.ainaya,1107,199902052022012003,operator
+275,"Muhammad Apriesya Wastu Nirbhaya, S.Tr.Stat.",apriesya.wastu,1107,199904022023101001,operator
+276,"Ayu Aina Nurkhaliza, S.Tr.Stat.",ayuainaa,1107,200010052023022001,operator
+277,Adli,adli,1108,197208111991101001,operator
+278,"Ikhsanuddin, SE",ikhsanuddin2,1108,197303062006041021,operator
+279,"Suwardi, ST",suwardi-pppk,1108,197504172025211003,operator
+280,Syarifah Effa Safrida,syarifah.safrida,1108,197701022007012002,operator
+281,"Rahmad Hidayat, S.Si.",rahmadhidayat,1108,198205122011011016,operator
+282,"Amrizal, SE",amrizal2,1108,198206212011011006,kasubbag
+283,"Muhammad Syafittri, SE",muhammad.syafitri,1108,198208142010031002,operator
+284,Junaidi,junaidi2-pppk,1108,198210172025211054,operator
+285,"Mustafa, SE",mustafa,1108,198402012011011012,operator
+286,"Ridhatullah Daud, M.S.M",ridhatullah.daud,1108,198509152010031001,operator
+287,"Zulfahmi, A.Md",zulfahmi,1108,198505092010031001,operator
+288,"Sri Yulianti, S.Si",sri.yulianti,1108,198604102012122001,operator
+289,"Ghea Yolana Parusta, S.ST",ghea.parusta,1108,198707142009122002,operator
+290,"Syarifah Nurussana, A.Md",syarifah.nurussana,1108,198704202022032002,operator
+291,"Bahagia, A.Md.",bahagia-pppk,1108,198709012025211052,operator
+292,Nensi Fitrah,nensi.fitrah,1108,198811072008012001,operator
+293,"Nelly Eliza, A.Md",nelly,1108,198806132012122004,operator
+294,"Muttaqin, S.HI.",muttaqin2-pppk,1108,198805212025211040,operator
+295,"Hafizh Meyzar Aqil, SST, M.Sc.",hafizh.aqil,1108,199205232014121001,operator
+296,"Aulia Rachman, S.Stat.",aulia.rachman,1108,199210042019031001,operator
+297,"Ar Razy Ridha Maulana, SST, M.Si.",arrazy.ridha,1108,199307102016021002,operator
+298,"Desri Helida, S.Stat.",desri.helida,1108,199512272019032001,operator
+299,"Eva Maulia, S.Stat.",eva.maulia,1108,199508142019032001,operator
+300,"Tri Nanda Farida, A.Md",tri.nanda,1108,199508022022032010,operator
+301,"Fauziah, S.Tr.Stat.",fauziah3,1108,199905222022012003,operator
+302,"Nyak Naiza Muzayanna, S.Si.",nyakmuzayanna-pppk,1108,199912112025212020,operator
+303,"Annisa Kahmiliani, S.Tr.Stat.",annisakahmiliani,1108,200011052023022002,operator
+304,Al Ikram Wardana,alwardana-pppk,1108,200010212025211013,operator
+305,"Dara Dian, SE",dara,1109,196802181992122001,kepala
+306,"Samsul Bahri, S.E",samsulbahri,1109,197111102006041037,operator
+307,"Syarwani, SE",syarwani,1109,197201181992031004,operator
+308,"Lyli Suryani, S.E",lyli,1109,197302212006042002,operator
+309,"Hazmah Junina, SE",hazmah,1109,197406152003122002,operator
+310,"Munawar, S.M",mnawar,1109,197505112007011005,operator
+311,"Yusnidar, S.E.",yusnidar,1109,197812312002122002,operator
+312,"Bismi, S.E.",bismi,1109,198001011999031003,operator
+313,"Tahyudin, S.M.",tahyudin,1109,198005172007011003,operator
+314,"Saiful Bahri, S.Sos.",saiful.bahri,1109,198109062009111001,operator
+315,"Zulfiadi, SE",zulfiadi,1109,198103302011011006,operator
+316,"Agussalim, S.Si",agussalim2,1109,198108052011011011,kasubbag
+317,"Muzakir Muslem, S.E.",muzakir,1109,198204142009111002,operator
+318,"Safriani, S.M.",safriani,1109,198311282007012001,operator
+319,"Irmayasanti, S.M.",irmayasanti,1109,198304182006042002,operator
+320,"Tukia Dara, S.M",daratukia,1109,198301122006042002,operator
+321,"Rizal Rahmad, SST, M.Stat",rrahmad,1109,198407132007011005,operator
+322,"Jabal Nur, S.E",jabal,1109,198407082006041006,operator
+323,Fitriani,fitriani,1109,198506152007102001,operator
+324,"Muchsin, S.M.",chsin,1109,198508152007101001,operator
+325,"Rozy Fatilla, SST",rozy.fatilla,1109,198502142009021003,operator
+326,"Rahmayetti Harahap, AMd.Kom",rahmayetti-pppk,1109,198506162024212003,operator
+327,"Hafni Zahra, S.E",hafni,1109,198604072006042001,operator
+328,"Musliadi, A.Md.",198612232025211040,1109,198612232025211040,operator
+329,"Rakhmadi, S.Sos.",198704282025211044,1109,198704282025211044,operator
+330,Roni Saputra,198709112025211048,1109,198709112025211048,operator
+331,"Moh. Jabir Mubarok, SST",jabirm,1109,199210302016021001,operator
+332,"Eka Fitria, SST",eka.fitria,1109,199303222016022001,operator
+333,"Fachri Al Hazs Nst, A.Md",fachri.alhazs,1109,199405122022031004,operator
+334,"Annisa Rahmawati, S.Si.",annisa.rahmawati,1109,199508232019032001,operator
+335,"Della Rizki, A.Md.",della.rizki,1109,199504222022032007,operator
+336,"Zahri Zahkiri, S.H.",199508072025211052,1109,199508072025211052,operator
+337,"Akram Akramur Rasyid, S.Tr.Stat.",akram.rasyid,1109,199609052019011001,operator
+338,"Nurul Raiyan, S.Tr.Stat.",nurul.raiyan,1109,199712102019122004,operator
+339,"Hajrul Multazam, S.Tr.Stat.",hajrul.multazam,1109,199804122022011003,operator
+340,"Almira Diva Sanya, S.Tr.Stat.",almiradiva,1109,199910222023022001,operator
+341,"Muhammad, SE",muhammad2,1110,196901081990031005,operator
+342,Ir. Maimun,maim,1110,196904011994011001,kepala
+343,"Rahmati, S.Si",rahmati,1110,197611132002122004,operator
+344,Reza Fakhrizal,fakhrizal,1110,197904052009011010,operator
+345,T Zulkarnaen,197906262025211043,1110,197906262025211043,operator
+346,Nazaruddin,nazaruddinzr,1110,198003232002121003,operator
+347,"Fakhrur Gazi, SP",ghazi.beurahman,1110,198005302011011007,kasubbag
+348,"Fakrurrazi, SE",fakhrurrazi,1110,198105202006041024,operator
+349,"Sari Yunus, S.Si, M.S.M",sariyunus.aw,1110,198211052011011007,operator
+350,Karlina Dewi,karlina.dewi,1110,198305012006042017,operator
+351,"Irfan, SE",irfan3,1110,198310042011011011,operator
+352,Muhammad Rian Fazli,rian.fazli,1110,198405272005021001,operator
+353,Rukaiyah,rukaiyah,1110,198401112006042003,operator
+354,"Munawir, SE",munawir2,1110,198401102010031001,operator
+355,"Faizah, S.Si",faizah.daud,1110,198510062011012017,operator
+356,"Farah Mutia, S.Si.",farah.mutia,1110,198505152012122001,operator
+357,Herry Yusrizal,198507162025211053,1110,198507162025211053,operator
+358,Rizki Gustianda,198608142025211056,1110,198608142025211056,operator
+359,Septya Putri,septyaputri,1110,198709102008012001,operator
+360,"Elida Fitri, S.Si",elida.fitri,1110,198705212011012019,operator
+361,"Yuli Rahmawati, S.Sos",yuli.rahmawati,1110,198902242011012016,operator
+362,"Saifuddin, A.Md",saifuddin-pppk,1110,198907252024211002,operator
+363,"Andissi Eka Putri, SST",andissi,1110,199409102017012001,operator
+364,"Cut Sherly Amalia, S.Stat.",cut.amalia,1110,199503132019032001,operator
+365,"Muhammad Nurullah Riyadi, S.Tr.Stat.",nurullah.riyadi,1110,199702262019121001,operator
+366,"Putri Ayu Humaera, A.Md.Stat.",putri.humaera,1110,200012052023022003,operator
+367,"Ahmad Fathur Rahman, S.Tr.Stat.",ahmad.fathur,1110,200010022023101001,operator
+368,Cut Sajida Tasya,200003122025212020,1110,200003122025212020,operator
+369,"Saiful Yadi, S.E",saiful.yadi,1111,197408222006041012,operator
+370,"Khairon, SE",khairon,1111,197610112003121003,operator
+371,Saifuddin,197606152025211050,1111,197606152025211050,operator
+372,Hamdani,hamdani2,1111,197805132007011002,operator
+373,"Reonold Z, S.E",reonold,1111,197812062006041014,operator
+374,"Armelia Amri, SST, M.Si.",armelia,1111,197911282003122005,kepala
+375,"Ratna Dewita, SE",ratna.dewita,1111,198005222009112001,operator
+376,Muhar Fuadhi Zaima,muhar.zaima,1111,198111232007011001,operator
+377,"Ikhwan, SE",ikhwan,1111,198208022003121003,operator
+378,"Syukur, SE",syukur2,1111,198202182009011015,operator
+379,"Hendri Gunawan, S.P.",hendri.gunawan,1111,198402232011011007,operator
+380,"Tarjudin, S.T.",tarjudin,1111,198405102010031001,operator
+381,"Fitri Aswin, S.Si, M.S.M",fitri.aswin,1111,198501102009022008,operator
+382,"Ismail Isa, SE",ismail.isa,1111,198505082009111001,operator
+383,"Januar Fadli, SE, M.S.M",januar.fadli,1111,198501102011011005,operator
+384,"Novrizal, SE, M.S.M",novriz,1111,198711052006041002,operator
+385,"Nurisah, SE",nurisah,1111,198701152008012001,operator
+386,"Iqbal Firdaus, SST, M.App.Ec, M.Si.",ibaldaus,1111,198802182010121007,operator
+387,"Asniati, S.Pd.",199111142025212053,1111,199111142025212053,operator
+388,"Zulfahmi, S.H.",199210252025211039,1111,199210252025211039,operator
+389,"Muhammad Ery Khairizal, S.EI.",199206032025211048,1111,199206032025211048,operator
+390,"Nurhasanah, S.E.",nur.hasanah,1111,199411202022032006,operator
+391,"Karima Yulisda, S.Tr.Stat.",karima.yulisda,1111,199808132019122001,operator
+392,"Riki Triandicki, S.Tr.Stat.",riki.triandicki,1111,199810092021041001,operator
+393,"Pinky Aulia Viradina, S.Tr.Stat.",pinky.aulia,1111,199807192023022001,operator
+394,"Karisma Suryani, A.Md.",karisma.suryani,1111,199907232022032009,operator
+395,"Sevy Dyahartanti, S.Tr.Stat.",sevy.dyah,1111,199909112023022001,operator
+396,"Gestyan Ramadhan, S.Tr.Stat.",gestyan.rmd,1111,200012162023101003,operator
+397,"Ali Abrori, S.Si",ali.abrori,1112,197207241994121001,kepala
+398,Muhammad,muhammad,1112,197412031999031003,operator
+399,"M. Nasir Edi Faisal, S.E.",nasiref,1112,197708262011011009,operator
+400,"Tomi Agusardi, SP",tomi,1112,198304252011011005,kasubbag
+401,"Sri Mulyadi Armadianto, SE",srimul,1112,198501152011011017,operator
+402,Waldy Kurniawan,waldy,1112,198605272006041004,operator
+403,Meri Elfina,merielfina-pppk,1112,198605242025212030,operator
+404,"Mukhsin, S.Si.",mukhsin,1112,198703252012121001,operator
+405,"Zuhendra, S.Pd.",zuhendra-pppk,1112,198711052025211041,operator
+406,"Reza Fatahillah, S.M.",rezaf,1112,198808272008011001,operator
+407,"Sabri Novriadi, SST",sabrin,1112,198811012010121004,operator
+408,"Jamalludin, SST, M.E.K.K",jamall,1112,199001012012111001,operator
+409,"Fahmi Fadhillah, S.Si.",fahmi.fadhillah,1112,199209012022031003,operator
+410,"Mansur, S.Pd.",mansur-pppk,1112,199210012025211051,operator
+411,"Wardi, S.E.",wardi-pppk,1112,199302022025211056,operator
+412,"Al Munzir, A.Md.",al.munzir,1112,199501192022031005,operator
+413,"Maghfira Ramadhani, S.Tr.Stat.",maghfira.ramadhani,1112,199801072022012001,operator
+414,"T.Fachrul Husaini, S.Tr.Stat.",fachrul.husaini,1112,199804302021041001,operator
+415,"Lisa Nurlyeni, S.Tr.Stat.",lisa.nurlyeni,1112,199812162021042001,operator
+416,"Ike Purnama Sari, A. Md",ike.purnama,1112,199803122022032018,operator
+417,"Rindu Trimarta Nafri, S.Tr.Stat.",rindu.trimarta,1112,200003312023022001,operator
+418,"Irfan Prasetya Kamajaya, S.Tr.Stat.",irfan.kamajaya,1112,200003142023021002,operator
+419,"Rauzatul Munawarah, A.Md.Ak.",rauzatul.munawarah,1112,200011242025062005,operator
+420,"Dian Rahmawati Salis, S.Tr.Stat.",dian.salis,1112,200104102023102001,operator
+421,"Salma Dafia Milatina, S.Tr.Stat.",salma.dafia,1112,200105172023102003,operator
+422,"Rizky Puspitasari, S.Tr.Stat",rizky.puspitasari,1112,200204272024122001,operator
+423,Fuji Sukatdi,fujisukatdi-pppk,1112,200411032025211002,operator
+424,"Mat Salim, SE",mat.salim,1113,196804161990031003,operator
+425,Abdul Rahman,abdul.rahman,1113,197105232014061001,operator
+426,"Dr Azwar, S.Pd., M.Si",azwar4,1113,197306161998011001,kepala
+427,"Basyariah, S.M.",basyariah,1113,198006042007012002,operator
+428,Abdullah. K,abdullah.k,1113,198005202014061001,operator
+429,Na'im,naim3,1113,198306032014061001,operator
+430,"Mawarzi Lista Agung, SST",mawarzi,1113,198511122009021003,kasubbag
+431,"Syafaruddin, S.M",syafarudd,1113,198502022014061001,operator
+432,"Muhammad Ichsan, S.E., M.A.P.",m.ichsan,1113,198801162008011002,operator
+433,"Yuraida, S.Si.",yuraida,1113,198807252011012015,operator
+434,"Syarifuddin, S.P.",198812202025211043,1113,198812202025211043,operator
+435,Mastina,mastina-pppk,1113,198801062025212036,operator
+436,"Armida Dewi, SST",armida.dewi,1113,199406252019012001,operator
+437,"Saleh Salihin, SST",saleh.salihin,1113,199407102018021001,operator
+438,"Erna Sari, A.Md.",ernasari-pppk,1113,199406042024212005,operator
+439,Rabudin,rabudin-pppk,1113,199503292025211038,operator
+440,"Ririn Yustika Putri, S.Tr.Stat.",ririn.putri,1113,199712212021042002,operator
+441,"Julaiha, S.P.",199706042025212046,1113,199706042025212046,operator
+442,"Rizka Khairiya Handayani, A.Md",rizka.khairiya,1113,199809052022032012,operator
+443,"Latifah Hasanah, S.Tr.Stat.",latifahhasanah,1113,199901302022012003,operator
+444,"Febby Adrian, S.Tr.Stat.",febby.adrian,1113,199902162021041001,operator
+445,"Olivia Dyta Marhadika, S.Tr.Stat.",olivia.dyta,1113,199909302023102001,operator
+446,"Alivya Septiriana Putri. S, S.Tr.Stat.",alivyaputri,1113,200009072023022001,operator
+447,"Sulaiman, S.E.",sulaiman4,1114,197306102006041022,operator
+448,Yudhi Armanda,armanda,1114,197612192003121003,operator
+449,"Suriyanto, SE",suriyanto,1114,197809082011011012,operator
+450,"Agus Andria, SST, M.Si.",andria,1114,197908302000121006,kepala
+451,"Novi Ermayani, S.Si",novi.erma,1114,198005232006042004,operator
+452,"Wahyu Agung Sutikno, SST",wagung,1114,198203262003121006,operator
+453,"Nur Asiah, SP",nur.asiah,1114,198205292011012006,operator
+454,"Ichwan, S.E",ichwanmuksin,1114,198209012012121001,operator
+455,Syahrul Efendi,198211172025211036,1114,198211172025211036,operator
+456,"Alam Kurniawan, S.E",alam,1114,198304032008011007,operator
+457,Fitri Yati Jusuf,fitrijusuf,1114,198312082008012006,operator
+458,"Mahfuzah, S.Si, M.Si.",fuzah,1114,198303312010032001,kasubbag
+459,"Irvan Syahputra, SE",irvan.syah,1114,198503152011011010,operator
+460,"Rizkiandiyani, A.Md",rizkian,1114,198510102010032001,operator
+461,"Jasrizal, S.E.",jasrizal,1114,198612302006041003,operator
+462,"Muhammad Iqbal, S.Si",m.iqbal,1114,198606162011011014,operator
+463,Nurlina,nurlina-pppk,1114,198608262025212038,operator
+464,Yuyun Syafrina,syafrina,1114,198706132008012001,operator
+465,Afrizal,198704112025211034,1114,198704112025211034,operator
+466,"Juwita Purnamasari, S.P.",juwitapurnama-pppk,1114,199006102025212064,operator
+467,"Nurul Aviva Purnamawanti, SST",nurulaviva,1114,199101312013112001,operator
+468,M. Iskandar,199112282025211054,1114,199112282025211054,operator
+469,"Muhammad Rizki Syazali, SST, M.Kom.",mrizki.syazali,1114,199301032016021001,operator
+470,"Irmadayani Ray, S.Stat.",irmadayani.ray,1114,199502222019032002,operator
+471,"Zarro Aga, A.md.",zarro.aga,1114,199507232022031010,operator
+472,"Irja Nailal Ulya, S.Tr.Stat.",irja.ulya,1114,199704232019121001,operator
+473,"Vania Arisandy Zalri, S.Tr.Stat.",vania.zalri,1114,199803312021042001,operator
+474,"Miftah Hafidz Nasution, A.Md",miftah.hafidz,1114,200005212022031002,operator
+475,"Fairuz Afifah Reefana Poeri, S.Tr.Stat.",fairuzpoeri,1114,200010242023022002,operator
+476,"Nur Amalina Fauzi, S.Tr.Stat.",namalinaf,1114,200106022023102003,operator
+477,"Rania Humaira, S.Tr.Stat.",rania.humaira,1114,200203092023102001,operator
+478,"Safriani, SE",safrian,1115,197412162003122002,operator
+479,"Didi Setiawan, SE",didi.setiawan,1115,197406282006041003,operator
+480,"Dr. Nuri Rosmika, SST, M.Si",nuri_rosmika,1115,198306302006022001,kepala
+481,"M. Hanis Aufa, SE",hanis.aufa,1115,198504262011011010,operator
+482,"Mahdinur, S.E.",198612052025211049,1115,198612052025211049,operator
+483,"Helmi M. Efendi, S.E.",198706092025211051,1115,198706092025211051,operator
+484,"Fitra Rustam, SE",fitra.rustam,1115,198805182008011001,kasubbag
+485,"Syaputra Raiza, A.Md",syaputra.raiza,1115,198811242022031002,operator
+486,Efendi Sulaiman,esulaiman-pppk,1115,198810202025211051,operator
+487,"Andy Syarifuddin, SST, M.Ak.",andy.syarifuddin,1115,199208092014121002,operator
+488,Musliadi Us,199403042025211055,1115,199403042025211055,operator
+489,Putri Mailisa Sari,199502062025212046,1115,199502062025212046,operator
+490,"Mia Maysura Syahmara, A.Md",mia.maysura,1115,199605312022032010,operator
+491,"Ahmad Kamal, S.Tr.Stat.",ahmad.kamal,1115,199710082019121003,operator
+492,"Adelina Wiza, S.Tr.Stat.",adelina.wiza,1115,199712102019122003,operator
+493,"Muhammad Yusuf, A.Md",muhammad.yusuf,1115,199704222022031011,operator
+494,"Reza Aulya, A.Md.Kom.",rezaaulya-pppk,1115,199712242024211004,operator
+495,"Ghifari Azka Wali, S.Tr.Stat.",azka.wali,1115,199803222019121003,operator
+496,"Kafie Achmad Aviev, S.Tr.Stat.",achmad.aviev,1115,199807092022011001,operator
+497,"Muhammad Hafid Nasution, S.Tr.Stat.",hafid.nasution,1115,199809102021041001,operator
+498,"Fadhlurrohman Henriwan, S.Tr.Stat.",fadhlur.henriwan,1115,199806022021041001,operator
+499,"Sita Aliya Rutba, S.Tr.Stat.",sita.aliya,1115,200108212023102003,operator
+500,"Aprilia Putri Sariningrum, S.Tr.Stat.",aprilia.putri,1115,200104062023102003,operator
+501,"Rasya Az Zahra, S.Tr.Stat",rasya.azzahra,1115,200111032024122001,operator
+502,"Juhrin, S.E.",juhrin,1116,197004022003121002,operator
+503,Riswan Amin,riswan.amin,1116,197709202007011002,operator
+504,Erlidar,erlidar-pppk,1116,197909122025212022,operator
+505,Darwin Dani,darwin,1116,198208102006041017,operator
+506,"Khairul Andri Lubis, SST., M.Si",khairulandrilubis,1116,198310102007011012,kepala
+507,Emayani,emayani,1116,198402022007012002,operator
+508,"Aang Saputra, SST, M.Si.",aang,1116,198411152008011002,kasubbag
+509,"Elda Elnovita, S.Si, M.Si",e.elnovita,1116,198606052010032001,operator
+510,"T. DI. Oria Salam, SST, M.Si.",tedy.oria,1116,198809182010121001,operator
+511,"Edi Kurniawan, SST",ekurniawan,1116,199009162014101001,operator
+512,Zaini,zaini-pppk,1116,199107132025211044,operator
+513,Ermalinda,ermalinda-pppk,1116,199206022025212050,operator
+514,"Endah Kamilah Taufik, SST",endah.taufik,1116,199301102014122001,operator
+515,"Adelin Namira, SST",adelin.namira,1116,199309222017012002,operator
+516,"Kamil Aulia, SST",kamil.aulia,1116,199305182016021001,operator
+517,"Anisa Fransiska, A.Md",anisa.fransiska,1116,199306172022032008,operator
+518,"Aviv Alvian Nur, SST, M.Sc",aviv.alvian,1116,199401282016021001,operator
+519,"Nurdiana, S.E.",nur.diana,1116,199611302022032025,operator
+520,Angga Pratama,anggapratama-pppk,1116,199605222025211027,operator
+521,"Muhammad Rizqi, S.Tr.Stat.",rizqi.muhammad,1116,199710302019121001,operator
+522,"Cut Vicky Mauliana, A.Md",cut.vicky,1116,199807222025062005,operator
+523,"M. Rifqi Jundullah, S.Tr.Stat.",rifqijundullah,1116,200011132023021002,operator
+524,"Yama Risnaldi Putra, S.Tr.Stat.",yama.putra,1116,200104152023101001,operator
+525,"Siti Armanisa, S.Tr.Stat.",siti.armanisa,1116,200108012023102001,operator
+526,"Fadhila Ramadhani Gita Putri, S.Tr.Stat",fadhilaputri,1116,200212032024122001,operator
+527,"Annisa Syifaulhaq, S.Tr.Stat.",annisasyifa,1116,200210112024122002,operator
+528,Agussalim,agussalim4,1117,196804242007011003,operator
+529,Sirwan,sirwan,1117,197102022007011004,operator
+530,"Ardiansyah, S.E",ardians,1117,197203082002121003,operator
+531,"Supriadi Y., S.M",supriadi.y,1117,197703112006041013,operator
+532,"Arsani, S.Sos.",arsani-pppk,1117,197812302025211061,operator
+533,Safrizal Ependi,safrizal.ependi,1117,197912282006041015,operator
+534,Hendra Syahputra,hendrasyah-pppk,1117,198006202025211035,operator
+535,"Devi Indriastuti, SST, M.Si.",devi.indria,1117,198212172004122001,kepala
+536,"Cut Meutia, S.Si",cut.meutia,1117,198212122010032001,kasubbag
+537,"Nafis Bahraien, S.P.",nafis.bahraien,1117,198304192010031001,operator
+538,Fitra Satriandi,fitra.satriandi,1117,198406242009111001,operator
+539,Firdaus,firdaus-pppk,1117,198408102025211058,operator
+540,Maulana Pulih Uripno Ps,maulanauripno-pppk,1117,198611142025211037,operator
+541,"Ilmiadi, S.Si.",ilmiadi,1117,198704162011011014,operator
+542,"Piyen Lestari, A.Md",piyen.lestari,1117,198901092012122001,operator
+543,Maulidawani,maulidawani-pppk,1117,199607272025212075,operator
+544,"Amirah Balqis Safiruddin, S.Tr.Stat.",amirah.balqis,1117,199810032021042001,operator
+545,"Yolanda Rizkie Aprilia, S.Tr.Stat.",rizkie.aprilia,1117,199904172022012006,operator
+546,"Angga Lazi Ken Atayna, A.Md.Kom",anggalazi-pppk,1117,199906112024211001,operator
+547,"Muhamad Taufik Hidayat, S.Tr.Stat.",muh.tahidayat,1117,200007072023021004,operator
+548,"Della Fahria Amalina, S.Tr.Stat",della.fahria,1117,200110232024122001,operator
+549,"M. Ziko Azizi, S.Tr.Stat",ziko.azizi,1117,200212312024121001,operator
+550,"Ilyas, SE",ilyas,1118,196905281992031002,operator
+551,"Fakhriadi, SP, M.S.M.",fakhriadi,1118,197206301992011002,kepala
+552,"Tsamirfuadi, SE",tsamir,1118,197206052005021001,kasubbag
+553,"Muhammad, S.E",muhammad3,1118,197202022007011004,operator
+554,"Syauki, S.E.",syauki,1118,197406162003121002,operator
+555,Cut Nur Asnani,cutasnani-pppk,1118,198208302025212030,operator
+556,"Masrida, S.E",masrida,1118,198302102007011002,operator
+557,Muhammad Harrys,harrys,1118,198311272006041007,operator
+558,"Khairul Rijal, S.Tr.Stat",aroeljal,1118,198610272008011002,operator
+559,"Ismadi, A.Md.",ismadi-pppk,1118,198705092025211055,operator
+560,"Rahmayanti, SST",rahmayanti,1118,198910102012112001,operator
+561,"Yanisa Medrina Rahman, SST, M.T.",yanisa,1118,199006052014101001,operator
+562,Mishardi,mishardi-pppk,1118,199004152025211057,operator
+563,"Munazir, A.Md",munazir-pppk,1118,199104222024211001,operator
+564,"Aris Suwandi, S.Stat.",aris.suwandi,1118,199305112019031002,operator
+565,"Fadhilah, SST.",fadhilah-pppk,1118,199303102025212056,operator
+566,"M.Chairul Mugti, S.Tr.Stat.",chairul.mugti,1118,199912262023021004,operator
+567,"Agmi Purnama, S.Tr.Stat.",agmi.purnama,1118,200008152023022004,operator
+568,"Kananda Rafi Pradana, S.Tr.Stat.",kananda.rafi,1118,200107202023101001,operator
+569,"Daniel Angga Sagitama, S.Tr.Stat",danielsagitama,1118,200112162024121002,operator
+570,"Alicia Dwi Syafitri, S.Tr.Stat.",alicia.dwi,1118,200201022023102001,operator
+571,"Ii Desika, S.Tr.Stat.",ii.desika,1118,200212172024122001,operator
+572,"Rusli, S.E",rusli,1171,196903011988031001,operator
+573,"Tedi Herdiawan, S.Sos, M.A.P",tedi.herdiawan,1171,197006181994031002,kepala
+574,"Samsuddin, SE",samsuddin,1171,197101012006041074,operator
+575,"Zaini, SE",zaini,1171,197407091996031003,operator
+576,Ricky Nasser,ricky.nasser,1171,197412232009011007,operator
+577,"Rossana Idris, S.M",rossana,1171,197606062006042041,operator
+578,"Rochadi, SST",rochadi,1171,197712062000121002,operator
+579,"Fakhrur Razi, SE, MM",fakhrur.razi,1171,197803262001121005,operator
+580,"T. Syamsul Alam, SE, M.M.",samsul,1171,197807062011011007,kasubbag
+581,Sriana Ab,sriana.ab,1171,197904112007012001,operator
+582,"Leninoviyanti, SE, M.Si.",leni.vianty,1171,198010152002122003,operator
+583,"Muhammad Iqbal Iradah, S.ST, M. Si",iradah,1171,198006142006021001,operator
+584,"Rais Fahmi, S.P",rais.fahmi,1171,198009162006041015,operator
+585,"Isyatun Mardhiah, S.Si.",isyatun,1171,198411032009022008,operator
+586,Ari Hermawan,ari.hermawan,1171,198403192009111001,operator
+587,"Adi Nurhady, S.E.",adi.nurhady,1171,198508152005021002,operator
+588,"Retno Aruming Galih, SST",aruming,1171,198508212008012003,operator
+589,Rini Kipiani,rini.kipiani,1171,198508052007102002,operator
+590,"Mursalina, SST, M.Si.",mursalina,1171,198512012009022007,operator
+591,"Bahzur Andria, SE",bahzur_andria,1171,198506062011011022,operator
+592,"Sabran, S.M., M.Si.",sabran,1171,198512292011011015,operator
+593,"Zia Ul Fajri, S.E",zia.ulfajri,1171,198610142008011004,operator
+594,"Ditalia Trisnawati, SST",ditalia,1171,198603162009022006,operator
+595,"Zelvia Yunalda, S.ST",zelvia,1171,198706052009122004,operator
+596,"Achmad Maulana, S.E.",achmadmaulana-pppk,1171,198711272025211055,operator
+597,"Teuku Ferdi Ardiansyah, S.E.",ferdi.ardian,1171,198801092011011009,operator
+598,"Widya Syafitri, SST, M.Si.",widyasyafitri,1171,198906022013112001,operator
+599,"M. Muflik Teguh Yuli Pitoyo, SST, M.A.",muflikteguh,1171,199012102014101001,operator
+600,Herman Apriadi,199104182025211053,1171,199104182025211053,operator
+601,"Muhammad Aja Fajrian, SST, M.Si.",aja.fajrian,1171,199212272016021001,operator
+602,"Kesuma Millati, S.Stat.",kesuma.millati,1171,199611222019032001,operator
+603,"Siti Ruqahayati, A.Md.Kb.N.",siti.ruqahayati,1171,199903032022012001,operator
+604,Abdul Wahid,abdul.wahid,1172,197207222006041017,operator
+605,Zulkarnain,197705052025211050,1172,197705052025211050,operator
+606,"Hendra Gunawan, SE",hendragun,1172,198106072011011011,operator
+607,"Meiza Aulia, SP, M.Si",meiza_aulia,1172,198405232011011012,kasubbag
+608,Maiyal Fitri,maiyal.fitri,1172,198605252014062002,operator
+609,"Ahmad Thahir, A.md",ahmadthahir-pppk,1172,198606022024211002,operator
+610,"Muhammad Adil, SH",adil,1172,198708112011011007,operator
+611,"Hasbi, S.E.",hasbi-pppk,1172,198806122025211068,operator
+612,Miftahur Rahman,198812132025211043,1172,198812132025211043,operator
+613,Ikhsan,ikhsan-pppk,1172,199110142025211057,operator
+614,Arrazi Warja,199112082025211049,1172,199112082025211049,operator
+615,"Chris Candra Januar Pratama, SST, M.Si.",chris.candra,1172,199201052014101001,operator
+616,"Dhahratul Aini, S.Stat.",dhahratul.aini,1172,199604052019032001,operator
+617,"Nur Alfi Syahri, S.Tr.Stat.",alfi.syahri,1172,199712312021042001,operator
+618,"Yasmin, S.Tr.Stat.",yasmin,1172,199806132021042001,operator
+619,"Intan Putri Ananda, S.Tr.Stat.",intanputri,1172,199906162022012003,operator
+620,"Fitria Nur Japar, S.Tr.Stat.",fitria.nur,1172,200001182022012003,operator
+621,"Silvira Berliana, S.Tr.Stat.",silviraberliana,1172,200003262023022001,operator
+622,"Muhammad Khairi Al-Banna. S, S.Tr.Stat.",khairi.albanna,1172,200002172023021004,operator
+623,"Muhardi Wansyah, S.Tr.Stat.",muhardi.wansyah,1172,200103262023101002,operator
+624,"Navika Artiari, S.Tr.Stat.",navika.artiari,1172,200101302024122004,operator
+625,"Norvan Bagus Ramadhan, S.Tr.Stat.",norvan.ramadhan,1172,200111262024121003,operator
+626,Ir. Sudariah,sudariah,1173,196805081994012001,kepala
+627,Zuriah,zuriah,1173,197008161992012001,operator
+628,Iskandar,iskandar5-pppk,1173,197403252025211017,operator
+629,"Adriansyah, S.E.",adriansyah4,1173,198205192007011001,operator
+630,Hamdani,ham,1173,198203282009011008,operator
+631,"Dahniar, S.M.",dahniar,1173,198307022005022001,operator
+632,Afrizal Asyhari,afrizal.asyhari,1173,198304142014061002,operator
+633,"Maulanasyah, SE.",maulanasyah,1173,198411052006041004,operator
+634,"Farid Yulian, SST, M.S.M",faridy,1173,198507272008011002,operator
+635,Riki Hamdani,rikihamdani,1173,198503272009011007,operator
+636,"Reza Putra, SST, M.Si.",reza.putra,1173,198601212009021002,operator
+637,"Mustika Sari, SST",mustikasari,1173,198607282009022005,operator
+638,"Muharrina, S.Si",muharrina,1173,198609242010032002,operator
+639,"Fazri Alam, S.E.",fazri.alam,1173,198801122010031001,operator
+640,"Aulia Feriza, S.P.",feriza,1173,198806302012121001,operator
+641,"Turhamun, S E.",turhamun-pppk,1173,198808132025211044,operator
+642,"Mirna Febrina, SST",mirnafebrina,1173,198902182010122008,kasubbag
+643,"Haris Noprianto, SST",haris.noprianto,1173,199012172014101001,operator
+644,"Sawitri, S.Si., M.Sc.",sawitri,1173,199201282019032001,operator
+645,Budiman,budiman-pppk,1173,199302062025211035,operator
+646,"Adinda Mutiara Sani, S.Stat",adindamutiara,1173,199609212019032001,operator
+647,Putri Ayu Wulandari,putriayu-pppk,1173,199609212025212041,operator
+648,"Nanda Safwati, S.Tr.Stat.",nanda.safwati,1173,199712212019122001,operator
+649,"Jasika Lisayoana, S.Tr.Stat.",yoanalisa,1173,200001142023022002,operator
+650,"Tiffani Ayundita Auliannisa, S.Tr.Stat.",tiffaniaul,1173,200002162023022002,operator
+651,Iryani,iryani,1174,196804071991032002,operator
+652,"Mughlisuddin, SE",muglis,1174,196904241994011001,operator
+653,"Abdullah Nurdin, SE",anurdin,1174,197104041992011001,operator
+654,Yusmaniar,yusmaniar,1174,197102111992012001,operator
+655,Yusmadi,yusmadi,1174,197101111992011001,operator
+656,"Chalida Rahmi, SE, M.M.",chalida.rahmi,1174,197410151993122001,operator
+657,"Sardi, SE, M.Si.",sardi,1174,197508191994021001,kepala
+658,Abdurrahman,abdurrahman-pppk,1174,197509202025211027,operator
+659,"Zulkarnaini, S.Si, M.S.M.",zulkarnaini,1174,197805162011011010,kasubbag
+660,Teuku Irmansyah,197803092025211039,1174,197803092025211039,operator
+661,"Humaira, A.Md.",humaira-pppk,1174,198204052025212045,operator
+662,"Hani`ah, SST., M.Ec.Dev",haniah,1174,198311012006022001,operator
+663,"Hera Lestari, S.Si",hera.lestari,1174,198401302011012012,operator
+664,"Yusra, S.E, M.S.M",yusra,1174,198503262006042002,operator
+665,Muhammad Ikhwani,ikhwani,1174,198504302009111001,operator
+666,"Salviyana Nurdin, S.Sos",salviyana,1174,198608022010032002,operator
+667,"Rahmad Riza, S.Tr.Stat",mriza,1174,198705122008011001,operator
+668,"Mulya Saputra, S.Kom",198711172025211036,1174,198711172025211036,operator
+669,"Ema Juniati, SST",juniati,1174,198806162008012002,operator
+670,"Fakhrul Razi, A.Md",fakhrulrazi-pppk,1174,198808172024211002,operator
+671,Dimas Zakaria Hardana,198803292025211040,1174,198803292025211040,operator
+672,"Suci Maulida, SST",smaulida,1174,199109112014102001,operator
+673,"Madinawati Suarzi, S.E",madinasuarzi-pppk,1174,199102272025212036,operator
+674,"Muhammad Bohari Rahman, S.Stat.",m.bohari,1174,199506062019031001,operator
+675,"Nadya Husna, S.Tr.Stat.",nadya.husna,1174,199907092022012002,operator
+676,"Zakiah Azzah, A.Md.Kb.N.",zakiah.azzah,1174,200011052022012002,operator
+677,"Muhammad Fachry Nazuli, S.Tr.Stat.",fachry.nazuli,1174,200007142023021003,operator
+678,"Muhammad Arfi Wahyudi, S.Tr.Stat.",arfi.wahyudi,1174,200112312023101001,operator
+679,"Adi Putra, SP",adiputra,1175,197208131993011001,kepala
+680,Ferri Ahmad Shauqi,shauqi,1175,197604182006041022,operator
+681,Syah Iman Lavau,197903262025211024,1175,197903262025211024,operator
+682,Ibrahim,ibrahim5,1175,198004122009011007,operator
+683,Supriadi Hamdani Berasa,supriadi.hamdani,1175,198207082009111002,operator
+684,"Arpian, SE",arpian,1175,198203282011011010,operator
+685,Sarno Satriansyah Berasa,198710052025211069,1175,198710052025211069,operator
+686,"Joni, S.Pd.",198908012025211064,1175,198908012025211064,operator
+687,Tahan Boang Manalu,199105192025211136,1175,199105192025211136,operator
+688,"Sri Deza Kurnia Devi, S.T.",sridevi-pppk,1175,199412042025212046,operator
+689,"Fauzan Helmi, A.Md",fauzanhelmi-pppk,1175,199510292024211001,operator
+690,"Arma Juwita, S.Tr.Stat.",arma.juwita,1175,199602202019012001,operator
+691,"Erni Lusiani, S.Stat.",erni.lusiani,1175,199604202019032003,kasubbag
+692,"Rissa Afrianti Afhan, S.Tr.Stat.",rissa,1175,199704142019012001,operator
+693,"Tri Wahyudi, S.Stat.",triwahyudi,1175,199703012019031001,operator
+694,"Suciarti Pertiwi, S.Tr.Stat.",suciarti.pertiwi,1175,199712012021042001,operator
+695,"M. Thariq Alfatih, S.Tr.Stat.",thariq.alfatih,1175,199809092022011002,operator
+696,"Andini Anastasya Iskandar, A.Md.Kb.N.",andini.iskandar,1175,199907282022012004,operator
+697,"Mutia Soraya Adila, S.Tr.Stat.",mutiasoraya,1175,200002022023022001,operator
+698,"Raden Daffa Ivan Febrio, S.Tr.Stat.",radendaffai,1175,200002202023021003,operator
+699,"Rahadian Budi Kusumah, S.Tr.Stat.",rahadian.budi,1175,200007292023101001,operator
+700,"Putri Nurhilwa Salsabila, S.Tr.Stat.",putri.nurhilwa,1175,200107032023102005,operator

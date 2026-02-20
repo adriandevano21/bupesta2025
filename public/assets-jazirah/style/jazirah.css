@@ -1,0 +1,261 @@
+:root {
+    --sky-50: #eef7ff;
+    --sky-100: #d9efff;
+    --sky-200: #c2e4ff;
+    --sky-300: #a8d7ff;
+    --sky-400: #8ec5ff;
+    --sky-500: #63aef5;
+    --sky-600: #3e90e6;
+    --ink: #0b2b3a;
+    --muted: #417aa1;
+    --shadow: 0 10px 30px rgba(24, 86, 138, .18);
+    --radius: 22px;
+}
+
+
+/* Latar biru langit dengan animasi pelan */
+body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+    color: var(--ink);
+    justify-content: center;
+    background:
+        radial-gradient(1200px 600px at 0% -10%, #ffffff 0%, transparent 60%),
+        radial-gradient(1200px 600px at 100% 0%, #f0f8ff 0%, transparent 60%),
+        linear-gradient(120deg, var(--sky-100), var(--sky-300), var(--sky-400));
+    background-size: 300% 300%;
+}
+
+.container {
+    width: min(1200px, 94%);
+    margin: clamp(18px, 3.5vw, 36px) auto;
+    position: relative;
+}
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: clamp(22px, 2.5vw, 32px);
+    font-weight: 800;
+    color: #083354
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 14px
+}
+
+
+/* GRID */
+/* Satu baris, bisa scroll kiri-kanan */
+/* ======= One-row scroller: smooth + modern ======= */
+.grid.h-scroll {
+    --card-w: clamp(150px, 18vw, 230px);
+    --fade-size: 26px;
+    /* lebar gradasi tepi */
+    --fade-left: var(--fade-size);
+    --fade-right: var(--fade-size);
+
+    position: relative;
+    display: flex;
+    gap: 18px;
+    padding: 12px 8px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 8px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-gutter: stable both-edges;
+
+    /* Edge fade super halus (dinamis via CSS var) */
+    -webkit-mask-image: linear-gradient(to right,
+            transparent,
+            black var(--fade-left),
+            black calc(100% - var(--fade-right)),
+            transparent);
+    mask-image: linear-gradient(to right,
+            transparent,
+            black var(--fade-left),
+            black calc(100% - var(--fade-right)),
+            transparent);
+}
+
+.grid.h-scroll .link-card {
+    flex: 0 0 var(--card-w);
+    scroll-snap-align: start;
+    will-change: transform;
+    transition: transform .35s cubic-bezier(.22, .61, .36, 1), box-shadow .35s;
+}
+
+.grid.h-scroll .link-card:hover {
+    transform: translateY(-3px) scale(1.015);
+    box-shadow: 0 16px 36px rgba(24, 86, 138, .22);
+}
+
+/* Scrollbar modern */
+.grid.h-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.grid.h-scroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .28);
+    border-radius: 8px;
+}
+
+.grid.h-scroll::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .06);
+    border-radius: 8px;
+}
+
+.grid.h-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, .28) rgba(0, 0, 0, .06);
+}
+
+/* Tombol navigasi (dibuat via JS) */
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 3;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .68);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s;
+}
+
+.grid.h-scroll:hover .nav-arrow {
+    opacity: 1;
+    visibility: visible;
+}
+
+.nav-arrow.left {
+    left: 6px;
+}
+
+.nav-arrow.right {
+    right: 6px;
+}
+
+.nav-arrow svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .grid.h-scroll {
+        scroll-behavior: auto;
+    }
+
+    .grid.h-scroll .link-card {
+        transition: none;
+    }
+}
+
+
+/* CARD as LINK */
+.link-card {
+    position: relative;
+    display: grid;
+    place-items: center;
+    gap: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px 10px;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .6);
+    backdrop-filter: blur(8px);
+    border: 1px solid #ffffff;
+    box-shadow: var(--shadow);
+    transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.link-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 44px rgba(24, 86, 138, .25);
+    border-color: #fff;
+}
+
+
+/* Shine diagonal */
+.link-card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    opacity: .35;
+    mix-blend-mode: screen;
+    background: linear-gradient(135deg, transparent 0 45%, rgba(255, 255, 255, .8) 48%, rgba(255, 255, 255, .2) 53%, transparent 56% 100%);
+    background-size: 300% 300%;
+    animation: shimmer 5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% -200%
+    }
+
+    100% {
+        background-position: -200% 200%
+    }
+}
+
+
+/* ICON BESAR */
+.icon-xl {
+    width: 88px;
+    height: 88px;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    background: radial-gradient(circle at 30% 30%, #fff, #dff0ff 65%, #cbe6ff);
+    border: 1px solid #fff;
+    box-shadow: 0 16px 40px rgba(24, 86, 138, .25);
+    animation: breathe 3.2s ease-in-out infinite;
+}
+
+.icon-xl svg {
+    width: 40px;
+    height: 40px;
+    fill: #2f79c6
+}
+
+@keyframes breathe {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1)
+    }
+
+    50% {
+        transform: translateY(-6px) scale(1.03)
+    }
+}
+
+/* LABEL */
+.label {
+    font-weight: 800;
+    letter-spacing: .2px;
+    color: #072c47
+}

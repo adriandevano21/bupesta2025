@@ -1,0 +1,190 @@
+<?php
+
+use App\Http\Controllers\DashboardkinerjaController;
+use App\Http\Controllers\EntrikinerjaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LoginController2;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\TaguenController;
+use App\Http\Controllers\Dashboardkinerja2Controller;
+use App\Http\Controllers\DeadlineController;
+use App\Http\Controllers\NilaiDeadlineController;
+use App\Http\Controllers\OperatorEntriController;
+use App\Http\Controllers\DashboardKegiatanController;
+use App\Http\Controllers\DashboardDeadlineController;
+
+use Illuminate\Support\Facades\Route;
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+// Route::get('/', function () {
+//     return view('dashboard-kinerja');
+// });
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'index')->name('login')->middleware('guest');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout');
+});
+
+Route::controller(LoginController2::class)->group(function () {
+    Route::get('/login-biasa', 'index')->name('login-biasa')->middleware('guest');
+    Route::post('/login', 'authenticate');
+    Route::post('/logout', 'logout');
+});
+
+// Route::controller(TaguenController::class)->group(function () {
+//     Route::get('/login', 'index')->name('login')->middleware('guest');
+//     // Route::post('/login', 'authenticate');
+//     Route::post('/logout', 'logout');
+// });
+
+Route::middleware('auth')->group(function () {
+    Route::controller(TaguenController::class)->group(function () {
+        
+        Route::get('/taguen', 'index');
+        
+      
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(DashboardkinerjaController::class)->group(function () {
+        Route::get('/', 'bupesta');
+        Route::get('/home', 'index');
+        Route::get('/dashboard-kinerja', 'index');
+        Route::get('/crud-dashboard-kinerja', 'crud');
+        Route::post('/update-nilai/{id}', 'updatenilai');
+        Route::get('/input-dashboard-kinerja', 'input');
+        Route::get('/entri-kinerja', 'entri');
+        Route::post('/update-data/{id}', 'update');
+    });
+});
+Route::middleware('auth')->group(function () {
+    Route::controller(Dashboardkinerja2Controller::class)->group(function () {
+        
+        Route::get('/dashboard-kinerja2', 'index');
+        
+        Route::get('/crud-dashboard-kinerja2', 'crud');
+        Route::post('/update-nilai2/{id}', 'updatenilai');
+        Route::get('/input-dashboard-kinerja2', 'input');
+    });
+    
+    Route::controller(EntrikinerjaController::class)->group(function () {
+        Route::get('/entri-kinerja2', 'entri');
+        Route::post('/update-kinerja2', 'updatekinerja');
+        Route::post('/pengajuan-kinerja2', 'pengajuankinerja');
+        Route::post('/analisis-triwulanan2', 'inputanalisistriwulanan');
+    });
+    
+    Route::controller(DashboardDeadlineController::class)->group(function () {
+        Route::get('/dashboard-deadline', 'index');
+        Route::post('/tambah-deadline', 'store');
+        Route::post('/update-deadline', 'updateDeadline');
+        Route::post('/update-progress', 'updateProgress');
+        Route::get('/api/get-deadline/{id}', 'getDeadline');
+        Route::get('/api/get-progres/{id}', 'getProgres');
+        Route::delete('/delete-deadline/{id}', 'deleteDeadline');
+    });
+});
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/kegiatan', [KegiatanController::class, 'index'])->name('kegiatan.index');
+    Route::get('/kegiatan/tambah', [KegiatanController::class, 'tambah'])->name('kegiatan.tambah');
+    Route::post('/kegiatan/store', [KegiatanController::class, 'store'])->name('kegiatan.store');
+    Route::get('/kegiatan/{id}', [KegiatanController::class, 'view'])->name('kegiatan.view');
+    Route::get('/kegiatan/{id}/edit', [KegiatanController::class, 'edit'])->name('kegiatan.edit');
+    Route::put('/kegiatan/{id}/update', [KegiatanController::class, 'update'])->name('kegiatan.update');
+    Route::delete('/kegiatan/delete/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.destroy');
+    Route::get('/kegiatan/form_tambah_timeline/{id}', [KegiatanController::class, 'formTambahTimeline'])->name('kegiatan.form_tambah_timeline');
+    Route::post('/kegiatan/tambah_timeline/{id}', [KegiatanController::class, 'tambahTimeline'])->name('kegiatan.tambah_timeline');
+    Route::get('/kegiatan/edit_timeline/{id}', [KegiatanController::class, 'editTimeline'])->name('kegiatan.edit_timeline');
+    Route::put('/kegiatan/updateTimeline/{id}', [KegiatanController::class, 'updateTimeline'])->name('kegiatan.updateTimeline');
+    Route::post('/kegiatan/deleteTimeline/', [KegiatanController::class, 'deleteTimeline'])->name('kegiatan.deleteTimeline');
+});
+
+
+// Route::get('/taguen', [TaguenController::class, 'index']);
+
+Route::get('/kegiatan/createfiles', [KegiatanController::class, 'createfiles'])->name('kegiatan.createfiles');
+
+Route::get('/files', [FilesController::class, 'index'])->name('files.index');
+Route::get('/files/add', [FilesController::class, 'create'])->name('files.create');
+Route::post('/files/store', [FilesController::class, 'store'])->name('files.store');
+
+Route::group(['prefix' => 'deadlines', 'as' => 'deadlines.' , 'middleware' => 'auth'], function(){
+	Route::controller(DeadlineController::class)->group(function () {
+		Route::get('', 'index')->name('index');
+		Route::get('list', 'list')->name('list');
+		Route::get('add', 'add')->name('add');
+		Route::get('edit/{kode_deadline?}', 'edit')->name('edit');
+		Route::get('detail/{kode_deadline?}', 'detail')->name('detail');
+		Route::post('save/{kode_deadline?}', 'save')->name('save');
+		Route::get('find/{kode_deadline?}', 'find')->name('find');
+		Route::delete('delete/{kode_deadline?}', 'delete')->name('delete');
+	});
+});
+
+// Route::group(['prefix' => 'nilaideadline', 'as' => 'nilaideadline.'], function(){
+// 	Route::controller(NilaiDeadlineController::class)->group(function () {
+// 		Route::get('', 'index')->name('index');
+// 		Route::get('list', 'list')->name('list');
+// 		Route::get('add', 'add')->name('add');
+// 		Route::get('edit/{id?}', 'edit')->name('edit');
+// 		Route::post('save/{id?}', 'save')->name('save');
+// 		Route::get('find/{id?}', 'find')->name('find');
+// 		Route::delete('delete/{id?}', 'delete')->name('delete');
+// 	});
+// });
+
+Route::group(['prefix' => 'nilaideadline', 'as' => 'nilaideadline.', 'middleware' => 'auth'], function(){
+    Route::controller(NilaiDeadlineController::class)->group(function () {
+        Route::get('', 'index')->name('index');
+        Route::get('list', 'list')->name('list');
+        Route::get('add', 'add')->name('add');
+        
+        Route::get('edit/{id?}', 'edit')->name('edit');
+        Route::post('save/{id?}', 'save')->name('save');
+        Route::get('find/{id?}', 'find')->name('find');
+        Route::delete('delete/{id?}', 'delete')->name('delete');
+        Route::get('listByDeadline/{id?}', 'listByDeadline')->name('listByDeadline');
+    });
+});
+
+Route::group(['prefix' => 'operatorentri', 'as' => 'operatorentri.', 'middleware' => 'auth'], function(){
+	Route::controller(OperatorEntriController::class)->group(function () {
+		Route::get('', 'index')->name('index');
+		Route::get('list', 'list')->name('list');
+		Route::post('save/{id?}', 'save')->name('save');
+		Route::get('find/{id?}', 'find')->name('find');
+		Route::delete('delete/{id?}', 'delete')->name('delete');
+	});
+});
+
+Route::middleware('auth')->group(function () {
+    Route::controller(DashboardKegiatanController::class)->group(function () {
+        Route::get('/dashboard-kegiatan', 'index');
+        Route::post('/search-kegiatan', 'search');
+        Route::get('/showbymonth', 'showByMonth');
+        Route::get('/showbyweek', 'showByWeek');
+        Route::get('/showbyyear', 'showByYear');
+        Route::get('/dashboard-kegiatan/filter', 'index');
+        Route::get('/nextprev', 'nextPrev');
+        Route::get('/checkMonthAvailability', 'checkMonthAvailability');
+        Route::get('/kegiatan/{id}/jadwal', 'showEditJadwal');
+        Route::post('/kegiatan/store/{id}', 'addJadwal');
+        Route::delete('/delete-jadwal/{id}', 'destroyJadwal');
+        Route::post('/sort-kegiatan','sortKegiatan');
+    });
+});

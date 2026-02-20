@@ -1,0 +1,385 @@
+id,kode_1,kode_2,kode_3,kode_4,kode_5,rencana_kerja,level,pengisian,pedoman,contoh_link
+1,A.,,,,,A. PENGUNGKIT,1,0,,
+2,A.,I.,,,,I. PEMENUHAN,2,0,,
+3,A.,I.,I,,,I MANAJEMEN PERUBAHAN,3,0,,
+4,A.,I.,I,i.,,i. Penyusunan Tim Kerja,4,0,,
+5,A.,I.,I,i.,a.,a. Unit kerja telah membentuk tim untuk melakukan pembangunan Zona Integritas,5,1,(i) SK Tim Kerja Pembangunan ZI menuju WBK/WBBM Tahun.,http://s.bps.go.id/ManajemenPerubahan_1a_bps
+6,A.,I.,I,i.,b.,b. Penentuan anggota Tim dipilih melalui prosedur/mekanisme yang jelas,5,1,"(i) Notulen/laporan pelaksanaan rapat pembentukan Tim Kerja yang telah disahkan oleh kepala satker;
+(ii) Mekanisme yang menjelaskan tata cara pemilihan anggota Tim;
+(iii) Kertas kerja penentuan anggota Tim Kerja",http://s.bps.go.id/ManajemenPerubahan_1b_bps
+7,A.,I.,I,ii.,,ii. Rencana Pembangunan Zona Integritas,4,0,,
+8,A.,I.,I,ii.,a.,a. Terdapat dokumen rencana kerja pembangunan Zona Integritas menuju WBK/WBBM,5,1,"(i) Dokumen rencana pembangunan ZI yang mencakup:
+- Susunan Tim Pembangunan ZI;
+- Target prioritas yang ingin dicapai (bisa berupa narasi atau penandaan pada tabel rencana kerja);
+- Rencana kerja dan rencana aksi;
+- Rencana dan realisasi timeline pelaksanaan pembangunan ZI;
+- Legalisasi pimpinan.",http://s.bps.go.id/ManajemenPerubahan_2a_bps
+9,A.,I.,I,ii.,b.,b. Dalam dokumen pembangunan terdapat target-target prioritas yang relevan dengan tujuan pembangunan WBK/WBBM,5,1,"(i) Dokumen rencana kerja pembangunan ZI yang
+mencakup:
+- Susunan Tim Pembangunan ZI;
+- Target prioritas yang ingin dicapai (bisa berupa narasi atau penandaan pada tabel rencana kerja);
+- Rencana kerja dan rencana aksi;
+- Rencana dan realisasi timeline pelaksanaan pembangunan ZI;
+- Legalisasi pimpinan.",http://s.bps.go.id/ManajemenPerubahan_2b_bps
+10,A.,I.,I,ii.,c.,c. Terdapat mekanisme atau media untuk mensosialisasikan pembangunan WBK/WBBM,5,1,"(i) Laporan pelaksanaan sosialisasi yang mencakup sosialisasi offline dan online (screen capture website, media sosial, ataupun foto kegiatan terkait serta link terkait).",http://s.bps.go.id/ManajemenPerubahan_2c_bps
+11,A.,I.,I,iii.,,iii. Pemantauan dan Evaluasi Pembangunan WBK/WBBM,4,0,,
+12,A.,I.,I,iii.,a.,a. Seluruh kegiatan pembangunan sudah dilaksanakan sesuai dengan rencana,5,1,"(i) Dokumen rencana kerja pembangunan ZI;
+(ii) Laporan pelaksanaan kegiatan pembangunan ZI.",http://s.bps.go.id/ManajemenPerubahan_3a_bps
+13,A.,I.,I,iii.,b.,b. Terdapat monitoring dan evaluasi terhadap pembangunan Zona Integritas,5,1,"(i) Laporan monitoring dan evaluasi pelaksanaan kegiatan memuat analisa kendala, solusi, dan rencana tindak lanjut atas masing-masing rencana aksi;
+(ii) Undangan, daftar hadir, dan notulen pelaksanaan rapat evaluasi.",http://s.bps.go.id/ManajemenPerubahan_3b_bps
+14,A.,I.,I,iii.,c.,c. Hasil Monitoring dan Evaluasi telah ditindaklanjuti,5,1,"(i) Notulen/laporan monitoring dan evaluasi yang memuat rekomendasi;
+(ii) Laporan hasil tindak lanjut rekomendasi;
+(iii) Dokumentasi pelaksanaan tindak lanjut.",http://s.bps.go.id/ManajemenPerubahan_3c_bps
+15,A.,I.,I,iv.,,iv. Perubahan pola pikir dan budaya kerja,4,0,,
+16,A.,I.,I,iv.,a.,a. Pimpinan berperan sebagai role model dalam pelaksanaan Pembangunan WBK/WBBM,5,1,(i) Laporan tahunan penerapan nilai-nilai organisasi (BerAKHLAK) oleh pimpinan sebagai role model/change leader,http://s.bps.go.id/ManajemenPerubahan_4a_bps
+17,A.,I.,I,iv.,b.,b. Sudah ditetapkan agen perubahan,5,1,"(i) SK Agen Perubahan satker tahun (Change Champion dan/ Change Ambassador);
+(ii) Laporan agen perubahan satker tahun yang memuat penjelasan detail perubahan konkret dari program kerja agen perubahan.",http://s.bps.go.id/ManajemenPerubahan_4b_bps
+18,A.,I.,I,iv.,c.,c. Telah dibangun budaya kerja dan pola pikir di lingkungan organisasi,5,1,"(i) Laporan penerapan budaya kerja
+(ii) Matriks dampak penerapan perubahan budaya kerja dan pola pikir.",http://s.bps.go.id/ManajemenPerubahan_4c_bps
+19,A.,I.,I,iv.,d.,d. Anggota organisasi terlibat dalam pembangunan Zona Integritas menuju WBK/WBBM,5,1,"(i) Dokumen pakta integritas seluruh pegawai;
+(ii) Dokumen pelaksanaan rapat Monev ZI triwulanan;
+(iii) Dokumen yang memuat usulan-usulan anggota dan tindak lanjutnya.
+",http://s.bps.go.id/ManajemenPerubahan_4d_bps
+20,A.,I.,II,iv.,d.,II PENATAAN TATALAKSANA,3,0,,
+21,A.,I.,II,i.,,i. Prosedur Operasional Tetap (SOP) Kegiatan Utama,4,0,,
+22,A.,I.,II,i.,a.,a. SOP mengacu pada peta proses bisnis instansi,5,1,"(i) Seluruh dokumen SOP Teknis dan Non Teknis/ Administrasi BPS Provinsi/Kabupaten/Kota yang ditandatangani kepala satuan kerja (Satker);
+(ii) Dokumen SOP Inovasi BPS Provinsi/Kabupaten/Kota yang ditandatangani kepala satuan kerja (Satker).",http://s.bps.go.id/PenataanTatalaksana_1a_bps
+23,A.,I.,II,i.,b.,b. Prosedur operasional tetap (SOP) telah diterapkan,5,1,"(i) Dokumen monitoring pelaksanaan penerapan SOP sesuai Perka BPS Nomor 19 Tahun 2013 tentang Pedoman Penyusunan Standar Operasional Prosedur Administrasi Pemerintah di Lingkungan BPS, halaman 47;
+(ii) Dokumen SOP Inovasi BPS Provinsi/Kabupaten/Kota yang ditandatangani kepala satuan kerja (Satker).",http://s.bps.go.id/PenataanTatalaksana_1b_bps
+24,A.,I.,II,i.,c.,c. Prosedur operasional tetap (SOP) telah dievaluasi,5,1,"(i) Bukti pelaksanaan rapat evaluasi SOP (Undangan, Daftar Hadir, Notulen);
+(ii) Kertas kerja evaluasi SOP;
+(iii)Dokumen SOP awal dan SOP perbaikan",http://s.bps.go.id/PenataanTatalaksana_1c_bps
+25,A.,I.,II,ii.,,ii. Sistem Pemerintahan Berbasis Elektronik (SPBE),4,0,,
+26,A.,I.,II,ii.,a.,a. Sistem pengukuran kinerja unit sudah menggunakan teknologi informasi,5,1,"(i) Daftar seluruh penerapan teknologi informasi yang digunakan satker terkait pengukuran kinerja unit (seperti Simonev, FRA, dan atau inovasi lainnya jika ada);
+(ii) Dokumen Screenshot aplikasi terkait pengukuran kinerja unit dan sudah berjalan (Simonev, FRA, dll) yang dilengkapi dengan narasi penjelasan penggunaan/pemanfaatan aplikasi TI dalam pengukuran kinerja unit;
+(iii)Inovasi dilengkapi dengan Laporan Pemanfaatan Aplikasi yang berisi latar belakang/alasan pengembangan aplikasi, pemanfaatan aplikasi tersebut (dilengkapi dengan screenshot aplikasi) serta buku pedoman penggunaan aplikasi.",http://s.bps.go.id/PenataanTatalaksana_2a_bps
+27,A.,I.,II,ii.,b.,b. Operasionalisasi manajemen SDM sudah menggunakan teknologi informasi,5,1,"(i) Daftar seluruh penerapan teknologi informasi yang digunakan satker terkait operasionalisasi manajemen SDM (Misal SIMPEG dan Sijafung, dan atau inovasi lain jika ada);
+(ii) Dokumen Screenshot aplikasi terkait operasionalisasi manajemen SDM dan sudah berjalan (Misal SIMPEG dan Sijafung, dan/atau inovasi lain jika ada) yang dilengkapi dengan narasi penjelasan penggunaan/pemanfaatan aplikasi TI dalam operasionalisasi manajemen SDM;
+(iii)Inovasi dilengkapi dengan Laporan Pemanfaatan Aplikasi yang berisi latar belakang/alasan pengembangan aplikasi, pemanfaatan aplikasi tersebut (dilengkapi dengan screenshot aplikasi) serta buku pedoman penggunaan aplikasi.",http://s.bps.go.id/PenataanTatalaksana_2b_bps
+28,A.,I.,II,ii.,c.,c. Pemberian pelayanan kepada publik sudah menggunakan teknologi informasi,5,1,"(i) Daftar seluruh penerapan teknologi informasi yang digunakan satker terkait pelayanan publik (Misal Website, Romantik, Media Sosial, Layanan Pengaduan, dan atau Inovasi lain jika ada);
+(ii) Dokumen Screenshot aplikasi terkait pelayanan publik dan sudah berjalan (seperti Website, Romantik, Media Sosial, Layanan Pengaduan) yang dilengkapi dengan narasi penjelasan penggunaan/pemanfaatan aplikasi TI dalam pelayanan publik;
+(iii) Inovasi dilengkapi dengan Laporan Pemanfaatan Aplikasi yang berisi latar belakang/alasan pengembangan aplikasi, pemanfaatan aplikasi tersebut (dilengkapi dengan screenshot aplikasi) serta buku pedoman penggunaan aplikasi",http://s.bps.go.id/PenataanTatalaksana_2c_bps
+29,A.,I.,II,ii.,d,"d Telah dilakukan monitoring dan dan evaluasi terhadap pemanfaatan teknologi informasi dalam pengukuran kinerja unit, operasionalisasi SDM, dan pemberian layanan kepada publik",5,1,"(i) Laporan monitoring dan evaluasi pemanfaatan TI (triwulanan/semesteran);
+(ii) Dokumentasi rapat monitoring dan evaluasi pemanfaatan TI.",http://s.bps.go.id/PenataanTatalaksana_2d_bps
+30,A.,I.,II,iii.,,iii. Keterbukaan Informasi Publik,4,0,,
+31,A.,I.,II,iii.,a.,a. Kebijakan tentang keterbukaan informasi publik telah diterapkan,5,1,"(i) SK Unit Pendukung PPID tiap satker;
+(ii) Daftar informasi publik satker yang dapat diakses (website satker, Sirup, PPID, dan lain-lain) sesuai Perka Nomor 1 Tahun 2021;
+(iii) Screen shot media pengelolaan informasi publik satker.",http://s.bps.go.id/PenataanTatalaksana_3a_bps
+32,A.,I.,II,iii.,b.,b. Telah dilakukan monitoring dan evaluasi pelaksanaan kebijakan keterbukaan informasi publik,5,1,(i) Laporan berkala monitoring dan evaluasi pelaksanaan kebijakan keterbukaan informasi publik dan bukti tindak lanjutnya (triwulanan/semesteran).,http://s.bps.go.id/PenataanTatalaksana_3b_bps
+33,A.,I.,III,iii.,b.,III PENATAAN SISTEM MANAJEMEN SDM APARATUR,3,0,,
+34,A.,I.,III,i.,,i. Perencanaan Kebutuhan Pegawai sesuai dengan Kebutuhan Organisasi,4,0,,
+35,A.,I.,III,i.,a.,a. Kebutuhan pegawai yang disusun oleh unit kerja mengacu kepada peta jabatan dan hasil analisis beban kerja untuk masing-masing jabatan,5,1,"(i) Kepka BPS Nomor 281 tahun 2021 tentang Rekapitulasi Jabatan Hasil Analisis Beban Kerja di Lingkungan Badan Pusat Statistik 2021;
+(ii) Dokumen Komposisi SDM ABK dan existing pegawai;
+(iii) Notulensi Hasil Rapat Pembina Kepegawaian mengenai Rencana mutasi, Penerimaan/pengadaan pegawai.",http://s.bps.go.id/ManajemenSDM_1a_bps
+36,A.,I.,III,i.,b.,b. Penempatan pegawai hasil rekrutmen murni mengacu kepada kebutuhan pegawai yang telah disusun per jabatan,5,1,"(i) Analisis Kebutuhan Pegawai;
+(ii) Surat Perintah melaksanakan tugas dari kepala unit kerja;
+(iii)SK Penempatan dan Jabatan.",http://s.bps.go.id/ManajemenSDM_1b_bps
+37,A.,I.,III,i.,c.,c. Telah dilakukan monitoring dan dan evaluasi terhadap penempatan pegawai rekrutmen untuk memenuhi kebutuhan jabatan dalam organisasi telah memberikan perbaikan terhadap kinerja unit kerja,5,1,"(i) Laporan monitoring dengan menampilkan perubahan formasi antara ABK dan Existing pegawai dengan Matriks rekap setahun berapa yang masuk, berapa yang pindah atau rotasi jabatan dst.",http://s.bps.go.id/ManajemenSDM_1c_bps
+38,A.,I.,III,ii.,,ii. Pola Mutasi Internal,4,0,,
+39,A.,I.,III,ii.,a.,"a. Dalam melakukan pengembangan karier pegawai, telah dilakukan mutasi pegawai antar jabatan",5,1,"(i) Notulensi Rapat BaperJakat yang memuat pertimbangan Rotasi dan pelaksanaan Rotasi telah berorientasi pada pengembangan karir pegawai;
+(ii) SK Mutasi / Rotasi Internal.",http://s.bps.go.id/ManajemenSDM_2a_bps
+40,A.,I.,III,ii.,b.,b. Dalam melakukan mutasi pegawai antar jabatan telah memperhatikan kompetensi jabatan dan mengikuti pola mutasi yang telah ditetapkan,5,1,"(i) Notulensi Rapat BaperJakat yang memuat pertimbangan Rotasi dan pelaksanaan Rotasi telah memperhatikan kompetensi jabatan dan mengikuti pola mutasi yang ditetapkan organisasi dan juga satuan/unit kerja memberikan pertimbangan terkait hal ini;
+(ii) SK Mutasi / Rotasi Internal;
+(iii) Analisis kesenjangan kompetensi seluruh pegawai.",http://s.bps.go.id/ManajemenSDM_2b_bps
+41,A.,I.,III,ii.,c.,c. Telah dilakukan monitoring dan evaluasi terhadap kegiatan mutasi yang telah dilakukan dalam kaitannya dengan perbaikan kinerja,5,1,(i) Laporan monitoring dan evaluasi pegawai yang mutasi/rotasi.,http://s.bps.go.id/ManajemenSDM_2c_bps
+42,A.,I.,III,iii.,,iii. Pengembangan Pegawai Berbasis Kompetensi,4,0,,
+43,A.,I.,III,iii.,a.,a. Unit Kerja melakukan Training Need Analysis Untuk pengembangan kompetensi,5,1,(i) Dokumen Analisa kebutuhan diklat/bimtek/ pengembangan pegawai (Training Need Analysis).,http://s.bps.go.id/ManajemenSDM_3a_bps
+44,A.,I.,III,iii.,b.,"b. Dalam menyusun rencana pengembangan kompetensi pegawai, telah mempertimbangkan hasil pengelolaan kinerja pegawai",5,1,"(i) Analisis kesenjangan kompetensi seluruh pegawai;
+(ii) Rencana pengembangan kompetensi pegawai;
+(iii) Analisa kebutuhan diklat.",http://s.bps.go.id/PilarManajemenSDM_3b_bps
+45,A.,I.,III,iii.,c.,c. Tingkat kesenjangan kompetensi pegawai yang ada dengan standar kompetensi yang ditetapkan untuk masing-masing jabatan,5,1,(i) Laporan Analisis Kesenjangan Kompetensi Jabatan Pegawai.,http://s.bps.go.id/ManajemenSDM_3c_bps
+46,A.,I.,III,iii.,d.,d. Pegawai di Unit Kerja telah memperoleh kesempatan/hak untuk mengikuti diklat maupun pengembangan kompetensi lainnya,5,1,(i) Dokumen rekap data pegawai yang mengikuti pelatihan/diklat/pengembangan kompetensi lainnya dilengkapi dengan link bukti sertifikat/usulan diklat/undangan.,http://s.bps.go.id/ManajemenSDM_3d_bps
+47,A.,I.,III,iii.,e.,"e. Dalam pelaksanaan pengembangan kompetensi, unit kerja melakukan upaya pengembangan kompetensi kepada pegawai (seperti pengikutsertaan pada lembaga pelatihan, in-house training, coaching, atau mentoring)",5,1,(i) Laporan pelaksanaan Pelatihan/Diklat/Bimtek /Capacity building yang diselenggarakan oleh unit/satuan kerja terkait atau bukti usulan unit/satuan kerja perihal pengikutsertaan pegawai pada Pelatihan/Diklat/Bimtek/Capacity building (jika ada).,http://s.bps.go.id/ManajemenSDM_3e_bps
+48,A.,I.,III,iii.,f.,f. Telah dilakukan monitoring dan evaluasi terhadap hasil pengembangan kompetensi dalam kaitannya dengan perbaikan kinerja,5,1,(i) Laporan monitoring berupa matriks rekap jumlah Pelatihan/Diklat/Bimtek/Capacity building/Coaching selama periode 1 tahun serta evaluasi peningkatan kinerja.,http://s.bps.go.id/ManajemenSDM_3f_bps
+49,A.,I.,III,iv.,,iv. Penetapan Kinerja Individu,4,0,,
+50,A.,I.,III,iv.,a.,a. Terdapat penetapan kinerja individu yang terkait dengan perjanjian kinerja organisasi,5,1,"(i) Dokumen SKP bulanan seluruh pegawai dari KipApp;
+(ii) Seluruh dokumen Matriks Peran Hasil (MPH) dari aplikasi Kipapp yang ditandatangani pimpinan;
+(iii) Dokumen penjelasan cascading indikator kinerja mulai dari Visi, misi, PK sampai IKI.",http://s.bps.go.id/ManajemenSDM_4a_bps
+51,A.,I.,III,iv.,b.,b. Ukuran kinerja individu telah memiliki kesesuaian dengan indikator kinerja individu level diatasnya,5,1,(i) Seluruh dokumen Matriks Peran Hasil (MPH) dari aplikasi Kipapp yang ditandatangani pimpinan.,http://s.bps.go.id/PilarManajemenSDM_4b_BPS
+52,A.,I.,III,iv.,c.,c. Pengukuran kinerja individu dilakukan secara periodik,5,1,(i) Dokumen SKP bulanan seluruh pegawai dari KipApp.,http://s.bps.go.id/ManajemenSDM_4c_bps
+53,A.,I.,III,iv.,d.,d. Hasil penilaian kinerja individu telah dijadikan dasar untuk pemberian reward,5,1,"(i) Dokumen mekanisme pemberian reward pegawai (misalnya, Employee of the month );
+(ii) Kertas kerja pemberian reward;
+(iii) Bukti reward (misalkan: sertifikat, dll).",http://s.bps.go.id/ManajemenSDM_4d_bps
+54,A.,I.,III,v.,,v. Penegakan Aturan Disiplin/Kode Etik/Kode Perilaku Pegawai,4,0,,
+55,A.,I.,III,v.,a.,a. Aturan disiplin/kode etik/kode perilaku telah dilaksanakan/diimplementasikan,5,1,"(i) Peraturan aturan disiplin/kode etik/kode perilaku, dll (internal);
+(ii) Laporan penegakan hukuman atas pelanggaran aturan disiplin/kode etik/kode perilaku;
+(iii) Dokumen inovasi terkait aturan disiplin/kode etik/kode perilaku.",http://s.bps.go.id/ManajemenSDM_5a_bps
+56,A.,I.,III,vi.,,vi. Sistem Informasi Kepegawaian,4,0,,
+57,A.,I.,III,vi.,a.,a. Data informasi kepegawaian unit kerja telah dimutakhirkan secara berkala,5,1,"(i) Laporan pemutakhiran data informasi kepegawaian yang ditandatangani oleh pimpinan;
+(ii) Dokumen Entri Data Rekap Aktivitas dari SIMPEG.",http://s.bps.go.id/ManajemenSDM_6a_BPS
+58,A.,I.,IV,vi.,a.,IV PENGUATAN AKUNTABILITAS,3,0,,
+59,A.,I.,IV,i.,,i. Keterlibatan Pimpinan,4,0,,
+60,A.,I.,IV,i.,a.,a. Unit kerja telah melibatkan pimpinan secara langsung pada saat penyusunan perencanaan,5,1,"(i) Undangan, notula, daftar hadir, foto rapat perencanaan kegiatan dan anggaran;
+(ii) Dokumen perencanaan kegiatan dan anggaran yang memuat Perjanjian Kinerja (PK);
+(iii) Dokumen daftar link PK yang diupload di PPID;
+(iv)Dokumen perencanaan kegiatan dan anggaran yang memuat Petunjuk Operasional Kegiatan (POK).",http://s.bps.go.id/Akuntabilitas_41a_bps
+61,A.,I.,IV,i.,b.,b. Unit kerja telah melibatkan secara langsung pimpinan saat penyusunan penetapan kinerja,5,1,"(i) Undangan, notula disertai kertas kerja dasar hitung dalam penentuan target kinerja, daftar hadir, dan foto rapat penyusunan penetapan kinerja;
+(ii) Dokumen PK yang ditandatangani oleh pimpinan;
+(iii) Dokumen daftar link PK yang diupload di PPID;
+(iv) Seluruh dokumen Matriks Peran Hasil (MPH) dari aplikasi Kipapp yang ditandatangani oleh pimpinan.",http://s.bps.go.id/Akuntabilitas_41b_bps
+62,A.,I.,IV,i.,c.,c. Pimpinan memantau pencapaian kinerja secara berkala,5,1,"(i) Undangan, notula (disertai kendala, solusi, tindak lanjut, PIC tindak lanjut, dan batas waktu tindak lanjut), daftar hadir, foto rapat monitoring capaian kinerja (FRA triwulanan), sesuai pada Simonev",http://s.bps.go.id/Akuntabilitas_41c_bps
+63,A.,I.,IV,ii.,,ii. Pengelolaan Akuntabilitas Kinerja,4,0,,
+64,A.,I.,IV,ii.,a.,a. Dokumen perencanaan kinerja sudah ada,5,1,"(i) Rencana Strategis (Renstra) dan Reviu Renstra;
+(ii) Dokumen PK yang ditandatangani oleh pimpinan;
+(iii) Dokumen daftar link Renstra, Reviu Renstra, dan PK yang diupload di PPID.",http://s.bps.go.id/Akuntabilitas_42a_bps
+65,A.,I.,IV,ii.,b.,b. Perencanaan kinerja telah berorientasi hasil,5,1,"(i) Dokumen PK yang ditandatangani oleh pimpinan;
+(ii) Dokumen daftar link PK yang diupload di PPID;
+(iii) Seluruh dokumen MPH dari aplikasi Kipapp yang ditandatangani oleh pimpinan.",http://s.bps.go.id/Akuntabilitas_42b_bps
+66,A.,I.,IV,ii.,c.,c. Terdapat penetapan Indikator Kinerja Utama (IKU),5,1,"(i) Dokumen Peraturan Kepala BPS Nomor 3 Tahun 2022 terkait Reviu IKU di Lingkungan BPS Tahun;
+(ii) Surat terkait penyusunan Perjanjian Kinerja.",http://s.bps.go.id/Akuntabilitas_42c_bps
+67,A.,I.,IV,ii.,d.,d. Indikator kinerja telah telah memenuhi kriteria SMART,5,1,"(i) Dokumen Laporan Kinerja yang ditandatangani oleh pimpinan;
+(ii) Dokumen daftar link Laporan Kinerja yang diupload di PPID.",http://s.bps.go.id/Akuntabilitas_42d_bps
+68,A.,I.,IV,ii.,e.,e. Laporan kinerja telah disusun tepat waktu,5,1,"(i) Dokumen Laporan Kinerja yang ditandatangani oleh pimpinan secara tepat waktu;
+(ii) Dokumen daftar link Laporan Kinerja yang diupload di PPID;
+(iii)Screenshot bukti unggah Laporan Kinerja secara tepat waktu.",http://s.bps.go.id/Akuntabilitas_42e_bps
+69,A.,I.,IV,ii.,f.,f. Laporan kinerja telah memberikan informasi tentang kinerja,5,1,"(i) Dokumen Laporan Kinerja yang ditandatangani oleh pimpinan;
+(ii) Dokumen daftar link Laporan Kinerja yang diupload di PPID.",http://s.bps.go.id/Akuntabilitas_42f_bps
+70,A.,I.,IV,ii.,g.,g. Terdapat sistem informasi/mekanisme informasi kinerja,5,1,"(i) Peraturan Kepala Badan Pusat Statistik Nomor 9 Tahun 2015 tentang Pedoman Penyusunan Sistem Akuntabilitas Kinerja Instansi Pemerintah di Lingkungan Badan Pusat Statistik;
+(ii) SK Tim SAKIP Tahun;
+(iii)SOP Pengumpulan Data Kinerja sesuai dengan kondisi masing-masing satuan kerja yang ditandatangani oleh pimpinan (mengacu pada surat Sekretaris Utama terkait Pelaporan Capaian Kinerja Triwulanan Tahun).",http://s.bps.go.id/Akuntabilitas_42g_bps
+71,A.,I.,IV,ii.,h,h Unit kerja telah berupaya meningkatkan kapasitas SDM yang menangani akuntabilitas kinerja,5,1,"(i) SK Tim SAKIP Tahun;
+(ii) Dokumen daftar data individu seluruh anggota Tim SAKIP yang memuat data kompetensi dan sertifikat pembinaan terkait akuntabilitas kinerja (akumulasi kompetensi hingga tahun).",http://s.bps.go.id/Akuntabilitas_42h_bps
+72,A.,I.,V,ii.,h,V PENGUATAN PENGAWASAN,3,0,,
+73,A.,I.,V,i.,,i. Pengendalian Gratifikasi,4,0,,
+74,A.,I.,V,i.,a.,a. Telah dilakukan public campaign tentang pengendalian gratifikasi,5,1,"(i) Dokumentasi atau screenshoot banner/spanduk/media sosial yang menunjukan pengendalian gratifikasi telah dipublikasikan secara berkala (per bulan/triwulan/semester);
+(ii) Dokumen sosialisasi larangan gratifikasi dalam rapat internal maupun eksternal (undangan, notulen, daftar hadir).",http://s.bps.go.id/Pengawasan_1a_bps
+75,A.,I.,V,i.,b.,b. Pengendalian gratifikasi telah diimplementasikan,5,1,"(i) SK terkait unit pengendalian gratifikasi (UPG);
+(ii) Mekanisme atau SOP terkait pengendalian gratifikasi;
+(iii)Laporan implementasi pengendalian gratifikasi",http://s.bps.go.id/Pengawasan_1b_bps
+76,A.,I.,V,ii.,,ii. Penerapan Sistem Pengendalian Intern Pemerintah (SPIP),4,0,,
+77,A.,I.,V,ii.,a.,a. Telah dibangun lingkungan pengendalian,5,1,"(i) Dokumen sosialisasi SPIP (undangan, notulen, materi/ paparan, daftar hadir, dokumentasi/foto);
+(ii) SK tim SPIP ;
+(iii) Dokumen laporan penyelenggaraan SPIP (tambahkan subbab terkait inovasi, jika ada).",http://s.bps.go.id/Pengawasan_2a_bps
+78,A.,I.,V,ii.,b.,b. Telah dilakukan penilaian risiko atas pelaksanaan kebijakan,5,1,"(i) Laporan Manajemen Risiko yang memuat penilaian risiko;
+(ii) Laporan terkait inovasi terkait lingkungan pengendalian yang sesuai dengan karakteristik unit kerja.",http://s.bps.go.id/Pengawasan_2b_bps
+79,A.,I.,V,ii.,c.,c. Telah dilakukan kegiatan pengendalian untuk meminimalisir risiko yang telah diidentifikasi,5,1,"(i) Laporan Manajemen Risiko yang memuat kegiatan pengendalian risiko
+(ii) Laporan terkait inovasi dalam meminimalisir risiko ",http://s.bps.go.id/Pengawasan_2c_bps
+80,A.,I.,V,ii.,d.,d. SPI telah diinformasikan dan dikomunikasikan kepada seluruh pihak terkait,5,1,"(i) Dokumentasi pelaksanaan internalisasi/sosialisasi SPI (SPIP, MR, dll) kepada seluruh pegawai (undangan, daftar hadir, notulen, dan naskah paparan)",http://s.bps.go.id/Pengawasan_2d_bps
+81,A.,I.,V,iii.,,iii. Pengaduan Masyarakat,4,0,,
+82,A.,I.,V,iii.,a.,a. Kebijakan Pengaduan masyarakat telah diimplementasikan,5,1,"(i) SK petugas Pengelola Pengaduan Masyarakat;
+(ii) Dokumen kebijakan pengaduan;
+(iii)Dokumentasi media/sarana pengaduan masyarakat yang dilengkapi dengan narasi;
+(iv)Dokumentasi spanduk/banner/flyer informasi sarana penyampaian pengaduan yang dilengkapi dengan narasi; dan
+(v) Laporan pengelolaan pengaduan.",http://s.bps.go.id/Pengawasan_3a_bps
+83,A.,I.,V,iii.,b.,b. Pengaduan masyarakat ditindaklanjuti,5,1,"(i) Laporan pengelolaan pengaduan dengan outline:
+a. Rekapitulasi jumlah aduan per bulan (jenis aduan);
+b. Tindak lanjut aduan;
+c. Kendala dan solusi dalam penanganan aduan.",https://s.bps.go.id/Pengawasan_3b_bps
+84,A.,I.,V,iii.,c.,c. Telah dilakukan monitoring dan evaluasi atas penanganan pengaduan masyarakat,5,1,"(i) Laporan pengelolaan pengaduan dengan outline:
+a. Rekapitulasi jumlah aduan per bulan (jenis aduan)
+b. Tindak lanjut aduan
+c. Kendala dan solusi dalam penanganan aduan
+d. Hasil evaluasi atas tindak lanjut penanganan pengaduan masyarakat
+(ii) Dokumentasi pelaksanaan rapat evaluasi dan monitoring (undangan, daftar hadir, notulen);
+",http://s.bps.go.id/Pengawasan_3c_bps
+85,A.,I.,V,iii.,d.,d. Hasil evaluasi atas penanganan pengaduan masyarakat telah ditindaklanjuti,5,1,"(i) Laporan pengelolaan pengaduan dengan outline:
+a. Rekapitulasi jumlah aduan per bulan (jenis aduan)
+b. Tindak lanjut aduan
+c. Kendala dan solusi dalam penanganan aduan
+d. Hasil evaluasi atas tindak lanjut penanganan pengaduan masyarakat.",http://s.bps.go.id/Pengawasan_3d_bps
+86,A.,I.,V,iv.,,iv. Whistle-Blowing System,4,0,,
+87,A.,I.,V,iv.,a.,a. Whistle-Blowing System telah diterapkan,5,1,"(i) SK Tim WBS;
+(ii) Keputusan Inspektur Utama No. B146/BPS/8000/10/2019 Tahun 2019 tentang Sistem Pengelolaan Pengaduan di Lingkungan Badan Pusat Statistik;
+(iii) Dokumentasi spanduk/banner/flyer/media/sarana WBS yang dilengkapi dengan narasi;
+(iv) Screenshot aplikasi WBS;
+(v) Laporan pengelolaan WBS
+",http://s.bps.go.id/Pengawasan_4a_bps
+88,A.,I.,V,iv.,b.,b. Telah dilakukan evaluasi atas penerapan Whistle Blowing System,5,1,"(i) Laporan pengelolaan WBS dengan outline:
+a. Rekapitulasi jumlah aduan per bulan (jenis aduan);
+b. Rekapitulasi jumlah aduan per bulan (jenis aduan);
+c. Tindak lanjut WBS;
+d. Kendala dan solusi dalam penanganan WBS;",http://s.bps.go.id/Pengawasan_4b_bps
+89,A.,I.,V,iv.,c.,c. Hasil evaluasi atas penerapan Whistle Blowing System telah ditindaklanjuti,5,1,"(i) Laporan pengelolaan WBS dengan outline:
+a. Rekapitulasi jumlah aduan per bulan (jenis aduan);
+b. Tindak lanjut WBS;
+c. Kendala dan solusi dalam penanganan WBS;
+d. Hasil evaluasi atas tindak lanjut penanganan WBS.",http://s.bps.go.id/Pengawasan_4c_bps
+90,A.,I.,V,v.,,v. Penanganan Benturan Kepentingan,4,0,,
+91,A.,I.,V,v.,a.,a. Telah terdapat identifikasi/pemetaan benturan kepentingan dalam tugas fungsi utama,5,1,"(i) Dokumen hasil identifikasi potensi benturan kepentingan dalam tugas fungsi utama untuk seluruh pegawai berdasarkan lampiran Perka BPS Nomor 36 Tahun 2023 tentang Pedoman Penanganan Benturan Kepentingan di Lingkungan Badan Pusat Statistik halaman 23;
+(ii) Perka BPS Nomor 36 Tahun 2023 tentang Pedoman Penanganan Benturan Kepentingan di Lingkungan Badan Pusat Statistik.",http://s.bps.go.id/Pengawasan_5a_bps
+92,A.,I.,V,v.,b.,b. Penanganan Benturan Kepentingan telah disosialisasikan/internalisasi,5,1,"(i) Dokumentasi internalisasi penanganan benturan kepentingan, antara lain: 
+(1) rapat (undangan, daftar hadir, notulen, foto). 
+(2) bimtek (laporan,foto). 
+(3) apel pagi/sore (foto, teks arahan pimpinan) ",http://s.bps.go.id/Pengawasan_5b_bps
+93,A.,I.,V,v.,c.,c. Penanganan Benturan Kepentingan telah diimplementasikan,5,1,"(i) Dokumen surat pernyataan bebas dari benturan kepentingan untuk seluruh pegawai berdasarkan lampiran Perka BPS Nomor 36 Tahun 2023 tentang Pedoman Penanganan Benturan Kepentingan di Lingkungan Badan Pusat Statistik halaman 22;
+(ii) Laporan Benturan Kepentingan berdasarkan lampiran Perka BPS Nomor 36 Tahun 2023 tentang Pedoman Penanganan Benturan Kepentingan di Lingkungan Badan Pusat Statistik halaman 24.",http://s.bps.go.id/Pengawasan_5c_bps
+94,A.,I.,V,v.,d.,d. Telah dilakukan evaluasi atas Penanganan Benturan Kepentingan,5,1,(i) Laporan monitoring dan evaluasi penanganan benturan kepentingan berdasarkan lampiran Perka BPS Nomor 36 Tahun 2023 tentang Pedoman Penanganan Benturan Kepentingan di Lingkungan Badan Pusat Statistik halaman 25.,http://s.bps.go.id/Pengawasan_5d_bps
+95,A.,I.,V,v.,e.,e. Hasil evaluasi atas Penanganan Benturan Kepentingan telah ditindaklanjuti,5,1,(i) Laporan Bukti Tindak Lanjut Penanganan Benturan Kepentingan (mengacu pada rencana tindak lanjut di pertanyaan A.I.5.v.d),http://s.bps.go.id/Pengawasan_5e_bps
+96,A.,I.,VI,v.,e.,VI PENINGKATAN KUALITAS PELAYANAN PUBLIK,3,0,,
+97,A.,I.,VI,i.,,i. Standar Pelayanan,4,0,,
+98,A.,I.,VI,i.,a.,a. Terdapat kebijakan standar pelayanan,5,1,"(i) Perka BPS No.65 Tahun tentang Standar Pelayanan Statistik Terpadu;
+(ii) Keputusan Pejabat Pengelola Informasi dan Dokumentasi Badan Pusat Statistik No. B323/02400/HK.200/07/2022 tentang Standar Layanan Informasi Publik di lingkungan Badan Pusat Statistik;
+(iii) Dokumen SK standar pelayanan publik.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_1a_bps
+99,A.,I.,VI,i.,b.,b. Standar pelayanan telah dimaklumatkan,5,1,"(i) Dokumen maklumat standar pelayanan yang ditandatangani kepala satker paling lambat 7 hari setelah SK standar pelayanan terbit;
+(ii) Capture/foto dokumen maklumat standar pelayanan di tempat pelayanan misal PST, website, dan media lainnya (social media);
+(iii) SK Maklumat Pelayanan.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_1b_bps
+100,A.,I.,VI,i.,c.,c. Dilakukan reviu dan perbaikan atas standar pelayanan,5,1,"(i) Dokumentasi rapat reviu standar pelayanan yang dilakukan dengan melibatkan stakeholders dan masyarakat (dilengkapi Undangan, Daftar Hadir, Notulensi, Dokumentasi Rapat);
+(ii) Dokumen reviu standar pelayanan yang dilakukan dengan melibatkan stakeholders (antara lain : tokoh masyarakat, akademisi, dunia usaha, dan lembaga swadaya masyarakat), serta memanfaatkan masukan hasil SKM/SKD dan
+pengaduan masyarakat.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_1c_bps
+101,A.,I.,VI,i.,d.,d. Telah melakukan publikasi atas standar pelayanan dan maklumat pelayanan,5,1,"(i) Dokumen bukti maklumat pelayanan telah dipublikasikan di berbagai media;
+(ii) Dokumen bukti standar pelayanan telah dipublikasikan di berbagai media.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_1d_bps
+102,A.,I.,VI,ii.,,ii. Budaya Pelayanan Prima,4,0,,
+103,A.,I.,VI,ii.,a.,a. Telah dilakukan berbagai upaya peningkatan kemampuan dan/atau kompetensi tentang penerapan budaya pelayanan prima,5,1,"(i) Dokumen pelatihan/sosialisasi pelayanan prima kepada pegawai/petugas layanan, antara lain:
+- rapat (undangan, daftar hadir, notulen);
+(ii) laporan dan materi pelatihan/sosialisasi pelayanan prima kepada pegawai/petugas layanan.
+(iii) Dokumen jadwal pelatihan/sosialisasi yang menunjukkan bahwa pelatihan/sosialisasi dilakukan secara berkelanjutan dan terjadwal;
+(iv) Dokumen monitoring dan evaluasi atas kualitas layanan yang diberikan oleh pegawai/petugas layanan.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2a_bps
+104,A.,I.,VI,ii.,b.,b. Informasi tentang pelayanan mudah diakses melalui berbagai media,5,1,"(i) Dokumen Capture sarana informasi tentang pelayanan yang disediakan pada berbagai media;
+(ii) Dokumen Capture sarana informasi tentang pelayanan yang disediakan telah terdaftar dan muncul pada SIPPN",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2b_bps
+105,A.,I.,VI,ii.,c.,c. Telah terdapat sistem pemberian penghargaan dan sanksi bagi petugas pemberi pelayanan,5,1,"(i) Dokumen mekanisme reward dan punishment yang minimal memenuhi unsur penilaian disiplin, kinerja, dan hasil penilaian pengguna layanan;
+(ii) Dokumen penghargaan atas pelaksanaan pelayanan yang baik secara tahunan.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2c_bps
+106,A.,I.,VI,ii.,d.,d. Telah terdapat sistem pemberian kompensasi kepada penerima layanan bila layanan tidak sesuai standar,5,1,"(i) Dokumen mekanisme pemberian kompensasi pada setiap jenis layanan;
+(ii) Dokumentasi bukti pemberian kompensasi kepada penerima layanan (jika ada).",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2d_bps
+107,A.,I.,VI,ii.,e.,e. Terdapat sarana layanan terpadu/terintegrasi,5,1,"(i) Dokumentasi aplikasi layanan PST;
+(ii) Dokumentasi layanan berbasis online (website);
+(iii) Dokumentasi layanan berbasis aplikasi (Allstat).",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2e_bps
+108,A.,I.,VI,ii.,f.,f. Terdapat inovasi pelayanan,5,1,"(i) Laporan inovasi pelayanan publik (Inovasi tidak harus yang berupa pengembangan aplikasi berbasis IT, namun dapat berupa penambahan dekoratif pada ruang layanan, penyediaan layanan bagi disabilitas, pemberian layanan secara jemput bola seperti pojok statistik, road show/sosialisasi terkait pemberian layanan) yang dilegalisir oleh pimpinan;
+(ii) Dokumen bukti bahwa inovasi telah direplikasi.",http://s.bps.go.id/PeningkatanKualitasPelayananPublik_2f_bps
+109,A.,I.,VI,iii.,,iii. Pengelolaan Pengaduan,4,0,,
+110,A.,I.,VI,iii.,a.,a. Terdapat media pengaduan dan konsultasi pelayanan yang terintegrasi dengan SP4N-Lapor!,5,1,"(i) SK/surat tugas Tim/Petugas khusus yg menangani aduan;
+(ii) Screenshot profil instansi BPS pada lapor.go.id;
+(iii) Dokumentasi akses admin SP4N-LAPOR!;
+(iv) Dokumentasi laporan dari kotak pengaduan ataupun media lainnya secara online dan offline.",http://s.bps.go.id/PelayananPublik_3a_bps
+111,A.,I.,VI,iii.,b.,b. Terdapat unit yang mengelola pengaduan dan konsultasi pelayanan,5,1,"(i) Dokumentasi akses admin SP4N-LAPOR!;
+(ii) Surat Keputusan/SK pengelola SP4N-LAPOR! di level unit kerja.",http://s.bps.go.id/PelayananPublik_3b_bps
+112,A.,I.,VI,iii.,c.,c. Telah dilakukan evaluasi atas penanganan keluhan/masukan dan konsultasi,5,1,(i) Laporan evaluasi atas penanganan keluhan/masukan dan konsultasi secara berkala.,http://s.bps.go.id/PelayananPublik_3c_bps
+113,A.,I.,VI,iv.,,iv. Penilaian Kepuasan terhadap Pelayanan,4,0,,
+114,A.,I.,VI,iv.,a.,a. Telah dilakukan survei kepuasan masyarakat terhadap pelayanan,5,1,(i) Laporan SKD per triwulan,http://s.bps.go.id/PelayananPublik_4a_bps
+115,A.,I.,VI,iv.,b.,b. Hasil survei kepuasan masyarakat dapat diakses secara terbuka,5,1,"(i) Link publikasi SKD yang telah diterbitkan pada website beserta screenshot-nya;
+(ii) Dokumentasi Poster indeks kepuasan konsumen dan SKM/SKD triwulanan secara offline dan online.",http://s.bps.go.id/PelayananPublik_4b_bps
+116,A.,I.,VI,iv.,c.,c. Dilakukan tindak lanjut atas hasil survei kepuasan masyarakat,5,1,"(i) Dokumen rencana tindak lanjut/rekomendasi hasil SKD;
+(ii) Dokumentasi bukti tindak lanjut telah dilaksanakan.",http://s.bps.go.id/PelayananPublik_4c_bps
+117,A.,I.,VI,v.,,v. Pemanfaatan Teknologi Informasi,4,0,,
+118,A.,I.,VI,v.,a.,a. Telah menerapkan teknologi informasi dalam memberikan pelayanan,5,1,"(i) Dokumentasi seluruh jenis pelayanan yang dilakukan dengan memanfaatkan teknologi informasi ataupun yang dilakukan secara online, misal:
+ Perpustakaan: PST online, Allstat, data pada website.
+ Konsultasi datang langsung: inovasi pelayanan satker.
+ Konsultasi online: medsos (whatsapp), livechat;
+ Penjualan publikasi datang langsung: inovasi pelayanan satker.
+ Penjualan publikasi online: silastik.
+ Penjualan data mikro datang langsung: inovasi pelayanan satker.
+ Penjualan data mikro online: silastik.
+ Rekomendasi kegiatan statistik: romantik.",http://s.bps.go.id/PelayananPublik_5a_bps
+119,A.,I.,VI,v.,b.,b. Telah membangun database pelayanan yang terintegrasi,5,1,"(i) Dokumen narasi terkait sistem pelayanan BPS yang terintegrasi menggunakan PST, dimana databasenya tersentralisir dan jenis layanannya dapat berupa pemanfaatan website BPS, aplikasi mobile Allstat, dan layanan konsultasi offline yang menggunakan tabel dinamis, dll).",http://s.bps.go.id/PelayananPublik_5b_bps
+120,A.,I.,VI,v.,c.,c. Telah dilakukan perbaikan secara terus-menerus,5,1,(i) Dokumen monitoring dan evaluasi perbaikan pelayanan TI per triwulanan (before-after).,http://s.bps.go.id/PelayananPublik_5c_bps
+121,A.,II.,,,,II. REFORM,2,0,,
+122,A.,II.,I,,,I MANAJEMEN PERUBAHAN,3,0,,
+123,A.,II.,I,i.,,i. Komitmen dalam perubahan,4,0,,
+124,A.,II.,I,i.,a.,a. Agen perubahan telah membuat perubahan yang konkret di Instansi (dalam 1 tahun),5,1,"(i) SK Agen Perubahan tahun;
+(ii) Laporan agen perubahan tahun.",http://s.bps.go.id/ManajemenPerubahan_Reform1a_bps
+125,A.,II.,I,i.,a.,- Jumlah Agen Perubahan,5,0,,
+126,A.,II.,I,i.,a.,- Jumlah Perubahan yang dibuat,5,0,,
+127,A.,II.,I,i.,b.,b. Perubahan yang dibuat Agen Perubahan telah terintegrasi dalam sistem manajemen,5,1,(i) Laporan agen perubahan yang memuat dokumentasi dan narasi pelaksanaan proyek perubahan.,http://s.bps.go.id/ManajemenPerubahan_Reform1b_bps
+128,A.,II.,I,i.,b.,- Jumlah Perubahan yang dibuat,5,0,,
+129,A.,II.,I,i.,b.,- Jumlah Perubahan yang telah diintegrasikan dalam sistem manajemen,5,0,,
+130,A.,II.,I,ii.,,ii. Komitmen Pimpinan,4,0,,
+131,A.,II.,I,ii.,-,"- Pimpinan memiliki komitmen terhadap pelaksanaan reformasi birokrasi, dengan adanya target capaian reformasi yang jelas di dokumen perencanaan",5,1,(i) Dokumen rencana kerja dan realisasi capaian nya,http://s.bps.go.id/ManajemenPerubahan_Reform2_bps
+132,A.,II.,I,iii.,,iii. Membangun Budaya Kerja,4,0,,
+133,A.,II.,I,iii.,-,- Instansi membangun budaya kerja positif dan menerapkan nilai-nilai organisasi dalam pelaksanaan tugas sehari-hari,5,1,"(i) Undangan, daftar hadir, Notulen dan dokumentasi internalisasi;
+(ii) SOP kegiatan yang menghasilkan budaya kerja positif, misalkan: SOP Apel Pagi, SOP Sharing Knowledge, dll",http://s.bps.go.id/ManajemenPerubahan_Reform3_bps
+134,A.,II.,II,iii.,-,II PENATAAN TATALAKSANA,3,0,,
+135,A.,II.,II,i.,,i. Peta Proses Bisnis Mempengaruhi Penyederhanaan Jabatan,4,0,,
+136,A.,II.,II,i.,-,"- Telah disusun peta proses bisnis dengan adanya penyederhanaan jabatan 
+",5,1,"(i) Peraturan BPS Nomor 7 Tahun 2020 Tentang Organisasi dan Tata Kerja BPS (BPS Pusat) serta Peraturan BPS Nomor 5 Tahun 2023 Tentang Organisasi dan Tata Kerja BPS Provinsi dan BPS Kabupaten/Kota (BPS Daerah);
+(ii) Surat perintah penyederhanaan organisasi di Surat Edaran (SE) Menteri PANRB Nomor 393 Tahun 2019 tentang langkah Strategis dan Konkret Penyederhanaan Birokrasi dan diperkuat oleh SE Menteri PANRB Nomor 15 tahun 2023 tentang Tata Cara Penilaian Penyederhanaan Birokrasi.",http://s.bps.go.id/PenataanTatalaksana_Reform1a_bps
+137,A.,II.,II,ii.,,ii. Sistem Pemerintahan Berbasis Elektronik (SPBE) yang Terintegrasi,4,0,,
+138,A.,II.,II,ii.,a,a Implementasi SPBE telah terintegrasi dan mampu mendorong pelaksanaan pelayanan publik yang lebih cepat dan efisien,5,1,"(i) Daftar Layanan pada pelayanan publik yang mengimplementasikan SPBE (disertai narasi dampak implementasi SPBE bagi pihak Eksternal);
+(ii) Dokumen narasi penjelasan SPBE;
+(iii) Dokumen yang menyatakan bahwa SPBE telah terintegrasi.",http://s.bps.go.id/PenataanTatalaksana_Reform2a_bps
+139,A.,II.,II,ii.,b,b Implementasi SPBE telah terintegrasi dan mampu mendorong pelaksanaan pelayanan internal organisasi yang lebih cepat dan efisien,5,1,"(i) Daftar Layanan pada pelayanan internal organisasi yang mengimplementasikan SPBE dan disertai narasi dampak implementasi SPBE (hanya yang bersifat internal), seperti Back Office Selindo/BOS, Kipapp, Sipecut, dan lain-lain;
+(ii) Dokumen narasi penjelasan SPBE;
+(iii) Dokumen yang menyatakan bahwa SPBE telah terintegrasi.",http://s.bps.go.id/PenataanTatalaksana_Reform2b_bps
+140,A.,II.,II,iii.,,iii. Transformasi Digital Memberikan Nilai Manfaat,4,0,,
+141,A.,II.,II,iii.,a.,a. Transformasi digital pada bidang proses bisnis utama telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1,"(i) Narasi alasan perubahan metode pencacahan dari PAPI menjadi CAPI;
+(ii) Buku Pedoman penggunaan PAPI dan CAPI pada kegiatan Survei Angkatan Kerja Nasional (Sakernas);
+(iii) Surat edaran BPS Pusat terkait pencacahan menggunakan CAPI;
+(iv) Screen shot pemanfaatan CAPI pada berbagai survei di masing-masing satker;
+(v) Dokumen evaluasi atas transformasi digital PAPI ke CAPI.",http://s.bps.go.id/PenataanTatalaksana_Reform3a_bps
+142,A.,II.,II,iii.,b.,b. Transformasi digital pada bidang administrasi pemerintahan telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1,"(i) Narasi pemanfaatan BOS dan Kipapp dari buku pedoman BOS dan Kipapp;
+(ii) Buku pedoman penggunaan BOS dan Kipapp;
+(iii) Surat edaran BPS Pusat terkait pemanfaatan BOS dan Kipapp;
+(iv) Screen shot pemanfaatan BOS dan Kipapp;
+(v) Dokumen evaluasi atas pemanfaatan BOS, dan Kipapp.
+",http://s.bps.go.id/PenataanTatalaksana_Reform3b_bps
+143,A.,II.,II,iii.,c.,c. Transformasi digital pada bidang pelayanan publik telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1,"(i) Narasi/buku pedoman pemanfaatan website, Silastik, Romantik, PPID, SIRUP, dll;
+(ii) Screen shot pemanfaatan website, Silastik, Romantik, PPID, SIRUP, dll;
+(iii) Dokumen evaluasi atas pemanfaatan website, Silastik, Romantik, PPID, SIRUP, dll.",http://s.bps.go.id/PenataanTatalaksana_Reform3c_bps
+144,A.,II.,III,iii.,c.,III PENATAAN SISTEM MANAJEMEN SDM APARATUR,3,0,,
+145,A.,II.,III,i.,,i. Kinerja Individu,4,0,,
+146,A.,II.,III,i.,a,a Ukuran kinerja individu telah berorientasi hasil (outcome) sesuai pada levelnya,5,1,"(i) Dokumen SKP tahunan seluruh pegawai dari KipApp;
+(ii) Dokumen penjelasan cascading indikator kinerja mulai dari Visi, misi, PK sampai IKI. ",http://s.bps.go.id/ManajemenSDM_Reform1_bps
+147,A.,II.,III,ii.,,ii.,4,0,,
+148,A.,II.,III,ii.,a,a Hasil assessment telah dijadikan pertimbangan untuk mutasi dan pengembangan karir pegawai,5,1,"(i) Dokumen hasil assessment atau hasil uji kompetensi pegawai;
+(ii) Bagi BPS Provinsi/Unit Kerja berupa notulensi rapat Baperjakat yang memuat:
+1. Hasil assessment/hasil uji kompetensi pegawai;
+2. Pertimbangan untuk mutasi atau pengembangan karir berdasarkan hasil assessment/uji kompetensi
+(iii) Bagi BPS Kabupaten/Kota berupa surat usulan terkait mutasi dan/atau pengembangan karir pegawai yang didasarkan pada hasil assessment/uji kompetensi.",http://s.bps.go.id/ManajemenSDM_Reform2_bps
+149,A.,II.,III,iii.,,iii. Pelanggaran Disiplin Pegawai,4,0,,
+150,A.,II.,III,iii.,a,a Penurunan pelanggaran disiplin pegawai,5,1,"(i) Laporan penanganan pelanggaran disiplin (rekap);
+(ii) SK Hukuman Disiplin (jika ada)",http://s.bps.go.id/ManajemenSDM_Reform3_bps
+151,A.,II.,III,iii.,a,- Jumlah pelanggaran tahun sebelumnya,5,0,,
+152,A.,II.,III,iii.,a,- Jumlah pelanggaran tahun ini,5,0,,
+153,A.,II.,III,iii.,a,- Jumlah pelanggaran yang telah diberikan sanksi/hukuman,5,0,,
+154,A.,II.,IV,iii.,a,IV PENGUATAN AKUNTABILITAS,3,0,,
+155,A.,II.,IV,i.,,i. Meningkatnya capaian kinerja unit kerja,4,0,,
+156,A.,II.,IV,i.,-,- Persentase Sasaran dengan capaian 100% atau lebih,5,1,"(i) Dokumen Laporan Kinerja yang ditandatangani oleh pimpinan (Jumlah Sasaran Kinerja = 4);
+(ii) Dokumen daftar link Laporan Kinerja yang diupload di PPID.",http://s.bps.go.id/Akuntabilitas_Reform1_bps
+157,A.,II.,IV,i.,-,- Jumlah Sasaran Kinerja,5,0,,
+158,A.,II.,IV,i.,-,- Jumlah Sasaran Kinerja yang tercapai 100% atau lebih,5,0,,
+159,A.,II.,IV,ii.,,ii.,4,0,,
+160,A.,II.,IV,ii.,-,- Hasil Capaian/Monitoring Perjanjian Kinerja telah dijadikan dasar sebagai pemberian reward and punishment bagi organisasi,5,1,"(i) Dokumen Laporan Kinerja yang ditandatangani oleh pimpinan;
+(ii) Dokumen daftar link Laporan Kinerja yang diupload di PPID;
+(iii) Narasi tentang reward untuk organisasi/satker yang menerima kinerja di atas target, baik dari pihak internal maupun eksternal BPS (disertakan piagam/sertifikatnya).",http://s.bps.go.id/Akuntabilitas_Reform2_bps
+161,A.,II.,IV,iii.,,iii. Kerangka Logis Kinerja,4,0,,
+162,A.,II.,IV,iii.,-,- Apakah terdapat penjenjangan kinerja (Kerangka Logis Kinerja) yang mengacu pada kinerja utama organisasi dan dijadikan dalam penentuan kinerja seluruh pegawai?,5,1,"(i) Dokumen PK yang ditandatangani oleh pimpinan;
+(ii) Dokumen daftar link PK yang diupload di PPID;
+(iii)Seluruh dokumen MPH dari aplikasi Kipapp yang ditandatangani oleh pimpinan.",http://s.bps.go.id/Akuntabilitas_Reform3_bps
+163,A.,II.,V,iii.,-,V PENGUATAN PENGAWASAN,3,0,,
+164,A.,II.,V,i.,,i. Mekanisme Pengendalian,4,0,,
+165,A.,II.,V,i.,-,- Telah dilakukan mekanisme pengendalian aktivitas secara berjenjang,5,1,"(i) Laporan mekanisme pengendalian aktivitas secara berjenjang yang memuat: perencanaan penilaian risiko, pelaksanaan, monitoring, pelaporan dan telah menghasilkan peningkatan kinerja, mekanisme kerja baru yang lebih efektif, efisien, dan terkendali. ",http://s.bps.go.id/Pengawasan_reform_ia_bps
+166,A.,II.,V,ii.,,ii. Penanganan Pengaduan Masyarakat,4,0,,
+167,A.,II.,V,ii.,-,- Persentase penanganan pengaduan masyarakat,5,1,(i) Laporan pengelolaan pengaduan,http://s.bps.go.id/Pengawasan_reform_iia_bps
+168,A.,II.,V,ii.,-,- Jumlah pengaduan masyarakat yang harus ditindaklanjuti,5,0,,
+169,A.,II.,V,ii.,-,- Jumlah pengaduan masyarakat yang sedang diproses,5,0,,
+170,A.,II.,V,ii.,-,- Jumlah pengaduan masyarakat yang selesai ditindaklanjuti,5,0,,
+171,A.,II.,V,iii.,,iii. Penyampaian Laporan Harta Kekayaan,4,0,,
+172,A.,II.,V,a.,,a. Penyampaian Laporan Harta Kekayaan Pejabat Negara (LHKPN),4,1,"(i) Lampiran surat Inspektur Utama perihal Proses Pelaporan LHKAN Periode;
+(ii) Daftar pegawai yang wajib mengisi LHKPN (nama pegawai, jabatan) satuan kerja yang dilegalisasi oleh kepala satuan/unit kerja (Jumlah yang harus melaporkan LHKPN = KPA, Bendahara, PPK, Pejabat Pengadaan. Untuk BPS Provinsi, jumlah yang harus melaporkan LHKPN termasuk pegawai BPS Provinsi yang ditugaskan menjadi Pejabat Pengadaan pada BPS kabupaten/Kota);
+(iii) Screenshot bukti penyampaian LHKPN.",http://s.bps.go.id/Pengawasan_reform_iii_ia_bps
+173,A.,II.,V,a.,-,- Persentase penyampaian LHKPN,5,0,,
+174,A.,II.,V,a.,-,- Jumlah yang harus melaporkan,5,0,,
+175,A.,II.,V,a.,-,- Kepala satuan kerja,5,0,,
+176,A.,II.,V,a.,-,- Pejabat yang diwajibkan menyampaikan LHKPN,5,0,,
+177,A.,II.,V,a.,-,- Lainnya,5,0,,
+178,A.,II.,V,a.,-,- Jumlah yang sudah melaporkan,5,0,,
+179,A.,II.,V,b.,,b. Penyampaian Laporan Harta Kekayaan Non LHKPN (Tidak Wajib LHKPN),4,1,"(i) Lampiran surat Inspektur Utama perihal Proses Pelaporan LHKAN Periode;
+(ii) Daftar pegawai yang wajib mengisi SPT (ASN yang tidak wajib LHKPN) dan dilegalisasi oleh kepala satuan/unit kerja; dan
+(iii) Screenshot bukti penyampaian SPT",http://s.bps.go.id/Pengawasan_reform_iii_iia_bps
+180,A.,II.,V,b.,-,- Persentase penyampaian Non LHKPN,5,0,,
+181,A.,II.,V,b.,-,- Jumlah yang harus melaporkan (tidak wajib LHKPN),5,0,,
+182,A.,II.,V,b.,-,- Pejabat administrator (eselon III),5,0,,
+183,A.,II.,V,b.,-,- Pejabat Pengawas (eselon IV),5,0,,
+184,A.,II.,V,b.,-,- Jumlah Fungsional dan Pelaksana,5,0,,
+185,A.,II.,V,b.,-,- Jumlah yang sudah melaporkan,5,0,,
+186,A.,II.,VI,b.,-,VI PENINGKATAN KUALITAS PELAYANAN PUBLIK,3,0,,
+187,A.,II.,VI,i.,,i. Upaya dan/atau Inovasi Pelayanan Publik,4,0,,
+188,A.,II.,VI,i.,a.,"a. Upaya dan/atau inovasi telah mendorong perbaikan pelayanan publik pada:
+1. Kesesuaian Persyaratan
+2. Kemudahan Sistem, Mekanisme, dan Prosedur
+3. Kecepatan Waktu Penyelesaian
+4. Kejelasan Biaya/Tarif, Gratis
+5. Kualitas Produk Spesifikasi Jenis Pelayanan
+6. Kompetensi Pelaksana/Web
+7. Perilaku Pelaksana/Web
+8. Kualitas Sarana dan prasarana
+9. Penanganan Pengaduan, Saran dan Masukan",5,1,(i) Narasi yang menggambarkan dampak dari inovasi yang ada di satuan/unit kerja terhadap perbaikan pelayanan publik yang prima,http://s.bps.go.id/PelayananPublik_R1a_bps
+189,A.,II.,VI,i.,b.,"b. Upaya dan/atau inovasi pada perijinan/pelayanan telah dipermudah:
+1. Waktu lebih cepat
+2. Pelayanan Publik yang terpadu
+3. Alur lebih pendek/singkat
+4 Terintegrasi dengan aplikasi",5,1,"(i) Dokumen daftar jumlah perijinan/pelayanan yang terdata/terdaftar di satuan/unit kerja (sesuai Perka BPS Nomor 65 Tahun);
+(ii) Dokumen daftar jumlah perijinan/pelayanan di satuan/unit kerja yang telah dipermudah",http://s.bps.go.id/PelayananPublik_R1b_bps
+190,A.,II.,VI,i.,b.,- Jumlah perizinan/pelayanan yang terdata/terdaftar,5,1,,
+191,A.,II.,VI,i.,b.,- Jumlah perizinan/pelayanan yang telah dipermudah,5,1,,
+192,A.,II.,VI,ii.,,ii. Penanganan Pengaduan Pelayanan dan Konsultasi,4,0,,
+193,A.,II.,VI,ii.,-,- Penanganan pengaduan pelayanan dilakukan melalui berbagai kanal/media secara responsif dan bertanggung jawab,5,1,"(i) Laporan monitoring, evaluasi, dan tindak lanjut penanganan pengaduan dari berbagai media layanan;
+(ii) Dokumentasi Penanganan Pengaduan secara offline dan online (jika ada aduan maka tampilkan screen shoot dari berbagai media layanan pengaduan, seperti sarana pengaduan offline, WA, media sosial, atau email pengaduan).",http://s.bps.go.id/PelayananPublik_Reform2_BPS

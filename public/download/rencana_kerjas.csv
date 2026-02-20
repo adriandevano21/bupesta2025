@@ -1,0 +1,217 @@
+id,kode_1,kode_2,kode_3,kode_4,kode_5,rencana_kerja,level,pengisian
+1,A.,,,,,A. PENGUNGKIT,1,0
+2,A.,I.,,,,I. PEMENUHAN,2,0
+3,A.,I.,I,,,I MANAJEMEN PERUBAHAN,3,0
+4,A.,I.,I,i.,,i. Penyusunan Tim Kerja,4,0
+5,A.,I.,I,i.,a.,a. Unit kerja telah membentuk tim untuk melakukan pembangunan Zona Integritas,5,1
+6,A.,I.,I,i.,b.,b. Penentuan anggota Tim dipilih melalui prosedur/mekanisme yang jelas,5,1
+7,A.,I.,I,ii.,b.,ii. Rencana Pembangunan Zona Integritas,4,0
+8,A.,I.,I,ii.,a.,a. Terdapat dokumen rencana kerja pembangunan Zona Integritas menuju WBK/WBBM,5,1
+9,A.,I.,I,ii.,b.,b. Dalam dokumen pembangunan terdapat target-target prioritas yang relevan dengan tujuan pembangunan WBK/WBBM,5,1
+10,A.,I.,I,ii.,c.,c. Terdapat mekanisme atau media untuk mensosialisasikan pembangunan WBK/WBBM,5,1
+11,A.,I.,I,iii.,c.,iii. Pemantauan dan Evaluasi Pembangunan WBK/WBBM,4,0
+12,A.,I.,I,iii.,a.,a. Seluruh kegiatan pembangunan sudah dilaksanakan sesuai dengan rencana,5,1
+13,A.,I.,I,iii.,b.,b. Terdapat monitoring dan evaluasi terhadap pembangunan Zona Integritas,5,1
+14,A.,I.,I,iii.,c.,c. Hasil Monitoring dan Evaluasi telah ditindaklanjuti,5,1
+15,A.,I.,I,iv.,c.,iv. Perubahan pola pikir dan budaya kerja,4,0
+16,A.,I.,I,iv.,a.,a. Pimpinan berperan sebagai role model dalam pelaksanaan Pembangunan WBK/WBBM,5,1
+17,A.,I.,I,iv.,b.,b. Sudah ditetapkan agen perubahan,5,1
+18,A.,I.,I,iv.,c.,c. Telah dibangun budaya kerja dan pola pikir di lingkungan organisasi,5,1
+19,A.,I.,I,iv.,d.,d. Anggota organisasi terlibat dalam pembangunan Zona Integritas menuju WBK/WBBM,5,1
+20,A.,I.,II,iv.,d.,II PENATAAN TATALAKSANA,3,0
+21,A.,I.,II,i.,d.,i. Prosedur Operasional Tetap (SOP) Kegiatan Utama,4,0
+22,A.,I.,II,i.,a.,a. SOP mengacu pada peta proses bisnis instansi,5,1
+23,A.,I.,II,i.,b.,b. Prosedur operasional tetap (SOP) telah diterapkan,5,1
+24,A.,I.,II,i.,c.,c. Prosedur operasional tetap (SOP) telah dievaluasi,5,1
+25,A.,I.,II,ii.,c.,ii. Sistem Pemerintahan Berbasis Elektronik (SPBE),4,0
+26,A.,I.,II,ii.,a.,a. Sistem pengukuran kinerja unit sudah menggunakan teknologi informasi,5,1
+27,A.,I.,II,ii.,b.,b. Operasionalisasi manajemen SDM sudah menggunakan teknologi informasi,5,1
+28,A.,I.,II,ii.,c.,c. Pemberian pelayanan kepada publik sudah menggunakan teknologi informasi,5,1
+29,A.,I.,II,ii.,d,"d Telah dilakukan monitoring dan dan evaluasi terhadap pemanfaatan teknologi informasi dalam pengukuran kinerja unit, operasionalisasi SDM, dan pemberian layanan kepada publik",5,1
+30,A.,I.,II,iii.,d,iii. Keterbukaan Informasi Publik,4,0
+31,A.,I.,II,iii.,a.,a. Kebijakan tentang keterbukaan informasi publik telah diterapkan,5,1
+32,A.,I.,II,iii.,b.,b. Telah dilakukan monitoring dan evaluasi pelaksanaan kebijakan keterbukaan informasi publik,5,1
+33,A.,I.,III,iii.,b.,III PENATAAN SISTEM MANAJEMEN SDM APARATUR,3,0
+34,A.,I.,III,i.,b.,i. Perencanaan Kebutuhan Pegawai sesuai dengan Kebutuhan Organisasi,4,0
+35,A.,I.,III,i.,a.,a. Kebutuhan pegawai yang disusun oleh unit kerja mengacu kepada peta jabatan dan hasil analisis beban kerja untuk masing-masing jabatan,5,1
+36,A.,I.,III,i.,b.,b. Penempatan pegawai hasil rekrutmen murni mengacu kepada kebutuhan pegawai yang telah disusun per jabatan,5,1
+37,A.,I.,III,i.,c.,c. Telah dilakukan monitoring dan dan evaluasi terhadap penempatan pegawai rekrutmen untuk memenuhi kebutuhan jabatan dalam organisasi telah memberikan perbaikan terhadap kinerja unit kerja,5,1
+38,A.,I.,III,ii.,c.,ii. Pola Mutasi Internal,4,0
+39,A.,I.,III,ii.,a.,"a. Dalam melakukan pengembangan karier pegawai, telah dilakukan mutasi pegawai antar jabatan",5,1
+40,A.,I.,III,ii.,b.,b. Dalam melakukan mutasi pegawai antar jabatan telah memperhatikan kompetensi jabatan dan mengikuti pola mutasi yang telah ditetapkan,5,1
+41,A.,I.,III,ii.,c.,c. Telah dilakukan monitoring dan evaluasi terhadap kegiatan mutasi yang telah dilakukan dalam kaitannya dengan perbaikan kinerja,5,1
+42,A.,I.,III,iii.,c.,iii. Pengembangan Pegawai Berbasis Kompetensi,4,0
+43,A.,I.,III,iii.,a.,a. Unit Kerja melakukan Training Need Analysis Untuk pengembangan kompetensi,5,1
+44,A.,I.,III,iii.,b.,"b. Dalam menyusun rencana pengembangan kompetensi pegawai, telah mempertimbangkan hasil pengelolaan kinerja pegawai",5,1
+45,A.,I.,III,iii.,c.,c. Tingkat kesenjangan kompetensi pegawai yang ada dengan standar kompetensi yang ditetapkan untuk masing-masing jabatan,5,1
+46,A.,I.,III,iii.,d.,d. Pegawai di Unit Kerja telah memperoleh kesempatan/hak untuk mengikuti diklat maupun pengembangan kompetensi lainnya,5,1
+47,A.,I.,III,iii.,e.,"e. Dalam pelaksanaan pengembangan kompetensi, unit kerja melakukan upaya pengembangan kompetensi kepada pegawai (seperti pengikutsertaan pada lembaga pelatihan, in-house training, coaching, atau mentoring)",5,1
+48,A.,I.,III,iii.,f.,f. Telah dilakukan monitoring dan evaluasi terhadap hasil pengembangan kompetensi dalam kaitannya dengan perbaikan kinerja,5,1
+49,A.,I.,III,iv.,f.,iv. Penetapan Kinerja Individu,4,0
+50,A.,I.,III,iv.,a.,a. Terdapat penetapan kinerja individu yang terkait dengan perjanjian kinerja organisasi,5,1
+51,A.,I.,III,iv.,b.,b. Ukuran kinerja individu telah memiliki kesesuaian dengan indikator kinerja individu level diatasnya,5,1
+52,A.,I.,III,iv.,c.,c. Pengukuran kinerja individu dilakukan secara periodik,5,1
+53,A.,I.,III,iv.,d.,d. Hasil penilaian kinerja individu telah dijadikan dasar untuk pemberian reward,5,1
+54,A.,I.,III,v.,d.,v. Penegakan Aturan Disiplin/Kode Etik/Kode Perilaku Pegawai,4,0
+55,A.,I.,III,v.,a.,a. Aturan disiplin/kode etik/kode perilaku telah dilaksanakan/diimplementasikan,5,1
+56,A.,I.,III,vi.,a.,vi. Sistem Informasi Kepegawaian,4,0
+57,A.,I.,III,vi.,a.,a. Data informasi kepegawaian unit kerja telah dimutakhirkan secara berkala,5,1
+58,A.,I.,IV,vi.,a.,IV PENGUATAN AKUNTABILITAS,3,0
+59,A.,I.,IV,i.,a.,i. Keterlibatan Pimpinan,4,0
+60,A.,I.,IV,i.,a.,a. Unit kerja telah melibatkan pimpinan secara langsung pada saat penyusunan perencanaan,5,1
+61,A.,I.,IV,i.,b.,b. Unit kerja telah melibatkan secara langsung pimpinan saat penyusunan penetapan kinerja,5,1
+62,A.,I.,IV,i.,c.,c. Pimpinan memantau pencapaian kinerja secara berkala,5,1
+63,A.,I.,IV,ii.,c.,ii. Pengelolaan Akuntabilitas Kinerja,4,0
+64,A.,I.,IV,ii.,a.,a. Dokumen perencanaan kinerja sudah ada,5,1
+65,A.,I.,IV,ii.,b.,b. Perencanaan kinerja telah berorientasi hasil,5,1
+66,A.,I.,IV,ii.,c.,c. Terdapat penetapan Indikator Kinerja Utama (IKU),5,1
+67,A.,I.,IV,ii.,d.,d. Indikator kinerja telah telah memenuhi kriteria SMART,5,1
+68,A.,I.,IV,ii.,e.,e. Laporan kinerja telah disusun tepat waktu,5,1
+69,A.,I.,IV,ii.,f.,f. Laporan kinerja telah memberikan informasi tentang kinerja,5,1
+70,A.,I.,IV,ii.,g.,g. Terdapat sistem informasi/mekanisme informasi kinerja,5,1
+71,A.,I.,IV,ii.,h,h Unit kerja telah berupaya meningkatkan kapasitas SDM yang menangani akuntabilitas kinerja,5,1
+72,A.,I.,VI,ii.,h,VI PENGUATAN PENGAWASAN,3,0
+73,A.,I.,VI,i.,h,i. Pengendalian Gratifikasi,4,0
+74,A.,I.,VI,i.,a.,a. Telah dilakukan public campaign tentang pengendalian gratifikasi,5,1
+75,A.,I.,VI,i.,b.,b. Pengendalian gratifikasi telah diimplementasikan,5,1
+76,A.,I.,VI,ii.,b.,ii. Penerapan Sistem Pengendalian Intern Pemerintah (SPIP),4,0
+77,A.,I.,VI,ii.,a.,a. Telah dibangun lingkungan pengendalian,5,1
+78,A.,I.,VI,ii.,b.,b. Telah dilakukan penilaian risiko atas pelaksanaan kebijakan,5,1
+79,A.,I.,VI,ii.,c.,c. Telah dilakukan kegiatan pengendalian untuk meminimalisir risiko yang telah diidentifikasi,5,1
+80,A.,I.,VI,ii.,d.,d. SPI telah diinformasikan dan dikomunikasikan kepada seluruh pihak terkait,5,1
+81,A.,I.,VI,iii.,d.,iii. Pengaduan Masyarakat,4,0
+82,A.,I.,VI,iii.,a.,a. Kebijakan Pengaduan masyarakat telah diimplementasikan,5,1
+83,A.,I.,VI,iii.,b.,b. Pengaduan masyarakat ditindaklanjuti,5,1
+84,A.,I.,VI,iii.,c.,c. Telah dilakukan monitoring dan evaluasi atas penanganan pengaduan masyarakat,5,1
+85,A.,I.,VI,iii.,d.,d. Hasil evaluasi atas penanganan pengaduan masyarakat telah ditindaklanjuti,5,1
+86,A.,I.,VI,iv.,d.,iv. Whistle-Blowing System,4,0
+87,A.,I.,VI,iv.,a.,a. Whistle-Blowing System telah diterapkan,5,1
+88,A.,I.,VI,iv.,b.,b. Telah dilakukan evaluasi atas penerapan Whistle Blowing System,5,1
+89,A.,I.,VI,iv.,c.,c. Hasil evaluasi atas penerapan Whistle Blowing System telah ditindaklanjuti,5,1
+90,A.,I.,VI,v.,c.,v. Penanganan Benturan Kepentingan,4,0
+91,A.,I.,VI,v.,a.,a. Telah terdapat identifikasi/pemetaan benturan kepentingan dalam tugas fungsi utama,5,1
+92,A.,I.,VI,v.,b.,b. Penanganan Benturan Kepentingan telah disosialisasikan/internalisasi,5,1
+93,A.,I.,VI,v.,c.,c. Penanganan Benturan Kepentingan telah diimplementasikan,5,1
+94,A.,I.,VI,v.,d.,d. Telah dilakukan evaluasi atas Penanganan Benturan Kepentingan,5,1
+95,A.,I.,VI,v.,e.,e. Hasil evaluasi atas Penanganan Benturan Kepentingan telah ditindaklanjuti,5,1
+96,A.,I.,VI,v.,e.,VI PENINGKATAN KUALITAS PELAYANAN PUBLIK,3,0
+97,A.,I.,VI,i.,e.,i. Standar Pelayanan,4,0
+98,A.,I.,VI,i.,a.,a. Terdapat kebijakan standar pelayanan,5,1
+99,A.,I.,VI,i.,b.,b. Standar pelayanan telah dimaklumatkan,5,1
+100,A.,I.,VI,i.,c.,c. Dilakukan reviu dan perbaikan atas standar pelayanan,5,1
+101,A.,I.,VI,i.,d.,d. Telah melakukan publikasi atas standar pelayanan dan maklumat pelayanan,5,1
+102,A.,I.,VI,ii.,d.,ii. Budaya Pelayanan Prima,4,0
+103,A.,I.,VI,ii.,a.,a. Telah dilakukan berbagai upaya peningkatan kemampuan dan/atau kompetensi tentang penerapan budaya pelayanan prima,5,1
+104,A.,I.,VI,ii.,b.,b. Informasi tentang pelayanan mudah diakses melalui berbagai media,5,1
+105,A.,I.,VI,ii.,c.,c. Telah terdapat sistem pemberian penghargaan dan sanksi bagi petugas pemberi pelayanan,5,1
+106,A.,I.,VI,ii.,d.,d. Telah terdapat sistem pemberian kompensasi kepada penerima layanan bila layanan tidak sesuai standar,5,1
+107,A.,I.,VI,ii.,e.,e. Terdapat sarana layanan terpadu/terintegrasi,5,1
+108,A.,I.,VI,ii.,f.,f. Terdapat inovasi pelayanan,5,1
+109,A.,I.,VI,iii.,f.,iii. Pengelolaan Pengaduan,4,0
+110,A.,I.,VI,iii.,a.,a. Terdapat media pengaduan dan konsultasi pelayanan yang terintegrasi dengan SP4N-Lapor!,5,1
+111,A.,I.,VI,iii.,b.,b. Terdapat unit yang mengelola pengaduan dan konsultasi pelayanan,5,1
+112,A.,I.,VI,iii.,c.,c. Telah dilakukan evaluasi atas penanganan keluhan/masukan dan konsultasi,5,1
+113,A.,I.,VI,iv.,c.,iv. Penilaian Kepuasan terhadap Pelayanan,4,0
+114,A.,I.,VI,iv.,a.,a. Telah dilakukan survei kepuasan masyarakat terhadap pelayanan,5,1
+115,A.,I.,VI,iv.,b.,b. Hasil survei kepuasan masyarakat dapat diakses secara terbuka,5,1
+116,A.,I.,VI,iv.,c.,c. Dilakukan tindak lanjut atas hasil survei kepuasan masyarakat,5,1
+117,A.,I.,VI,v.,c.,v. Pemanfaatan Teknologi Informasi,4,0
+118,A.,I.,VI,v.,a.,a. Telah menerapkan teknologi informasi dalam memberikan pelayanan,5,1
+119,A.,I.,VI,v.,b.,b. Telah membangun database pelayanan yang terintegrasi,5,1
+120,A.,I.,VI,v.,c.,c. Telah dilakukan perbaikan secara terus-menerus,5,1
+121,A.,II.,VI,v.,c.,II. REFORM,2,0
+122,A.,II.,I,v.,c.,I MANAJEMEN PERUBAHAN,3,0
+123,A.,II.,I,i.,c.,i. Komitmen dalam perubahan,4,0
+124,A.,II.,I,i.,a.,a. Agen perubahan telah membuat perubahan yang konkret di Instansi (dalam 1 tahun),5,1
+125,A.,II.,I,i.,a.,- Jumlah Agen Perubahan,5,0
+126,A.,II.,I,i.,a.,- Jumlah Perubahan yang dibuat,5,0
+127,A.,II.,I,i.,b.,b. Perubahan yang dibuat Agen Perubahan telah terintegrasi dalam sistem manajemen,5,1
+128,A.,II.,I,i.,b.,- Jumlah Perubahan yang dibuat,5,0
+129,A.,II.,I,i.,b.,- Jumlah Perubahan yang telah diintegrasikan dalam sistem manajemen,5,0
+130,A.,II.,I,ii.,b.,ii. Komitmen Pimpinan,4,0
+131,A.,II.,I,ii.,-,"- Pimpinan memiliki komitmen terhadap pelaksanaan reformasi birokrasi, dengan adanya target capaian reformasi yang jelas di dokumen perencanaan",5,1
+132,A.,II.,I,iii.,-,iii. Membangun Budaya Kerja,4,0
+133,A.,II.,I,iii.,-,- Instansi membangun budaya kerja positif dan menerapkan nilai-nilai organisasi dalam pelaksanaan tugas sehari-hari,5,1
+134,A.,II.,II,iii.,-,II PENATAAN TATALAKSANA,3,0
+135,A.,II.,II,i.,-,i. Peta Proses Bisnis Mempengaruhi Penyederhanaan Jabatan,4,0
+136,A.,II.,II,i.,-,"- Telah disusun peta proses bisnis dengan adanya penyederhanaan jabatan 
+",5,1
+137,A.,II.,II,ii.,-,ii. Sistem Pemerintahan Berbasis Elektronik (SPBE) yang Terintegrasi,4,0
+138,A.,II.,II,ii.,a,a Implementasi SPBE telah terintegrasi dan mampu mendorong pelaksanaan pelayanan publik yang lebih cepat dan efisien,5,1
+139,A.,II.,II,ii.,b,b Implementasi SPBE telah terintegrasi dan mampu mendorong pelaksanaan pelayanan internal organisasi yang lebih cepat dan efisien,5,1
+140,A.,II.,II,iii.,b,iii. Transformasi Digital Memberikan Nilai Manfaat,4,0
+141,A.,II.,II,iii.,a.,a. Transformasi digital pada bidang proses bisnis utama telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1
+142,A.,II.,II,iii.,b.,b. Transformasi digital pada bidang administrasi pemerintahan telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1
+143,A.,II.,II,iii.,c.,c. Transformasi digital pada bidang pelayanan publik telah mampu memberikan nilai manfaat bagi unit kerja secara optimal,5,1
+144,A.,II.,III,iii.,c.,III PENATAAN SISTEM MANAJEMEN SDM APARATUR,3,0
+145,A.,II.,III,i.,c.,i. Kinerja Individu,4,0
+146,A.,II.,III,i.,a,a Ukuran kinerja individu telah berorientasi hasil (outcome) sesuai pada levelnya,5,1
+147,A.,II.,III,ii.,a,ii.,4,0
+148,A.,II.,III,ii.,a,a Hasil assessment telah dijadikan pertimbangan untuk mutasi dan pengembangan karir pegawai,5,1
+149,A.,II.,III,iii.,Pelanggaran Disiplin Pegawai,iii. Pelanggaran Disiplin Pegawai,4,0
+150,A.,II.,III,iii.,a,a Penurunan pelanggaran disiplin pegawai,5,1
+151,A.,II.,III,iii.,a,- Jumlah pelanggaran tahun sebelumnya,5,0
+152,A.,II.,III,iii.,a,- Jumlah pelanggaran tahun ini,5,0
+153,A.,II.,III,iii.,a,- Jumlah pelanggaran yang telah diberikan sanksi/hukuman,5,0
+154,A.,II.,IV,iii.,a,IV PENGUATAN AKUNTABILITAS,3,0
+155,A.,II.,IV,i.,Meningkatnya capaian kinerja unit kerja,i. Meningkatnya capaian kinerja unit kerja,4,0
+156,A.,II.,IV,i.,-,- Persentase Sasaran dengan capaian 100% atau lebih,5,1
+157,A.,II.,IV,i.,-,- Jumlah Sasaran Kinerja,5,0
+158,A.,II.,IV,i.,-,- Jumlah Sasaran Kinerja yang tercapai 100% atau lebih,5,0
+159,A.,II.,IV,ii.,-,ii.,4,0
+160,A.,II.,IV,ii.,-,- Hasil Capaian/Monitoring Perjanjian Kinerja telah dijadikan dasar sebagai pemberian reward and punishment bagi organisasi,5,1
+161,A.,II.,IV,iii.,Kerangka Logis Kinerja,iii. Kerangka Logis Kinerja,4,0
+162,A.,II.,IV,iii.,-,- Apakah terdapat penjenjangan kinerja (Kerangka Logis Kinerja) yang mengacu pada kinerja utama organisasi dan dijadikan dalam penentuan kinerja seluruh pegawai?,5,1
+163,A.,II.,VI,iii.,-,VI PENGUATAN PENGAWASAN,3,0
+164,A.,II.,VI,i.,Mekanisme Pengendalian,i. Mekanisme Pengendalian,4,0
+165,A.,II.,VI,i.,-,- Telah dilakukan mekanisme pengendalian aktivitas secara berjenjang,5,1
+166,A.,II.,VI,ii.,Penanganan Pengaduan Masyarakat,ii. Penanganan Pengaduan Masyarakat,4,0
+167,A.,II.,VI,ii.,-,- Persentase penanganan pengaduan masyarakat,5,1
+168,A.,II.,VI,ii.,-,- Jumlah pengaduan masyarakat yang harus ditindaklanjuti,5,0
+169,A.,II.,VI,ii.,-,- Jumlah pengaduan masyarakat yang sedang diproses,5,0
+170,A.,II.,VI,ii.,-,- Jumlah pengaduan masyarakat yang selesai ditindaklanjuti,5,0
+171,A.,II.,VI,iii.,Penyampaian Laporan Harta Kekayaan,iii. Penyampaian Laporan Harta Kekayaan,4,0
+172,A.,II.,VI,a.,Penyampaian Laporan Harta Kekayaan Pejabat Negara (LHKPN),a. Penyampaian Laporan Harta Kekayaan Pejabat Negara (LHKPN),4,0
+173,A.,II.,VI,a.,-,- Persentase penyampaian LHKPN,5,1
+174,A.,II.,VI,a.,-,- Jumlah yang harus melaporkan,5,0
+175,A.,II.,VI,a.,-,- Kepala satuan kerja,5,0
+176,A.,II.,VI,a.,-,- Pejabat yang diwajibkan menyampaikan LHKPN,5,0
+177,A.,II.,VI,a.,-,- Lainnya,5,0
+178,A.,II.,VI,a.,-,- Jumlah yang sudah melaporkan,5,0
+179,A.,II.,VI,b.,Penyampaian Laporan Harta Kekayaan Non LHKPN (Tidak Wajib LHKPN),b. Penyampaian Laporan Harta Kekayaan Non LHKPN (Tidak Wajib LHKPN),4,0
+180,A.,II.,VI,b.,-,- Persentase penyampaian Non LHKPN,5,1
+181,A.,II.,VI,b.,-,- Jumlah yang harus melaporkan (tidak wajib LHKPN),5,0
+182,A.,II.,VI,b.,-,- Pejabat administrator (eselon III),5,0
+183,A.,II.,VI,b.,-,- Pejabat Pengawas (eselon IV),5,0
+184,A.,II.,VI,b.,-,- Jumlah Fungsional dan Pelaksana,5,0
+185,A.,II.,VI,b.,-,- Jumlah yang sudah melaporkan,5,0
+186,A.,II.,VI,b.,-,VI PENINGKATAN KUALITAS PELAYANAN PUBLIK,3,0
+187,A.,II.,VI,i.,Upaya dan/atau Inovasi Pelayanan Publik,i. Upaya dan/atau Inovasi Pelayanan Publik,4,0
+188,A.,II.,VI,i.,a.,"a. Upaya dan/atau inovasi telah mendorong perbaikan pelayanan publik pada:
+1. Kesesuaian Persyaratan
+2. Kemudahan Sistem, Mekanisme, dan Prosedur
+3. Kecepatan Waktu Penyelesaian
+4. Kejelasan Biaya/Tarif, Gratis
+5. Kualitas Produk Spesifikasi Jenis Pelayanan
+6. Kompetensi Pelaksana/Web
+7. Perilaku Pelaksana/Web
+8. Kualitas Sarana dan prasarana
+9. Penanganan Pengaduan, Saran dan Masukan",5,1
+189,A.,II.,VI,i.,b.,"b. Upaya dan/atau inovasi pada perijinan/pelayanan telah dipermudah:
+1. Waktu lebih cepat
+2. Pelayanan Publik yang terpadu
+3. Alur lebih pendek/singkat
+4 Terintegrasi dengan aplikasi",5,1
+190,A.,II.,VI,i.,b.,- Jumlah perizinan/pelayanan yang terdata/terdaftar,5,0
+191,A.,II.,VI,i.,b.,- Jumlah perizinan/pelayanan yang telah dipermudah,5,0
+192,A.,II.,VI,ii.,Penanganan Pengaduan Pelayanan dan Konsultasi,ii. Penanganan Pengaduan Pelayanan dan Konsultasi,4,0
+193,A.,II.,VI,ii.,-,- Penanganan pengaduan pelayanan dilakukan melalui berbagai kanal/media secara responsif dan bertanggung jawab,5,1
+194,TOTAL PENGUNGKIT,II.,VI,ii.,-,,1,0
+195,B.,II.,VI,ii.,-,B. HASIL,1,0
+196,B.,I.,VI,ii.,-,I. BIROKRASI YANG BERSIH DAN AKUNTABEL,2,0
+197,B.,I.,a,ii.,-,a Nilai Survei Persepsi Korupsi (Survei Eksternal),3,0
+198,B.,I.,b,ii.,-,b Capaian Kinerja Lebih Baik dari pada Capaian Kinerja Sebelumnya,3,0
+199,B.,II.,b,ii.,-,II. PELAYANAN PUBLIK YANG PRIMA,2,0
+200,B.,II.,-,ii.,-,- Nilai Persepsi Kualitas Pelayanan (Survei Eksternal),3,0
+201,TOTAL HASIL,II.,-,ii.,-,,1,0
+202,NILAI HASIL EVALUASI ZONA INTEGRITAS,II.,-,ii.,-,,1,0

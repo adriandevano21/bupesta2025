@@ -1,0 +1,158 @@
+/* Responsive layout - laptop/pc */
+
+* { padding: 0; margin: 0; box-sizing: border-box;  font-family: 'Poppins', sans-serif }
+.layar-penuh { display: flex; height: 100vh; flex-direction: column; align-items: center; justify-content: center; flex-wrap: wrap }
+
+.kotak-flex-menu { display: flex; height: 100vh; width: 4vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap}
+
+.kotak-isi { display: flex; height: 100vh; width: 96vw; align-items: center; justify-content: center; flex-wrap: wrap}
+
+.kotak-flex-judul { display: flex; height: 6vh; width: 96vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap}
+
+.kotak-judul { display: flex; height: 6vh; width: 75vw; background: linear-gradient(to bottom, #3ecbff, #54d2ff) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px; justify-content: center; border-radius: 0 0 1rem 1rem}
+
+.kotak-judul > a { margin-top: 0.8vw }
+
+.kotak-flex-tengah { display: flex; height: 90vh; width: 72vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap} 
+  
+  .kotak-flex-24-satker { display: flex; height: 63vh; width: 72vw; align-items: center; justify-content: flex-start; flex-direction: row; flex-wrap: wrap }
+    .kotak-flex-24-satker-judul { display: flex; height:8.4vh; width:47.5vw; padding: 1vh 1vw 1vh 1vw; align-items: center; justify-content: flex-start; flex-direction: row; flex-wrap: wrap }
+    
+    #ProgresBar:checked ~ .isi-progres-bar {display: block} .isi-progres-tabel, .isi-progres-info {display: none}
+    #ProgresTabel:checked ~ .isi-progres-tabel {display: block} .isi-progres-bar, .isi-progres-info {display: none}
+    #ProgresInfo:checked ~ .isi-progres-info {display: block} .isi-progres-bar, .isi-progres-tabel {display: none}
+    .radio { display: none }
+    .label-radio { display: inline-block; text-align: center; height:3.5vh; width:7.5vw; margin:auto 0.15vw 0vh 0.15vw; padding: 1vh; color: rgba(0, 0, 0, 0.55); background: rgba(0, 0, 0, 0.15); border-radius: 0.25vw 0.25vw 0vw 0vw; cursor: pointer }
+    .radio:checked + .label-radio { color: white; background: gray }
+
+    /* progres-bar */
+    .isi-progres-bar, .isi-progres-tabel, .isi-progres-info { height:54.6vh; width:71.4vw; padding:1%; margin:0vh 0.3vw 0vh 0.3vw; background-color:grey; border-radius: 0.25vw }
+    .value, .label {font-size: 0.8vw}
+    .simple-bar-chart{ --line-count: 2; --line-color: currentcolor; --line-opacity: 0.25; --item-gap: 2.5%; --item-default-color: #060606; width:100%; height:100%; display: grid; grid-auto-flow: column; gap: var(--item-gap); align-items: end; padding-inline: var(--item-gap); --padding-block: 10vh; /*space for labels*/ padding-block: var(--padding-block); position: relative; isolation: isolate }
+    .simple-bar-chart::after{ content: ""; position: absolute; inset: var(--padding-block) 0; z-index: -1; --line-width: 0.1vw; --line-spacing: calc(100% / var(--line-count)); background-image: repeating-linear-gradient(to top, transparent 0 calc(var(--line-spacing) - var(--line-width)), var(--line-color) 0 var(--line-spacing)); box-shadow: 0 var(--line-width) 0 var(--line-color); opacity: var(--line-opacity) }
+    .simple-bar-chart > .item{ height: calc(1% * var(--val)); background-color: var(--clr, var(--item-default-color)); position: relative; animation: item-height 1s ease forwards }
+    @keyframes item-height { from { height: 0 } }
+    .simple-bar-chart > .item > * { position: absolute; text-align: center }
+    .simple-bar-chart > .item > .label { inset: 100% 0 auto 0; margin-top: 1vh }
+    .simple-bar-chart > .item > .value { inset: auto 0 100% 0 }
+    .legenda { display:flex; align-items: center; justify-content: center; position: absolute; margin-bottom: 3vh; width:100% }
+    .kotak-legenda { width:1vh; height:1vh; margin-left:2vw; margin-right:0.15vw }
+
+    /* progres-tabel */
+    .table-container, .info-container { position: relative; max-height: 100%; width: 100%; overflow: scroll; border: 1vw solid white }
+    table { border-collapse: collapse; width:100% }
+    td, th { padding: 0.25vw; box-sizing: border-box; font-size: 0.75vw; white-space: nowrap }
+    th { text-align: center }
+    thead { position: -webkit-sticky; position: sticky; top: 0; z-index: 2; background: gray; color: white }
+    thead th:first-child { left: 0; z-index: 3 }
+    tfoot { position: -webkit-sticky; bottom: 0; z-index: 2 }
+    tfoot td { position: sticky; bottom: 0; z-index: 2; background: hsl(20, 50%, 70%) }
+    tfoot td:first-child { z-index: 3 }
+    /* MAKE LEFT COLUMN FIXEZ */
+    tr > :first-child { position: -webkit-sticky; position: sticky; left: 0 }
+    /* Zebra striping */
+    tbody tr:nth-of-type(even) { background: #eee }
+    tbody tr:nth-of-type(odd) { background: white }
+    tbody tr:nth-of-type(even) > :first-child { background: #eee }
+    tbody tr:nth-of-type(odd) > :first-child { background: white }
+    /* sortable */
+    .table-sortable th { cursor: pointer }
+    .table-sortable .th-sort-asc::after { content: "\25b4" }
+    .table-sortable .th-sort-desc::after { content: "\25be" }
+    .table-sortable .th-sort-asc::after, .table-sortable .th-sort-desc::after { margin-left: 0.5vw }
+
+  .kotak-flex-suplemen { display: flex; height: 21.7vh; width: 72vw; margin-top: 0.5vh; margin-bottom: 1vh; align-items: center; justify-content: center; flex-direction: row; flex-wrap: wrap }
+    .kotak-flex-indikator-2-kolom { display: flex; height: 5vh; width: 47.4vw; margin:0.3vh 0.3vw 0.3vh 0.3vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap; border-radius: 0.2vw; font-weight: bold; }
+    .kotak-flex-indikator { display: flex; height: 5vh; width: 23.4vw; margin:0.3vh 0.3vw 0.3vh 0.3vw; align-items: center; justify-content: center; flex-direction: row; flex-wrap: wrap; border-radius: 0.2vw; border-left-style: solid; border-left-width: 0.3vw }
+      .kotak-flex-s { display: flex; height: 4.2vh; width: 2vw; margin:0.1vh 0.1vw 0.1vh 0.1vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap; border-radius: 0.2vw }
+      .kotak-flex-nama-indikator { display: flex; height: 5vh; width: 14vw; padding-left: 0.3vw; margin: 0.1vh 0.1vw 0.1vh 0.1vw; align-items: flex-start; justify-content: center; flex-direction: column; flex-wrap: wrap; }
+      .kotak-flex-realisasi { display: flex; height: 5vh; width: 3.5vw; padding-right: 0.3vw; margin: 0.1vh 0.1vw 0.1vh 0.1vw; align-items: flex-end; justify-content: center; flex-direction: column; flex-wrap: wrap; }
+      .kotak-flex-icon { display: flex; height: 4.2vh; width: 2vw; margin:0.1vh 0.1vw 0.1vh 0.1vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap; border-radius: 0.2vw }
+
+.kotak-flex-kanan { display: flex; height: 88vh; width: 24vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap; border-radius: 0.2rem; }
+
+  .kotak-flex-satker { display: flex; height: 9vh; width: 23vw; margin-left:1vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap }
+  
+  .kotak-flex-judul-pie { display: flex; height: 3vh; padding-top: 1vh; width: 23.25vw; align-items: center; justify-content: center; flex-direction: row; flex-wrap: wrap }
+    .judul-capkin-pie {width:100%; display:flex; align-items:flex-end; justify-content:center; text-align:center}
+
+  .kotak-flex-pie { display: flex; height: 28.2vh; width: 23.25vw; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap }
+    .capkin-pie {width:100%; display:flex; align-items:center; justify-content:center;}
+
+      @property --p{syntax: '<number>'; inherits: true; initial-value: 0;}
+      .pie {position:absolute; --b:1vw; --w:10.5vw; margin:1vw; width:var(--w); aspect-ratio:1; display:inline-grid; place-content:center; text-align:center;}
+      .pie:before {content:""; position:absolute; border-radius:50%;}
+      .pie:before {inset:0;background:conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+                  -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b))); mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));}
+      .animate {animation:p 1s .5s both;}
+      @keyframes p {from{--p:0}}
+
+      .panah {--b:1vw; --w:11.63vw; margin:1vw; width:var(--w); aspect-ratio:1; position:absolute; display:inline-grid; place-content:center}
+      .panah:after {inset:calc(50% - var(--b)/2); background:transparent; transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+                    border-top: 1.25vw solid transparent; border-left: 2.5vw solid var(--c);	border-bottom: 1.25vw solid transparent; content:"";}
+
+      .pangkal {--b:1vw; --w:10.5vw; margin:1vw; width:var(--w); aspect-ratio:1; position:absolute; display:inline-grid; place-content:center}
+      .pangkal:before{content:""; position:absolute; border-radius:50%;}
+      .pangkal:before {inset:0; background:radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat;
+                      -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b))); mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));}
+  
+  .kotak-flex-iku { display: flex; height: 44.8vh; width: 24vw; margin-top: 0.5vh; margin-bottom: 1vh; align-items: center; justify-content: center; flex-direction: column; flex-wrap: wrap }
+    .kotak-flex-indikator-utama { display: flex; height: 5vh; width: 23.4vw; margin:0.3vh 0.3vw 0.3vh 0.3vw; align-items: center; justify-content: center; flex-direction: row; flex-wrap: wrap; border-radius: 0.2vw; font-weight: bold; }
+
+.kotak-flex-footer { display: flex; height: 4vh; width: 75vw; justify-content: center; background: linear-gradient(to bottom, #3ecbff, #54d2ff) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px; border-radius: 1rem 1rem 0 0}
+
+.kotak-footer > a { margin-top: 0.3vw; font-size: 12px}
+
+.font-super-besar { font-size: 1.4vw; line-height: 1.1 }
+.font-besar { font-size: 1.2vw; line-height: 1.1 }
+.font-semi-besar { font-size: 1.1vw; line-height: 1.5 }
+.font-standar { font-size: 0.9vw; line-height: 1.1 }
+.font-agak-mini { font-size: 0.7vw }
+.font-mini { font-size: 0.65vw }
+
+.biru { color: #659cef } .merah { color: #EF6565 } .hijau { color: #4FCF05 } .emas { color: #E4BB05 } .abu-abu { color: #e0e0e0 } .putih { color: white } .abu-tua { color: grey }
+.bg-biru { background-color: #659cef } .bg-merah { background-color: #EF6565 } .bg-hijau { background-color: #4FCF05} .bg-emas { background-color: #E4BB05 } .bg-abu-abu { background-color: #e0e0e0 } .bg-putih { background-color: #FCFCFC }
+.border-biru { border: solid 0.1vw #659cef } .border-merah { border: solid 0.1vw #EF6565 } .border-hijau { border: solid 0.1vw #4FCF05 } .border-emas { border: solid 0.1vw gold } .border-abu-abu { border: solid 0.1vw grey }
+.border-kiri-biru { border-left-color: #659cef } .border-kiri-merah { border-left-color: #EF6565 } .border-kiri-hijau { border-left-color: #4FCF05 } .border-kiri-emas { border-left-color: gold } .border-kiri-abu-abu { border-left-color: grey }
+
+/* Responsive layout - android */
+
+.full-hitam { display: none; flex-direction: column; height: 100vh; width : 100vw; align-items: center; justify-content: center; background:rgba(0, 0, 0, 0.5);}
+.phone {
+  height: 50px;
+  width: 100px;
+  border: 3px solid white;
+  border-radius: 10px;
+  animation: rotate 1.5s ease-in-out infinite alternate;
+}
+.mess {
+  margin-top: 50px;
+  width: 100vw;
+  color: white;
+  text-align: center;
+}
+
+@keyframes rotate {
+  0% {
+		transform: rotate(0deg)
+	}
+	50% {
+		transform: rotate(-90deg)
+	}
+	100% {
+		transform: rotate(-90deg)
+	}
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+  .full-hitam, .phone, .message {
+    display: flex;
+  }
+  .layar-penuh {
+    display: none;
+  }
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* DEFAULT VALUES */
