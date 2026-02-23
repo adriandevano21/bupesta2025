@@ -46,6 +46,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.5/css/fixedHeader.dataTables.css">
 
     <style>
         /* Style untuk Overlay Loading Penuh */
@@ -111,6 +113,10 @@
             <br>
 
             <div class="posisitengah">
+
+                <div class="welcome-banner">
+                    <h2><span id="typewriter"></span><span class="cursor">|</span></h2>
+                </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-3">
 
@@ -181,6 +187,18 @@
                                 </select>
                             </div>
 
+                            {{-- 4. CHECKBOX TUGAS SAYA --}}
+                            <div class="filters-mini__group">
+                                <label class="filters-mini__label" for="task-me">Tugas Saya</label>
+                                <div class="filters-mini__input-wrapper"
+                                    style="display: flex; align-items: center; height: 38px;">
+                                    {{-- onchange dihapus, jadi filter hanya jalan saat tombol Terapkan diklik --}}
+                                    <input type="checkbox" name="task" value="me" id="task-me"
+                                        {{ request('task') == 'me' ? 'checked' : '' }}
+                                        style="width: 20px; height: 20px; cursor: pointer;">
+                                </div>
+                            </div>
+
                             <div class="filters-mini__actions">
                                 <button class="filters-mini__btn" type="submit">Terapkan</button>
                                 @if ($selectedPilar !== '' || $selectedSatker !== '')
@@ -197,7 +215,7 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="tblLembarKerja" class="table table-striped table-hover align-middle w-100">
-                                <thead style="align-items: center !important;">
+                                <thead>
                                     <tr>
                                         {{-- <th></th> --}}
                                         <th>Rencana Kerja</th>
@@ -210,6 +228,11 @@
                                         {{-- <th>Progress</th> --}}
                                         <th>Status Dokumen</th>
                                         <th>Pemeriksaan</th>
+                                        <th>Progress <br> Tr 1</th>
+                                        <th>Progress <br> Tr 2</th>
+                                        <th>Progress <br> Tr 3</th>
+                                        <th>Progress <br> Tr 4</th>
+                                        <th>Progress <br> Tahunan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -219,9 +242,13 @@
                                             $lvl = max(1, min(5, $lvl));
                                             $text = $row->rencana_kerja ?? ($row->rencana_kerja ?? '-');
                                             $status = $row->status ?? null; // sesuaikan
+                                            $array_penanggungjawab = array_map(
+                                                'trim',
+                                                explode(',', $row->isian->penanggungjawab ?? null),
+                                            );
                                         @endphp
 
-                                        <tr>
+                                        <tr id="baris-{{ $row->id }}">
                                             {{-- data-order biar sorting tetap rapi walau ada bullet/indent --}}
                                             <td data-order="{{ strip_tags($text) }}">
                                                 <div class="lvl-wrap lvl-{{ $lvl }}"
@@ -247,7 +274,9 @@
                                                     @if ($row->pengisian === 1)
                                                         @if (
                                                             $data['user_active'][0]->role === 'admin' ||
-                                                                ($data['user_active'][0]->kode_satker === $selectedSatker && $data['user_active'][0]->role === 'operator'))
+                                                                ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                    in_array($data['user_active'][0]->username, $array_penanggungjawab) &&
+                                                                    $row->isian->status_dokumen !== '5'))
                                                             <hr>
                                                             <button type="button"
                                                                 class="btn btn-edit-pill js-edit-isian1"
@@ -335,7 +364,11 @@
                                                     @endif
                                                     @if (
                                                         $data['user_active'][0]->role === 'admin' ||
-                                                            ($data['user_active'][0]->kode_satker === $selectedSatker && $data['user_active'][0]->role === 'operator'))
+                                                            ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                in_array($data['user_active'][0]->username, $array_penanggungjawab) &&
+                                                                ($row->isian->status_dokumen === '1' ||
+                                                                    $row->isian->status_dokumen === '2' ||
+                                                                    $row->isian->status_dokumen === '3')))
                                                         <hr>
                                                         <button type="button"
                                                             class="btn btn-edit-pill js-edit-isian2"
@@ -347,6 +380,7 @@
                                                             data-bulan-realisasi="{{ $row->isian->bulan_realisasi ?? '' }}"
                                                             data-link_buktidukung="{{ $row->isian->link_buktidukung ?? '' }}">
                                                             <i class="bi bi-pencil-square"></i><span> Realisasi</span>
+
                                                         </button>
                                                     @endif
                                                 @endif
@@ -356,6 +390,48 @@
                                                 @if ($row->pengisian === 1)
                                                     @php
                                                         $statusDokumen = $row->isian->status_dokumen ?? 'Belum Isi';
+                                                        // Konfigurasi tiap tahap (0 - 5)
+                                                        // Pastikan jadi number/integer
+                                                        $statusNum = (int) $statusDokumen;
+
+                                                        // Konfigurasi tiap tahap (0 - 5)
+                                                        $statusMap = [
+                                                            0 => [
+                                                                'label' => '',
+                                                                'color' => '#6c757d',
+                                                                'icon' => 'bi-file-earmark',
+                                                            ],
+                                                            1 => [
+                                                                'label' => '',
+                                                                'color' => '#dc3545',
+                                                                'icon' => 'bi-send',
+                                                            ],
+                                                            2 => [
+                                                                'label' => '',
+                                                                'color' => '#fd7e14',
+                                                                'icon' => 'bi-gear',
+                                                            ],
+                                                            3 => [
+                                                                'label' => '',
+                                                                'color' => '#ffc107',
+                                                                'icon' => 'bi-search',
+                                                            ],
+                                                            4 => [
+                                                                'label' => '',
+                                                                'color' => '#2b00ff',
+                                                                'icon' => 'bi-patch-check',
+                                                            ],
+                                                            5 => [
+                                                                'label' => '',
+                                                                'color' => '#198754',
+                                                                'icon' => 'bi-check-all',
+                                                            ],
+                                                        ];
+
+                                                        $currentStatus = $statusMap[$statusNum] ?? $statusMap[0];
+
+                                                        // Rumus: (n+1) / 6 * 100
+                                                        $percentage = ($statusNum / 5) * 100;
                                                     @endphp
                                                     @if ($statusDokumen === '1')
                                                         <button type="button" class="btn btn-status"
@@ -364,24 +440,33 @@
                                                                 Target Sudah Ditetapkan</span>
                                                         </button>
                                                     @elseif ($statusDokumen === '2')
-                                                        <form id="form-finish-{{ $row->isian->id }}"
-                                                            action="{{ url('/isian/' . $row->isian->id) }}"
-                                                            method="POST" style="display: none;">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            {{-- Variabel pengisian dikirim di sini --}}
-                                                            <input type="hidden" name="pengisian" value="kelima">
-                                                            <input type="hidden" name="updateby" id="updateby"
-                                                                value="{{ $data['user_active'][0]->username }}">
-                                                        </form>
-                                                        <button type="button"
-                                                            class="btn btn-status btn-finish-confirm"
-                                                            title="Status Dokumen" aria-label="Edit"
-                                                            {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
-                                                            @if ($data['user_active'][0]->username === $row->isian->created_by_3) data-id="{{ $row->isian->id ?? '' }}" @endif>
-                                                            <i class="bi bi-graph-up-arrow"></i>
-                                                            <span>Bukti Dukung Sudah Diisi</span>
-                                                        </button>
+                                                        @if ($data['user_active'][0]->username === $row->isian->created_by_3)
+                                                            <form id="form-finish-{{ $row->isian->id }}"
+                                                                action="{{ url('/isian/' . $row->isian->id) }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                {{-- Variabel pengisian dikirim di sini --}}
+                                                                <input type="hidden" name="pengisian"
+                                                                    value="kelima">
+                                                                <input type="hidden" name="updateby" id="updateby"
+                                                                    value="{{ $data['user_active'][0]->username }}">
+                                                            </form>
+                                                            <button type="button"
+                                                                class="btn btn-status btn-finish-confirm"
+                                                                title="Status Dokumen" aria-label="Edit"
+                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
+                                                                data-id="{{ $row->isian->id ?? '' }}">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-status"
+                                                                title="Status Dokumen" aria-label="Edit">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                            </button>
+                                                        @endif
                                                     @elseif ($statusDokumen === '3')
                                                         <button type="button" class="btn btn-status"
                                                             title="Status Dokumen" aria-label="Edit">
@@ -389,24 +474,33 @@
                                                                 Terdapat Evaluasi</span>
                                                         </button>
                                                     @elseif ($statusDokumen === '4')
-                                                        <form id="form-finish-{{ $row->isian->id }}"
-                                                            action="{{ url('/isian/' . $row->isian->id) }}"
-                                                            method="POST" style="display: none;">
-                                                            @csrf
-                                                            @method('PUT')
-                                                            {{-- Variabel pengisian dikirim di sini --}}
-                                                            <input type="hidden" name="pengisian" value="kelima">
-                                                            <input type="hidden" name="updateby" id="updateby"
-                                                                value="{{ $data['user_active'][0]->username }}">
-                                                        </form>
-                                                        <button type="button"
-                                                            class="btn btn-status btn-finish-confirm"
-                                                            title="Status Dokumen" aria-label="Edit"
-                                                            {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
-                                                            @if ($data['user_active'][0]->username === $row->isian->created_by_3) data-id="{{ $row->isian->id ?? '' }}" @endif>
-                                                            <i class="bi bi-graph-up-arrow"></i>
-                                                            <span>Sudah Ditindaklanjuti</span>
-                                                        </button>
+                                                        @if ($data['user_active'][0]->username === $row->isian->created_by_3)
+                                                            <form id="form-finish-{{ $row->isian->id }}"
+                                                                action="{{ url('/isian/' . $row->isian->id) }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                {{-- Variabel pengisian dikirim di sini --}}
+                                                                <input type="hidden" name="pengisian"
+                                                                    value="kelima">
+                                                                <input type="hidden" name="updateby" id="updateby"
+                                                                    value="{{ $data['user_active'][0]->username }}">
+                                                            </form>
+                                                            <button type="button"
+                                                                class="btn btn-status btn-finish-confirm"
+                                                                title="Status Dokumen" aria-label="Edit"
+                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
+                                                                data-id="{{ $row->isian->id ?? '' }}">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Sudah Ditindaklanjuti</span>
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-status"
+                                                                title="Status Dokumen" aria-label="Edit">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Sudah Ditindaklanjuti</span>
+                                                            </button>
+                                                        @endif
                                                     @elseif ($statusDokumen === '5')
                                                         <button type="button" class="btn btn-status"
                                                             title="Status Dokumen" aria-label="Edit">
@@ -419,98 +513,30 @@
                                                             <span>{{ $statusDokumen }}</span>
                                                         </button>
                                                     @endif
+                                                    <div class="progress-wrapper">
+                                                        <div class="progress-track">
+                                                            <div class="progress-bar-status"
+                                                                style="width: {{ $percentage }}%;
+                                                                    border-color: {{ $currentStatus['color'] }} !important;
+                                                                    color: {{ $currentStatus['color'] }} !important;">
+
+                                                                <i class="bi {{ $currentStatus['icon'] }}"></i>
+                                                                <span>{{ $currentStatus['label'] }}
+                                                                    ({{ round($percentage) }}%)</span>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 @endif
                                             </td>
 
-                                            {{-- <td>
-                                                @if ($row->pengisian === 1)
-                                                    @php
-                                                        $statusApproval =
-                                                            $row->isian->status_approval ?? 'Belum Upload';
-                                                    @endphp
-
-                                                    @if ($statusApproval === 'Belum Upload')
-                                                        <button type="button" class="btn btn-tiny btn-tiny-danger"
-                                                            disabled>
-                                                            <i class="bi bi-x-lg"></i>
-                                                            <span>Belum Upload</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Sudah Upload')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-success js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}"
-                                                            @if (!in_array($data['user_active'][0]->role, ['evaluator', 'admin'])) disabled @endif>
-                                                            <i class="bi bi-check2"></i>
-                                                            <span>Link Tersedia</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Dievaluasi')
-                                                        @if (in_array($data['user_active'][0]->role, ['operator']))
-                                                            <button type="button"
-                                                                class="btn btn-tiny btn-tiny-warning js-edit-isian3"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditIsian3"
-                                                                data-id="{{ $row->isian->id ?? '' }}"
-                                                                data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                                data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                                data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                                data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                                <i class="bi bi-search"></i>
-                                                                <span>Terdapat Evaluasi</span>
-                                                            </button>
-                                                        @else
-                                                            <button type="button"
-                                                                class="btn btn-tiny btn-tiny-warning js-edit-isian2"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditIsian2"
-                                                                data-id="{{ $row->isian->id ?? '' }}"
-                                                                data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                                data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                                data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                                data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                                <i class="bi bi-search"></i>
-                                                                <span>Terdapat Evaluasi</span>
-                                                            </button>
-                                                        @endif
-                                                    @elseif ($statusApproval === 'Sudah Tindak Lanjut')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-info js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                            <i class="bi bi-arrow-repeat"></i>
-                                                            <span>Sudah Tindak Lanjut</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Sudah Sesuai')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-primary js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}"
-                                                            @if (!in_array($data['user_active'][0]->role, ['evaluator', 'admin'])) disabled @endif>
-                                                            <i class="bi bi-patch-check"></i>
-                                                            <span>Sudah Sesuai</span>
-                                                        </button>
-                                                    @else
-                                                        <span
-                                                            class="badge text-bg-secondary">{{ $statusApproval }}</span>
-                                                    @endif
-                                                @endif
-                                            </td> --}}
-
                                             <td class="keep-enter">
+                                                {{-- {{ $row->isian->created_by_3 }} --}}
                                                 @if ($row->pengisian === 1)
-                                                    @if ($data['user_active'][0]->username === $row->isian->created_by_3)
+                                                    @if (
+                                                        ($row->isian?->created_by_3 ?? null) !== null &&
+                                                            $data['user_active'][0]->username === $row->isian->created_by_3 &&
+                                                            in_array($row->isian->status_dokumen, ['2', '3', '4']))
                                                         <button type="button"
                                                             class="btn btn-edit-pill js-edit-isian3"
                                                             title="Beri Evaluasi" aria-label="Edit"
@@ -533,7 +559,9 @@
 
                                                         @if (
                                                             $data['user_active'][0]->role === 'admin' ||
-                                                                ($data['user_active'][0]->kode_satker === $selectedSatker && $data['user_active'][0]->role === 'operator'))
+                                                                ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                    in_array($data['user_active'][0]->username, $array_penanggungjawab) &&
+                                                                    $row->isian->status_dokumen === '3'))
                                                             <button type="button"
                                                                 class="btn btn-edit-pill js-edit-isian4"
                                                                 title="Beri Tindak Lanjut" aria-label="Edit"
@@ -551,8 +579,79 @@
                                                     @endif
                                                 @endif
                                             </td>
+                                            @php
+                                                // Kumpulkan field yang akan dilooping secara berurutan
+                                                $progressFields = [
+                                                    $row->isian->progres_tw1 ?? null,
+                                                    $row->isian->progres_tw2 ?? null,
+                                                    $row->isian->progres_tw3 ?? null,
+                                                    $row->isian->progres_tw4 ?? null,
+                                                    $row->isian->progres_th ?? null,
+                                                ];
+                                            @endphp
 
+                                            @foreach ($progressFields as $nilai)
+                                                <td>
+                                                    @if ($row->pengisian === 1 && $nilai !== null)
+                                                        @php
+                                                            // Tentukan gaya berdasarkan nilai
+                                                            $isTidakAdaTarget = $nilai === 'Tidak Ada Target';
+
+                                                            if ($isTidakAdaTarget) {
+                                                                $lebar = 100;
+                                                                $warna = '#6c757d'; // Abu-abu
+                                                                $ikon = 'bi-dash-circle';
+                                                                $teks = 'Tidak Ada Target';
+                                                            } else {
+                                                                $angka = (float) $nilai;
+                                                                $lebar = $angka;
+                                                                $teks = $angka . '%';
+
+                                                                if ($angka >= 100) {
+                                                                    $warna = '#198754'; // Hijau
+                                                                    $ikon = 'bi-check-circle-fill';
+                                                                } elseif ($angka > 0) {
+                                                                    $warna = '#2b00ff'; // Biru
+                                                                    $ikon = 'bi-activity';
+                                                                } else {
+                                                                    $warna = '#dc3545'; // Merah
+                                                                    $ikon = 'bi-x-circle';
+                                                                }
+                                                            }
+                                                        @endphp
+
+                                                        <div class="progress-track"
+                                                            style="background-color: #f1f3f5; border-radius: 12px; height: 32px; border: 1px solid #1A71A7; overflow: hidden; display: flex; align-items: center; width: 100%; min-width: 120px;">
+                                                            <div class="btn-status"
+                                                                style="width: {{ $lebar }}%;
+                                                                    min-width: {{ $isTidakAdaTarget ? '100%' : '60px' }};
+                                                                    border-color: {{ $warna }} !important;
+                                                                    color: {{ $warna }} !important;
+                                                                    transition: width 0.5s ease;
+                                                                    display: flex;
+                                                                    align-items: center;
+                                                                    justify-content: center;
+                                                                    height: 100%;
+                                                                    gap: 10px;
+                                                                    padding: 0 10px;
+                                                                    border-radius: 12px;
+                                                                    background: {{ $isTidakAdaTarget ? '#e9ecef' : '#f1f3f5' }};
+                                                                    border: 1px solid #1A71A7;
+                                                                    font-size: 9px !important;
+                                                                    font-weight: bold;
+                                                                    white-space: nowrap;">
+
+                                                                <i class="bi {{ $ikon }}"></i>
+                                                                <span>{{ $teks }}</span>
+                                                            </div>
+                                                        </div>
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
+                                                </td>
+                                            @endforeach
                                         </tr>
+
                                     @endforeach
                                 </tbody>
                             </table>
@@ -983,6 +1082,12 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.5/js/dataTables.fixedHeader.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.5/js/fixedHeader.dataTables.js"></script>
+
+
+
 
 <!-- JS (pastikan jQuery sudah ada) -->
 {{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> --}}
@@ -1053,15 +1158,127 @@
 </script>
 
 <script>
+    $('#tblLembarKerja').css({
+        'table-layout': 'fixed',
+        'width': '100%',
+        'word-wrap': 'break-word'
+    });
+
     var table = $('#tblLembarKerja').DataTable({
-        // responsive: true,
-        // lengthChange: false,
+        // 1. Matikan autoWidth wajib hukumnya
+        autoWidth: false,
+        fixedHeader: {
+            header: true,
+            headerOffset: 70
+        },
+        columnDefs: [{
+                targets: '_all',
+                className: 'dt-head-center'
+            },
+            {
+                targets: 0,
+                orderable: false,
+                width: '300px'
+            },
+            {
+                targets: 1,
+                orderable: false,
+                width: '200px'
+            },
+            {
+                targets: 2,
+                orderable: false,
+                width: '200px'
+            },
+            {
+                targets: 3,
+                orderable: false,
+                width: '130px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 4,
+                orderable: false,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 5,
+                orderable: false,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 6,
+                orderable: false,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 7,
+                orderable: false,
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 8,
+                orderable: false,
+                width: '250px'
+            },
+            {
+                targets: 9,
+                width: '150px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 10,
+                width: '150px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 11,
+                width: '150px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 12,
+                width: '150px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 13,
+                width: '150px',
+                className: 'dt-body-center'
+            }
+        ],
         paging: false,
         // info: false,
-        ordering: false,
+        // ordering: false,
         // searching: false,
         order: [],
         scrollX: true, // Mengaktifkan scroll horizontal
+        // 4. MENGATUR BORDER ISI TABEL (TD)
+        // Fitur ini otomatis memberi border pada data meskipun Anda pindah halaman
+        createdRow: function(row, data, dataIndex) {
+            $(row).find('td').css({
+                'border': '1px solid #54acff' // Border hitam pekat untuk isi tabel
+            });
+        },
+
+        // 5. MENGATUR HEADER (Warna Background & Border)
+        initComplete: function(settings, json) {
+            // Border dan warna untuk Header (TH)
+            $(this.api().table().header()).find('th').css({
+                'background-color': '#54acff',
+                'color': '#ffffff',
+                'border': '1px solid #000000' // Border hitam pekat untuk header
+            });
+
+            // (Opsional) Border untuk bingkai luar tabel secara keseluruhan
+            $(this.api().table().node()).css({
+                'border': '1px solid #54acff'
+            });
+        }
         // autoWidth: false, // Mencegah DataTables menghitung lebar otomatis
         // columnDefs: [{
         //         "width": "200px",
@@ -1193,9 +1410,15 @@
         const rencana_kerjaEl = document.getElementById('edit_rencana_kerja');
         if (rencana_kerjaEl) rencana_kerjaEl.value = rencana_kerja;
 
-        document.getElementById('edit_penanggungjawab').value = penanggungjawab;
+        // document.getElementById('edit_penanggungjawab').value = penanggungjawab;
         document.getElementById('edit_rencanaaksi').value = rencanaaksi;
         document.getElementById('edit_output').value = output;
+
+        let stringDariDB = penanggungjawab;
+        let arrayPenanggungjawab = stringDariDB.split(',').map(item => item.trim());
+
+        // Masukkan array langsung ke select
+        $('#edit_penanggungjawab').val(arrayPenanggungjawab);
 
         // auto-ceklis bulan
         setCheckedFromCsv('bulanTargetWrap', btn.dataset.bulanTarget || '');
@@ -1485,7 +1708,27 @@
                 setTimeout(() => {
                     dataTableInstance = $('#tableFiles').DataTable({
                         "language": {
-                            "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json" // Bahasa Indonesia
+                            "emptyTable": "Tidak ada data yang tersedia pada tabel ini",
+                            "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ baris",
+                            "infoEmpty": "Menampilkan 0 sampai 0 dari 0 baris",
+                            "infoFiltered": "(disaring dari _MAX_ baris keseluruhan)",
+                            "infoPostFix": "",
+                            "thousands": ".",
+                            "lengthMenu": "Tampilkan _MENU_ baris",
+                            "loadingRecords": "Sedang memuat...",
+                            "processing": "Sedang memproses...",
+                            "search": "Cari:",
+                            "zeroRecords": "Tidak ditemukan data yang sesuai",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Selanjutnya",
+                                "previous": "Sebelumnya"
+                            },
+                            "aria": {
+                                "sortAscending": ": aktifkan untuk mengurutkan kolom ke atas",
+                                "sortDescending": ": aktifkan untuk mengurutkan kolom menurun"
+                            }
                         },
                         "pageLength": 10, // Default 10 baris per halaman
                         "order": [
@@ -1606,7 +1849,27 @@
                 setTimeout(() => {
                     dataTableInstance = $('#tableFiles').DataTable({
                         "language": {
-                            "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json" // Bahasa Indonesia
+                            "emptyTable": "Tidak ada data yang tersedia pada tabel ini",
+                            "info": "Menampilkan _START_ sampai _END_ dari _TOTAL_ baris",
+                            "infoEmpty": "Menampilkan 0 sampai 0 dari 0 baris",
+                            "infoFiltered": "(disaring dari _MAX_ baris keseluruhan)",
+                            "infoPostFix": "",
+                            "thousands": ".",
+                            "lengthMenu": "Tampilkan _MENU_ baris",
+                            "loadingRecords": "Sedang memuat...",
+                            "processing": "Sedang memproses...",
+                            "search": "Cari:",
+                            "zeroRecords": "Tidak ditemukan data yang sesuai",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Selanjutnya",
+                                "previous": "Sebelumnya"
+                            },
+                            "aria": {
+                                "sortAscending": ": aktifkan untuk mengurutkan kolom ke atas",
+                                "sortDescending": ": aktifkan untuk mengurutkan kolom menurun"
+                            }
                         },
                         "pageLength": 10, // Default 10 baris per halaman
                         "order": [
@@ -1725,6 +1988,41 @@
                 }
             });
         });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const element = document.getElementById("typewriter");
+        const username = @json($data['user_active'][0]->name ?? 'Pengguna');
+        const fullText = `👋 Selamat Datang, ${username}..`;
+        const chars = Array.from(fullText); // aman untuk emoji & karakter non-ASCII
+        let i = 0;
+        let isDeleting = false;
+
+        function type() {
+            if (!isDeleting) {
+                i++;
+                element.textContent = chars.slice(0, i).join('');
+                if (i === chars.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // tunggu sebelum menghapus
+                    return;
+                }
+            } else {
+                i--;
+                element.textContent = chars.slice(0, i).join('');
+                if (i <= 0) {
+                    i = 0;
+                    isDeleting = false;
+                }
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(type, speed);
+        }
+
+        type();
     });
 </script>
 

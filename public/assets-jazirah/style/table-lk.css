@@ -376,6 +376,51 @@
     line-height: 1;
 }
 
+.progress-wrapper {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.progress-track {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    height: 32px;
+    /* Sesuaikan tinggi */
+    overflow: hidden;
+    border: 1px solid #1A71A7;
+    display: flex;
+    align-items: center;
+}
+
+.progress-bar-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    height: 100%;
+    padding: 0 14px;
+    border-radius: 12px;
+    background: #f1f3f5;
+    /* Background tetap abu terang seperti btn-status */
+    border: 1px solid;
+    /* Warna ditentukan di inline style */
+
+    font-size: 9px !important;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+
+    /* Animasi transisi lebar */
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .06);
+}
+
+.progress-bar-status i {
+    font-size: 10px !important;
+}
+
 .btn-edit-pill {
     display: inline-flex;
     align-items: center;
@@ -420,4 +465,22 @@
     white-space: pre-line;
     text-align: justify;
     text-justify: inter-word;
+}
+
+.welcome-banner {
+    text-align: center;
+    margin: 0px 0px 20px;
+}
+
+#welcome {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+#typewriter {
+    font-size: 24px;
+    font-weight: 600;
+    color: #007bff;
+    white-space: nowrap;
 }

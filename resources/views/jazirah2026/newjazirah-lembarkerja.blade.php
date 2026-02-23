@@ -11,7 +11,7 @@
     <!-- Icon Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Fitral CSS -->
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('assets-jazirah/') }}/load/load.css">
     <script src="{{ asset('assets-jazirah/') }}/load/load.js"></script>
     <title>BuPeSta - {{ $data['judul'] }}</title>
@@ -46,9 +46,40 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
         referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.5/css/fixedHeader.dataTables.css">
+
+    <style>
+        /* Style untuk Overlay Loading Penuh */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Latar belakang hitam transparan */
+            z-index: 9999;
+            /* Pastikan di atas segalanya (termasuk modal bootstrap) */
+            display: none;
+            /* Sembunyikan secara default */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
+
+    <div id="loading-overlay">
+        <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <h4 class="mt-3">Sedang Memproses Data...</h4>
+        <p>Mohon tunggu, jangan tutup halaman ini.</p>
+    </div>
 
     <!-- Peringatan Landscape -->
     <div id="orientation-warning" style="display: none;">
@@ -83,6 +114,10 @@
 
             <div class="posisitengah">
 
+                <div class="welcome-banner">
+                    <h2><span id="typewriter"></span><span class="cursor">|</span></h2>
+                </div>
+
                 <div class="d-flex align-items-center justify-content-between mb-3">
 
                     @php
@@ -94,18 +129,43 @@
                     <form method="GET" action="{{ url()->current() }}" class="filters-mini">
                         <div class="filters-mini__row">
 
+                            {{-- 1. DROPDOWN PILAR --}}
                             <div class="filters-mini__group">
                                 <label class="filters-mini__label">Pilar</label>
-                                <select name="pilar" class="filters-mini__select filters-mini__select--pilar">
-                                    <option value="">Semua</option>
-                                    @foreach ($pilars as $p)
+                                <select name="pilar" id="select-pilar" class="filters-mini__select">
+                                    <option value="">Semua Pilar</option>
+                                    @foreach ($data['pilars'] as $p)
                                         <option value="{{ $p }}"
-                                            {{ $selectedPilar === $p ? 'selected' : '' }}>
+                                            {{ $data['pilar_selected'] == $p ? 'selected' : '' }}>
                                             {{ $p }}
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
+
+                            {{-- 2. DROPDOWN SUB PILAR --}}
+                            {{-- Container kita beri ID 'container-subpilar' untuk disembunyikan/dimunculkan --}}
+                            <div class="filters-mini__group" id="container-subpilar" style="display: none;">
+                                <label class="filters-mini__label">Sub Pilar</label>
+                                <select name="subpilar" id="select-subpilar" class="filters-mini__select">
+                                    <option value="">Semua Sub Pilar</option>
+
+                                    @foreach ($data['data_subpilar'] as $sub)
+                                        {{--
+                                            PENTING:
+                                            value       = ID unik subpilar (untuk dikirim ke controller)
+                                            data-parent = Kode Pilar (kode_3) untuk dicocokkan dengan Pilar diatas
+                                            --}}
+                                        <option value="{{ $sub->kode_4 }}" data-parent="{{ $sub->kode_3 }}"
+                                            {{ $data['subpilar_selected'] == $sub->rencana_kerja ? 'selected' : '' }}>
+                                            {{ $sub->rencana_kerja }}
+                                        </option>
+                                    @endforeach
+
+                                </select>
+                            </div>
+
+                            {{-- 3. DROPDOWN SATKER --}}
                             <div class="filters-mini__group">
                                 <label class="filters-mini__label">Satker</label>
                                 <select name="satker" class="filters-mini__select filters-mini__select--satker">
@@ -144,19 +204,18 @@
                         <div class="table-responsive">
                             <table id="tblLembarKerja" class="table table-striped table-hover align-middle w-100">
                                 <thead>
-                                    <tr style="align-items: center;">
+                                    <tr>
                                         {{-- <th></th> --}}
-                                        <th style="min-width:210px">Rencana Kerja</th>
-                                        <th style="min-width:120px">Rencana Aksi</th>
-                                        <th style="min-width:120px">Output</th>
-                                        <th style="min-width:120px">Penanggung Jawab</th>
-                                        <th style="width:100px">Target</th>
-                                        <th style="width:100px">Realisasi</th>
-                                        <th style="min-width:50px">Dokumen</th>
-                                        {{-- <th style="width:140px">Progress</th> --}}
-                                        <th style="min-width:100px">Status Dokumen</th>
-                                        <th style="min-width:220px">Pemeriksaan</th>
-
+                                        <th>Rencana Kerja</th>
+                                        <th>Rencana Aksi</th>
+                                        <th>Output</th>
+                                        <th>Penanggung Jawab</th>
+                                        <th>Target</th>
+                                        <th>Realisasi</th>
+                                        <th>Dokumen</th>
+                                        {{-- <th>Progress</th> --}}
+                                        <th>Status Dokumen</th>
+                                        <th>Pemeriksaan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -166,41 +225,40 @@
                                             $lvl = max(1, min(5, $lvl));
                                             $text = $row->rencana_kerja ?? ($row->rencana_kerja ?? '-');
                                             $status = $row->status ?? null; // sesuaikan
+                                            $array_penanggungjawab = array_map(
+                                                'trim',
+                                                explode(',', $row->isian->penanggungjawab ?? null),
+                                            );
                                         @endphp
 
                                         <tr>
-                                            {{-- <td>
-                                                @if ($row->pengisian === 1)
-                                                    @if ($data['user_active'][0]->role === 'admin' or $data['user_active'][0]->role === 'operator')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-light btn-icon-soft js-edit-isian"
-                                                            title="Edit" aria-label="Edit" data-bs-toggle="modal"
-                                                            data-bs-target="#modalEditIsian"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-rencana_kerja="{{ $row->rencana_kerja ?? '' }}"
-                                                            data-penanggungjawab="{{ $row->isian->penanggungjawab ?? '' }}"
-                                                            data-bulan-target="{{ $row->isian->bulan_target ?? '' }}"
-                                                            data-bulan-realisasi="{{ $row->isian->bulan_realisasi ?? '' }}"
-                                                            data-link_buktidukung="{{ $row->isian->link_buktidukung ?? '' }}"
-                                                            data-status-approval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-status-tindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentar-evaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentar-operator1="{{ $row->isian->komentar_operator1 ?? '' }}"
-                                                            @if ($row->isian->status_approval === 'Sudah Sesuai') disabled @endif>
-                                                            <i class="bi bi-pencil"></i>
-                                                        </button>
-                                                    @endif
-                                                @endif
-                                            </td> --}}
                                             {{-- data-order biar sorting tetap rapi walau ada bullet/indent --}}
                                             <td data-order="{{ strip_tags($text) }}">
                                                 <div class="lvl-wrap lvl-{{ $lvl }}"
                                                     style="--lvl: {{ $lvl }};">
+                                                    <br>
+                                                    @if ($row->pengisian === 1)
+                                                        <button type="button" class="btn btn-edit-pill pedoman1"
+                                                            title="Pedoman Bukti Dukung" aria-label="Edit"
+                                                            style="color: black !important; border:1px solid black !important"
+                                                            data-bs-toggle="modal" data-bs-target="#modalPedoman1"
+                                                            data-id="{{ $row->isian->id ?? '' }}"
+                                                            data-rencana_kerja_ped="{{ $row->rencana_kerja ?? '' }}"
+                                                            data-dokumen_ped="{{ $row->pedoman ?? '' }}"
+                                                            data-contoh_link_ped="{{ $row->contoh_link ?? '' }}">
+                                                            <i class="bi bi-file-earmark-ppt"></i><span>
+                                                                Pedoman</span>
+                                                        </button>
+                                                        <hr>
+                                                    @endif
                                                     <div class="lvl-chip">
                                                         <span class="lvl-text">{{ $text }}</span>
                                                     </div>
                                                     @if ($row->pengisian === 1)
-                                                        @if ($data['user_active'][0]->role === 'admin' or $data['user_active'][0]->role === 'operator')
+                                                        @if (
+                                                            $data['user_active'][0]->role === 'admin' ||
+                                                                ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                    in_array($data['user_active'][0]->username, $array_penanggungjawab)))
                                                             <hr>
                                                             <button type="button"
                                                                 class="btn btn-edit-pill js-edit-isian1"
@@ -210,7 +268,9 @@
                                                                 data-id="{{ $row->isian->id ?? '' }}"
                                                                 data-rencana_kerja="{{ $row->rencana_kerja ?? '' }}"
                                                                 data-rencanaaksi="{{ $row->isian->rencanaaksi ?? '' }}"
+                                                                data-rencanaaksi_tahun_lalu="{{ $row->isian->rencanaaksi_tahun_lalu ?? '' }}"
                                                                 data-output="{{ $row->isian->output ?? '' }}"
+                                                                data-output_tahun_lalu="{{ $row->isian->output_tahun_lalu ?? '' }}"
                                                                 data-penanggungjawab="{{ $row->isian->penanggungjawab ?? '' }}"
                                                                 data-bulan-target="{{ $row->isian->bulan_target ?? '' }}">
                                                                 <i class="bi bi-pencil-square"></i><span> Due:
@@ -219,6 +279,8 @@
                                                             </button>
                                                         @endif
                                                     @endif
+                                                    <br>
+                                                    <br>
                                                 </div>
 
                                             </td>
@@ -264,11 +326,17 @@
                                                 @if ($row->pengisian === 1)
                                                     {{-- contoh: tampilkan link/filename kalau ada --}}
                                                     @if (!empty($row->isian->link_buktidukung))
-                                                        <button type="button" class="btn btn-edit-pill">
-                                                            <a href="{{ $row->isian->link_buktidukung }}"
+                                                        @if (!empty($row->isian->jumlah_dokumen))
+                                                            <p>{{ $row->isian->jumlah_dokumen }} Dokumen</p>
+                                                        @endif
+                                                        <button type="button" class="btn btn-edit-pill"
+                                                            onclick="generateData2('{{ $row->isian->link_buktidukung }}')"
+                                                            style="color: rgb(0, 195, 255) !important; border:1px solid rgb(7, 61, 0) !important">
+                                                            <i class="bi bi-eye-fill"></i><span> Tersedia</span>
+                                                            {{-- <a href="{{ $row->isian->link_buktidukung }}"
                                                                 target="_blank" style="text-decoration: none">
                                                                 <i class="bi bi-eye-fill"></i><span> Tersedia</span>
-                                                            </a>
+                                                            </a> --}}
                                                         </button>
                                                     @else
                                                         <button type="button" class="btn btn-edit-pill" disabled>
@@ -276,7 +344,11 @@
                                                                 Belum Ada</span>
                                                         </button>
                                                     @endif
-                                                    @if ($data['user_active'][0]->role === 'admin' or $data['user_active'][0]->role === 'operator')
+                                                    @if (
+                                                        $data['user_active'][0]->role === 'admin' ||
+                                                            ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                in_array($data['user_active'][0]->username, $array_penanggungjawab) &&
+                                                                $row->isian->status_dokumen === '1'))
                                                         <hr>
                                                         <button type="button"
                                                             class="btn btn-edit-pill js-edit-isian2"
@@ -288,6 +360,7 @@
                                                             data-bulan-realisasi="{{ $row->isian->bulan_realisasi ?? '' }}"
                                                             data-link_buktidukung="{{ $row->isian->link_buktidukung ?? '' }}">
                                                             <i class="bi bi-pencil-square"></i><span> Realisasi</span>
+
                                                         </button>
                                                     @endif
                                                 @endif
@@ -295,106 +368,110 @@
 
                                             <td>
                                                 @if ($row->pengisian === 1)
-                                                    Progress
+                                                    @php
+                                                        $statusDokumen = $row->isian->status_dokumen ?? 'Belum Isi';
+                                                    @endphp
+                                                    @if ($statusDokumen === '1')
+                                                        <button type="button" class="btn btn-status"
+                                                            title="Status Dokumen" aria-label="Edit">
+                                                            <i class="bi bi-graph-up-arrow"></i><span>
+                                                                Target Sudah Ditetapkan</span>
+                                                        </button>
+                                                    @elseif ($statusDokumen === '2')
+                                                        @if ($data['user_active'][0]->username === $row->isian->created_by_3)
+                                                            <form id="form-finish-{{ $row->isian->id }}"
+                                                                action="{{ url('/isian/' . $row->isian->id) }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                {{-- Variabel pengisian dikirim di sini --}}
+                                                                <input type="hidden" name="pengisian"
+                                                                    value="kelima">
+                                                                <input type="hidden" name="updateby" id="updateby"
+                                                                    value="{{ $data['user_active'][0]->username }}">
+                                                            </form>
+                                                            <button type="button"
+                                                                class="btn btn-status btn-finish-confirm"
+                                                                title="Status Dokumen" aria-label="Edit"
+                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
+                                                                data-id="{{ $row->isian->id ?? '' }}">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-status"
+                                                                title="Status Dokumen" aria-label="Edit">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                            </button>
+                                                        @endif
+                                                    @elseif ($statusDokumen === '3')
+                                                        <button type="button" class="btn btn-status"
+                                                            title="Status Dokumen" aria-label="Edit">
+                                                            <i class="bi bi-graph-up-arrow"></i><span>
+                                                                Terdapat Evaluasi</span>
+                                                        </button>
+                                                    @elseif ($statusDokumen === '4')
+                                                        @if ($data['user_active'][0]->username === $row->isian->created_by_3)
+                                                            <form id="form-finish-{{ $row->isian->id }}"
+                                                                action="{{ url('/isian/' . $row->isian->id) }}"
+                                                                method="POST" style="display: none;">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                {{-- Variabel pengisian dikirim di sini --}}
+                                                                <input type="hidden" name="pengisian"
+                                                                    value="kelima">
+                                                                <input type="hidden" name="updateby" id="updateby"
+                                                                    value="{{ $data['user_active'][0]->username }}">
+                                                            </form>
+                                                            <button type="button"
+                                                                class="btn btn-status btn-finish-confirm"
+                                                                title="Status Dokumen" aria-label="Edit"
+                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
+                                                                data-id="{{ $row->isian->id ?? '' }}">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Sudah Ditindaklanjuti</span>
+                                                            </button>
+                                                        @else
+                                                            <button type="button" class="btn btn-status"
+                                                                title="Status Dokumen" aria-label="Edit">
+                                                                <i class="bi bi-graph-up-arrow"></i>
+                                                                <span>Sudah Ditindaklanjuti</span>
+                                                            </button>
+                                                        @endif
+                                                    @elseif ($statusDokumen === '5')
+                                                        <button type="button" class="btn btn-status"
+                                                            title="Status Dokumen" aria-label="Edit">
+                                                            <i class="bi bi-graph-up-arrow"></i><span>
+                                                                Selesai</span>
+                                                        </button>
+                                                    @else
+                                                        <button type="button" class="btn btn-status">
+                                                            <i class="bi bi-x-lg"></i>
+                                                            <span>{{ $statusDokumen }}</span>
+                                                        </button>
+                                                    @endif
                                                 @endif
                                             </td>
 
-                                            {{-- <td>
-                                                @if ($row->pengisian === 1)
-                                                    @php
-                                                        $statusApproval =
-                                                            $row->isian->status_approval ?? 'Belum Upload';
-                                                    @endphp
-
-                                                    @if ($statusApproval === 'Belum Upload')
-                                                        <button type="button" class="btn btn-tiny btn-tiny-danger"
-                                                            disabled>
-                                                            <i class="bi bi-x-lg"></i>
-                                                            <span>Belum Upload</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Sudah Upload')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-success js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}"
-                                                            @if (!in_array($data['user_active'][0]->role, ['evaluator', 'admin'])) disabled @endif>
-                                                            <i class="bi bi-check2"></i>
-                                                            <span>Link Tersedia</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Dievaluasi')
-                                                        @if (in_array($data['user_active'][0]->role, ['operator']))
-                                                            <button type="button"
-                                                                class="btn btn-tiny btn-tiny-warning js-edit-isian3"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditIsian3"
-                                                                data-id="{{ $row->isian->id ?? '' }}"
-                                                                data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                                data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                                data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                                data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                                <i class="bi bi-search"></i>
-                                                                <span>Terdapat Evaluasi</span>
-                                                            </button>
-                                                        @else
-                                                            <button type="button"
-                                                                class="btn btn-tiny btn-tiny-warning js-edit-isian2"
-                                                                data-bs-toggle="modal"
-                                                                data-bs-target="#modalEditIsian2"
-                                                                data-id="{{ $row->isian->id ?? '' }}"
-                                                                data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                                data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                                data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                                data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                                <i class="bi bi-search"></i>
-                                                                <span>Terdapat Evaluasi</span>
-                                                            </button>
-                                                        @endif
-                                                    @elseif ($statusApproval === 'Sudah Tindak Lanjut')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-info js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                            <i class="bi bi-arrow-repeat"></i>
-                                                            <span>Sudah Tindak Lanjut</span>
-                                                        </button>
-                                                    @elseif ($statusApproval === 'Sudah Sesuai')
-                                                        <button type="button"
-                                                            class="btn btn-tiny btn-tiny-primary js-edit-isian2"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian2"
-                                                            data-id="{{ $row->isian->id ?? '' }}"
-                                                            data-statusapproval="{{ $row->isian->status_approval ?? '' }}"
-                                                            data-statustindaklanjut="{{ $row->isian->status_tindaklanjut ?? '' }}"
-                                                            data-komentarevaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentaroperator1="{{ $row->isian->komentar_operator1 ?? '' }}"
-                                                            @if (!in_array($data['user_active'][0]->role, ['evaluator', 'admin'])) disabled @endif>
-                                                            <i class="bi bi-patch-check"></i>
-                                                            <span>Sudah Sesuai</span>
-                                                        </button>
-                                                    @else
-                                                        <span
-                                                            class="badge text-bg-secondary">{{ $statusApproval }}</span>
-                                                    @endif
-                                                @endif
-                                            </td> --}}
-
                                             <td class="keep-enter">
+                                                {{-- {{ $row->isian->created_by_3 }} --}}
                                                 @if ($row->pengisian === 1)
-                                                    <button type="button" class="btn btn-edit-pill js-edit-isian3"
-                                                        title="Beri Evaluasi" aria-label="Edit"
-                                                        data-bs-toggle="modal" data-bs-target="#modalEditIsian3"
-                                                        data-id3="{{ $row->isian->id ?? '' }}"
-                                                        data-rencana_kerja3="{{ $row->rencana_kerja ?? '' }}"
-                                                        data-komentar_evaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}">
-                                                        <i class="bi bi-pencil-square"></i><span> Evaluasi</span>
-                                                    </button>
+                                                    @if (
+                                                        $data['user_active'][0]->username === $row->isian->created_by_3 &&
+                                                            $row->isian->status_dokumen === '2' &&
+                                                            $row->isian->status_dokumen === '3' &&
+                                                            $row->isian->status_dokumen === '4')
+                                                        <button type="button"
+                                                            class="btn btn-edit-pill js-edit-isian3"
+                                                            title="Beri Evaluasi" aria-label="Edit"
+                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian3"
+                                                            data-id3="{{ $row->isian->id ?? '' }}"
+                                                            data-rencana_kerja3="{{ $row->rencana_kerja ?? '' }}"
+                                                            data-komentar_evaluator1="{{ $row->isian->komentar_evaluator1 ?? '' }}">
+                                                            <i class="bi bi-pencil-square"></i><span> Evaluasi</span>
+                                                        </button>
+                                                    @endif
                                                     {{-- {{ $row->isian->id ?? '' }} --}}
                                                     @if (!empty($row->isian->komentar_evaluator1))
                                                         <b>{{ $row->isian->created_by_3 ?? 'Evaluator' }} :</b>
@@ -405,17 +482,24 @@
                                                             {{ $row->isian->komentar_operator1 ?? '-' }}
                                                         @endif
 
-                                                        <button type="button"
-                                                            class="btn btn-edit-pill js-edit-isian4"
-                                                            title="Beri Tindak Lanjut" aria-label="Edit"
-                                                            data-bs-toggle="modal" data-bs-target="#modalEditIsian4"
-                                                            data-id4="{{ $row->isian->id ?? '' }}"
-                                                            data-rencana_kerja4="{{ $row->rencana_kerja ?? '' }}"
-                                                            data-komentar_evaluator12="{{ $row->isian->komentar_evaluator1 ?? '' }}"
-                                                            data-komentar_operator1="{{ $row->isian->komentar_operator1 ?? '' }}">
-                                                            <i class="bi bi-pencil-square"></i><span> Tindak
-                                                                Lanjut</span>
-                                                        </button>
+                                                        @if (
+                                                            $data['user_active'][0]->role === 'admin' ||
+                                                                ($data['user_active'][0]->kode_satker === $selectedSatker &&
+                                                                    in_array($data['user_active'][0]->username, $array_penanggungjawab) &&
+                                                                    $row->isian->status_dokumen === '3'))
+                                                            <button type="button"
+                                                                class="btn btn-edit-pill js-edit-isian4"
+                                                                title="Beri Tindak Lanjut" aria-label="Edit"
+                                                                data-bs-toggle="modal"
+                                                                data-bs-target="#modalEditIsian4"
+                                                                data-id4="{{ $row->isian->id ?? '' }}"
+                                                                data-rencana_kerja4="{{ $row->rencana_kerja ?? '' }}"
+                                                                data-komentar_evaluator12="{{ $row->isian->komentar_evaluator1 ?? '' }}"
+                                                                data-komentar_operator1="{{ $row->isian->komentar_operator1 ?? '' }}">
+                                                                <i class="bi bi-pencil-square"></i><span> Tindak
+                                                                    Lanjut</span>
+                                                            </button>
+                                                        @endif
                                                         <br>
                                                     @endif
                                                 @endif
@@ -450,6 +534,51 @@
                 12 => 'Des',
             ];
         @endphp
+
+        {{-- Modal Pedoman Bukti Dukung --}}
+        <div class="modal fade" id="modalPedoman1" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+                        <h5 class="modal-title">Pedoman Bukti Dukung ZI</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Tutup"></button>
+                    </div>
+
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="edit_id">
+
+                        <div class="mb-3">
+                            <b>
+                                <p id="edit_rencana_kerja_ped"></p>
+                            </b>
+                        </div>
+
+                        <br>
+
+                        <div class="mb-3">
+                            <b>Rincian Bukti Dukung :</b>
+                            <p id="edit_dokumen_ped"></p>
+                        </div>
+
+                        <br>
+
+                        <div class="mb-3">
+                            <p id="edit_contoh_link_ped"></p>
+                        </div>
+
+                        <br>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Kembali</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         {{-- Modal Pengisian Pertama --}}
         <div class="modal fade" id="modalEditIsian1" tabindex="-1" aria-hidden="true">
@@ -510,16 +639,26 @@
                             <br>
 
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Rencana Aksi</label>
-                                <textarea class="form-control" name="rencanaaksi" id="edit_rencanaaksi" rows="4"
+                                <label class="form-label fw-semibold">Rencana Aksi</label>&nbsp;
+                                {{-- Tombol Copy --}}
+                                <button type="button" class="btn btn-sm btn-outline-info py-0 px-2 btn-copy-lalu-1"
+                                    id="btnCopyRencana" data-target="edit_rencanaaksi" title="Salin dari tahun lalu">
+                                    <i class="bi bi-clipboard-check"></i> Salin Tahun Lalu
+                                </button>
+                                <textarea class="form-control" name="rencanaaksi" id="edit_rencanaaksi" rows="8"
                                     placeholder="Tulis Rencana Aksi mu..."></textarea>
                             </div>
 
                             <br>
 
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Output</label>
-                                <textarea class="form-control" name="output" id="edit_output" rows="4"
+                                <label class="form-label fw-semibold">Output</label>&nbsp;
+                                {{-- Tombol Copy --}}
+                                <button type="button" class="btn btn-sm btn-outline-info py-0 px-2 btn-copy-lalu-2"
+                                    id="btnCopyOutput" data-target="edit_output" title="Salin dari tahun lalu">
+                                    <i class="bi bi-clipboard-check"></i> Salin Tahun Lalu
+                                </button>
+                                <textarea class="form-control" name="output" id="edit_output" rows="8"
                                     placeholder="Tulis Output dari Rencana Aksi mu..."></textarea>
                             </div>
 
@@ -571,7 +710,8 @@
 
                         <div class="modal-body">
                             <input type="hidden" name="id2" id="edit_id2">
-                            <input type="hidden" name="pengisian" id="pengisian" value="ketiga">
+                            <input type="hidden" name="pengisian" id="pengisian" value="kedua">
+                            <input type="hidden" name="total_files2" id="total_files2" required>
                             <input type="hidden" name="updateby" id="updateby"
                                 value="{{ $data['user_active'][0]->username }}">
 
@@ -619,6 +759,18 @@
                                     id="edit_link_buktidukung">
                             </div>
 
+                            <button type="button" class="btn btn-success mb-3" onclick="generateData()">
+                                <span id="btn-text">Generate & Lihat File</span>
+                                <span id="btn-loading" class="spinner-border spinner-border-sm d-none"
+                                    role="status"></span>
+                            </button>
+
+                            <div class="mb-3">
+                                <label for="total_files" class="form-label">Total File (PDF/Image)</label>
+                                <input type="number" class="form-control bg-light" id="total_files" readonly
+                                    required>
+                            </div>
+
                             <br>
 
                         </div>
@@ -651,7 +803,7 @@
                             <input type="hidden" name="id3" id="edit_id3">
                             <input type="hidden" name="pengisian" id="pengisian" value="ketiga">
                             <input type="hidden" name="updateby" id="updateby"
-                                value="{{ $data['user_active'][0]->name }}">
+                                value="{{ $data['user_active'][0]->username }}">
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Rencana Kinerja</label>
@@ -663,7 +815,7 @@
 
                             <div class="mb-3" id="wrap_komentar_evaluator1">
                                 <label class="form-label fw-semibold">Komentar Evaluator</label>
-                                <textarea class="form-control" name="komentar_evaluator1" id="edit_komentar_evaluator1" rows="4"
+                                <textarea class="form-control" name="komentar_evaluator1" id="edit_komentar_evaluator1" rows="8"
                                     placeholder="Tulis komentar evaluator..."></textarea>
                             </div>
 
@@ -699,7 +851,7 @@
                             <input type="hidden" name="id4" id="edit_id4">
                             <input type="hidden" name="pengisian" id="pengisian" value="keempat">
                             <input type="hidden" name="updateby" id="updateby"
-                                value="{{ $data['user_active'][0]->name }}">
+                                value="{{ $data['user_active'][0]->username }}">
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Rencana Kinerja</label>
@@ -711,7 +863,7 @@
 
                             <div class="mb-3" id="wrap_komentar_evaluator12">
                                 <label class="form-label fw-semibold">Komentar Evaluator</label>
-                                <textarea class="form-control" name="komentar_evaluator12" id="edit_komentar_evaluator12" rows="4"
+                                <textarea class="form-control" name="komentar_evaluator12" id="edit_komentar_evaluator12" rows="8"
                                     placeholder="Tulis komentar evaluator..." disabled></textarea>
                             </div>
 
@@ -719,7 +871,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Komentar Operator</label>
-                                <textarea class="form-control" name="komentar_operator1" id="edit_komentar_operator1" rows="4"
+                                <textarea class="form-control" name="komentar_operator1" id="edit_komentar_operator1" rows="8"
                                     placeholder="Tulis komentar operator..."></textarea>
                             </div>
 
@@ -737,6 +889,41 @@
             </div>
         </div>
 
+        {{-- Modal List Data --}}
+        <div class="modal fade" id="fileModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Daftar File Ditemukan</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table id="tableFiles" class="table table-bordered table-striped table-hover"
+                                style="width:100%">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Nama File</th>
+                                        <th>Folder</th>
+                                        <th>Tipe</th>
+                                        <th>Tanggal Upload</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="modal-table-body">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <footer>
             <?php include 'fitral/php/footer.php'; ?>
         </footer>
@@ -749,39 +936,240 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.8/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/2.3.7/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.5/js/dataTables.fixedHeader.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/4.0.5/js/fixedHeader.dataTables.js"></script>
+
+
+
 
 <!-- JS (pastikan jQuery sudah ada) -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script> --}}
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script>
-    $(function() {
-        $('#tblLembarKerja').DataTable({
-            responsive: true,
-            lengthChange: false,
-            paging: false,
-            info: false,
-            autoWidth: false,
-            ordering: false,
-            order: [],
-            language: {
-                search: "Cari:",
-                lengthMenu: "Tampilkan _MENU_ baris",
-                info: "Menampilkan _START_–_END_ dari _TOTAL_ baris",
-                infoEmpty: "Tidak ada data",
-                zeroRecords: "Data tidak ditemukan",
-                paginate: {
-                    first: "Awal",
-                    last: "Akhir",
-                    next: ">",
-                    previous: "<"
+    document.addEventListener("DOMContentLoaded", function() {
+        // 1. Definisikan Elemen
+        const pilarSelect = document.getElementById('select-pilar');
+        const subPilarSelect = document.getElementById('select-subpilar');
+        const subPilarContainer = document.getElementById('container-subpilar');
+
+        // 2. SIMPAN CADANGAN DATA (PENTING!)
+        // Kita menyalin (clone) semua opsi subpilar ke dalam variabel memori.
+        // Jika tidak diclone, opsi akan hilang selamanya setelah filter pertama.
+        const allSubOptions = Array.from(subPilarSelect.querySelectorAll('option')).map(opt => opt.cloneNode(
+            true));
+
+        // Fungsi Utama Filter
+        function filterSubPilar() {
+            const selectedPilar = pilarSelect.value; // Nilai pilar yang dipilih (misal: "I")
+            const currentSubVal = "{{ $data['subpilar_selected'] }}"; // Nilai lama dari PHP (jika ada)
+
+            // Reset isi dropdown subpilar jadi kosong dulu
+            subPilarSelect.innerHTML = '';
+
+            if (selectedPilar === "") {
+                // Jika Pilar Kosong -> Sembunyikan Sub Pilar
+                subPilarContainer.style.display = 'none';
+            } else {
+                // Jika Pilar Ada -> Tampilkan Container
+                subPilarContainer.style.display = 'block';
+
+                // Loop data cadangan (allSubOptions)
+                allSubOptions.forEach(option => {
+                    const parentKode = option.getAttribute('data-parent');
+
+                    // Masukkan opsi ke dropdown JIKA:
+                    // 1. Opsi itu adalah placeholder ("Semua Sub Pilar") -> valuenya kosong
+                    // 2. ATAU kode parentnya COCOK dengan pilar yang dipilih
+                    if (option.value === "" || parentKode == selectedPilar) {
+                        subPilarSelect.appendChild(option);
+                    }
+                });
+
+                // Kembalikan nilai yang terpilih (agar tidak reset saat user klik tombol Terapkan)
+                // Cek apakah nilai lama masih valid di daftar yang baru
+                const isExist = Array.from(subPilarSelect.options).some(opt => opt.value === currentSubVal);
+                if (currentSubVal && isExist) {
+                    subPilarSelect.value = currentSubVal;
+                } else {
+                    subPilarSelect.value = ""; // Default ke "Semua"
                 }
             }
+        }
+
+        // 3. Jalankan Fungsi
+        // Jalankan saat halaman baru dimuat (untuk handle kondisi setelah tombol Terapkan ditekan)
+        filterSubPilar();
+
+        // Jalankan setiap kali user mengganti Pilar
+        pilarSelect.addEventListener('change', function() {
+            // Reset pilihan subpilar saat pilar induk berubah
+            subPilarSelect.value = "";
+            filterSubPilar();
         });
     });
 </script>
 
+<script>
+    $('#tblLembarKerja').css({
+        'table-layout': 'fixed',
+        'width': '100%',
+        'word-wrap': 'break-word'
+    });
+
+    var table = $('#tblLembarKerja').DataTable({
+        // 1. Matikan autoWidth wajib hukumnya
+        autoWidth: false,
+        fixedHeader: {
+            header: true,
+            headerOffset: 70
+        },
+        columnDefs: [{
+                targets: '_all',
+                className: 'dt-head-center'
+            },
+            {
+                targets: 0,
+                width: '300px'
+            },
+            {
+                targets: 1,
+                width: '200px'
+            },
+            {
+                targets: 2,
+                width: '200px'
+            },
+            {
+                targets: 3,
+                width: '130px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 4,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 5,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 6,
+                width: '100px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 7,
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 8,
+                width: '250px'
+            }
+        ],
+        paging: false,
+        // info: false,
+        ordering: false,
+        // searching: false,
+        order: [],
+        scrollX: true, // Mengaktifkan scroll horizontal
+        // 4. MENGATUR BORDER ISI TABEL (TD)
+        // Fitur ini otomatis memberi border pada data meskipun Anda pindah halaman
+        createdRow: function(row, data, dataIndex) {
+            $(row).find('td').css({
+                'border': '1px solid #54acff' // Border hitam pekat untuk isi tabel
+            });
+        },
+
+        // 5. MENGATUR HEADER (Warna Background & Border)
+        initComplete: function(settings, json) {
+            // Border dan warna untuk Header (TH)
+            $(this.api().table().header()).find('th').css({
+                'background-color': '#54acff',
+                'color': '#ffffff',
+                'border': '1px solid #000000' // Border hitam pekat untuk header
+            });
+
+            // (Opsional) Border untuk bingkai luar tabel secara keseluruhan
+            $(this.api().table().node()).css({
+                'border': '1px solid #54acff'
+            });
+        }
+        // autoWidth: false, // Mencegah DataTables menghitung lebar otomatis
+        // columnDefs: [{
+        //         "width": "200px",
+        //         "targets": 0
+        //     },
+        //     {
+        //         "width": "150px",
+        //         "targets": 1
+        //     },
+        //     {
+        //         "width": "150px",
+        //         "targets": 2
+        //     },
+        //     {
+        //         "width": "100px",
+        //         "targets": 3
+        //     },
+        //     {
+        //         "width": "80px",
+        //         "targets": 4
+        //     },
+        //     {
+        //         "width": "80px",
+        //         "targets": 5
+        //     },
+        //     {
+        //         "width": "100px",
+        //         "targets": 6
+        //     },
+        //     {
+        //         "width": "900px",
+        //         "targets": 7
+        //     }
+        // ]
+    });
+
+    // Tunggu 200ms setelah halaman siap, lalu adjust kolom
+    setTimeout(function() {
+        table.columns.adjust().draw();
+    }, 2000);
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+{{-- Pedoman --}}
+<script>
+    document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.pedoman1');
+        if (!btn) return;
+
+        const id = (btn.dataset.id || '').trim();
+        const rencana_kerja_ped = btn.dataset.rencana_kerja_ped || '';
+        const dokumen_ped = btn.dataset.dokumen_ped || '';
+        const contoh_link_ped = btn.dataset.contoh_link_ped || '';
+
+        document.getElementById('edit_rencana_kerja_ped').innerText = rencana_kerja_ped;
+        document.getElementById('edit_dokumen_ped').innerText = dokumen_ped;
+        document.getElementById('edit_contoh_link_ped').innerText = contoh_link_ped;
+
+        // 2. Pilih elemen target
+        const targetElement = document.getElementById("edit_contoh_link_ped");
+
+        // 3. Masukkan HTML berupa tag <a> dan ikon
+        // Kita gunakan target="_blank" agar link terbuka di tab baru
+        targetElement.innerHTML = `
+                <a href="${contoh_link_ped}" target="_blank" class="btn btn-edit-pill" style="color: black !important; border:1px solid green !important">
+                    <b><i class="bi bi-file-earmark-ppt"></i>   Lihat Dokumen</b>
+                </a>
+            `;
+    })
+</script>
 
 {{-- Pengisian Pertama --}}
 <script>
@@ -836,19 +1224,42 @@
         const penanggungjawab = btn.dataset.penanggungjawab || '';
         const rencanaaksi = btn.dataset.rencanaaksi || '';
         const output = btn.dataset.output || '';
+        const raLalu = btn.dataset.rencanaaksi_tahun_lalu || '';
+        const outLalu = btn.dataset.output_tahun_lalu || '';
 
         const rencana_kerjaEl = document.getElementById('edit_rencana_kerja');
         if (rencana_kerjaEl) rencana_kerjaEl.value = rencana_kerja;
 
-        document.getElementById('edit_penanggungjawab').value = penanggungjawab;
+        // document.getElementById('edit_penanggungjawab').value = penanggungjawab;
         document.getElementById('edit_rencanaaksi').value = rencanaaksi;
         document.getElementById('edit_output').value = output;
+
+        let stringDariDB = penanggungjawab;
+        let arrayPenanggungjawab = stringDariDB.split(',').map(item => item.trim());
+
+        // Masukkan array langsung ke select
+        $('#edit_penanggungjawab').val(arrayPenanggungjawab);
 
         // auto-ceklis bulan
         setCheckedFromCsv('bulanTargetWrap', btn.dataset.bulanTarget || '');
 
         // set hidden csv
         document.getElementById('bulan_target_csv').value = csvFromChecked('bulanTargetWrap');
+
+        $('.btn-copy-lalu-1').on('click', function() {
+            if (raLalu) {
+                document.getElementById('edit_rencanaaksi').value = raLalu;
+            } else {
+                alert('Data tahun lalu tidak ada.');
+            };
+        });
+        $('.btn-copy-lalu-2').on('click', function() {
+            if (raLalu) {
+                document.getElementById('edit_output').value = outLalu;
+            } else {
+                alert('Data tahun lalu tidak ada.');
+            };
+        });
 
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian');
@@ -976,7 +1387,9 @@
 
         // isi field
         document.getElementById('edit_id2').value = id2;
-
+        total_files.value = '';
+        total_files2.value = '';
+        // totalInput.value = "";
         const rencana_kerja2 = btn.dataset.rencana_kerja2 || '';
         const link_buktidukung = btn.dataset.link_buktidukung || '';
 
@@ -1008,6 +1421,256 @@
     document.getElementById('formEditIsian2')?.addEventListener('submit', function() {
         document.getElementById('bulan_realisasi_csv').value = csvFromChecked('bulanRealisasiWrap');
     });
+</script>
+
+{{-- List Data --}}
+<script>
+    // Variabel global untuk menyimpan instance DataTable
+    let dataTableInstance = null;
+    const fileModal = new bootstrap.Modal(document.getElementById('fileModal'));
+
+    function generateData() {
+        const linkInput = document.getElementById('edit_link_buktidukung').value;
+        const totalInput = document.getElementById('total_files');
+        const totalInput2 = document.getElementById('total_files2');
+        const btnText = document.getElementById('btn-text');
+        const btnLoading = document.getElementById('btn-loading');
+        const tbody = document.getElementById('modal-table-body');
+        const overlay = document.getElementById('loading-overlay');
+
+        // 1. Ekstrak ID Folder dari Link
+        // Regex ini mengambil string setelah 'folders/' atau 'id='
+        const regex = /[-\w]{25,}/;
+        const match = linkInput.match(regex);
+        if (!match) {
+            alert("Link Google Drive tidak valid! Pastikan formatnya benar.");
+            return;
+        }
+        const folderId = match[0];
+        // 1. TAMPILKAN OVERLAY (Blokir Layar)
+        overlay.style.display = 'flex'; // Ubah dari none ke flex agar muncul di tengah
+        // UI Loading State
+        btnText.textContent = "Sedang Memproses...";
+        btnLoading.classList.remove('d-none');
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center">Sedang mengambil data dari Google API...</td></tr>';
+
+        // Kosongkan total dulu
+        totalInput.value = "";
+
+        // 2. Panggil API Laravel
+        fetch('/google-drive/files', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    folder_id: folderId
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Gagal mengambil data (Cek Folder ID / Izin Akses)");
+                return response.json();
+            })
+            .then(data => {
+                // Isi Input Total
+                totalInput.value = data.total_count;
+                totalInput2.value = data.total_count;
+
+                // ======================================================
+                // BAGIAN DATATABLES
+                // ======================================================
+
+                // A. Hancurkan DataTable lama jika ada (untuk menghindari duplikat/error)
+                if (dataTableInstance) {
+                    dataTableInstance.destroy();
+                    dataTableInstance = null;
+                }
+
+                // B. Kosongkan Body Tabel
+                const tbody = document.getElementById('modal-table-body');
+                tbody.innerHTML = "";
+
+                // C. Loop Data Baru
+                data.files.forEach((file, index) => {
+                    // Format Tanggal (YYYY-MM-DD agar sorting tanggal benar)
+                    const dateObj = new Date(file.created_at);
+                    const displayDate = dateObj.toLocaleDateString('id-ID', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    });
+
+                    // Trik Sorting: Gunakan data-order untuk kolom tanggal agar urutannya benar (bukan alfabet)
+                    const sortDate = file.created_at; // Format ISO string bagus untuk sorting
+
+                    const row = `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${file.name}</td>
+                        <td>${file.folder_name}</td>
+                        <td>
+                            <span class="badge bg-${file.type.includes('pdf') ? 'danger' : 'info'}">
+                                ${file.type.includes('pdf') ? 'PDF' : 'IMG'}
+                            </span>
+                        </td>
+                        <td data-order="${sortDate}">${displayDate}</td>
+                        <td>
+                            <a href="${file.link}" target="_blank" class="btn btn-sm btn-primary">Lihat</a>
+                        </td>
+                    </tr>
+                `;
+                    tbody.innerHTML += row;
+                });
+
+                // D. Inisialisasi Ulang DataTable
+                // Kita bungkus dalam setTimeout agar DOM selesai dirender dulu
+                setTimeout(() => {
+                    dataTableInstance = $('#tableFiles').DataTable({
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json" // Bahasa Indonesia
+                        },
+                        "pageLength": 10, // Default 10 baris per halaman
+                        "order": [
+                            [2, 'asc']
+                        ] // Default urut berdasarkan kolom No (index 0)
+                    });
+                }, 100);
+
+                // Tampilkan Modal
+                fileModal.show();
+            })
+            .catch(error => {
+                alert(error.message);
+                console.error(error);
+            })
+            .finally(() => {
+                // 2. SEMBUNYIKAN OVERLAY (Buka Blokir)
+                // Dijalankan baik sukses maupun error
+                overlay.style.display = 'none';
+                // Reset Tombol
+                btnText.textContent = "Generate & Lihat File";
+                btnLoading.classList.add('d-none');
+            });
+    }
+</script>
+
+{{-- List Data 2 --}}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inisialisasi modal atau lainnya di sini
+        const fileModal = new bootstrap.Modal(document.getElementById('fileModal2'));
+    });
+
+    function generateData2(id) {
+        const linkInput = id;
+        const tbody = document.getElementById('modal-table-body');
+        const overlay = document.getElementById('loading-overlay');
+
+        // 1. Ekstrak ID Folder dari Link
+        // Regex ini mengambil string setelah 'folders/' atau 'id='
+        const regex = /[-\w]{25,}/;
+        const match = linkInput.match(regex);
+        if (!match) {
+            alert("Link Google Drive tidak valid! Pastikan formatnya benar.");
+            return;
+        }
+        const folderId = match[0];
+        // 1. TAMPILKAN OVERLAY (Blokir Layar)
+        overlay.style.display = 'flex'; // Ubah dari none ke flex agar muncul di tengah
+
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center">Sedang mengambil data dari Google API...</td></tr>';
+
+        // 2. Panggil API Laravel
+        fetch('/google-drive/files', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    folder_id: folderId
+                })
+            })
+            .then(response => {
+                if (!response.ok) throw new Error("Gagal mengambil data (Cek Folder ID / Izin Akses)");
+                return response.json();
+            })
+            .then(data => {
+
+                // ======================================================
+                // BAGIAN DATATABLES
+                // ======================================================
+
+                // A. Hancurkan DataTable lama jika ada (untuk menghindari duplikat/error)
+                if (dataTableInstance) {
+                    dataTableInstance.destroy();
+                    dataTableInstance = null;
+                }
+
+                // B. Kosongkan Body Tabel
+                const tbody = document.getElementById('modal-table-body');
+                tbody.innerHTML = "";
+
+                // C. Loop Data Baru
+                data.files.forEach((file, index) => {
+                    // Format Tanggal (YYYY-MM-DD agar sorting tanggal benar)
+                    const dateObj = new Date(file.created_at);
+                    const displayDate = dateObj.toLocaleDateString('id-ID', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric'
+                    });
+
+                    // Trik Sorting: Gunakan data-order untuk kolom tanggal agar urutannya benar (bukan alfabet)
+                    const sortDate = file.created_at; // Format ISO string bagus untuk sorting
+
+                    const row = `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${file.name}</td>
+                        <td>${file.folder_name}</td>
+                        <td>
+                            <span class="badge bg-${file.type.includes('pdf') ? 'danger' : 'info'}">
+                                ${file.type.includes('pdf') ? 'PDF' : 'IMG'}
+                            </span>
+                        </td>
+                        <td data-order="${sortDate}">${displayDate}</td>
+                        <td>
+                            <a href="${file.link}" target="_blank" class="btn btn-sm btn-primary">Lihat</a>
+                        </td>
+                    </tr>
+                `;
+                    tbody.innerHTML += row;
+                });
+
+                // D. Inisialisasi Ulang DataTable
+                // Kita bungkus dalam setTimeout agar DOM selesai dirender dulu
+                setTimeout(() => {
+                    dataTableInstance = $('#tableFiles').DataTable({
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/1.13.6/i18n/id.json" // Bahasa Indonesia
+                        },
+                        "pageLength": 10, // Default 10 baris per halaman
+                        "order": [
+                            [2, 'asc']
+                        ] // Default urut berdasarkan kolom No (index 0)
+                    });
+                }, 100);
+
+                // Tampilkan Modal
+                fileModal.show();
+            })
+            .catch(error => {
+                alert(error.message);
+                console.error(error);
+            })
+            .finally(() => {
+                // 2. SEMBUNYIKAN OVERLAY (Buka Blokir)
+                // Dijalankan baik sukses maupun error
+                overlay.style.display = 'none';
+            });
+    }
 </script>
 
 {{-- Pengisian Ketiga --}}
@@ -1081,6 +1744,65 @@
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian4');
         form.action = `{{ url('/isian') }}/${id4}`; // PUT /isian/{id}
+    });
+</script>
+
+{{-- Konfirmasi Finishing Dokumen --}}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    document.querySelectorAll('.btn-finish-confirm').forEach(button => {
+        button.addEventListener('click', function() {
+            const dataId = this.getAttribute('data-id');
+
+            Swal.fire({
+                title: 'Finalisasi Dokumen',
+                text: "Apakah kamu yakin dokumen yang ada sudah benar?",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, Finalkan!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById(`form-finish-${dataId}`).submit();
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const element = document.getElementById("typewriter");
+        const username = @json($data['user_active'][0]->name ?? 'Pengguna');
+        const fullText = `👋 Selamat Datang, ${username}..`;
+        const chars = Array.from(fullText); // aman untuk emoji & karakter non-ASCII
+        let i = 0;
+        let isDeleting = false;
+
+        function type() {
+            if (!isDeleting) {
+                i++;
+                element.textContent = chars.slice(0, i).join('');
+                if (i === chars.length) {
+                    isDeleting = true;
+                    setTimeout(type, 2000); // tunggu sebelum menghapus
+                    return;
+                }
+            } else {
+                i--;
+                element.textContent = chars.slice(0, i).join('');
+                if (i <= 0) {
+                    i = 0;
+                    isDeleting = false;
+                }
+            }
+
+            const speed = isDeleting ? 50 : 100;
+            setTimeout(type, speed);
+        }
+
+        type();
     });
 </script>
 

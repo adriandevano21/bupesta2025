@@ -177,7 +177,7 @@
                                 </label>
                                 <select id="edit_penanggungjawab" name="penanggungjawab" class="form-select">
                                     @foreach ($data['users'] ?? [] as $u)
-                                        <option value="{{ $u->name }}">{{ $u->name }}</option>
+                                        <option value="{{ $u->username }}">{{ $u->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

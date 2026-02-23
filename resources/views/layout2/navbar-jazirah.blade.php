@@ -92,7 +92,7 @@
                     <select id="tahunSelector" name="tahun" class="tahun-dropdown">
                         @foreach ([2025, 2026] as $th)
                             <option value="{{ $th }}"
-                                {{ (string) $th === request('tahun', '2025') ? 'selected' : '' }}>
+                                {{ (string) $th === request('tahun', '2026') ? 'selected' : '' }}>
                                 {{ $th }}
                             </option>
                         @endforeach
