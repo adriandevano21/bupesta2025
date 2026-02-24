@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.7/css/dataTables.dataTables.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/4.0.5/css/fixedHeader.dataTables.css">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css">
+
     <style>
         /* Style untuk Overlay Loading Penuh */
         #loading-overlay {
@@ -356,6 +358,12 @@
                                                                 <i class="bi bi-eye-fill"></i><span> Tersedia</span>
                                                             </a> --}}
                                                         </button>
+                                                        <hr>
+                                                        <button type="button" class="btn btn-edit-pill"
+                                                            title="Upload"
+                                                            onclick="window.open('{{ $row->isian->link_buktidukung }}', '_blank')">
+                                                            <i class="bi bi-upload"></i><span> Drive</span>
+                                                        </button>
                                                     @else
                                                         <button type="button" class="btn btn-edit-pill" disabled>
                                                             <i class="bi bi-eye-slash-fill"></i><span>
@@ -380,7 +388,6 @@
                                                             data-bulan-realisasi="{{ $row->isian->bulan_realisasi ?? '' }}"
                                                             data-link_buktidukung="{{ $row->isian->link_buktidukung ?? '' }}">
                                                             <i class="bi bi-pencil-square"></i><span> Realisasi</span>
-
                                                         </button>
                                                     @endif
                                                 @endif
@@ -748,8 +755,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label fw-semibold">Rencana Kinerja</label>
-                                <input type="text" class="form-control" name="rencana_kerja"
-                                    id="edit_rencana_kerja" disabled>
+                                <textarea type="text" class="form-control" name="rencana_kerja" id="edit_rencana_kerja" rows="2" disabled></textarea>
                             </div>
 
                             <br>
@@ -1086,7 +1092,7 @@
 <script src="https://cdn.datatables.net/fixedheader/4.0.5/js/dataTables.fixedHeader.js"></script>
 <script src="https://cdn.datatables.net/fixedheader/4.0.5/js/fixedHeader.dataTables.js"></script>
 
-
+<script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
 
 
 <!-- JS (pastikan jQuery sudah ada) -->
@@ -1167,6 +1173,15 @@
     var table = $('#tblLembarKerja').DataTable({
         // 1. Matikan autoWidth wajib hukumnya
         autoWidth: false,
+        "fixedHeader": {
+            "header": true,
+            "headerOffset": $('.posisitengah')
+                .outerHeight() // Otomatis mengukur tinggi menu atas Anda. Ganti '.navbar' dengan class/id menu atas Anda.
+            // Jika footer Anda juga fixed, tambahkan: "footerOffset": $('.footer').outerHeight()
+        },
+        "fixedColumns": {
+            "left": 3
+        },
         fixedHeader: {
             header: true,
             headerOffset: 70

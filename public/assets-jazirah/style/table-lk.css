@@ -143,6 +143,26 @@
     color: #1A71A7;
 }
 
+/* 1. Pastikan Menu Atas Selalu Paling Atas */
+header {
+    /* Ganti dengan class/ID pembungkus menu atas Anda */
+    position: sticky;
+    /* atau fixed */
+    top: 0;
+    z-index: 1050 !important;
+    /* Nilai harus lebih tinggi dari DataTables */
+    background-color: white;
+    /* Pastikan ada background agar tabel tidak tembus pandang */
+}
+
+/* 2. Pastikan Footer Selalu Paling Atas (Jika footer Anda model fixed) */
+footer {
+    /* Ganti dengan class/ID footer Anda */
+    position: fixed;
+    bottom: 0;
+    z-index: 1050 !important;
+}
+
 /* ====== TABLE jadi "card rows" ====== */
 #tblLembarKerja {
     border-collapse: separate !important;
