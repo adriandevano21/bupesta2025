@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('satker', 10);
             $table->string('tahun', 4);
             $table->string('id_indikator', 50);
-            $table->string('penanggungjawab', 100)->nullable();
+            $table->string('penanggungjawab', 500)->nullable();
             $table->string('bulan_target', 100)->nullable();
             $table->string('bulan_realisasi', 100)->nullable();
             $table->string('link_buktidukung', 1000)->nullable();

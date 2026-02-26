@@ -135,34 +135,43 @@ class Jazirah2Controller extends Controller
                                 ) AS bulan_realisasi_nama")
                     // 1. Ambil Rencana Aksi Tahun Lalu
                     ->selectRaw("(
-                                    SELECT prev.rencanaaksi
-                                    FROM jazirah2_hasil prev
-                                    WHERE prev.satker = jazirah2_hasil.satker
-                                    AND prev.tahun = ?
-                                    AND prev.id_indikator = jazirah2_hasil.id_indikator
-                                    LIMIT 1
-                                ) AS rencanaaksi_tahun_lalu", [$tahunLalu]) // Binding param ke-1
+                    SELECT prev.rencanaaksi
+                    FROM jazirah2_hasil prev
+                    WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
+                    AND prev.tahun = ?
+                    AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
+                    -- AND prev.deleted_at IS NULL -- Buka komentar ini jika pakai soft deletes
+                    ORDER BY prev.id DESC
+                    LIMIT 1
+                ) AS rencanaaksi_tahun_lalu", [$tahunLalu])
 
-                    // 2. Ambil Output Tahun Lalu (Copy paste query di atas, ubah kolomnya)
+                    // 2. Ambil Output Tahun Lalu
                     ->selectRaw("(
-                                    SELECT prev.output
-                                    FROM jazirah2_hasil prev
-                                    WHERE prev.satker = jazirah2_hasil.satker
-                                    AND prev.tahun = ?
-                                    AND prev.id_indikator = jazirah2_hasil.id_indikator
-                                    LIMIT 1
-                                ) AS output_tahun_lalu", [$tahunLalu]); // Binding param ke-2;
+                    SELECT prev.output
+                    FROM jazirah2_hasil prev
+                    WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
+                    AND prev.tahun = ?
+                    AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
+                    -- AND prev.deleted_at IS NULL -- Buka komentar ini jika pakai soft deletes
+                    ORDER BY prev.id DESC
+                    LIMIT 1
+                ) AS output_tahun_lalu", [$tahunLalu]); // Binding param ke-2;
             }])
             ->get();
-        // dd($data["indikator"][4]->isian);
+        // dd($data["indikator"][155]);
         // dd($data);
         return view('jazirah2026.jazirah-lembarkerja', compact('data'));
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request);
+
         $tahun = Jazirah2_Hasil::findOrFail($id)->tahun;
-        // dd($tahun);
+        $indikator = Jazirah2_Hasil::findOrFail($id)->id_indikator;
+        $pilar_selected = Jazirah2_Indikator::findOrFail($indikator)->kode_3;
+        $subpilar_selected = Jazirah2_Indikator::findOrFail($indikator)->kode_4;
+        dd($subpilar_selected);
         $id_indikator = Jazirah2_Hasil::findOrFail($id)->id_indikator;
         $id_indikator = $id_indikator - 1;
         $data = $request->validate([

@@ -52,6 +52,37 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.2.2/css/fixedColumns.dataTables.min.css">
 
     <style>
+        .menuatas {
+            margin-bottom: 0 !important;
+            margin-top: -68px !important;
+            padding: 8px;
+        }
+
+        .posisitengah {
+            max-width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .animasitext p {
+            margin-bottom: 0px !important;
+        }
+
+        footer p {
+            margin-bottom: 0px !important;
+        }
+
+        .konten {
+            padding-top: 0px !important;
+        }
+
+        .logobps {
+            margin-top: 0px !important;
+            padding-top: 6px !important;
+        }
+    </style>
+
+    <style>
         /* Style untuk Overlay Loading Penuh */
         #loading-overlay {
             position: fixed;
@@ -130,6 +161,10 @@
 
                     <form method="GET" action="{{ url()->current() }}" class="filters-mini">
                         <div class="filters-mini__row">
+
+                            <div class="filters-mini__group">
+                                <input type="text" name="tahun" value="{{ request('tahun', '2026') }}" hidden>
+                            </div>
 
                             {{-- 1. DROPDOWN PILAR --}}
                             <div class="filters-mini__group">
@@ -797,6 +832,12 @@
                                     id="btnCopyRencana" data-target="edit_rencanaaksi" title="Salin dari tahun lalu">
                                     <i class="bi bi-clipboard-check"></i> Salin Tahun Lalu
                                 </button>
+
+                                {{-- Keterangan Batasan Karakter (Berwarna Merah) --}}
+                                <small class="text-danger d-block mt-2 mb-1" style="font-size: 12px">
+                                    * Hindari penggunaan karakter khusus: <b>(;/@$#{})</b>
+                                </small>
+
                                 <textarea class="form-control" name="rencanaaksi" id="edit_rencanaaksi" rows="8"
                                     placeholder="Tulis Rencana Aksi mu..."></textarea>
                             </div>
@@ -1421,6 +1462,7 @@
         const output = btn.dataset.output || '';
         const raLalu = btn.dataset.rencanaaksi_tahun_lalu || '';
         const outLalu = btn.dataset.output_tahun_lalu || '';
+        // alert(outLalu);
 
         const rencana_kerjaEl = document.getElementById('edit_rencana_kerja');
         if (rencana_kerjaEl) rencana_kerjaEl.value = rencana_kerja;
@@ -1442,6 +1484,7 @@
         document.getElementById('bulan_target_csv').value = csvFromChecked('bulanTargetWrap');
 
         $('.btn-copy-lalu-1').on('click', function() {
+            // alert(id);
             if (raLalu) {
                 document.getElementById('edit_rencanaaksi').value = raLalu;
             } else {
@@ -1449,7 +1492,7 @@
             };
         });
         $('.btn-copy-lalu-2').on('click', function() {
-            if (raLalu) {
+            if (outLalu) {
                 document.getElementById('edit_output').value = outLalu;
             } else {
                 alert('Data tahun lalu tidak ada.');
@@ -1458,7 +1501,10 @@
 
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian');
-        form.action = `{{ url('/isian') }}/${id}`; // PUT /isian/{id}
+
+        const queryParams = window.location.search;
+
+        form.action = `{{ url('/isian') }}/${id}${queryParams}`;
     });
 
     // update hidden saat checkbox berubah
@@ -1602,7 +1648,10 @@
 
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian2');
-        form.action = `{{ url('/isian') }}/${id2}`; // PUT /isian/{id}
+
+        const queryParams = window.location.search;
+
+        form.action = `{{ url('/isian') }}/${id2}${queryParams}`;
     });
 
     // update hidden saat checkbox berubah
@@ -1940,7 +1989,10 @@
 
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian3');
-        form.action = `{{ url('/isian') }}/${id3}`; // PUT /isian/{id}
+
+        const queryParams = window.location.search;
+
+        form.action = `{{ url('/isian') }}/${id3}${queryParams}`;
     });
 </script>
 
@@ -1978,7 +2030,10 @@
 
         // set action (sesuaikan path route kamu)
         const form = document.getElementById('formEditIsian4');
-        form.action = `{{ url('/isian') }}/${id4}`; // PUT /isian/{id}
+
+        const queryParams = window.location.search;
+
+        form.action = `{{ url('/isian') }}/${id4}${queryParams}`;
     });
 </script>
 
