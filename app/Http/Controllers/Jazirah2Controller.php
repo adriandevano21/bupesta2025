@@ -25,6 +25,47 @@ class Jazirah2Controller extends Controller
         return view('jazirah2026.dashbooard', compact('data'));
     }
 
+    public function dashboard(Request $request)
+    {
+        $data["judul"] = "New Jazirah - Dashboard";
+        $data["user_active"] = Jazirah2_User::where('username', 'adrian.devano')->get();
+
+        $tahun = $request->input('tahun', '2026');
+
+        $jenisData = $request->input('jenis_data', 'penetapan_target');
+
+        $rawData = DB::table('monitoring_jazirah')->where('tahun', $tahun)->get();
+
+        // dd($rawData);
+
+        // Inisialisasi array $data
+        // $data = [];
+
+        // Memasukkan satker ke dalam array $data
+        $data['satkers'] = $rawData->pluck('satker')->unique()->sort()->values();
+        $data['pivotData'] = [];
+
+        foreach ($rawData as $item) {
+            $key = $item->kode_2 . '|' . $item->kode_3;
+
+            if (!isset($data['pivotData'][$key])) {
+                $data['pivotData'][$key] = [
+                    'indikator' => $item->kode_2,
+                    'pilar' => $item->kode_3,
+                ];
+
+                foreach ($data['satkers'] as $satker) {
+                    $data['pivotData'][$key][$satker] = null;
+                }
+            }
+
+            $data['pivotData'][$key][$item->satker] = $item->$jenisData;
+        }
+        // dd($data['pivotData']);
+
+        return view('jazirah2026.jazirah-dashboard', compact('data'));
+    }
+
     public function lembarkerja(Request $request)
     {
         $request->validate([

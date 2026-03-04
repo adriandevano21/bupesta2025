@@ -47,6 +47,7 @@ Route::controller(JazirahController::class)->group(function () {
 Route::controller(Jazirah2Controller::class)->group(function () {
     Route::get('/jazirah', 'index');
     Route::get('/jazirah-lembarkerja', 'lembarkerja')->name('jazirah.lembarkerja');
+    Route::get('/jazirah-dashboard', 'dashboard')->name('jazirah.dashboard');
     Route::put('/isian/{id}', 'update')->name('isian.update');
     Route::get('/newjazirah-lembarkerja', 'newlembarkerja')->name('newjazirah.lembarkerja');
     Route::get('/admin-jazirah', 'admin')->name('admin.jazirah');

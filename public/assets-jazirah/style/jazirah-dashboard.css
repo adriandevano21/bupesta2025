@@ -1,0 +1,131 @@
+/* --- Layout Utama --- */
+.welcome-banner {
+    text-align: center;
+}
+
+.welcome-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Jarak antara robot dan teks */
+}
+
+/* --- Teks Typewriter --- */
+#typewriter {
+    font-size: 28px;
+    font-weight: 600;
+    color: #007bff;
+    white-space: nowrap;
+}
+
+h2 {
+    margin: 0;
+}
+
+/* --- AREA KARAKTER ROBOT (LAYERED ANIMATION) --- */
+
+/* 1. Container pembungkus: Atur lebar/tinggi sesuai total ukuran robot */
+.character-container {
+    position: relative;
+    width: 60px;
+    /* SESUAIKAN: Lebar total robot */
+    height: 80px;
+    /* SESUAIKAN: Tinggi total robot */
+    /* border: 1px dashed #ccc; Aktifkan untuk melihat area batas saat debugging */
+}
+
+/* 2. Gambar Badan (Statis/Diam) */
+.char-body {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* 3. Gambar Lengan (Bergerak) */
+.char-arm {
+    position: absolute;
+    z-index: 2;
+    /* Layer di atas badan */
+
+    /* --- BAGIAN INI HARUS ANDA SESUAIKAN SENDIRI NANTI --- */
+    width: 25px;
+    /* Sesuaikan ukuran lengan */
+    top: 22px;
+    /* GESER NAIK/TURUN sampai pas di bahu */
+    left: 0px;
+    /* GESER KIRI/KANAN sampai pas di bahu */
+
+    /* Titik poros putaran di bahu (sudut kanan atas gambar lengan) */
+    transform-origin: top right;
+
+    /* Animasi lambaian */
+    animation: robot-wave 2.8s infinite ease-in-out;
+}
+
+/* Keyframes: Gerakan melambai */
+@keyframes robot-wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    15% {
+        transform: rotate(20deg);
+    }
+
+    30% {
+        transform: rotate(-5deg);
+    }
+
+    45% {
+        transform: rotate(15deg);
+    }
+
+    60% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+
+    /* Jeda sebentar */
+}
+
+/* --- Kursor Berkedip --- */
+.cursor {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Custom Scrollbar yang lebih elegan */
+.modern-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-track {
+    background: rgba(226, 232, 240, 0.5);
+    /* Slate 200 dengan transparansi */
+    border-radius: 10px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(35, 142, 241, 0.6);
+    /* Indigo 500 */
+    border-radius: 10px;
+}
+
+.modern-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(55, 147, 253, 0.9);
+    /* Indigo 600 */
+}
