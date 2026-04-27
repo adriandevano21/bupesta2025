@@ -199,7 +199,7 @@ class Jazirah2Controller extends Controller
                 ) AS output_tahun_lalu", [$tahunLalu]); // Binding param ke-2;
             }])
             ->get();
-        // dd($data["indikator"][155]);
+        // dd($data["indikator"][23]);
         // dd($data);
         return view('jazirah2026.jazirah-lembarkerja', compact('data'));
     }

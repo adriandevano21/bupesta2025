@@ -5,6 +5,7 @@ use App\Http\Controllers\JazirahController;
 use App\Http\Controllers\DashboardActivityController;
 use App\Http\Controllers\DashboardkinerjaController;
 use App\Http\Controllers\Jazirah2Controller;
+use App\Http\Controllers\SE2026Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,4 +54,8 @@ Route::controller(Jazirah2Controller::class)->group(function () {
     Route::get('/admin-jazirah', 'admin')->name('admin.jazirah');
     Route::post('/setting-evaluator', 'settingevaluator')->name('setting.evaluator');
     Route::post('/google-drive/files', 'getFileList');
+});
+
+Route::controller(SE2026Controller::class)->group(function () {
+    Route::get('/SE2026', 'index');
 });

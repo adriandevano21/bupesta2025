@@ -303,6 +303,16 @@
                                                             <i class="bi bi-file-earmark-ppt"></i><span>
                                                                 Pedoman</span>
                                                         </button>
+                                                        @if (!empty($row->link_lainnya))
+                                                            <button type="button" class="btn btn-edit-pill"
+                                                                title="Upload"
+                                                                onclick="window.open('{{ $row->link_lainnya }}', '_blank')">
+                                                                <i class="bi bi-file-earmark-ppt"></i><span> Bukti
+                                                                    Dukung
+                                                                    2024</span>
+                                                            </button>
+                                                            <hr>
+                                                        @endif
                                                         <hr>
                                                     @endif
                                                     <div class="lvl-chip">

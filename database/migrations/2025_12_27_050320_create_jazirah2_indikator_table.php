@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('pengisian')->default(false);
             $table->string('pedoman', 2500)->nullable();
             $table->string('contoh_link', 2500)->nullable();
+            $table->string('link_lainnya', 2500)->nullable();
             $table->timestamps();
         });
     }

@@ -1,0 +1,112 @@
+/* ==========================================================================
+   AREA KARAKTER ROBOT (MENGGUNAKAN GIF TUNGGAL)
+   ========================================================================== */
+
+/* 1. Container pembungkus: Pertahankan ukuran area visual robot */
+.character-container {
+    position: relative;
+    /* Ukuran area target robot */
+    width: 60px;
+    height: 80px;
+    /* display: flex agar GIF berada di tengah container jika ukurannya berbeda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Gaya untuk Gambar GIF Tunggal */
+.char-animation {
+    /* Pastikan GIF mengisi container tanpa melebihi batas */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================================
+   KURSOR BERKEDIP & LAYOUT
+   ========================================================================== */
+
+/* --- Kursor Berkedip --- */
+.cursor {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- Layout Utama --- */
+.welcome-banner {
+    text-align: center;
+}
+
+.welcome-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Jarak antara robot dan teks */
+}
+
+/* --- Teks Typewriter --- */
+#typewriter {
+    font-size: 28px;
+    font-weight: 600;
+    color: #f79039;
+    white-space: nowrap;
+}
+
+h2 {
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TYPEWRITER & ROBOT)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .character-container {
+        width: 45px;
+        height: 60px;
+    }
+
+    #typewriter {
+        font-size: 20px;
+    }
+
+    .cursor {
+        font-size: 20px;
+    }
+
+    .welcome-content {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-container {
+        width: 35px;
+        height: 50px;
+    }
+
+    #typewriter {
+        font-size: 16px;
+    }
+
+    .cursor {
+        font-size: 16px;
+    }
+
+    .welcome-banner {
+        padding: 0 10px;
+    }
+}

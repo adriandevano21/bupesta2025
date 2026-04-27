@@ -18,7 +18,10 @@ class DatabaseSeeder extends Seeder
             RencanaKerjaSeeder::class,
             JazirahUsersSeeder::class,
             SatkerSeeder::class,
-            JazirahHasilSeeder::class
+            JazirahHasilSeeder::class,
+            SE2026IndikatorSeeder::class,
+            SE2026HasilSeeder::class,
+            BupestaUserSeeder::class
         ]);
     }
 }
