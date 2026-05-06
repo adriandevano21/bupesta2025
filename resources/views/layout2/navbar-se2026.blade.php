@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="{{ asset('assets-se2026/') }}/css-js/header.css">
 
-
 <div class="posisitengah">
     <div class="logobps">
         <a href="/dashboard-jazirah"><img src="{{ asset('assets-se2026/') }}/img/Logo-SE2026.png" alt="#"></a>
@@ -10,9 +9,10 @@
             <li><a href="/dashboard-kinerja?tahun=2026"><i class="fa-solid fa-tachometer-alt"></i><span>&nbsp;
                         Kinerja</span></a></li>
             <li class="dropdown-menuatas">
-                <a href="#"><i class="fa-solid fa-bowl-rice"></i><span>&nbsp;BuPeSta</span></a>
+                <a href="#" class="active"><i class="fa-solid fa-bowl-rice"></i><span>&nbsp;BuPeSta</span></a>
                 <ul class="submenu-menuatas">
-                    <li><a href="../bupesta.php?tahun=2026"><i class="fa-solid fa-bowl-rice"></i><span>&nbsp Tim Kerja
+                    <li><a href="../bupesta.php?tahun=2026" class="active"><i
+                                class="fa-solid fa-bowl-rice"></i><span>&nbsp Tim Kerja
                                 BPS Aceh</span></a></li>
                     <li><a href="../timelinesemuakegiatan.php?tahun=2026"><i
                                 class="fa-solid fa-calendar-days"></i><span>&nbsp Historis Kegiatan BPS Aceh</span></a>
@@ -26,14 +26,14 @@
                                 TanyaJawab</span></a></li>
                 </ul>
             </li>
-            <li><a href="/cinema"><i class="fa-solid fa-file"></i><span>&nbsp Jazirah</span></a></li>
-            <li><a href="/dashboard-jazirah"><i class="fa-solid fa-film"></i><span>&nbsp Cinema</span></a></li>
+            <li><a href="/jazirah-dashboard"><i class="fa-solid fa-file"></i><span>&nbsp Jazirah</span></a></li>
+            <li><a href="/cinema"><i class="fa-solid fa-film"></i><span>&nbsp Cinema</span></a></li>
             <li><a href="https://qna.bpsaceh.com/"><i class="fa-regular fa-folder"></i><span>&nbsp Kotak</span></a></li>
             <li><a href="#" id="showModal"><i class="fa-solid fa-book"></i><span>&nbsp Panduan</span></a></li>
             <li>
                 <form method="GET" id="tahunForm">
                     <select id="tahunSelector" name="tahun" class="tahun-dropdown">
-                        @foreach ([2025, 2026] as $th)
+                        @foreach ([2024, 2025, 2026] as $th)
                             <option value="{{ $th }}"
                                 {{ (string) $th === request('tahun', '2026') ? 'selected' : '' }}>
                                 {{ $th }}

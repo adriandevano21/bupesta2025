@@ -15,10 +15,17 @@ return new class extends Migration
             $table->id();
             $table->string('name', 150)->nullable();
             $table->string('username', 50)->nullable();
+            $table->string('tahun', 50)->nullable();
+            $table->string('no_hp', 100)->nullable();
             $table->string('nip_pegawai', 100)->nullable();
             $table->string('kode_satker', 100)->nullable();
-            $table->string('jabatan', 100)->nullable();
-            $table->string('role_se2026', 100)->nullable();
+            $table->string('golongan', 150)->nullable();
+            $table->string('jabatan', 150)->nullable();
+            $table->string('urlfoto', 150)->nullable();
+            $table->string('bupesta', 100)->nullable();
+            $table->string('jazirah', 100)->nullable();
+            $table->string('cinema', 100)->nullable();
+            $table->string('kinerja', 100)->nullable();
             $table->timestamps();
         });
     }

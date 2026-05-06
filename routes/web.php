@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\BupestaTimKerjaController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\JazirahController;
 use App\Http\Controllers\DashboardActivityController;
-use App\Http\Controllers\DashboardkinerjaController;
 use App\Http\Controllers\Jazirah2Controller;
 use App\Http\Controllers\SE2026Controller;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(CinemaController::class)->group(function () {
-    Route::get('/', 'cinema');
+    // Route::get('/', 'cinema');
     Route::get('/cinema', 'cinema')->name('cinema.cinema');
     Route::get('/cinema/search', 'search')->name('cinema.search');
     Route::post('/cinema', 'TambahData');
@@ -58,4 +59,15 @@ Route::controller(Jazirah2Controller::class)->group(function () {
 
 Route::controller(SE2026Controller::class)->group(function () {
     Route::get('/SE2026', 'index');
+});
+
+Route::controller(BupestaTimKerjaController::class)->group(function () {
+    Route::get('/', 'timkerja');
+    Route::get('/timkerja', 'timkerja');
+    Route::post('/timkerja/store', 'store');
+    Route::put('/timkerja/update/{id}', 'update');
+});
+
+Route::controller(UserController::class)->group(function () {
+    Route::put('/profil/lengkapi', 'update')->name('profil.updateLengkap');
 });

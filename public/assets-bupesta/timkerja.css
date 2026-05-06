@@ -1,0 +1,695 @@
+/* ==========================================================================
+   AREA KARAKTER ROBOT (MENGGUNAKAN GIF TUNGGAL)
+   ========================================================================== */
+
+/* 1. Container pembungkus: Pertahankan ukuran area visual robot */
+.character-container {
+    position: relative;
+    /* Ukuran area target robot */
+    width: 60px;
+    height: 80px;
+    /* display: flex agar GIF berada di tengah container jika ukurannya berbeda */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. Gaya untuk Gambar GIF Tunggal */
+.char-animation {
+    /* Pastikan GIF mengisi container tanpa melebihi batas */
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: -10;
+}
+
+/* ==========================================================================
+   KURSOR BERKEDIP & LAYOUT
+   ========================================================================== */
+
+/* --- Kursor Berkedip --- */
+.cursor {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- Layout Utama --- */
+.welcome-banner {
+    text-align: center;
+}
+
+.welcome-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* Jarak antara robot dan teks */
+}
+
+/* --- Teks Typewriter --- */
+#typewriter {
+    font-size: 28px;
+    font-weight: 600;
+    color: #f79039;
+    white-space: nowrap;
+}
+
+h2 {
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (TYPEWRITER & ROBOT)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .character-container {
+        width: 45px;
+        height: 60px;
+    }
+
+    #typewriter {
+        font-size: 20px;
+    }
+
+    .cursor {
+        font-size: 20px;
+    }
+
+    .welcome-content {
+        gap: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .character-container {
+        width: 35px;
+        height: 50px;
+    }
+
+    #typewriter {
+        font-size: 16px;
+    }
+
+    .cursor {
+        font-size: 16px;
+    }
+
+    .welcome-banner {
+        padding: 0 10px;
+    }
+}
+
+/* --- WADAH UTAMA KARTU --- */
+.container-kartu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* --- STYLING KARTU INDIVIDUAL --- */
+.tiga-kartu {
+    background-color: #ffffff;
+    border-radius: 16px;
+    /* Diperbesar agar jauh lebih rounded / melengkung */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    /* Bayangan awal yang sangat halus */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 320px;
+    /* Kita hapus border-top tebal, ganti dengan border keliling yang sangat tipis */
+    border: 1px solid #f79039;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Transisi animasi super smooth */
+}
+
+/* Efek Hover pada Container Kartu (Kartu ikut bereaksi) */
+.tiga-kartu:hover {
+    transform: translateY(-6px);
+    /* Kartu naik sedikit ke atas */
+    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.1);
+    /* Bayangan membesar dengan sedikit pendar biru */
+    border-color: #f79039;
+    /* Border ikut menyala kebiruan */
+}
+
+/* --- TOMBOL EDIT (Bulat, Transparan, & Modern) --- */
+.btn-edit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    /* Lebar dan tinggi dibuat sama */
+    height: 36px;
+    border-radius: 50%;
+    /* Membuat tombol menjadi lingkaran sempurna */
+    background-color: rgba(243, 244, 246, 0.005);
+    /* Warna dasar dengan transparansi 60% */
+    backdrop-filter: blur(1px);
+    /* Efek blur ala kaca di bagian belakang tombol */
+    -webkit-backdrop-filter: blur(1px);
+    /* Dukungan untuk browser Safari */
+    color: #4b5563;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Border putih transparan yang elegan */
+    font-size: 0.85rem;
+    cursor: pointer;
+
+    /* Flexbox agar ikon pulpen persis di tengah */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease;
+    /* Transisi halus untuk semua perubahan */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    /* Bayangan sangat lembut */
+    z-index: 10;
+}
+
+.btn-edit:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    /* Hampir tidak transparan saat di-hover */
+    color: #f79039;
+    /* Ikon berubah warna sesuai tema Anda */
+    transform: translateY(-2px) scale(1.05);
+    /* Efek melayang dan sedikit membesar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Bayangan lebih tegas saat di-hover */
+    border-color: #f79039;
+    /* Border menyesuaikan warna ikon */
+}
+
+/* --- HEADER KARTU (IKON & JUDUL SEJAJAR) --- */
+.header-kartu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.ikon {
+    color: #f79039;
+    width: 38px;
+    /* Diperkecil */
+    height: 38px;
+    /* Diperkecil */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    /* Diperkecil */
+}
+
+.judul {
+    font-size: 0.95rem;
+    /* Diperkecil */
+    font-weight: 700;
+    color: #f79039;
+    line-height: 1.2;
+}
+
+/* --- KONTEN KARTU --- */
+.isi-kartu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    /* Mengisi sisa ruang tinggi kartu */
+    overflow: hidden;
+    /* Mencegah tumpah keluar kartu */
+}
+
+.ketua {
+    font-size: 0.75rem;
+    /* Diperkecil */
+    color: #6b7280;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.jumlah-kegiatan {
+    font-size: 0.8rem;
+    /* Diperkecil */
+    color: #111827;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* --- DAFTAR KEGIATAN DENGAN SCROLL --- */
+.daftar-scroll {
+    flex-grow: 1;
+    /* Mengambil sisa ruang ke bawah */
+    overflow-y: auto;
+    /* Memunculkan scroll vertical jika konten panjang */
+    padding-right: 5px;
+    /* Jarak agar teks tidak menempel ke scrollbar */
+    border-top: 1px dashed #e5e7eb;
+    padding-top: 10px;
+}
+
+/* Kustomisasi Tampilan Scrollbar agar terlihat rapi */
+.daftar-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.daftar-scroll::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 4px;
+}
+
+.daftar-scroll::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 4px;
+}
+
+.daftar-scroll::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+}
+
+.text-kosong {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    font-style: italic;
+    margin: 0;
+}
+
+/* --- DAFTAR KEGIATAN & EFEK HOVER KAPSUL (PILL) --- */
+.daftarkegiatan {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.daftarkegiatan li {
+    /* Kita hilangkan position relative dan padding sebelumnya agar lebih bersih */
+    margin-bottom: 2px;
+}
+
+.daftarkegiatan li::before {
+    color: #4b5563;
+    font-size: 0.9rem;
+    position: absolute;
+    left: 0;
+    top: -1px;
+}
+
+/* Styling tag <a> diubah menjadi flex agar bisa diberi background melengkung */
+.daftarkegiatan a {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    /* Kunci dari bentuk kapsul/pill yang rounded sempurna */
+    transition: all 0.3s ease-in-out;
+    /* Transisi pergantian warna yang smooth */
+}
+
+/* Memindahkan bullet (•) ke dalam tag <a> dengan pseudo-element */
+.daftarkegiatan a::before {
+    content: "•";
+    color: #4b5563;
+    font-size: 1.2rem;
+    margin-right: 8px;
+    line-height: 0.8;
+    /* Menjaga agar titik sejajar di tengah teks */
+    transition: color 0.3s ease-in-out;
+}
+
+/* --- EFEK HOVER SEPERTI DI GAMBAR --- */
+.daftarkegiatan a:hover {
+    background-color: #f79039;
+    /* Warna biru terang / sky blue */
+    color: #ffffff;
+    /* Teks berubah menjadi putih */
+}
+
+/* Bullet point juga ikut berubah putih saat kapsul di-hover */
+.daftarkegiatan a:hover::before {
+    color: #ffffff;
+}
+
+/* --- STYLING MODAL POPUP --- */
+.modal-overlay {
+    display: none;
+    /* Sembunyikan secara default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+    /* Tambahan efek blur pada background agar lebih elegan */
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 60%;
+    /* Sedikit dilebarkan agar dropdown punya ruang */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: modalMuncul 0.3s ease;
+    overflow: hidden;
+    /* Mencegah konten meluber dari lengkungan border */
+}
+
+@keyframes modalMuncul {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f79039;
+    /* Memberi warna beda sedikit pada header */
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.tutup-modal {
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.tutup-modal:hover {
+    color: #f79039;
+}
+
+/* Mengatasi modal yang terlalu panjang & Memberi jarak aman (padding) */
+.modal-body {
+    padding: 20px;
+    /* PERBAIKAN: Menambahkan jarak agar elemen tidak menempel ke tepi */
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+/* Mempercantik scrollbar */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: #cbd5e0;
+    border-radius: 10px;
+}
+
+/* Styling Form Umum */
+.grup-input {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.grup-input label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+/* Perbaikan Input Teks & Dropdown agar seragam */
+.input-form,
+.select-pegawai {
+    padding: 0 12px;
+    height: 42px;
+    /* PERBAIKAN: Menetapkan tinggi pasti agar semua sejajar */
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.input-form:focus,
+.select-pegawai:focus {
+    outline: none;
+    border-color: #f79039;
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+}
+
+/* Memastikan elemen baris kegiatan sejajar sempurna */
+.baris-kegiatan {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.baris-kegiatan input[type="text"] {
+    flex: 2;
+}
+
+.select-pegawai {
+    flex: 1.5;
+    /* Proporsi dropdown diperbesar sedikit */
+    cursor: pointer;
+}
+
+/* Perbaikan Tombol Hapus agar kotak simetris */
+.btn-hapus-baris {
+    background: #fc8181;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 42px;
+    /* Disamakan dengan tinggi input */
+    height: 42px;
+    /* Disamakan dengan tinggi input */
+    display: flex;
+    /* Memusatkan ikon */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-shrink: 0;
+    /* Mencegah tombol mengecil saat layar sempit */
+}
+
+.btn-hapus-baris:hover {
+    background: #e53e3e;
+}
+
+/* Tombol Tambah Kegiatan */
+.btn-tambah-kegiatan {
+    background: #edf2f7;
+    color: #f79039;
+    border: 1px dashed #a0aec0;
+    height: 42px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: 0.2s;
+    margin-top: 5px;
+}
+
+.btn-tambah-kegiatan:hover {
+    background: #e2e8f0;
+    color: #f79039;
+    border-color: #f79039;
+}
+
+/* Area Footer / Simpan */
+.modal-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    /* Garis pembatas halus sebelum tombol simpan */
+    text-align: right;
+}
+
+.btn-simpan {
+    background: #f79039;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-simpan:hover {
+    background: #f79039;
+}
+
+.btn-tambah-tim {
+    background: #f79039;
+    /* Warna hijau yang fresh */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(72, 187, 120, 0.2);
+}
+
+.btn-tambah-tim:hover {
+    background: #f79039;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(72, 187, 120, 0.3);
+}
+
+.btn-tambah-tim i {
+    margin-right: 8px;
+}
+
+/* Styling Teks Nama Ketua agar bisa diklik */
+.nama-ketua-clickable {
+        align-items: center;
+    cursor: pointer;
+    padding: 6px;
+        text-decoration: none;
+        color: #374151;
+        font-size: 0.75rem;
+        border-radius: 50px;
+}
+
+.nama-ketua-clickable:hover {
+    background-color: #f79039;
+    color: white;
+}
+
+/* Styling Khusus Modal Profil */
+.modal-profil {
+    max-width: 400px;
+    /* Modal profil dibuat lebih ramping */
+}
+
+.modal-profil .modal-body {
+    padding: 30px 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.wadah-foto {
+    margin-bottom: 15px;
+}
+
+.foto-profil {
+    width: 100px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #f79039;
+    padding: 3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nama-pegawai {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #1f2937;
+    font-weight: bold;
+}
+
+.nip-pegawai {
+    margin: 5px 0 20px 0;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.detail-profil {
+    text-align: left;
+    background: #f9fafb;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-item i {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    width: 25px;
+    text-align: center;
+}
+
+.info-teks {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-teks small {
+    font-size: 0.75rem;
+    color: #6b7280;
+    line-height: 1.2;
+}
+
+.info-teks span {
+    font-size: 0.95rem;
+    color: #374151;
+    font-weight: 500;
+}
+
+/* Styling khusus untuk memastikan modal profil di atas segalanya */
+#modalLengkapiProfil {
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Latar belakang lebih gelap agar fokus */
+    backdrop-filter: blur(5px);
+    /* Memberikan efek blur pada background */
+}
+
+/* Pastikan user tidak bisa mengklik area luar modal untuk menutupnya */
+#modalLengkapiProfil .modal-content {
+    pointer-events: auto;
+}

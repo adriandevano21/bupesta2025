@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,6 +22,8 @@ class DatabaseSeeder extends Seeder
             JazirahHasilSeeder::class,
             SE2026IndikatorSeeder::class,
             SE2026HasilSeeder::class,
+            BupestaTimKerjaSeeder::class,
+            BupestaKegiatanSeeder::class,
             BupestaUserSeeder::class
         ]);
     }
