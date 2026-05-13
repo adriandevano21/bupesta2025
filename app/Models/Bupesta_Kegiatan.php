@@ -53,4 +53,10 @@ class Bupesta_Kegiatan extends Model
     ];
 
     public $timestamps = false;
+
+    public function penanggungJawab()
+    {
+        // Menghubungkan foreign key 'pjk_1100' ke local key 'nip_pegawai' di tabel bupesta_user
+        return $this->belongsTo(Bupesta_User::class, 'pjk_1100', 'nip_pegawai');
+    }
 }

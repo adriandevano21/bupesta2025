@@ -13,19 +13,18 @@ header {
     color: #f79039;
     height: 68px;
     background-color: #fff;
-    box-shadow: 0px 1px 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 .posisitengah {
     max-width: 95%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
+    /* Dioptimalkan */
 }
 
 .logobps {
     float: left;
-    /* Diubah agar natural */
     display: block;
     text-align: left;
     margin-top: 6px;
@@ -38,26 +37,34 @@ header {
 .menuatas {
     list-style: none;
     float: right;
-    /* Diubah agar menu ke kanan mengikuti float kiri logo */
     padding: 8px 0;
 }
 
 .menuatas li {
     display: inline-block;
-    padding: 15px 15px 0px 0px;
+    padding: 15px 15px 0 0;
+    /* Dioptimalkan */
     font-size: 13px;
 }
 
-.menuatas li a {
+/* Menggabungkan properti dasar link menu */
+.menuatas li a,
+.dropdown-menuatas>a {
     color: #000000;
     text-decoration: none;
     padding: 20px 5px;
 }
 
-.menuatas li a:hover {
+/* Menggabungkan state hover dan active */
+.menuatas li a:hover,
+.menuatas>li>a.active,
+.dropdown-menuatas:hover>a {
     color: #f79039;
     border-bottom: 3px solid #f79039;
-    padding: 20px 5px;
+}
+
+.menuatas li a.active i {
+    color: #f79039;
 }
 
 .tahun-dropdown {
@@ -69,8 +76,8 @@ header {
 }
 
 .konten {
-    padding: 68px 0px 0px 0px;
-    /* Disesuaikan dengan tinggi header */
+    padding-top: 68px;
+    /* Dioptimalkan */
 }
 
 .konten-tengah {
@@ -89,23 +96,28 @@ header {
 }
 
 .navigasi {
-    padding: 45px 0px 0px 0px;
+    padding-top: 45px;
+    /* Dioptimalkan */
+}
+
+/* Menggabungkan styling serupa pada navigasi */
+.navigasi .judul,
+.navigasi .isi {
+    color: rgb(59, 59, 59);
+    border-left: 6px solid #f79039;
+    background-color: #ccebff;
 }
 
 .navigasi .judul {
-    padding: 0px 0px 0px 15px;
+    padding-left: 15px;
+    /* Dioptimalkan */
     font-size: 25px;
-    color: rgb(59, 59, 59);
-    border-left: 6px solid #f79039;
-    background-color: #ccebff;
 }
 
 .navigasi .isi {
-    padding: 0px 0px 10px 60px;
+    padding: 0 0 10px 60px;
+    /* Dioptimalkan */
     font-size: 11px;
-    color: rgb(59, 59, 59);
-    border-left: 6px solid #f79039;
-    background-color: #ccebff;
 }
 
 .masukposisitengah {
@@ -153,16 +165,6 @@ header {
     font-size: 13px;
 }
 
-.dropdown-menuatas>a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.dropdown-menuatas:hover>a {
-    color: #f79039;
-    border-bottom: 3px solid #f79039;
-}
-
 ul.submenu-menuatas:hover {
     display: flex;
     flex-direction: column;
@@ -193,14 +195,27 @@ ul.submenu-menuatas li {
     display: block;
     white-space: nowrap;
     padding: 10px 15px;
+    /* text-decoration dan color dihapus karena akan diwariskan atau lebih mudah di-maintain */
     text-decoration: none;
     color: #000000;
-    font-size: 13px;
+}
+
+.menuatas li a.no-hover:hover {
+    border-bottom: none !important;
+    padding: 5px !important;
+    color: inherit;
 }
 
 .submenu-menuatas li a:hover {
     background-color: #f0f0f0;
     color: #f79039;
+}
+
+.submenu-menuatas>li>a.active {
+    background-color: #f8f9fa;
+    color: #f79039;
+    font-weight: 600;
+    border-radius: 4px;
 }
 
 .dropdown-menuatas:hover .submenu-menuatas {
@@ -209,7 +224,7 @@ ul.submenu-menuatas li {
 
 .swal2-download-btn {
     display: block;
-    background-color: #6366f1;
+    background-color: #f79039;
     color: white !important;
     padding: 12px;
     text-align: center;
@@ -221,7 +236,7 @@ ul.submenu-menuatas li {
 }
 
 .swal2-download-btn:hover {
-    background-color: #4f46e5;
+    background-color: #d97d32;
 }
 
 footer {
@@ -229,7 +244,7 @@ footer {
     width: 100%;
     bottom: 0;
     height: 30px;
-    padding: 5px 0px;
+    padding: 5px 0;
     background: #f79039;
     color: #fff;
     text-align: center;
@@ -240,7 +255,6 @@ footer {
    RESPONSIVE DESIGN (Disesuaikan untuk Mobile)
    ========================================================= */
 
-/* Untuk Tablet dan layar menengah */
 @media (max-width: 992px) {
     .menuatas {
         float: none;
@@ -264,35 +278,24 @@ footer {
     }
 }
 
-/* Untuk Handphone */
 @media (max-width: 768px) {
     header {
-        height: auto;
         display: flex;
         flex-direction: column;
-        padding-bottom: 10px;
     }
 
-    .logobps {
-        float: none;
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-    }
-
+    /* Aturan .logobps float & center sudah ter-cover di max-width: 992px */
     .logobps img {
         height: 45px;
-        /* Sedikit dikecilkan untuk HP */
     }
 
-    /* Membuat menu menjadi horizontal scrollable agar tidak bertumpuk panjang */
     .menuatas {
-        display: flex;
         flex-direction: row;
         overflow-x: auto;
         white-space: nowrap;
         padding: 5px 15px;
-        margin: 5px 0 0 0;
+        margin-top: 5px;
+        /* Mengganti margin 4 arah */
         width: 100%;
         justify-content: flex-start;
         align-items: center;
@@ -306,40 +309,38 @@ footer {
     }
 
     .menuatas li {
-        padding: 0 15px 0 0;
-        font-size: 13px;
+        padding-right: 15px;
+        /* Dioptimalkan */
     }
 
     .menuatas li a {
-        display: inline-block;
         padding: 5px 0;
     }
 
-    .menuatas li a:hover {
-        padding: 5px 0;
-    }
-
+    /* Hover state redundan dihapus */
     .dropdown-menuatas {
         padding-top: 0;
     }
 
     .konten {
         padding-top: 120px;
-        /* Jarak aman agar konten tidak tersembunyi di balik header */
     }
 
     .konten-tengah {
         padding: 30px 15px;
     }
 
+    .konten-tengah .judul,
+    .konten-tengah .isi {
+        text-align: center;
+    }
+
     .konten-tengah .judul {
         font-size: 20px;
-        text-align: center;
     }
 
     .konten-tengah .isi {
         font-size: 13px;
-        text-align: center;
     }
 
     .navigasi .judul,
@@ -379,26 +380,4 @@ footer {
     .navigasi .isi {
         font-size: 11px;
     }
-}
-
-/* Styling untuk menu utama yang sedang aktif */
-.menuatas>li>a.active {
-    color: #f79039;
-    border-bottom: 3px solid #f79039;
-    padding: 20px 5px;
-}
-
-/* Styling untuk menu dropdown (BuPeSta) jika sedang aktif */
-.submenu-menuatas>li>a.active {
-    background-color: #f8f9fa;
-    /* Warna latar belakang highlight */
-    color: #f79039;
-    font-weight: 600;
-    border-radius: 4px;
-    /* Opsional: membuat sudut agak membulat */
-}
-
-/* Memastikan icon di dalam menu aktif ikut berubah warna (jika diperlukan) */
-.menuatas li a.active i {
-    color: #f79039;
 }

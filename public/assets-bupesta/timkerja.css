@@ -1,22 +1,35 @@
 /* ==========================================================================
-   AREA KARAKTER ROBOT (MENGGUNAKAN GIF TUNGGAL)
+   VARIABEL GLOBAL
    ========================================================================== */
+:root {
+    --warna-utama: #f79039;
+    --teks-gelap: #374151;
+    --teks-abu: #6b7280;
+    --abu-muda: #f3f4f6;
+    --transisi-halus: all 0.3s ease;
+}
 
-/* 1. Container pembungkus: Pertahankan ukuran area visual robot */
-.character-container {
-    position: relative;
-    /* Ukuran area target robot */
-    width: 60px;
-    height: 80px;
-    /* display: flex agar GIF berada di tengah container jika ukurannya berbeda */
+/* ==========================================================================
+   UTILITY CLASSES
+   ========================================================================== */
+.character-container,
+.btn-edit,
+.ikon {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* 2. Gaya untuk Gambar GIF Tunggal */
+/* ==========================================================================
+   AREA KARAKTER ROBOT
+   ========================================================================== */
+.character-container {
+    position: relative;
+    width: 60px;
+    height: 80px;
+}
+
 .char-animation {
-    /* Pastikan GIF mengisi container tanpa melebihi batas */
     max-width: 100%;
     max-height: 100%;
     width: auto;
@@ -27,10 +40,8 @@
 }
 
 /* ==========================================================================
-   KURSOR BERKEDIP & LAYOUT
+   KURSOR BERKEDIP & LAYOUT HEADER
    ========================================================================== */
-
-/* --- Kursor Berkedip --- */
 .cursor {
     font-size: 28px;
     font-weight: 600;
@@ -44,7 +55,6 @@
     }
 }
 
-/* --- Layout Utama --- */
 .welcome-banner {
     text-align: center;
 }
@@ -54,14 +64,12 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    /* Jarak antara robot dan teks */
 }
 
-/* --- Teks Typewriter --- */
 #typewriter {
     font-size: 28px;
     font-weight: 600;
-    color: #f79039;
+    color: var(--warna-utama);
     white-space: nowrap;
 }
 
@@ -69,20 +77,13 @@ h2 {
     margin: 0;
 }
 
-/* ==========================================================================
-   RESPONSIVE DESIGN (TYPEWRITER & ROBOT)
-   ========================================================================== */
-
 @media (max-width: 768px) {
     .character-container {
         width: 45px;
         height: 60px;
     }
 
-    #typewriter {
-        font-size: 20px;
-    }
-
+    #typewriter,
     .cursor {
         font-size: 20px;
     }
@@ -98,10 +99,7 @@ h2 {
         height: 50px;
     }
 
-    #typewriter {
-        font-size: 16px;
-    }
-
+    #typewriter,
     .cursor {
         font-size: 16px;
     }
@@ -111,90 +109,66 @@ h2 {
     }
 }
 
-/* --- WADAH UTAMA KARTU --- */
+/* ==========================================================================
+   WADAH & KARTU UTAMA
+   ========================================================================== */
 .container-kartu {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 20px;
     padding: 20px 0;
 }
 
-/* --- STYLING KARTU INDIVIDUAL --- */
 .tiga-kartu {
     background-color: #ffffff;
     border-radius: 16px;
-    /* Diperbesar agar jauh lebih rounded / melengkung */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    /* Bayangan awal yang sangat halus */
     padding: 20px;
     display: flex;
     flex-direction: column;
     position: relative;
-    height: 320px;
-    /* Kita hapus border-top tebal, ganti dengan border keliling yang sangat tipis */
-    border: 1px solid #f79039;
+    height: 420px;
+    border: 1px solid var(--warna-utama);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Transisi animasi super smooth */
 }
 
-/* Efek Hover pada Container Kartu (Kartu ikut bereaksi) */
 .tiga-kartu:hover {
     transform: translateY(-6px);
-    /* Kartu naik sedikit ke atas */
-    box-shadow: 0 15px 30px rgba(2, 132, 199, 0.1);
-    /* Bayangan membesar dengan sedikit pendar biru */
-    border-color: #f79039;
-    /* Border ikut menyala kebiruan */
+    box-shadow: 0 15px 30px rgba(247, 144, 57, 0.15);
+    /* Disesuaikan ke oranye */
+    border-color: var(--warna-utama);
 }
 
-/* --- TOMBOL EDIT (Bulat, Transparan, & Modern) --- */
+/* ==========================================================================
+   KOMPONEN DI DALAM KARTU
+   ========================================================================== */
 .btn-edit {
     position: absolute;
     top: 15px;
     right: 15px;
     width: 36px;
-    /* Lebar dan tinggi dibuat sama */
     height: 36px;
     border-radius: 50%;
-    /* Membuat tombol menjadi lingkaran sempurna */
     background-color: rgba(243, 244, 246, 0.005);
-    /* Warna dasar dengan transparansi 60% */
     backdrop-filter: blur(1px);
-    /* Efek blur ala kaca di bagian belakang tombol */
     -webkit-backdrop-filter: blur(1px);
-    /* Dukungan untuk browser Safari */
     color: #4b5563;
     border: 1px solid rgba(255, 255, 255, 0.5);
-    /* Border putih transparan yang elegan */
     font-size: 0.85rem;
     cursor: pointer;
-
-    /* Flexbox agar ikon pulpen persis di tengah */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    transition: all 0.3s ease;
-    /* Transisi halus untuk semua perubahan */
+    transition: var(--transisi-halus);
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    /* Bayangan sangat lembut */
     z-index: 10;
 }
 
 .btn-edit:hover {
     background-color: rgba(255, 255, 255, 0.95);
-    /* Hampir tidak transparan saat di-hover */
-    color: #f79039;
-    /* Ikon berubah warna sesuai tema Anda */
+    color: var(--warna-utama);
     transform: translateY(-2px) scale(1.05);
-    /* Efek melayang dan sedikit membesar */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Bayangan lebih tegas saat di-hover */
-    border-color: #f79039;
-    /* Border menyesuaikan warna ikon */
+    border-color: var(--warna-utama);
 }
 
-/* --- HEADER KARTU (IKON & JUDUL SEJAJAR) --- */
 .header-kartu {
     display: flex;
     align-items: center;
@@ -203,72 +177,58 @@ h2 {
 }
 
 .ikon {
-    color: #f79039;
+    color: var(--warna-utama);
     width: 38px;
-    /* Diperkecil */
     height: 38px;
-    /* Diperkecil */
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-radius: 8px;
     font-size: 1.1rem;
-    /* Diperkecil */
 }
 
 .judul {
     font-size: 0.95rem;
-    /* Diperkecil */
     font-weight: 700;
-    color: #f79039;
+    color: var(--warna-utama);
     line-height: 1.2;
 }
 
-/* --- KONTEN KARTU --- */
 .isi-kartu {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    /* Mengisi sisa ruang tinggi kartu */
     overflow: hidden;
-    /* Mencegah tumpah keluar kartu */
 }
 
 .ketua {
     font-size: 0.75rem;
-    /* Diperkecil */
-    color: #6b7280;
+    color: var(--teks-abu);
     margin-bottom: 10px;
     font-style: italic;
 }
 
 .jumlah-kegiatan {
     font-size: 0.8rem;
-    /* Diperkecil */
     color: #111827;
     margin-bottom: 8px;
     font-weight: bold;
 }
 
-/* --- DAFTAR KEGIATAN DENGAN SCROLL --- */
+/* ==========================================================================
+   DAFTAR KEGIATAN & SCROLL
+   ========================================================================== */
 .daftar-scroll {
     flex-grow: 1;
-    /* Mengambil sisa ruang ke bawah */
     overflow-y: auto;
-    /* Memunculkan scroll vertical jika konten panjang */
     padding-right: 5px;
-    /* Jarak agar teks tidak menempel ke scrollbar */
     border-top: 1px dashed #e5e7eb;
     padding-top: 10px;
 }
 
-/* Kustomisasi Tampilan Scrollbar agar terlihat rapi */
 .daftar-scroll::-webkit-scrollbar {
     width: 5px;
 }
 
 .daftar-scroll::-webkit-scrollbar-track {
-    background: #f3f4f6;
+    background: var(--abu-muda);
     border-radius: 4px;
 }
 
@@ -278,7 +238,7 @@ h2 {
 }
 
 .daftar-scroll::-webkit-scrollbar-thumb:hover {
-    background: #6b7280;
+    background: var(--teks-abu);
 }
 
 .text-kosong {
@@ -288,7 +248,6 @@ h2 {
     margin: 0;
 }
 
-/* --- DAFTAR KEGIATAN & EFEK HOVER KAPSUL (PILL) --- */
 .daftarkegiatan {
     list-style-type: none;
     padding: 0;
@@ -296,83 +255,125 @@ h2 {
 }
 
 .daftarkegiatan li {
-    /* Kita hilangkan position relative dan padding sebelumnya agar lebih bersih */
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
-.daftarkegiatan li::before {
-    color: #4b5563;
-    font-size: 0.9rem;
-    position: absolute;
-    left: 0;
-    top: -1px;
-}
-
-/* Styling tag <a> diubah menjadi flex agar bisa diberi background melengkung */
 .daftarkegiatan a {
     display: flex;
     align-items: center;
     padding: 6px 12px;
     text-decoration: none;
-    color: #374151;
+    color: var(--teks-gelap);
     font-size: 0.75rem;
     border-radius: 50px;
-    /* Kunci dari bentuk kapsul/pill yang rounded sempurna */
-    transition: all 0.3s ease-in-out;
-    /* Transisi pergantian warna yang smooth */
+    transition: var(--transisi-halus);
 }
 
-/* Memindahkan bullet (•) ke dalam tag <a> dengan pseudo-element */
 .daftarkegiatan a::before {
     content: "•";
     color: #4b5563;
     font-size: 1.2rem;
     margin-right: 8px;
     line-height: 0.8;
-    /* Menjaga agar titik sejajar di tengah teks */
     transition: color 0.3s ease-in-out;
 }
 
-/* --- EFEK HOVER SEPERTI DI GAMBAR --- */
 .daftarkegiatan a:hover {
-    background-color: #f79039;
-    /* Warna biru terang / sky blue */
+    background-color: var(--warna-utama);
     color: #ffffff;
-    /* Teks berubah menjadi putih */
 }
 
-/* Bullet point juga ikut berubah putih saat kapsul di-hover */
 .daftarkegiatan a:hover::before {
     color: #ffffff;
 }
 
-/* --- STYLING MODAL POPUP --- */
+/* ==========================================================================
+   ITEM KEGIATAN (Kapsul/Pill Baru)
+   ========================================================================== */
+.item-kegiatan {
+    display: flex;
+    align-items: flex-start;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #4a5568;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.item-kegiatan::before {
+    content: "•";
+    font-size: 1.5rem;
+    color: #a0aec0;
+    margin-right: 12px;
+    line-height: 0.8;
+    transition: var(--transisi-halus);
+}
+
+.kegiatan-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.judul-kegiatan {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.pjk-kegiatan {
+    font-size: 0.65rem;
+    color: #718096;
+    margin-top: 3px;
+    transition: var(--transisi-halus);
+}
+
+/* Diubah: Warna biru menjadi var(--warna-utama) */
+.item-kegiatan:hover {
+    background-color: var(--warna-utama);
+    box-shadow: 0 4px 6px rgba(247, 144, 57, 0.2);
+    transform: translateX(4px);
+}
+
+.item-kegiatan:hover .judul-kegiatan,
+.item-kegiatan:hover .pjk-kegiatan,
+.item-kegiatan:hover::before {
+    color: #ffffff;
+}
+
+/* ==========================================================================
+   MODAL POPUP & TABS (Duplikasi Digabungkan)
+   ========================================================================== */
 .modal-overlay {
     display: none;
-    /* Sembunyikan secara default */
+    /* Base display: none agar dikontrol via JS */
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
-    /* Tambahan efek blur pada background agar lebih elegan */
 }
 
 .modal-content {
     background: white;
     width: 90%;
     max-width: 60%;
-    /* Sedikit dilebarkan agar dropdown punya ruang */
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     animation: modalMuncul 0.3s ease;
     overflow: hidden;
-    /* Mencegah konten meluber dari lengkungan border */
+}
+
+/* Class untuk modal berukuran lebih lebar */
+.modal-xl {
+    width: 95%;
+    max-width: 900px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 @keyframes modalMuncul {
@@ -387,43 +388,40 @@ h2 {
     }
 }
 
+/* Diubah: Background dipatenkan ke warna utama */
 .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
     border-bottom: 1px solid #e5e7eb;
-    background-color: #f79039;
-    /* Memberi warna beda sedikit pada header */
+    background-color: var(--warna-utama);
+    color: white;
 }
 
 .modal-header h3 {
     margin: 0;
     font-size: 1.1rem;
-    color: white;
     font-weight: bold;
 }
 
 .tutup-modal {
     font-size: 1.5rem;
-    color: white;
     cursor: pointer;
     line-height: 1;
 }
 
 .tutup-modal:hover {
-    color: #f79039;
+    color: #ffe0c2;
 }
 
-/* Mengatasi modal yang terlalu panjang & Memberi jarak aman (padding) */
 .modal-body {
     padding: 20px;
-    /* PERBAIKAN: Menambahkan jarak agar elemen tidak menempel ke tepi */
-    max-height: 65vh;
+    max-height: 70vh;
+    /* Mengambil nilai tertinggi dari duplikasi */
     overflow-y: auto;
 }
 
-/* Mempercantik scrollbar */
 .modal-body::-webkit-scrollbar {
     width: 6px;
 }
@@ -433,44 +431,91 @@ h2 {
     border-radius: 10px;
 }
 
-/* Styling Form Umum */
-.grup-input {
+.modal-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    text-align: right;
+}
+
+.modal-tabs {
+    display: flex;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.tab-link {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: none;
+    font-weight: bold;
+    color: #64748b;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+}
+
+/* Diubah: Biru aktif menjadi Oranye lembut */
+.tab-link.active {
+    color: var(--warna-utama);
+    border-bottom: 3px solid var(--warna-utama);
+    background: rgba(247, 144, 57, 0.08);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.show {
+    display: block;
+}
+
+/* ==========================================================================
+   FORM & INPUT DI DALAM MODAL
+   ========================================================================== */
+.grup-input,
+.grup-tampil {
     margin-bottom: 15px;
     display: flex;
     flex-direction: column;
     text-align: left;
 }
 
-.grup-input label {
+.grup-input label,
+.grup-tampil label {
     font-size: 0.85rem;
     font-weight: bold;
-    color: #4a5568;
     margin-bottom: 8px;
 }
 
-/* Perbaikan Input Teks & Dropdown agar seragam */
+.grup-input label {
+    color: #4a5568;
+}
+
+.grup-tampil label {
+    color: #718096;
+}
+
 .input-form,
 .select-pegawai {
-    padding: 0 12px;
+    padding: 0 20px;
     height: 42px;
-    /* PERBAIKAN: Menetapkan tinggi pasti agar semua sejajar */
     border: 1px solid #cbd5e0;
     border-radius: 8px;
     font-size: 0.9rem;
     width: 100%;
     box-sizing: border-box;
-    transition: all 0.3s ease;
+    transition: var(--transisi-halus);
     background-color: #fff;
 }
 
 .input-form:focus,
 .select-pegawai:focus {
     outline: none;
-    border-color: #f79039;
-    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+    border-color: var(--warna-utama);
+    box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.2);
 }
 
-/* Memastikan elemen baris kegiatan sejajar sempurna */
 .baris-kegiatan {
     display: flex;
     gap: 10px;
@@ -484,38 +529,60 @@ h2 {
 
 .select-pegawai {
     flex: 1.5;
-    /* Proporsi dropdown diperbesar sedikit */
     cursor: pointer;
 }
 
-/* Perbaikan Tombol Hapus agar kotak simetris */
+/* ==========================================================================
+   PENAMPIL TEKS ISIAN (Duplikasi digabung)
+   ========================================================================== */
+.teks-isian {
+    font-size: 0.95rem;
+    color: #2d3748;
+    font-weight: 500;
+    padding: 10px 12px;
+    background-color: #f7fafc;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    min-height: 20px;
+    word-wrap: break-word;
+}
+
+.area-teks {
+    min-height: 60px;
+    white-space: pre-line;
+}
+
+.grid-multi-kolom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* ==========================================================================
+   TOMBOL-TOMBOL
+   ========================================================================== */
 .btn-hapus-baris {
     background: #fc8181;
     color: white;
     border: none;
     border-radius: 8px;
     width: 42px;
-    /* Disamakan dengan tinggi input */
     height: 42px;
-    /* Disamakan dengan tinggi input */
     display: flex;
-    /* Memusatkan ikon */
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: 0.2s;
     flex-shrink: 0;
-    /* Mencegah tombol mengecil saat layar sempit */
 }
 
 .btn-hapus-baris:hover {
     background: #e53e3e;
 }
 
-/* Tombol Tambah Kegiatan */
 .btn-tambah-kegiatan {
-    background: #edf2f7;
-    color: #f79039;
+    background: var(--abu-muda);
+    color: var(--warna-utama);
     border: 1px dashed #a0aec0;
     height: 42px;
     border-radius: 8px;
@@ -529,78 +596,66 @@ h2 {
 
 .btn-tambah-kegiatan:hover {
     background: #e2e8f0;
-    color: #f79039;
-    border-color: #f79039;
+    border-color: var(--warna-utama);
 }
 
-/* Area Footer / Simpan */
-.modal-footer {
-    margin-top: 25px;
-    padding-top: 15px;
-    border-top: 1px solid #e2e8f0;
-    /* Garis pembatas halus sebelum tombol simpan */
-    text-align: right;
+.btn-simpan,
+.btn-tambah-tim {
+    background: var(--warna-utama);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transisi-halus);
 }
 
 .btn-simpan {
-    background: #f79039;
-    color: white;
-    border: none;
     padding: 10px 20px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.btn-simpan:hover {
-    background: #f79039;
 }
 
 .btn-tambah-tim {
-    background: #f79039;
-    /* Warna hijau yang fresh */
-    color: white;
-    border: none;
     padding: 12px 24px;
-    border-radius: 8px;
     font-size: 0.95rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 6px rgba(72, 187, 120, 0.2);
+    box-shadow: 0 4px 6px rgba(247, 144, 57, 0.2);
+}
+
+.btn-simpan:hover,
+.btn-tambah-tim:hover {
+    filter: brightness(0.9);
 }
 
 .btn-tambah-tim:hover {
-    background: #f79039;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(72, 187, 120, 0.3);
+    box-shadow: 0 6px 12px rgba(247, 144, 57, 0.3);
 }
 
 .btn-tambah-tim i {
     margin-right: 8px;
 }
 
-/* Styling Teks Nama Ketua agar bisa diklik */
+/* ==========================================================================
+   MODAL PROFIL & LIST PJK
+   ========================================================================== */
 .nama-ketua-clickable {
-        align-items: center;
+    display: inline-flex;
+    align-items: center;
     cursor: pointer;
-    padding: 6px;
-        text-decoration: none;
-        color: #374151;
-        font-size: 0.75rem;
-        border-radius: 50px;
+    padding: 6px 12px;
+    text-decoration: none;
+    color: var(--teks-gelap);
+    font-size: 0.75rem;
+    border-radius: 50px;
+    transition: var(--transisi-halus);
 }
 
 .nama-ketua-clickable:hover {
-    background-color: #f79039;
+    background-color: var(--warna-utama);
     color: white;
 }
 
-/* Styling Khusus Modal Profil */
 .modal-profil {
     max-width: 400px;
-    /* Modal profil dibuat lebih ramping */
 }
 
 .modal-profil .modal-body {
@@ -620,7 +675,7 @@ h2 {
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #f79039;
+    border: 3px solid var(--warna-utama);
     padding: 3px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -635,31 +690,79 @@ h2 {
 .nip-pegawai {
     margin: 5px 0 20px 0;
     font-size: 0.9rem;
-    color: #6b7280;
+    color: var(--teks-abu);
 }
 
+.baris-satker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #cbd5e0;
+}
+
+.nama-satker {
+    font-weight: bold;
+    color: #2d3748;
+}
+
+.btn-profil-pjk {
+    background: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color: #718096;
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+/* Diubah: Biru menjadi nuansa oranye */
+.btn-profil-pjk.ada-data {
+    background: rgba(247, 144, 57, 0.1);
+    color: var(--warna-utama);
+    border-color: rgba(247, 144, 57, 0.4);
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transisi-halus);
+}
+
+.btn-profil-pjk.ada-data:hover {
+    background: var(--warna-utama);
+    color: white;
+}
+
+/* Duplikasi detail-profil digabung */
 .detail-profil {
     text-align: left;
     background: #f9fafb;
     border-radius: 10px;
     padding: 15px;
     border: 1px solid #e5e7eb;
+    margin-top: 20px;
 }
 
-.info-item {
+.detail-profil .info-item {
     display: flex;
-    align-items: center;
-    margin-bottom: 15px;
+    align-items: flex-start;
     gap: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e2e8f0;
 }
 
-.info-item:last-child {
+.detail-profil .info-item:last-child {
+    border-bottom: none;
     margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-.info-item i {
+.detail-profil .info-item i {
     font-size: 1.2rem;
-    color: #9ca3af;
+    color: #4a5568;
+    margin-top: 3px;
     width: 25px;
     text-align: center;
 }
@@ -671,25 +774,123 @@ h2 {
 
 .info-teks small {
     font-size: 0.75rem;
-    color: #6b7280;
+    color: #a0aec0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     line-height: 1.2;
 }
 
 .info-teks span {
+    font-weight: 600;
+    color: #2d3748;
     font-size: 0.95rem;
+}
+
+#modalLengkapiProfil {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+#modalLengkapiProfil .modal-content {
+    pointer-events: auto;
+}
+
+.pjk-isian {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+}
+
+
+/* new */
+
+/* --- Styling Baris Satker & Inline Edit --- */
+.baris-satker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f4f6;
+    gap: 10px;
+}
+
+.aksi-kiri {
+    flex-shrink: 0;
+}
+
+.info-satker {
+    flex-grow: 1;
+    font-size: 0.85rem;
     color: #374151;
     font-weight: 500;
 }
 
-/* Styling khusus untuk memastikan modal profil di atas segalanya */
-#modalLengkapiProfil {
-    background-color: rgba(0, 0, 0, 0.7);
-    /* Latar belakang lebih gelap agar fokus */
-    backdrop-filter: blur(5px);
-    /* Memberikan efek blur pada background */
+.aksi-pjk,
+.area-edit-pjk {
+    flex-shrink: 0;
+    min-width: 150px;
+    text-align: right;
 }
 
-/* Pastikan user tidak bisa mengklik area luar modal untuk menutupnya */
-#modalLengkapiProfil .modal-content {
-    pointer-events: auto;
+.area-edit-pjk {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: flex-end;
+}
+
+/* Tombol Edit Kecil di Kiri */
+.btn-edit-inline {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    padding: 5px;
+}
+
+.btn-edit-inline:hover {
+    color: #f79039;
+    transform: scale(1.1);
+}
+
+/* Form dan Tombol Mode Edit */
+.select-mini {
+    height: 30px;
+    padding: 0 8px;
+    font-size: 0.8rem;
+    width: 250px;
+    border-radius: 4px;
+}
+
+.btn-simpan-mini,
+.btn-batal-mini {
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.btn-simpan-mini {
+    background-color: #10b981;
+    /* Hijau */
+}
+
+.btn-simpan-mini:hover {
+    background-color: #059669;
+}
+
+.btn-batal-mini {
+    background-color: #ef4444;
+    /* Merah */
+}
+
+.btn-batal-mini:hover {
+    background-color: #dc2626;
 }
