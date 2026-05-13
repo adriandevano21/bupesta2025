@@ -10,18 +10,22 @@
 }
 
 /* ==========================================================================
-   UTILITY CLASSES
+   UTILITY CLASSES (Digabungkan untuk menghemat baris)
    ========================================================================== */
 .character-container,
 .btn-edit,
-.ikon {
+.ikon,
+.welcome-content,
+.btn-hapus-baris,
+.btn-simpan-mini,
+.btn-batal-mini {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 /* ==========================================================================
-   AREA KARAKTER ROBOT
+   AREA KARAKTER ROBOT & HEADER
    ========================================================================== */
 .character-container {
     position: relative;
@@ -32,16 +36,11 @@
 .char-animation {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
     display: block;
     position: relative;
     z-index: -10;
 }
 
-/* ==========================================================================
-   KURSOR BERKEDIP & LAYOUT HEADER
-   ========================================================================== */
 .cursor {
     font-size: 28px;
     font-weight: 600;
@@ -60,9 +59,6 @@
 }
 
 .welcome-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
 }
 
@@ -120,7 +116,7 @@ h2 {
 }
 
 .tiga-kartu {
-    background-color: #ffffff;
+    background-color: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
     padding: 20px;
@@ -135,13 +131,9 @@ h2 {
 .tiga-kartu:hover {
     transform: translateY(-6px);
     box-shadow: 0 15px 30px rgba(247, 144, 57, 0.15);
-    /* Disesuaikan ke oranye */
-    border-color: var(--warna-utama);
 }
 
-/* ==========================================================================
-   KOMPONEN DI DALAM KARTU
-   ========================================================================== */
+/* KOMPONEN DI DALAM KARTU */
 .btn-edit {
     position: absolute;
     top: 15px;
@@ -213,18 +205,18 @@ h2 {
 }
 
 /* ==========================================================================
-   DAFTAR KEGIATAN & SCROLL
+   DAFTAR KEGIATAN & SCROLLBAR (Digabungkan dengan Modal Body)
    ========================================================================== */
 .daftar-scroll {
     flex-grow: 1;
     overflow-y: auto;
-    padding-right: 5px;
+    padding: 10px 5px 0 0;
     border-top: 1px dashed #e5e7eb;
-    padding-top: 10px;
 }
 
-.daftar-scroll::-webkit-scrollbar {
-    width: 5px;
+.daftar-scroll::-webkit-scrollbar,
+.modal-body::-webkit-scrollbar {
+    width: 6px;
 }
 
 .daftar-scroll::-webkit-scrollbar-track {
@@ -232,9 +224,10 @@ h2 {
     border-radius: 4px;
 }
 
-.daftar-scroll::-webkit-scrollbar-thumb {
+.daftar-scroll::-webkit-scrollbar-thumb,
+.modal-body::-webkit-scrollbar-thumb {
     background: #9ca3af;
-    border-radius: 4px;
+    border-radius: 10px;
 }
 
 .daftar-scroll::-webkit-scrollbar-thumb:hover {
@@ -280,16 +273,9 @@ h2 {
 
 .daftarkegiatan a:hover {
     background-color: var(--warna-utama);
-    color: #ffffff;
 }
 
-.daftarkegiatan a:hover::before {
-    color: #ffffff;
-}
-
-/* ==========================================================================
-   ITEM KEGIATAN (Kapsul/Pill Baru)
-   ========================================================================== */
+/* ITEM KEGIATAN KAPSUL */
 .item-kegiatan {
     display: flex;
     align-items: flex-start;
@@ -326,25 +312,26 @@ h2 {
     transition: var(--transisi-halus);
 }
 
-/* Diubah: Warna biru menjadi var(--warna-utama) */
 .item-kegiatan:hover {
     background-color: var(--warna-utama);
     box-shadow: 0 4px 6px rgba(247, 144, 57, 0.2);
     transform: translateX(4px);
 }
 
+/* PENGGABUNGAN WARNA TEXT HOVER */
+.daftarkegiatan a:hover,
+.daftarkegiatan a:hover::before,
 .item-kegiatan:hover .judul-kegiatan,
 .item-kegiatan:hover .pjk-kegiatan,
 .item-kegiatan:hover::before {
-    color: #ffffff;
+    color: #fff;
 }
 
 /* ==========================================================================
-   MODAL POPUP & TABS (Duplikasi Digabungkan)
+   MODAL POPUP & TABS
    ========================================================================== */
 .modal-overlay {
     display: none;
-    /* Base display: none agar dikontrol via JS */
     position: fixed;
     top: 0;
     left: 0;
@@ -358,7 +345,7 @@ h2 {
 }
 
 .modal-content {
-    background: white;
+    background: #fff;
     width: 90%;
     max-width: 60%;
     border-radius: 12px;
@@ -367,13 +354,9 @@ h2 {
     overflow: hidden;
 }
 
-/* Class untuk modal berukuran lebih lebar */
 .modal-xl {
-    width: 95%;
     max-width: 900px;
-    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
 }
 
 @keyframes modalMuncul {
@@ -388,7 +371,6 @@ h2 {
     }
 }
 
-/* Diubah: Background dipatenkan ke warna utama */
 .modal-header {
     display: flex;
     justify-content: space-between;
@@ -396,7 +378,7 @@ h2 {
     padding: 15px 20px;
     border-bottom: 1px solid #e5e7eb;
     background-color: var(--warna-utama);
-    color: white;
+    color: #fff;
 }
 
 .modal-header h3 {
@@ -418,17 +400,7 @@ h2 {
 .modal-body {
     padding: 20px;
     max-height: 70vh;
-    /* Mengambil nilai tertinggi dari duplikasi */
     overflow-y: auto;
-}
-
-.modal-body::-webkit-scrollbar {
-    width: 6px;
-}
-
-.modal-body::-webkit-scrollbar-thumb {
-    background-color: #cbd5e0;
-    border-radius: 10px;
 }
 
 .modal-footer {
@@ -455,10 +427,9 @@ h2 {
     border-bottom: 3px solid transparent;
 }
 
-/* Diubah: Biru aktif menjadi Oranye lembut */
 .tab-link.active {
     color: var(--warna-utama);
-    border-bottom: 3px solid var(--warna-utama);
+    border-bottom-color: var(--warna-utama);
     background: rgba(247, 144, 57, 0.08);
 }
 
@@ -532,9 +503,7 @@ h2 {
     cursor: pointer;
 }
 
-/* ==========================================================================
-   PENAMPIL TEKS ISIAN (Duplikasi digabung)
-   ========================================================================== */
+/* PENAMPIL TEKS ISIAN */
 .teks-isian {
     font-size: 0.95rem;
     color: #2d3748;
@@ -563,14 +532,11 @@ h2 {
    ========================================================================== */
 .btn-hapus-baris {
     background: #fc8181;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 8px;
     width: 42px;
     height: 42px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     transition: 0.2s;
     flex-shrink: 0;
@@ -602,7 +568,7 @@ h2 {
 .btn-simpan,
 .btn-tambah-tim {
     background: var(--warna-utama);
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 8px;
     font-weight: bold;
@@ -651,7 +617,7 @@ h2 {
 
 .nama-ketua-clickable:hover {
     background-color: var(--warna-utama);
-    color: white;
+    color: #fff;
 }
 
 .modal-profil {
@@ -693,48 +659,6 @@ h2 {
     color: var(--teks-abu);
 }
 
-.baris-satker {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px dashed #cbd5e0;
-}
-
-.nama-satker {
-    font-weight: bold;
-    color: #2d3748;
-}
-
-.btn-profil-pjk {
-    background: #edf2f7;
-    border: 1px solid #cbd5e0;
-    border-radius: 20px;
-    padding: 6px 15px;
-    color: #718096;
-    cursor: not-allowed;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-}
-
-/* Diubah: Biru menjadi nuansa oranye */
-.btn-profil-pjk.ada-data {
-    background: rgba(247, 144, 57, 0.1);
-    color: var(--warna-utama);
-    border-color: rgba(247, 144, 57, 0.4);
-    cursor: pointer;
-    font-weight: bold;
-    transition: var(--transisi-halus);
-}
-
-.btn-profil-pjk.ada-data:hover {
-    background: var(--warna-utama);
-    color: white;
-}
-
-/* Duplikasi detail-profil digabung */
 .detail-profil {
     text-align: left;
     background: #f9fafb;
@@ -800,10 +724,9 @@ h2 {
     font-size: 0.85rem;
 }
 
-
-/* new */
-
-/* --- Styling Baris Satker & Inline Edit --- */
+/* ==========================================================================
+   STYLING BARIS SATKER & INLINE EDIT
+   ========================================================================== */
 .baris-satker {
     display: flex;
     align-items: center;
@@ -811,6 +734,11 @@ h2 {
     padding: 8px 0;
     border-bottom: 1px solid #f3f4f6;
     gap: 10px;
+}
+
+.nama-satker {
+    font-weight: bold;
+    color: #2d3748;
 }
 
 .aksi-kiri {
@@ -838,7 +766,33 @@ h2 {
     justify-content: flex-end;
 }
 
-/* Tombol Edit Kecil di Kiri */
+.btn-profil-pjk {
+    background: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 20px;
+    padding: 6px 15px;
+    color: #718096;
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.btn-profil-pjk.ada-data {
+    background: rgba(247, 144, 57, 0.1);
+    color: var(--warna-utama);
+    border-color: rgba(247, 144, 57, 0.4);
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transisi-halus);
+}
+
+.btn-profil-pjk.ada-data:hover {
+    background: var(--warna-utama);
+    color: #fff;
+}
+
 .btn-edit-inline {
     background: transparent;
     border: none;
@@ -854,7 +808,6 @@ h2 {
     transform: scale(1.1);
 }
 
-/* Form dan Tombol Mode Edit */
 .select-mini {
     height: 30px;
     padding: 0 8px;
@@ -870,16 +823,12 @@ h2 {
     width: 30px;
     border-radius: 4px;
     cursor: pointer;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: #fff;
     transition: 0.2s;
 }
 
 .btn-simpan-mini {
     background-color: #10b981;
-    /* Hijau */
 }
 
 .btn-simpan-mini:hover {
@@ -888,7 +837,6 @@ h2 {
 
 .btn-batal-mini {
     background-color: #ef4444;
-    /* Merah */
 }
 
 .btn-batal-mini:hover {

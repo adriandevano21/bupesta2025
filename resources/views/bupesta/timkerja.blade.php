@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets-jazirah/img/favicon.png') }}">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -25,6 +24,27 @@
 </head>
 
 <body>
+
+    {{-- AWAL BLOK OPTIMASI LOGIKA & DATA REUSABLE --}}
+    @php
+        $userActive = $data['user_active'] ?? null;
+        $userRole = $userActive->bupesta ?? '';
+        $userNip = $userActive->nip_pegawai ?? '';
+        $userSatker = $userActive->kode_satker ?? ''; // Asumsi key: kode_satker
+
+        // 1. Caching Otorisasi
+        $isAdmin = $userRole === 'admin';
+        $isAdminOrKepala = in_array($userRole, ['admin', 'kepala-umum']);
+
+        // 2. Render Opsi Dropdown Pegawai Sekali Saja untuk Dipakai Berkali-kali
+        $opsiPegawaiHtml = '<option value="">-- Pilih Pegawai / PJK --</option>';
+        if (!empty($data['pegawai_prov'])) {
+            foreach ($data['pegawai_prov'] as $pegawai) {
+                $opsiPegawaiHtml .= '<option value="' . $pegawai->nip_pegawai . '">' . $pegawai->name . '</option>';
+            }
+        }
+    @endphp
+    {{-- AKHIR BLOK OPTIMASI --}}
 
     <div id="orientation-warning" style="display: none;">
         <h1>Putar Perangkat Anda</h1>
@@ -53,8 +73,8 @@
             <br>
 
             <div class="posisitengah">
-                {{-- Tombol Tambah (Admin/Kepala Umum) --}}
-                @if (in_array($data['user_active']->bupesta, ['admin', 'kepala-umum']))
+                {{-- Tombol Tambah (Menggunakan variabel caching) --}}
+                @if ($isAdminOrKepala)
                     <div class="header-aksi" style="margin-bottom: 20px; text-align: right;">
                         <button class="btn-tambah-tim" onclick="bukaModalTambah()">
                             <i class="fa-solid fa-plus"></i> Tambah Tim Kerja Baru
@@ -65,23 +85,20 @@
                 <div class="container-kartu">
                     @foreach ($data['tim_kerja'] as $tim)
                         <div class="tiga-kartu">
-                            {{-- Data JSON untuk Modal Edit --}}
                             <script type="application/json" id="data-tim-{{ $tim->kode_tim_kerja }}">
                                 {!! json_encode([
                                     'kode_tim_kerja' => $tim->kode_tim_kerja,
                                     'nama_tim_kerja' => $tim->nama_tim_kerja,
-                                    'nip_ketua_tim' => $tim->nip_ketua_tim,
-                                    'kegiatan' => $tim->kegiatan->map(fn($k) => [
+                                    'nip_ketua_tim'  => $tim->nip_ketua_tim,
+                                    'kegiatan'       => $tim->kegiatan->map(fn($k) => [
                                         'kode_kegiatan' => $k->kode_kegiatan,
                                         'nama_kegiatan' => $k->nama_kegiatan,
-                                        'pjk_1100' => $k->pjk_1100
+                                        'pjk_1100'      => $k->pjk_1100
                                     ])->toArray()
                                 ]) !!}
                             </script>
 
-                            {{-- Tombol Edit (Hak Akses) --}}
-                            @if (in_array($data['user_active']->bupesta, ['admin', 'kepala-umum']) ||
-                                    $data['user_active']->nip_pegawai === $tim->nip_ketua_tim)
+                            @if ($isAdminOrKepala || $userNip === $tim->nip_ketua_tim)
                                 <button class="btn-edit" onclick="bukaModalEdit('{{ $tim->kode_tim_kerja }}')">
                                     <i class="fa-solid fa-pen"></i>
                                 </button>
@@ -126,8 +143,6 @@
                                                         data-id="{{ $kegiatan->kode_kegiatan }}"
                                                         data-nip-ketua="{{ $tim->nip_ketua_tim }}"
                                                         data-pjk-1100="{{ $kegiatan->pjk_1100 }}">
-                                                        {{-- TAMBAHKAN BARIS INI --}}
-
                                                         <div class="kegiatan-info">
                                                             <span
                                                                 class="judul-kegiatan">{{ $kegiatan->nama_kegiatan }}</span>
@@ -166,10 +181,7 @@
                             <div class="grup-input">
                                 <label>Nama Ketua</label>
                                 <select name="nama_ketua" class="input-form" style="cursor: pointer;" required>
-                                    <option value="">-- Pilih Ketua Tim --</option>
-                                    @foreach ($data['pegawai_prov'] as $pegawai)
-                                        <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
-                                    @endforeach
+                                    {!! $opsiPegawaiHtml !!} {{-- Pemanggilan variabel HTML, jauh lebih pendek --}}
                                 </select>
                             </div>
                             <hr class="garis-pembatas"><br>
@@ -180,11 +192,7 @@
                                         <input type="text" name="nama_kegiatan_baru[]"
                                             placeholder="Ketik kegiatan baru..." class="input-form">
                                         <select name="nip_pegawai_baru[]" class="input-form select-pegawai">
-                                            <option value="">-- Pilih Penanggung Jawab --</option>
-                                            @foreach ($data['pegawai_prov'] as $pegawai)
-                                                <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}
-                                                </option>
-                                            @endforeach
+                                            {!! $opsiPegawaiHtml !!}
                                         </select>
                                         <button type="button" class="btn-hapus-baris" onclick="hapusBaris(this)"><i
                                                 class="fa-solid fa-trash"></i></button>
@@ -221,10 +229,7 @@
                                 <label>Nama Ketua</label>
                                 <select id="edit_nama_ketua" name="nama_ketua" class="input-form"
                                     style="cursor: pointer;" required>
-                                    <option value="">-- Pilih Ketua Tim --</option>
-                                    @foreach ($data['pegawai_prov'] as $pegawai)
-                                        <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
-                                    @endforeach
+                                    {!! $opsiPegawaiHtml !!}
                                 </select>
                             </div>
                             <hr class="garis-pembatas"><br>
@@ -243,7 +248,7 @@
             </div>
 
             {{-- Modal Lengkapi Profil --}}
-            @if (isset($data['user_active']) && empty($data['user_active']->no_hp))
+            @if ($userActive && empty($userActive->no_hp))
                 <div id="modalLengkapiProfil" class="modal-overlay" style="display: flex;">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -262,16 +267,15 @@
                                 </div>
                                 <div class="grup-input">
                                     <label>Nama Lengkap</label>
-                                    <input type="text" class="input-form"
-                                        value="{{ $data['user_active']->name }}" disabled>
+                                    <input type="text" class="input-form" value="{{ $userActive->name }}"
+                                        disabled>
                                 </div>
                                 <div class="grup-input">
                                     <label>Username</label>
-                                    <input type="text" class="input-form"
-                                        value="{{ $data['user_active']->username }}" disabled>
+                                    <input type="text" class="input-form" value="{{ $userActive->username }}"
+                                        disabled>
                                 </div>
-                                <input type="hidden" name="nip_pegawai"
-                                    value="{{ $data['user_active']->nip_pegawai }}">
+                                <input type="hidden" name="nip_pegawai" value="{{ $userNip }}">
                                 <div class="modal-footer"
                                     style="margin-top: 20px; text-align: right; border-top: 1px solid #e2e8f0; padding-top: 15px;">
                                     <button type="submit" class="btn-simpan">Simpan Profil</button>
@@ -334,23 +338,17 @@
                         @foreach ($data['satkers'] as $satker)
                             <div class="baris-satker">
                                 @php
-                                    // 1. Cek Admin
-                                    $isAdmin = $data['user_active']->bupesta === 'admin';
-
-                                    // 2. Cek Kepala-kako / Kasubbag DAN satkernya sama
-                                    $isKepalaOrKasubbagLocal =
-                                        in_array($data['user_active']->bupesta, ['kepala-kako', 'kasubbag']) &&
-                                        $data['user_active']->kode_satker == $satker->kode_satker;
-
-                                    // 3. Tentukan apakah tombol tampil default atau disembunyikan untuk dicek via JS
-                                    $tampilDefault = $isAdmin || $isKepalaOrKasubbagLocal;
-                                    $classTambahan = !$tampilDefault ? 'pjk-butuh-cek-js' : '';
+                                    // Pengecekan disederhanakan
+                                    $isPimpinanLokal =
+                                        in_array($userRole, ['kepala-kako', 'kasubbag']) &&
+                                        $userSatker == $satker->kode_Satker;
+                                    $tampilDefault = $isAdmin || $isPimpinanLokal;
                                 @endphp
 
-                                <div class="aksi-kiri {{ $classTambahan }}"
+                                <div class="aksi-kiri {{ !$tampilDefault ? 'pjk-butuh-cek-js' : '' }}"
                                     style="display: {{ $tampilDefault ? 'block' : 'none' }};">
                                     <button type="button" class="btn-edit-inline"
-                                        onclick="toggleEditPjk('{{ $satker->kode_satker }}')" title="Edit PJK">
+                                        onclick="toggleEditPjk('{{ $satker->kode_Satker }}')" title="Edit PJK">
                                         <i class="fas fa-pencil-alt"></i>
                                     </button>
                                 </div>
@@ -359,31 +357,28 @@
                                     <span class="nama-satker">{{ $satker->nama_satker }}</span>
                                 </div>
 
-                                <div class="aksi-pjk" id="tampilan_pjk_{{ $satker->kode_satker }}">
+                                <div class="aksi-pjk" id="tampilan_pjk_{{ $satker->kode_Satker }}">
                                     <button type="button" class="btn-profil-pjk"
-                                        id="btn_pjk_{{ $satker->kode_satker }}" onclick="lihatProfilPegawai(this)">
+                                        id="btn_pjk_{{ $satker->kode_Satker }}" onclick="lihatProfilPegawai(this)">
                                         <i class="fas fa-user-circle"></i> <span class="teks-nama-pjk">Belum ada
                                             PJK</span>
                                     </button>
                                 </div>
 
-                                <div class="area-edit-pjk" id="area_edit_pjk_{{ $satker->kode_satker }}"
+                                <div class="area-edit-pjk" id="area_edit_pjk_{{ $satker->kode_Satker }}"
                                     style="display: none;">
-                                    <select id="select_pjk_{{ $satker->kode_satker }}"
+                                    <select id="select_pjk_{{ $satker->kode_Satker }}"
                                         class="input-form select-mini">
                                         <option value="">-- Kosongkan / Pilih PJK --</option>
-
-                                        {{-- JIKA ARRAY ALL USERS JUGA MENGGUNAKAN KEY KODE SATKER, UBAH JUGA DI SINI --}}
-                                        @foreach ($data['all_users'][$satker->kode_satker] ?? [] as $pegawai)
+                                        @foreach ($data['all_users'][$satker->kode_Satker] ?? [] as $pegawai)
                                             <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
                                         @endforeach
                                     </select>
-
                                     <button type="button" class="btn-simpan-mini"
-                                        onclick="simpanPjk('{{ $satker->kode_satker }}')" title="Simpan"><i
+                                        onclick="simpanPjk('{{ $satker->kode_Satker }}')" title="Simpan"><i
                                             class="fas fa-check"></i></button>
                                     <button type="button" class="btn-batal-mini"
-                                        onclick="toggleEditPjk('{{ $satker->kode_satker }}')" title="Batal"><i
+                                        onclick="toggleEditPjk('{{ $satker->kode_Satker }}')" title="Batal"><i
                                             class="fas fa-times"></i></button>
                                 </div>
                             </div>
@@ -402,10 +397,7 @@
                 <span class="tutup-modal" onclick="tutupModalProfilPegawai()">&times;</span>
             </div>
             <div class="modal-body text-center">
-                <div class="wadah-foto" style="margin-bottom: 15px;">
-                    {{-- <img id="profil_foto" src="" alt="Foto Profil" class="foto-profil"
-                        style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover;"> --}}
-                </div>
+                <div class="wadah-foto" style="margin-bottom: 15px;"></div>
                 <h4 id="profil_nama">-</h4>
                 <p style="color: #666; margin-bottom: 20px;">NIP. <span id="profil_nip">-</span></p>
                 <div class="detail-profil" style="text-align: left;">
@@ -433,28 +425,14 @@
         </div>
     </div>
 
-    {{-- Bridge PHP to JS --}}
+    {{-- Bridge PHP to JS (Sangat Disederhanakan) --}}
     <script>
-        // 1. Kita buat dulu kerangka awal opsi dropdown-nya
-        let htmlOpsiPegawai = `<option value="">-- Kosongkan / Pilih PJK --</option>`;
-
-        // 2. Kita looping data $data['pegawai_prov'] dari Controller
-        @if (isset($data['pegawai_prov']))
-            @foreach ($data['pegawai_prov'] as $pegawai)
-                htmlOpsiPegawai += `<option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>`;
-            @endforeach
-        @endif
-
-        // 3. Masukkan ke dalam objek global BupestaConfig
         window.BupestaConfig = {
             userName: "{{ auth()->check() ? auth()->user()->name : 'Guest' }}",
             successMessage: "{{ session('success') }}",
-            opsiPegawaiHtml: htmlOpsiPegawai // String HTML akan otomatis masuk ke sini
+            opsiPegawaiHtml: `{!! $opsiPegawaiHtml !!}` // <- Langsung ambil dari variabel PHP di atas!
         };
-    </script>
-
-    <script>
-        window.userActiveNip = "{{ $data['user_active']->nip_pegawai ?? '' }}";
+        window.userActiveNip = "{{ $userNip }}";
     </script>
 
     <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>

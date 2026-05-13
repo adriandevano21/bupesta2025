@@ -60,7 +60,7 @@ class BupestaTimKerjaController extends Controller
 
         // Ambil semua user dan kelompokkan berdasarkan kode_satker untuk dropdown
         $data['all_users'] = Cache::remember('all_users_grouped', 1440, function () {
-            return \App\Models\Bupesta_User::all()->groupBy('kode_satker');
+            return DB::table('bupesta_user')->get()->groupBy('kode_satker');
         });
 
         // dd($data['all_users']);
@@ -108,20 +108,9 @@ class BupestaTimKerjaController extends Controller
 
                 // --- 1. GENERATE KODE TIM KERJA ---
                 // Cari data terakhir di tahun tersebut berdasarkan kode_tim_kerja
-                $lastTim = Bupesta_TimKerja::where('tahun', $tahun)
-                    ->orderBy('kode_tim_kerja', 'desc')
-                    ->first();
+                $lastKode = Bupesta_TimKerja::where('tahun', $tahun)->max('kode_tim_kerja');
 
-                if ($lastTim) {
-                    // Ambil 3 karakter terakhir (misal dari "2026s101" diambil "101"), ubah ke integer, tambah 1
-                    $lastNumber = (int) substr($lastTim->kode_tim_kerja, -3);
-                    $nextNumber = $lastNumber + 1;
-                } else {
-                    // Jika belum ada data di tahun tersebut, mulai dari 101
-                    $nextNumber = 101;
-                }
-
-                // Format kembali menjadi YYYYsXXX (contoh: 2026s102)
+                $nextNumber = $lastKode ? ((int) substr($lastKode, -3)) + 1 : 101;
                 $kodeTimKerjaBaru = $tahun . 's' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
 
                 // --- 2. SIMPAN TIM KERJA BARU ---
@@ -134,17 +123,26 @@ class BupestaTimKerjaController extends Controller
 
                 // --- 3. SIMPAN KEGIATAN BARU ---
                 if ($request->has('nama_kegiatan_baru')) {
+                    $kegiatanData = [];
+                    $now = now(); // Untuk timestamps jika diperlukan
+
                     foreach ($request->nama_kegiatan_baru as $index => $nama_kegiatan) {
                         if (!empty($nama_kegiatan)) {
-                            $kegiatan = new Bupesta_Kegiatan();
-                            // Generate random string 11 karakter untuk kode_kegiatan
-                            $kegiatan->kode_kegiatan  = Str::random(11);
-                            $kegiatan->kode_tim_kerja = $kodeTimKerjaBaru;
-                            $kegiatan->nama_kegiatan  = $nama_kegiatan;
-                            $kegiatan->nip_pegawai    = $request->nip_pegawai_baru[$index] ?? null;
-                            $kegiatan->tahun_kegiatan = $tahun;
-                            $kegiatan->save();
+                            $kegiatanData[] = [
+                                'kode_kegiatan'  => Str::random(11),
+                                'kode_tim_kerja' => $kodeTimKerjaBaru,
+                                'nama_kegiatan'  => $nama_kegiatan,
+                                'nip_pegawai'    => $request->nip_pegawai_baru[$index] ?? null,
+                                'tahun_kegiatan' => $tahun,
+                                'created_at'     => $now,
+                                'updated_at'     => $now
+                            ];
                         }
+                    }
+
+                    if (!empty($kegiatanData)) {
+                        // Hanya 1x query ke database!
+                        Bupesta_Kegiatan::insert($kegiatanData);
                     }
                 }
             });
