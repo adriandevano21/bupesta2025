@@ -69,6 +69,7 @@ Route::controller(BupestaTimKerjaController::class)->group(function () {
     // Route untuk mengambil detail 1 kegiatan berdasarkan kode_kegiatannya (Format JSON)
     Route::get('/kegiatan/get-data/{kode_kegiatan}', 'getDetailKegiatan');
     Route::post('/kegiatan/update-pjk', 'updatePjk')->name('kegiatan.updatePjk');
+    Route::post('/kegiatan/update-info-umum', 'updateInfoUmum')->name('kegiatan.update-info');
 });
 
 Route::controller(UserController::class)->group(function () {

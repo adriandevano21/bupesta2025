@@ -17,12 +17,10 @@ return new class extends Migration
             $table->string('icon_tim_kerja', 150)->nullable();
             $table->string('tahun', 50)->nullable();
             $table->string('nip_ketua_tim', 20)->nullable();
+            $table->string('status', 20)->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('bupesta_timkerja');

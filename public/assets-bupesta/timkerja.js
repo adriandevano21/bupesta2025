@@ -7,7 +7,10 @@ const $ = (id) => document.getElementById(id);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 // --- 1. KENDALI OPEN/CLOSE SEMUA MODAL ---
-const toggleModal = (id, show) => $(id).style.display = show ? 'flex' : 'none';
+const toggleModal = (id, show) => {
+    const el = $(id);
+    if (el) el.style.display = show ? 'flex' : 'none';
+};
 
 function bukaModalTambah() { toggleModal('modalTambahTim', true); }
 function tutupModalTambah() { toggleModal('modalTambahTim', false); }
@@ -80,7 +83,7 @@ function openTab(evt, tabName) {
     evt.currentTarget.classList.add('active');
 }
 
-// --- 5. AJAX: FETCH PROFIL PEGAWAI (Diubah jadi Async/Await) ---
+// --- 5. AJAX: FETCH PROFIL PEGAWAI ---
 async function lihatProfilPegawai(elemen) {
     const nip = elemen.getAttribute('data-nip');
     if (!nip) return;
@@ -157,30 +160,84 @@ document.addEventListener('DOMContentLoaded', () => {
             const nipPjk1100 = this.getAttribute('data-pjk-1100');
             const userNip = window.userActiveNip;
 
-            // Logika Tombol Edit PJK
+            // Logika Hak Akses Tombol Edit PJK & Edit Info Umum
             $$('.pjk-butuh-cek-js').forEach(tombol => {
-                tombol.style.display = (userNip && (userNip === nipKetua || userNip === nipPjk1100)) ? 'block' : 'none';
+                tombol.style.display = (userNip && (userNip === nipKetua || userNip === nipPjk1100)) ? 'inline-block' : 'none';
             });
 
             $('aktif_kode_kegiatan').value = kodeKegiatan;
             toggleModal('modalKegiatanBesar', true);
 
+            // Reset tab ke posisi awal (Tab Info yang aktif)
             $('tab-info').classList.add('show');
             $('tab-pjk').classList.remove('show');
+            const tabEdit = $('tab-edit-info');
+            if (tabEdit) tabEdit.classList.remove('show');
 
             const tabs = $$('.tab-link');
-            tabs[0]?.classList.add('active');
-            tabs[1]?.classList.remove('active');
+            if(tabs[0]) tabs[0].classList.add('active');
+            if(tabs[1]) tabs[1].classList.remove('active');
+            if(tabs[2]) tabs[2].classList.remove('active');
+
+            // Set placeholder sembari loading
+            if($('judul_dinamis_kegiatan')) $('judul_dinamis_kegiatan').textContent = "Memuat...";
 
             try {
                 const res = await fetch(`/kegiatan/get-data/${kodeKegiatan}`);
                 const data = await res.json();
 
                 if (data && !data.error) {
-                    ['nama_kegiatan', 'tahun_kegiatan', 'detail_anggota_tim', 'detail_informasi_penting', 'detail_jadwal'].forEach(f => {
-                        $(`teks_${f}`).textContent = data[f] || '-';
+
+                    // --- 1. Isi Judul & Tab Teks Informasi Umum ---
+                    if ($('judul_dinamis_kegiatan')) $('judul_dinamis_kegiatan').textContent = data.nama_kegiatan || '-';
+
+                    ['nama_kegiatan', 'tahun_kegiatan', 'detail_informasi_penting', 'detail_jadwal'].forEach(f => {
+                        if ($(`teks_${f}`)) $(`teks_${f}`).textContent = data[f] || '-';
                     });
 
+                    // Render Nama Clickable untuk Informasi Umum
+                    const wadahInfoAnggota = $('teks_detail_anggota_tim');
+                    if (wadahInfoAnggota) {
+                        wadahInfoAnggota.innerHTML = '';
+                        if (data.detail_anggota_tim) {
+                            const nips = data.detail_anggota_tim.split(',');
+                            nips.forEach(nip => {
+                                const cleanNip = nip.trim(); // Bersihkan spasi
+                                const opt = document.querySelector(`#select_anggota_tim_multiple option[value="${cleanNip}"]`);
+                                const nama = opt ? opt.text : (data.nama_pegawai?.[cleanNip] || cleanNip);
+
+                                wadahInfoAnggota.innerHTML += `
+                                    <span class="badge-anggota" onclick="lihatProfilPegawai(this)" data-nip="${cleanNip}" title="Lihat Profil">
+                                        <i class="fas fa-user-circle"></i> ${nama}
+                                    </span>
+                                `;
+                            });
+                        } else {
+                            wadahInfoAnggota.textContent = '-';
+                        }
+                    }
+
+                    // --- 2. Isi Form Tab Edit Informasi Umum ---
+                    if ($('form_edit_kode_kegiatan')) $('form_edit_kode_kegiatan').value = data.kode_kegiatan || kodeKegiatan;
+                    if ($('input_nama_kegiatan')) $('input_nama_kegiatan').value = data.nama_kegiatan || '';
+                    if ($('input_tahun_kegiatan')) $('input_tahun_kegiatan').value = data.tahun_kegiatan || '';
+                    if ($('input_detail_informasi_penting')) $('input_detail_informasi_penting').value = data.detail_informasi_penting || '';
+                    if ($('input_detail_jadwal')) $('input_detail_jadwal').value = data.detail_jadwal || '';
+
+                    // Logika khusus Select Anggota (Render Pills di Edit Form)
+                    const selectAnggota = $('select_anggota_tim_multiple');
+                    if (selectAnggota) {
+                        selectAnggota.multiple = true;
+                        const stringAnggota = String(data.detail_anggota_tim || '');
+                        const nipArray = stringAnggota ? stringAnggota.split(',').map(s => s.trim()) : [];
+
+                        Array.from(selectAnggota.options).forEach(opt => {
+                            opt.selected = nipArray.includes(opt.value);
+                        });
+                        renderBadgesAnggota();
+                    }
+
+                    // --- 3. Isi Tampilan Tombol/Profil PJK Kab/Kota ---
                     const arrayPjk = ['1100', '1101', '1102', '1103', '1104', '1105', '1106', '1107', '1108', '1109', '1110', '1111', '1112', '1113', '1114', '1115', '1116', '1117', '1118', '1171', '1172', '1173', '1174', '1175'];
 
                     arrayPjk.forEach(kode => {
@@ -204,18 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             } catch (err) {
+                if ($('judul_dinamis_kegiatan')) $('judul_dinamis_kegiatan').textContent = "Gagal memuat data";
                 console.error('Gagal fetch data kegiatan:', err);
             }
         });
     });
 });
 
-// --- 7. INLINE EDIT PJK (Diubah jadi Async/Await) ---
+// --- 7. INLINE EDIT PJK ---
 function toggleEditPjk(kodeSatker) {
     const tampilanMode = $('tampilan_pjk_' + kodeSatker);
     const editMode = $('area_edit_pjk_' + kodeSatker);
-    const isHidden = tampilanMode.style.display === 'none';
 
+    if(!tampilanMode || !editMode) return;
+
+    const isHidden = tampilanMode.style.display === 'none';
     tampilanMode.style.display = isHidden ? 'block' : 'none';
     editMode.style.display = isHidden ? 'none' : 'flex';
 }
@@ -252,7 +312,6 @@ async function simpanPjk(kodeSatker) {
             const btnProfil = $('btn_pjk_' + kodeSatker);
             btnProfil.setAttribute('data-nip', nipBaru);
             btnProfil.querySelector('.teks-nama-pjk').textContent = namaBaru;
-            btnProfil.style.color = nipBaru ? "#f79039" : "#9ca3af";
 
             toggleEditPjk(kodeSatker);
             Toast.fire({ icon: 'success', title: 'Berhasil diperbarui' });
@@ -266,4 +325,55 @@ async function simpanPjk(kodeSatker) {
         btnSimpan.innerHTML = originalIcon;
         btnSimpan.disabled = false;
     }
+}
+
+// --- 8. LOGIKA MULTI-SELECT ANGGOTA TIM ---
+
+function renderBadgesAnggota() {
+    const wadah = document.getElementById('wadah_badges_anggota');
+    const hiddenSelect = document.getElementById('select_anggota_tim_multiple'); // [UBAH DI SINI]
+
+    if (!wadah || !hiddenSelect) return;
+
+    wadah.innerHTML = '';
+    let adaYangDipilih = false;
+
+    Array.from(hiddenSelect.options).forEach(opt => {
+        if (opt.selected) {
+            adaYangDipilih = true;
+            const badge = document.createElement('span');
+            badge.className = 'badge-anggota badge-anggota-hapus';
+            badge.title = 'Klik untuk menghapus';
+            badge.onclick = function() { hapusAnggotaTim(opt.value); };
+            badge.innerHTML = `<i class="fas fa-times-circle"></i> ${opt.text}`;
+            wadah.appendChild(badge);
+        }
+    });
+
+    if (!adaYangDipilih) {
+        wadah.innerHTML = '<span style="color:#9ca3af; font-size:12px; font-style:italic;">Belum ada anggota dipilih.</span>';
+    }
+}
+
+function tambahAnggotaTim(nip) {
+    if (!nip) return;
+    const hiddenSelect = document.getElementById('select_anggota_tim_multiple'); // [UBAH DI SINI]
+    const dummySelect = document.getElementById('pilih_anggota_dummy');
+
+    Array.from(hiddenSelect.options).forEach(opt => {
+        if (opt.value === nip) opt.selected = true;
+    });
+
+    renderBadgesAnggota();
+    dummySelect.value = '';
+}
+
+function hapusAnggotaTim(nip) {
+    const hiddenSelect = document.getElementById('select_anggota_tim_multiple'); // [UBAH DI SINI]
+
+    Array.from(hiddenSelect.options).forEach(opt => {
+        if (opt.value === nip) opt.selected = false;
+    });
+
+    renderBadgesAnggota();
 }

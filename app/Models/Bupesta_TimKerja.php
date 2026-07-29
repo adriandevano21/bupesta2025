@@ -22,7 +22,8 @@ class Bupesta_TimKerja extends Model
         'nama_tim_kerja',
         'icon_tim_kerja',
         'tahun',
-        'nip_ketua_tim'
+        'nip_ketua_tim',
+        'status'
     ];
 
     public $timestamps = false;

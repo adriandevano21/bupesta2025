@@ -262,8 +262,13 @@
                                         <th>Target</th>
                                         <th>Realisasi</th>
                                         <th>Dokumen</th>
-                                        {{-- <th>Progress</th> --}}
-                                        <th>Status Dokumen</th>
+
+                                        <th>Status Tahapan</th>
+                                        <th>Penetapan <br> Target</th>
+                                        <th>Realisasi</th>
+                                        <th>Evaluasi</th>
+                                        <th>Validasi</th>
+
                                         <th>Pemeriksaan</th>
                                         <th>Progress <br> Tr 1</th>
                                         <th>Progress <br> Tr 2</th>
@@ -278,15 +283,31 @@
                                             $lvl = (int) ($row->level ?? 1);
                                             $lvl = max(1, min(5, $lvl));
                                             $text = $row->rencana_kerja ?? ($row->rencana_kerja ?? '-');
-                                            $status = $row->status ?? null; // sesuaikan
+                                            $status = $row->status ?? null;
                                             $array_penanggungjawab = array_map(
                                                 'trim',
                                                 explode(',', $row->isian->penanggungjawab ?? null),
                                             );
+
+                                            // Variabel Status
+                                            $statusDokumen = $row->isian->status_dokumen ?? 'Belum Isi';
+                                            $statusNum = (int) $statusDokumen;
+
+                                            // -------------------------------------------------------------
+                                            // LOGIKA PENGECEKAN TRIWULAN BERJALAN
+                                            // -------------------------------------------------------------
+                                            $currentMonth = (int) date('n'); // Bulan saat ini (1-12)
+                                            $currentQuarter = ceil($currentMonth / 3); // Triwulan berjalan (1-4)
+
+                                            // Mengambil bulan target
+                                            $targetMonth = (int) ($row->isian->bulan_target ?? 0);
+                                            $targetQuarter = $targetMonth > 0 ? ceil($targetMonth / 3) : 0;
+
+                                            // Cek apakah target belum masuk triwulan berjalan sekarang
+                                            $belumMasukTriwulan = $targetMonth > 0 && $targetQuarter > $currentQuarter;
                                         @endphp
 
                                         <tr id="baris-{{ $row->id }}">
-                                            {{-- data-order biar sorting tetap rapi walau ada bullet/indent --}}
                                             <td data-order="{{ strip_tags($text) }}">
                                                 <div class="lvl-wrap lvl-{{ $lvl }}"
                                                     style="--lvl: {{ $lvl }};">
@@ -300,16 +321,14 @@
                                                             data-rencana_kerja_ped="{{ $row->rencana_kerja ?? '' }}"
                                                             data-dokumen_ped="{{ $row->pedoman ?? '' }}"
                                                             data-contoh_link_ped="{{ $row->contoh_link ?? '' }}">
-                                                            <i class="bi bi-file-earmark-ppt"></i><span>
-                                                                Pedoman</span>
+                                                            <i class="bi bi-file-earmark-ppt"></i><span> Pedoman</span>
                                                         </button>
                                                         @if (!empty($row->link_lainnya))
                                                             <button type="button" class="btn btn-edit-pill"
                                                                 title="Upload"
                                                                 onclick="window.open('{{ $row->link_lainnya }}', '_blank')">
                                                                 <i class="bi bi-file-earmark-ppt"></i><span> Bukti
-                                                                    Dukung
-                                                                    2024</span>
+                                                                    Dukung 2024</span>
                                                             </button>
                                                             <hr>
                                                         @endif
@@ -338,33 +357,28 @@
                                                                 data-output_tahun_lalu="{{ $row->isian->output_tahun_lalu ?? '' }}"
                                                                 data-penanggungjawab="{{ $row->isian->penanggungjawab ?? '' }}"
                                                                 data-bulan-target="{{ $row->isian->bulan_target ?? '' }}">
-                                                                <i class="bi bi-pencil-square"></i><span> Due:
-                                                                    Rabu, 1
+                                                                <i class="bi bi-pencil-square"></i><span> Due: Rabu, 1
                                                                     April 2026</span>
                                                             </button>
                                                         @endif
                                                     @endif
-                                                    <br>
-                                                    <br>
+                                                    <br><br>
                                                 </div>
-
                                             </td>
 
                                             <td class="keep-enter">
                                                 @if ($row->pengisian === 1)
                                                     <div class="lvl-wrap">
-                                                        <div class="lvl-chip">
-                                                            {{ $row->isian->rencanaaksi ?? '-' }}
+                                                        <div class="lvl-chip">{{ $row->isian->rencanaaksi ?? '-' }}
                                                         </div>
                                                     </div>
                                                 @endif
                                             </td>
+
                                             <td class="keep-enter">
                                                 @if ($row->pengisian === 1)
                                                     <div class="lvl-wrap">
-                                                        <div class="lvl-chip">
-                                                            {{ $row->isian->output ?? '-' }}
-                                                        </div>
+                                                        <div class="lvl-chip">{{ $row->isian->output ?? '-' }}</div>
                                                     </div>
                                                 @endif
                                             </td>
@@ -389,7 +403,6 @@
 
                                             <td>
                                                 @if ($row->pengisian === 1)
-                                                    {{-- contoh: tampilkan link/filename kalau ada --}}
                                                     @if (!empty($row->isian->link_buktidukung))
                                                         @if (!empty($row->isian->jumlah_dokumen))
                                                             <p>{{ $row->isian->jumlah_dokumen }} Dokumen</p>
@@ -398,10 +411,6 @@
                                                             onclick="generateData2('{{ $row->isian->link_buktidukung }}')"
                                                             style="color: rgb(0, 195, 255) !important; border:1px solid rgb(7, 61, 0) !important">
                                                             <i class="bi bi-eye-fill"></i><span> Tersedia</span>
-                                                            {{-- <a href="{{ $row->isian->link_buktidukung }}"
-                                                                target="_blank" style="text-decoration: none">
-                                                                <i class="bi bi-eye-fill"></i><span> Tersedia</span>
-                                                            </a> --}}
                                                         </button>
                                                         <hr>
                                                         <button type="button" class="btn btn-edit-pill"
@@ -411,10 +420,10 @@
                                                         </button>
                                                     @else
                                                         <button type="button" class="btn btn-edit-pill" disabled>
-                                                            <i class="bi bi-eye-slash-fill"></i><span>
-                                                                Belum Ada</span>
+                                                            <i class="bi bi-eye-slash-fill"></i><span> Belum Ada</span>
                                                         </button>
                                                     @endif
+
                                                     @if (
                                                         $data['user_active'][0]->role === 'admin' ||
                                                             ($data['user_active'][0]->kode_satker === $selectedSatker &&
@@ -438,58 +447,13 @@
                                                 @endif
                                             </td>
 
-                                            <td>
+                                            <td class="text-center">
                                                 @if ($row->pengisian === 1)
-                                                    @php
-                                                        $statusDokumen = $row->isian->status_dokumen ?? 'Belum Isi';
-                                                        // Konfigurasi tiap tahap (0 - 5)
-                                                        // Pastikan jadi number/integer
-                                                        $statusNum = (int) $statusDokumen;
-
-                                                        // Konfigurasi tiap tahap (0 - 5)
-                                                        $statusMap = [
-                                                            0 => [
-                                                                'label' => '',
-                                                                'color' => '#6c757d',
-                                                                'icon' => 'bi-file-earmark',
-                                                            ],
-                                                            1 => [
-                                                                'label' => '',
-                                                                'color' => '#dc3545',
-                                                                'icon' => 'bi-send',
-                                                            ],
-                                                            2 => [
-                                                                'label' => '',
-                                                                'color' => '#fd7e14',
-                                                                'icon' => 'bi-gear',
-                                                            ],
-                                                            3 => [
-                                                                'label' => '',
-                                                                'color' => '#ffc107',
-                                                                'icon' => 'bi-search',
-                                                            ],
-                                                            4 => [
-                                                                'label' => '',
-                                                                'color' => '#2b00ff',
-                                                                'icon' => 'bi-patch-check',
-                                                            ],
-                                                            5 => [
-                                                                'label' => '',
-                                                                'color' => '#198754',
-                                                                'icon' => 'bi-check-all',
-                                                            ],
-                                                        ];
-
-                                                        $currentStatus = $statusMap[$statusNum] ?? $statusMap[0];
-
-                                                        // Rumus: (n+1) / 6 * 100
-                                                        $percentage = ($statusNum / 5) * 100;
-                                                    @endphp
                                                     @if ($statusDokumen === '1')
                                                         <button type="button" class="btn btn-status"
                                                             title="Status Dokumen" aria-label="Edit">
-                                                            <i class="bi bi-graph-up-arrow"></i><span>
-                                                                Target Sudah Ditetapkan</span>
+                                                            <i class="bi bi-graph-up-arrow"></i><span> Target Sudah
+                                                                Ditetapkan</span>
                                                         </button>
                                                     @elseif ($statusDokumen === '2')
                                                         @if ($data['user_active'][0]->username === $row->isian->created_by_3)
@@ -498,7 +462,6 @@
                                                                 method="POST" style="display: none;">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                {{-- Variabel pengisian dikirim di sini --}}
                                                                 <input type="hidden" name="pengisian"
                                                                     value="kelima">
                                                                 <input type="hidden" name="updateby" id="updateby"
@@ -507,23 +470,22 @@
                                                             <button type="button"
                                                                 class="btn btn-status btn-finish-confirm"
                                                                 title="Status Dokumen" aria-label="Edit"
-                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
                                                                 data-id="{{ $row->isian->id ?? '' }}">
-                                                                <i class="bi bi-graph-up-arrow"></i>
-                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                                <i class="bi bi-graph-up-arrow"></i> <span>Bukti Dukung
+                                                                    Sudah Diisi</span>
                                                             </button>
                                                         @else
                                                             <button type="button" class="btn btn-status"
                                                                 title="Status Dokumen" aria-label="Edit">
-                                                                <i class="bi bi-graph-up-arrow"></i>
-                                                                <span>Bukti Dukung Sudah Diisi</span>
+                                                                <i class="bi bi-graph-up-arrow"></i> <span>Bukti Dukung
+                                                                    Sudah Diisi</span>
                                                             </button>
                                                         @endif
                                                     @elseif ($statusDokumen === '3')
                                                         <button type="button" class="btn btn-status"
                                                             title="Status Dokumen" aria-label="Edit">
-                                                            <i class="bi bi-graph-up-arrow"></i><span>
-                                                                Terdapat Evaluasi</span>
+                                                            <i class="bi bi-graph-up-arrow"></i><span> Terdapat
+                                                                Evaluasi</span>
                                                         </button>
                                                     @elseif ($statusDokumen === '4')
                                                         @if ($data['user_active'][0]->username === $row->isian->created_by_3)
@@ -532,7 +494,6 @@
                                                                 method="POST" style="display: none;">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                {{-- Variabel pengisian dikirim di sini --}}
                                                                 <input type="hidden" name="pengisian"
                                                                     value="kelima">
                                                                 <input type="hidden" name="updateby" id="updateby"
@@ -541,23 +502,21 @@
                                                             <button type="button"
                                                                 class="btn btn-status btn-finish-confirm"
                                                                 title="Status Dokumen" aria-label="Edit"
-                                                                {{-- Logika cek user tetap dipertahankan untuk keamanan tampilan --}}
                                                                 data-id="{{ $row->isian->id ?? '' }}">
-                                                                <i class="bi bi-graph-up-arrow"></i>
-                                                                <span>Sudah Ditindaklanjuti</span>
+                                                                <i class="bi bi-graph-up-arrow"></i> <span>Sudah
+                                                                    Ditindaklanjuti</span>
                                                             </button>
                                                         @else
                                                             <button type="button" class="btn btn-status"
                                                                 title="Status Dokumen" aria-label="Edit">
-                                                                <i class="bi bi-graph-up-arrow"></i>
-                                                                <span>Sudah Ditindaklanjuti</span>
+                                                                <i class="bi bi-graph-up-arrow"></i> <span>Sudah
+                                                                    Ditindaklanjuti</span>
                                                             </button>
                                                         @endif
                                                     @elseif ($statusDokumen === '5')
                                                         <button type="button" class="btn btn-status"
                                                             title="Status Dokumen" aria-label="Edit">
-                                                            <i class="bi bi-graph-up-arrow"></i><span>
-                                                                Selesai</span>
+                                                            <i class="bi bi-graph-up-arrow"></i><span> Selesai</span>
                                                         </button>
                                                     @else
                                                         <button type="button" class="btn btn-status">
@@ -565,25 +524,72 @@
                                                             <span>{{ $statusDokumen }}</span>
                                                         </button>
                                                     @endif
-                                                    <div class="progress-wrapper">
-                                                        <div class="progress-track">
-                                                            <div class="progress-bar-status"
-                                                                style="width: {{ $percentage }}%;
-                                                                    border-color: {{ $currentStatus['color'] }} !important;
-                                                                    color: {{ $currentStatus['color'] }} !important;">
+                                                @endif
+                                            </td>
 
-                                                                <i class="bi {{ $currentStatus['icon'] }}"></i>
-                                                                <span>{{ $currentStatus['label'] }}
-                                                                    ({{ round($percentage) }}%)</span>
+                                            {{-- Kolom 2: Penetapan Target --}}
+                                            <td class="text-center align-middle">
+                                                @if ($row->pengisian === 1)
+                                                    @if ($statusNum >= 1)
+                                                        <i class="bi bi-check-circle-fill text-success fs-5"
+                                                            title="Oleh: {{ $row->isian->created_by_1 ?? '-' }}&#10;Waktu: {{ $row->isian->created_at_1 ?? '-' }}"></i>
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
+                                                @endif
+                                            </td>
 
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                            {{-- Kolom 3: Realisasi --}}
+                                            <td class="text-center align-middle">
+                                                @if ($row->pengisian === 1)
+                                                    @if ($belumMasukTriwulan)
+                                                        <span class="text-muted" style="cursor:help;"
+                                                            title="Tidak ada target sampai triwulan ini">-</span>
+                                                    @elseif ($statusNum >= 2)
+                                                        @if (empty($row->isian->created_by_2) || empty($row->isian->created_at_2))
+                                                            <i class="bi bi-x-circle-fill text-danger fs-5"
+                                                                title="Belum mengisi realisasi"></i>
+                                                        @else
+                                                            <i class="bi bi-check-circle-fill text-success fs-5"
+                                                                title="Oleh: {{ $row->isian->created_by_2 }}&#10;Waktu: {{ $row->isian->created_at_2 }}"></i>
+                                                        @endif
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
+                                                @endif
+                                            </td>
+
+                                            {{-- Kolom 4: Evaluasi --}}
+                                            <td class="text-center align-middle">
+                                                @if ($row->pengisian === 1)
+                                                    @if ($belumMasukTriwulan)
+                                                        <span class="text-muted" style="cursor:help;"
+                                                            title="Tidak ada target sampai triwulan ini">-</span>
+                                                    @elseif ($statusNum >= 3)
+                                                        <i class="bi bi-check-circle-fill text-success fs-5"
+                                                            title="Oleh: {{ $row->isian->created_by_3 ?? '-' }}&#10;Waktu: {{ $row->isian->created_at_3 ?? '-' }}"></i>
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
+                                                @endif
+                                            </td>
+
+                                            {{-- Kolom 5: Validasi --}}
+                                            <td class="text-center align-middle">
+                                                @if ($row->pengisian === 1)
+                                                    @if ($belumMasukTriwulan)
+                                                        <span class="text-muted" style="cursor:help;"
+                                                            title="Tidak ada target sampai triwulan ini">-</span>
+                                                    @elseif ($statusNum >= 5)
+                                                        <i class="bi bi-check-circle-fill text-success fs-5"
+                                                            title="Oleh: {{ $row->isian->created_by_5 ?? '-' }}&#10;Waktu: {{ $row->isian->created_at_5 ?? '-' }}"></i>
+                                                    @else
+                                                        <span class="text-muted">-</span>
+                                                    @endif
                                                 @endif
                                             </td>
 
                                             <td class="keep-enter">
-                                                {{-- {{ $row->isian->created_by_3 }} --}}
                                                 @if ($row->pengisian === 1)
                                                     @if (
                                                         ($row->isian?->created_by_3 ?? null) !== null &&
@@ -599,7 +605,6 @@
                                                             <i class="bi bi-pencil-square"></i><span> Evaluasi</span>
                                                         </button>
                                                     @endif
-                                                    {{-- {{ $row->isian->id ?? '' }} --}}
                                                     @if (!empty($row->isian->komentar_evaluator1))
                                                         <b>{{ $row->isian->created_by_3 ?? 'Evaluator' }} :</b>
                                                         {{ $row->isian->komentar_evaluator1 ?? '-' }}
@@ -631,8 +636,8 @@
                                                     @endif
                                                 @endif
                                             </td>
+
                                             @php
-                                                // Kumpulkan field yang akan dilooping secara berurutan
                                                 $progressFields = [
                                                     $row->isian->progres_tw1 ?? null,
                                                     $row->isian->progres_tw2 ?? null,
@@ -646,7 +651,6 @@
                                                 <td>
                                                     @if ($row->pengisian === 1 && $nilai !== null)
                                                         @php
-                                                            // Tentukan gaya berdasarkan nilai
                                                             $isTidakAdaTarget = $nilai === 'Tidak Ada Target';
 
                                                             if ($isTidakAdaTarget) {
@@ -676,23 +680,12 @@
                                                             style="background-color: #f1f3f5; border-radius: 12px; height: 32px; border: 1px solid #1A71A7; overflow: hidden; display: flex; align-items: center; width: 100%; min-width: 120px;">
                                                             <div class="btn-status"
                                                                 style="width: {{ $lebar }}%;
-                                                                    min-width: {{ $isTidakAdaTarget ? '100%' : '60px' }};
-                                                                    border-color: {{ $warna }} !important;
-                                                                    color: {{ $warna }} !important;
-                                                                    transition: width 0.5s ease;
-                                                                    display: flex;
-                                                                    align-items: center;
-                                                                    justify-content: center;
-                                                                    height: 100%;
-                                                                    gap: 10px;
-                                                                    padding: 0 10px;
-                                                                    border-radius: 12px;
-                                                                    background: {{ $isTidakAdaTarget ? '#e9ecef' : '#f1f3f5' }};
-                                                                    border: 1px solid #1A71A7;
-                                                                    font-size: 9px !important;
-                                                                    font-weight: bold;
-                                                                    white-space: nowrap;">
-
+                                        min-width: {{ $isTidakAdaTarget ? '100%' : '60px' }};
+                                        border-color: {{ $warna }} !important;
+                                        color: {{ $warna }} !important;
+                                        transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; height: 100%; gap: 10px; padding: 0 10px; border-radius: 12px;
+                                        background: {{ $isTidakAdaTarget ? '#e9ecef' : '#f1f3f5' }};
+                                        border: 1px solid #1A71A7; font-size: 9px !important; font-weight: bold; white-space: nowrap;">
                                                                 <i class="bi {{ $ikon }}"></i>
                                                                 <span>{{ $teks }}</span>
                                                             </div>
@@ -703,7 +696,6 @@
                                                 </td>
                                             @endforeach
                                         </tr>
-
                                     @endforeach
                                 </tbody>
                             </table>
@@ -1289,31 +1281,51 @@
             {
                 targets: 8,
                 orderable: false,
-                width: '250px'
+                width: '120px'
             },
             {
                 targets: 9,
-                width: '150px',
+                width: '120px',
                 className: 'dt-body-center'
             },
             {
                 targets: 10,
-                width: '150px',
+                width: '120px',
                 className: 'dt-body-center'
             },
             {
                 targets: 11,
-                width: '150px',
+                width: '120px',
                 className: 'dt-body-center'
             },
             {
                 targets: 12,
-                width: '150px',
+                width: '250px',
                 className: 'dt-body-center'
             },
             {
                 targets: 13,
-                width: '150px',
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 14,
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 15,
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 16,
+                width: '200px',
+                className: 'dt-body-center'
+            },
+            {
+                targets: 17,
+                width: '200px',
                 className: 'dt-body-center'
             }
         ],

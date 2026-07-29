@@ -74,91 +74,208 @@
 
             <div class="posisitengah">
                 {{-- Tombol Tambah (Menggunakan variabel caching) --}}
-                @if ($isAdminOrKepala)
-                    <div class="header-aksi" style="margin-bottom: 20px; text-align: right;">
+
+                <div class="header-aksi"
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+
+                    {{-- Judul Halaman (Kiri) --}}
+                    <h2 style="margin: 0; font-size: 1.5rem; color: #f79039; font-weight: 600;">
+                        <i class="fas fa-users-cog" style="margin-right: 8px;"></i> Daftar Tim Kerja
+                    </h2>
+
+                    {{-- Tombol Tambah (Kanan) - Hanya untuk Admin/Kepala Umum --}}
+                    {{-- @if (in_array($data['user_active']->bupesta, ['admin', 'kepala-umum']))
                         <button class="btn-tambah-tim" onclick="bukaModalTambah()">
                             <i class="fa-solid fa-plus"></i> Tambah Tim Kerja Baru
                         </button>
-                    </div>
-                @endif
+                    @endif --}}
+                </div>
 
+                {{-- ================= BAGIAN ATAS (STATUS 1) ================= --}}
                 <div class="container-kartu">
                     @foreach ($data['tim_kerja'] as $tim)
-                        <div class="tiga-kartu">
-                            <script type="application/json" id="data-tim-{{ $tim->kode_tim_kerja }}">
-                                {!! json_encode([
-                                    'kode_tim_kerja' => $tim->kode_tim_kerja,
-                                    'nama_tim_kerja' => $tim->nama_tim_kerja,
-                                    'nip_ketua_tim'  => $tim->nip_ketua_tim,
-                                    'kegiatan'       => $tim->kegiatan->map(fn($k) => [
-                                        'kode_kegiatan' => $k->kode_kegiatan,
-                                        'nama_kegiatan' => $k->nama_kegiatan,
-                                        'pjk_1100'      => $k->pjk_1100
-                                    ])->toArray()
-                                ]) !!}
-                            </script>
+                        @if ($tim->status == 1)
+                            <div class="tiga-kartu">
+                                <script type="application/json" id="data-tim-{{ $tim->kode_tim_kerja }}">
+                                    {!! json_encode([
+                                        'kode_tim_kerja' => $tim->kode_tim_kerja,
+                                        'nama_tim_kerja' => $tim->nama_tim_kerja,
+                                        'nip_ketua_tim'  => $tim->nip_ketua_tim,
+                                        'kegiatan'       => $tim->kegiatan->map(fn($k) => [
+                                            'kode_kegiatan' => $k->kode_kegiatan,
+                                            'nama_kegiatan' => $k->nama_kegiatan,
+                                            'pjk_1100'      => $k->pjk_1100
+                                        ])->toArray()
+                                    ]) !!}
+                                </script>
 
-                            @if ($isAdminOrKepala || $userNip === $tim->nip_ketua_tim)
-                                <button class="btn-edit" onclick="bukaModalEdit('{{ $tim->kode_tim_kerja }}')">
-                                    <i class="fa-solid fa-pen"></i>
-                                </button>
-                            @endif
+                                @if ($isAdminOrKepala || $userNip === $tim->nip_ketua_tim)
+                                    <button class="btn-edit" onclick="bukaModalEdit('{{ $tim->kode_tim_kerja }}')">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                @endif
 
-                            <div class="header-kartu">
-                                <div class="ikon">{!! $tim->icon_tim_kerja !!}</div>
-                                <div class="judul">{{ $tim->nama_tim_kerja }}</div>
+                                <div class="header-kartu">
+                                    <div class="ikon">{!! $tim->icon_tim_kerja !!}</div>
+                                    <div class="judul">{{ $tim->nama_tim_kerja }}</div>
+                                </div>
+
+                                <div class="isi-kartu">
+                                    <div class="ketua">
+                                        Ketua:
+                                        @php
+                                            $profilKetua = collect($data['pegawai_prov'])->firstWhere(
+                                                'nip_pegawai',
+                                                $tim->nip_ketua_tim,
+                                            );
+                                        @endphp
+
+                                        @if ($profilKetua)
+                                            <span class="nama-ketua-clickable"
+                                                data-nip="{{ $profilKetua->nip_pegawai }}"
+                                                onclick="lihatProfilPegawai(this)">
+                                                {{ $profilKetua->name }}
+                                            </span>
+                                        @else
+                                            <span class="text-muted">Belum ada ketua</span>
+                                        @endif
+                                    </div>
+                                    <div class="jumlah-kegiatan">
+                                        <b>{{ $tim->kegiatan->count() }} Kegiatan : </b>
+                                    </div>
+
+                                    <div class="daftar-scroll">
+                                        @if ($tim->kegiatan->isEmpty())
+                                            <p class="text-kosong">belum ada yang diinput</p>
+                                        @else
+                                            <ul class="daftarkegiatan" style="padding-left: 0; margin-top: 10px;">
+                                                @foreach ($tim->kegiatan as $kegiatan)
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="item-kegiatan"
+                                                            data-id="{{ $kegiatan->kode_kegiatan }}"
+                                                            data-nip-ketua="{{ $tim->nip_ketua_tim }}"
+                                                            data-pjk-1100="{{ $kegiatan->pjk_1100 }}">
+                                                            <div class="kegiatan-info">
+                                                                <span
+                                                                    class="judul-kegiatan">{{ $kegiatan->nama_kegiatan }}</span>
+                                                                <span class="pjk-kegiatan">
+                                                                    PJK:
+                                                                    {{ $kegiatan->penanggungJawab->name ?? 'Belum ada PJK' }}
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </div>
+                                </div>
                             </div>
+                        @endif
+                    @endforeach
+                </div>
 
-                            <div class="isi-kartu">
-                                <div class="ketua">
-                                    Ketua:
-                                    @php
-                                        $profilKetua = collect($data['pegawai_prov'])->firstWhere(
-                                            'nip_pegawai',
-                                            $tim->nip_ketua_tim,
-                                        );
-                                    @endphp
+                {{-- ================= GARIS PEMISAH ================= --}}
+                <hr style="margin: 30px 0; border: 1px solid #e5e7eb;">
 
-                                    @if ($profilKetua)
-                                        <span class="nama-ketua-clickable" data-nip="{{ $profilKetua->nip_pegawai }}"
-                                            onclick="lihatProfilPegawai(this)">
-                                            {{ $profilKetua->name }}
-                                        </span>
-                                    @else
-                                        <span class="text-muted">Belum ada ketua</span>
-                                    @endif
+                {{-- ================= TOMBOL TAMBAH (SEBELUM STATUS 2) ================= --}}
+                <div class="header-aksi"
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+
+                    {{-- Judul Halaman (Kiri) --}}
+                    <h2 style="margin: 0; font-size: 1.5rem; color: #f79039; font-weight: 600;">
+                        <i class="fas fa-users-cog" style="margin-right: 8px;"></i> Daftar Tim Ad Hoc
+                    </h2>
+
+                    {{-- Tombol Tambah (Kanan) - Hanya untuk Admin/Kepala Umum --}}
+                    @if (in_array($data['user_active']->bupesta, ['admin', 'kepala-umum']))
+                        <button class="btn-tambah-tim" onclick="bukaModalTambah()">
+                            <i class="fa-solid fa-plus"></i> Tambah Tim Kerja Baru
+                        </button>
+                    @endif
+                </div>
+
+                {{-- ================= BAGIAN BAWAH (STATUS 2) ================= --}}
+                <div class="container-kartu">
+                    @foreach ($data['tim_kerja'] as $tim)
+                        @if ($tim->status == 2)
+                            <div class="tiga-kartu">
+                                <script type="application/json" id="data-tim-{{ $tim->kode_tim_kerja }}">
+                    {!! json_encode([
+                        'kode_tim_kerja' => $tim->kode_tim_kerja,
+                        'nama_tim_kerja' => $tim->nama_tim_kerja,
+                        'nip_ketua_tim'  => $tim->nip_ketua_tim,
+                        'kegiatan'       => $tim->kegiatan->map(fn($k) => [
+                            'kode_kegiatan' => $k->kode_kegiatan,
+                            'nama_kegiatan' => $k->nama_kegiatan,
+                            'pjk_1100'      => $k->pjk_1100
+                        ])->toArray()
+                    ]) !!}
+                </script>
+
+                                @if ($isAdminOrKepala || $userNip === $tim->nip_ketua_tim)
+                                    <button class="btn-edit" onclick="bukaModalEdit('{{ $tim->kode_tim_kerja }}')">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                @endif
+
+                                <div class="header-kartu">
+                                    <div class="ikon">{!! $tim->icon_tim_kerja !!}</div>
+                                    <div class="judul">{{ $tim->nama_tim_kerja }}</div>
                                 </div>
-                                <div class="jumlah-kegiatan">
-                                    <b>{{ $tim->kegiatan->count() }} Kegiatan : </b>
-                                </div>
 
-                                <div class="daftar-scroll">
-                                    @if ($tim->kegiatan->isEmpty())
-                                        <p class="text-kosong">belum ada yang diinput</p>
-                                    @else
-                                        <ul class="daftarkegiatan" style="padding-left: 0; margin-top: 10px;">
-                                            @foreach ($tim->kegiatan as $kegiatan)
-                                                <li>
-                                                    <a href="javascript:void(0)" class="item-kegiatan"
-                                                        data-id="{{ $kegiatan->kode_kegiatan }}"
-                                                        data-nip-ketua="{{ $tim->nip_ketua_tim }}"
-                                                        data-pjk-1100="{{ $kegiatan->pjk_1100 }}">
-                                                        <div class="kegiatan-info">
-                                                            <span
-                                                                class="judul-kegiatan">{{ $kegiatan->nama_kegiatan }}</span>
-                                                            <span class="pjk-kegiatan">
-                                                                PJK:
-                                                                {{ $kegiatan->penanggungJawab->name ?? 'Belum ada PJK' }}
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    @endif
+                                <div class="isi-kartu">
+                                    <div class="ketua">
+                                        Ketua:
+                                        @php
+                                            $profilKetua = collect($data['pegawai_prov'])->firstWhere(
+                                                'nip_pegawai',
+                                                $tim->nip_ketua_tim,
+                                            );
+                                        @endphp
+
+                                        @if ($profilKetua)
+                                            <span class="nama-ketua-clickable"
+                                                data-nip="{{ $profilKetua->nip_pegawai }}"
+                                                onclick="lihatProfilPegawai(this)">
+                                                {{ $profilKetua->name }}
+                                            </span>
+                                        @else
+                                            <span class="text-muted">Belum ada ketua</span>
+                                        @endif
+                                    </div>
+                                    <div class="jumlah-kegiatan">
+                                        <b>{{ $tim->kegiatan->count() }} Kegiatan : </b>
+                                    </div>
+
+                                    <div class="daftar-scroll">
+                                        @if ($tim->kegiatan->isEmpty())
+                                            <p class="text-kosong">belum ada yang diinput</p>
+                                        @else
+                                            <ul class="daftarkegiatan" style="padding-left: 0; margin-top: 10px;">
+                                                @foreach ($tim->kegiatan as $kegiatan)
+                                                    <li>
+                                                        <a href="javascript:void(0)" class="item-kegiatan"
+                                                            data-id="{{ $kegiatan->kode_kegiatan }}"
+                                                            data-nip-ketua="{{ $tim->nip_ketua_tim }}"
+                                                            data-pjk-1100="{{ $kegiatan->pjk_1100 }}">
+                                                            <div class="kegiatan-info">
+                                                                <span
+                                                                    class="judul-kegiatan">{{ $kegiatan->nama_kegiatan }}</span>
+                                                                <span class="pjk-kegiatan">
+                                                                    PJK:
+                                                                    {{ $kegiatan->penanggungJawab->name ?? 'Belum ada PJK' }}
+                                                                </span>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -297,17 +414,32 @@
     <div id="modalKegiatanBesar" class="modal-overlay" style="display: none;">
         <div class="modal-content modal-xl">
             <div class="modal-header">
-                <h3>Detail Lengkap Kegiatan</h3>
+                {{-- 1. Judul ditambahkan span untuk disisipkan nama kegiatan via JS --}}
+                <h3>Detail Lengkap Kegiatan - <span id="judul_dinamis_kegiatan"></span></h3>
                 <span class="tutup-modal" onclick="tutupModalBesar()">&times;</span>
             </div>
+
             <div class="modal-tabs">
-                <button class="tab-link" onclick="openTab(event, 'tab-info')"><i class="fas fa-info-circle"></i>
+                <button class="tab-link active" onclick="openTab(event, 'tab-info')"><i
+                        class="fas fa-info-circle"></i>
                     Informasi Umum</button>
-                <button class="tab-link active" onclick="openTab(event, 'tab-pjk')"><i
-                        class="fas fa-map-marker-alt"></i> PJK Kab/Kota</button>
+                <button class="tab-link" onclick="openTab(event, 'tab-pjk')"><i class="fas fa-map-marker-alt"></i>
+                    PJK Kab/Kota</button>
+
+                {{-- 2. Tab Edit Informasi Umum (Class dan style disamakan dengan validasi tombol Edit PJK) --}}
+                @php
+                    // Validasi tampilan global untuk Tab Edit, sesuaikan dengan role admin/pimpinan
+                    $tampilEditGlobal = $isAdmin ?? false;
+                @endphp
+                <button class="tab-link {{ !$tampilEditGlobal ? 'pjk-butuh-cek-js' : '' }}"
+                    style="display: {{ $tampilEditGlobal ? 'inline-block' : 'none' }};"
+                    onclick="openTab(event, 'tab-edit-info')">
+                    <i class="fas fa-edit"></i> Edit Informasi Umum
+                </button>
             </div>
+
             <div class="modal-body">
-                <div id="tab-info" class="tab-content">
+                <div id="tab-info" class="tab-content show">
                     <div class="grid-multi-kolom">
                         <div class="grup-tampil">
                             <label>Nama Kegiatan</label>
@@ -320,7 +452,11 @@
                     </div>
                     <div class="grup-tampil" style="margin-top: 15px;">
                         <label>Detail Anggota Tim</label>
-                        <div class="teks-isian area-teks" id="teks_detail_anggota_tim">-</div>
+                        {{-- Diubah menjadi flex wrap agar badge tersusun rapi ke samping --}}
+                        <div class="teks-isian" id="teks_detail_anggota_tim"
+                            style="display: flex; flex-wrap: wrap; gap: 5px; padding: 10px 0;">
+                            -
+                        </div>
                     </div>
                     <div class="grup-tampil">
                         <label>Informasi Penting</label>
@@ -332,17 +468,16 @@
                     </div>
                 </div>
 
-                <div id="tab-pjk" class="tab-content show">
+                <div id="tab-pjk" class="tab-content">
                     <input type="hidden" id="aktif_kode_kegiatan" value="">
                     <div class="list-satker-pjk">
                         @foreach ($data['satkers'] as $satker)
                             <div class="baris-satker">
                                 @php
-                                    // Pengecekan disederhanakan
                                     $isPimpinanLokal =
-                                        in_array($userRole, ['kepala-kako', 'kasubbag']) &&
-                                        $userSatker == $satker->kode_Satker;
-                                    $tampilDefault = $isAdmin || $isPimpinanLokal;
+                                        in_array($userRole ?? '', ['kepala-kako', 'kasubbag']) &&
+                                        ($userSatker ?? '') == $satker->kode_Satker;
+                                    $tampilDefault = ($isAdmin ?? false) || $isPimpinanLokal;
                                 @endphp
 
                                 <div class="aksi-kiri {{ !$tampilDefault ? 'pjk-butuh-cek-js' : '' }}"
@@ -360,7 +495,8 @@
                                 <div class="aksi-pjk" id="tampilan_pjk_{{ $satker->kode_Satker }}">
                                     <button type="button" class="btn-profil-pjk"
                                         id="btn_pjk_{{ $satker->kode_Satker }}" onclick="lihatProfilPegawai(this)">
-                                        <i class="fas fa-user-circle"></i> <span class="teks-nama-pjk">Belum ada
+                                        <i class="fas fa-user-circle"></i>
+                                        <span class="teks-nama-pjk">Belum ada
                                             PJK</span>
                                     </button>
                                 </div>
@@ -369,7 +505,8 @@
                                     style="display: none;">
                                     <select id="select_pjk_{{ $satker->kode_Satker }}"
                                         class="input-form select-mini">
-                                        <option value="">-- Kosongkan / Pilih PJK --</option>
+                                        <option value="">-- Kosongkan /
+                                            Pilih PJK --</option>
                                         @foreach ($data['all_users'][$satker->kode_Satker] ?? [] as $pegawai)
                                             <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
                                         @endforeach
@@ -385,6 +522,73 @@
                         @endforeach
                     </div>
                 </div>
+
+                <div id="tab-edit-info" class="tab-content">
+                    {{-- 3. Form untuk Edit Detail Lengkap Kegiatan --}}
+                    <form action="/kegiatan/update-info-umum" method="POST" id="formEditInfoKegiatan">
+                        @csrf
+                        <input type="hidden" name="kode_kegiatan" id="form_edit_kode_kegiatan">
+
+                        <div class="grup-tampil" style="margin-bottom: 10px;">
+                            <label>Nama Kegiatan</label>
+                            <input type="text" name="nama_kegiatan" id="input_nama_kegiatan" class="input-form"
+                                style="width: 100%;" required>
+                        </div>
+
+                        <div class="grup-tampil" style="margin-bottom: 10px;">
+                            <label>Tahun Kegiatan</label>
+                            <input type="text" name="tahun_kegiatan" id="input_tahun_kegiatan" class="input-form"
+                                style="width: 100%;" required>
+                        </div>
+
+                        <div class="grup-tampil" style="margin-bottom: 10px;">
+                            <label>Detail Anggota Tim</label>
+
+                            {{-- 1. Wadah Visual untuk Menampilkan Label Nama yang Dipilih --}}
+                            <div id="wadah_badges_anggota" class="wadah-badges">
+                                <span style="color:#9ca3af; font-size:12px; font-style:italic;">Belum ada anggota
+                                    dipilih.</span>
+                            </div>
+
+                            {{-- 2. Dropdown Biasa (Hanya untuk Memilih, bukan untuk submit) --}}
+                            <select id="pilih_anggota_dummy" class="input-form select-mini" style="width: 100%;"
+                                onchange="tambahAnggotaTim(this.value)">
+                                <option value="">+ Klik untuk Menambahkan Anggota Tim...</option>
+                                @foreach ($data['all_users']['1100'] ?? [] as $pegawai)
+                                    <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
+                                @endforeach
+                            </select>
+
+                            {{-- 3. Select Multiple Asli (Disembunyikan, ini yang dikirim ke Controller) --}}
+                            <select name="detail_anggota_tim[]" id="select_anggota_tim_multiple" multiple
+                                style="display: none;">
+                                @foreach ($data['all_users']['1100'] ?? [] as $pegawai)
+                                    <option value="{{ $pegawai->nip_pegawai }}">{{ $pegawai->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="grup-tampil" style="margin-bottom: 10px;">
+                            <label>Informasi Penting</label>
+                            <textarea name="detail_informasi_penting" id="input_detail_informasi_penting" class="input-form area-teks"
+                                style="width: 100%; height: 80px;"></textarea>
+                        </div>
+
+                        <div class="grup-tampil" style="margin-bottom: 15px;">
+                            <label>Jadwal</label>
+                            <textarea name="detail_jadwal" id="input_detail_jadwal" class="input-form area-teks"
+                                style="width: 100%; height: 80px;"></textarea>
+                        </div>
+
+                        <div style="text-align: right;">
+                            <button type="submit" class="btn-simpan-mini"
+                                style="padding: 8px 15px; width: auto; height: auto; border-radius: 5px;">
+                                <i class="fas fa-save"></i> Simpan Perubahan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
     </div>

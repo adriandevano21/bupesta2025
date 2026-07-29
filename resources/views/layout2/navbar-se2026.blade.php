@@ -21,16 +21,17 @@
             </li>
 
             <li class="dropdown-menuatas">
-                <a href="#" class="active">
+                <a href="#" class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
                     <i class="fa-solid fa-bowl-rice"></i><span>&nbsp; BuPeSta</span>
                 </a>
                 <ul class="submenu-menuatas">
                     <li>
-                        <a href="../timkerja?tahun={{ $tahunDipilih }}" class="active">
+                        <a href="../timkerja?tahun={{ $tahunDipilih }}"
+                            class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
                             <i class="fa-solid fa-bowl-rice"></i><span>&nbsp; Tim Kerja BPS Aceh</span>
                         </a>
                     </li>
-                    <li>
+                    {{-- <li>
                         <a href="../timelinesemuakegiatan.php?tahun={{ $tahunDipilih }}">
                             <i class="fa-solid fa-calendar-days"></i><span>&nbsp; Historis Kegiatan BPS Aceh</span>
                         </a>
@@ -49,12 +50,13 @@
                         <a href="tentangbupesta.php?tahun={{ $tahunDipilih }}">
                             <i class="fa-solid fa-mug-hot"></i><span>&nbsp; TanyaJawab</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
             </li>
 
             <li>
-                <a href="/jazirah-dashboard?tahun={{ $tahunDipilih }}">
+                <a href="/jazirah-dashboard?tahun={{ $tahunDipilih }}"
+                    class="{{ $data['id_judul'] === '3' ? 'active' : '' }}">
                     <i class="fa-solid fa-file"></i><span>&nbsp; Jazirah</span>
                 </a>
             </li>

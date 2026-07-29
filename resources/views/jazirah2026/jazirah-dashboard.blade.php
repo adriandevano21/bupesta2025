@@ -80,7 +80,7 @@
                     $menus = [
                         [
                             'title' => 'New Lembar Kerja',
-                            'url' => url('/lembar-kerja/new'),
+                            'url' => url('/jazirah-lembarkerja'),
                             'color' => 'from-blue-500 to-cyan-400',
                             'icon' =>
                                 '<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m3.75 9v6m3-3H9m1.5-12H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />',
@@ -195,48 +195,80 @@
                 <br>
 
                 <div class="flex flex-wrap justify-between items-center mb-6 gap-4">
-                    <form method="GET" action="{{ url()->current() }}" class="mb-6">
+                    <form method="GET" action="{{ url()->current() }}" class="mb-6 flex flex-wrap gap-4"
+                        id="form-filter">
+                        <input type="hidden" name="tahun" value="{{ request('tahun', '2026') }}">
+
                         <div class="flex items-center space-x-3">
-                            <label for="jenis_data" class="text-gray-800 font-bold text-base">
-                                Data:
+                            <label for="mode" class="text-gray-800 font-bold text-base">
+                                Mode:
                             </label>
-
                             <div class="relative">
-                                <select name="jenis_data" id="jenis_data" onchange="this.form.submit()"
-                                    class="block w-full appearance-none bg-white border-2 border-green-200 text-gray-900 font-bold py-2 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:border-green-400 focus:ring-4 focus:ring-green-50 cursor-pointer transition ease-in-out duration-150">
-                                    <option value="penetapan_target"
-                                        {{ request('jenis_data') == 'penetapan_target' ? 'selected' : '' }}>
-                                        Penetapan Target
-                                    </option>
-                                    <option value="realisasi"
-                                        {{ request('jenis_data') == 'realisasi' ? 'selected' : '' }}>
-                                        Realisasi
-                                    </option>
-                                    <option value="evaluasi"
-                                        {{ request('jenis_data') == 'evaluasi' ? 'selected' : '' }}>
-                                        Evaluasi
-                                    </option>
-                                    <option value="tindak_lanjut"
-                                        {{ request('jenis_data') == 'tindak_lanjut' ? 'selected' : '' }}>
-                                        Tindak Lanjut
-                                    </option>
-                                    <option value="selesai" {{ request('jenis_data') == 'selesai' ? 'selected' : '' }}>
-                                        Selesai
-                                    </option>
+                                <select name="mode" id="mode" onchange="this.form.submit()"
+                                    class="block w-full appearance-none bg-white border-2 border-indigo-200 text-gray-900 font-bold py-2 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-50 cursor-pointer transition ease-in-out duration-150">
+                                    <option value="lintas_satker"
+                                        {{ request('mode', 'lintas_satker') == 'lintas_satker' ? 'selected' : '' }}>
+                                        Persentase Se Provinsi Aceh</option>
+                                    <option value="rekap_satker"
+                                        {{ request('mode') == 'rekap_satker' ? 'selected' : '' }}>Rekap Detail Per
+                                        Satker</option>
                                 </select>
-
                                 <div
                                     class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                                    </svg>
+                                    <i class="bi bi-chevron-down"></i>
                                 </div>
                             </div>
-
-                            <input type="hidden" name="tahun" value="{{ request('tahun', '2024') }}">
                         </div>
+
+                        @if (request('mode', 'lintas_satker') == 'lintas_satker')
+                            <div class="flex items-center space-x-3">
+                                <label for="jenis_data" class="text-gray-800 font-bold text-base">
+                                    Pilih Data:
+                                </label>
+                                <div class="relative">
+                                    <select name="jenis_data" id="jenis_data" onchange="this.form.submit()"
+                                        class="block w-full appearance-none bg-white border-2 border-green-200 text-gray-900 font-bold py-2 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:border-green-400 focus:ring-4 focus:ring-green-50 cursor-pointer transition ease-in-out duration-150">
+                                        <option value="persentase_penetapan_target"
+                                            {{ request('jenis_data', 'persentase_penetapan_target') == 'persentase_penetapan_target' ? 'selected' : '' }}>
+                                            Persentase Penetapan Target</option>
+                                        <option value="persentase_realisasi_twminsatu"
+                                            {{ request('jenis_data') == 'persentase_realisasi_twminsatu' ? 'selected' : '' }}>
+                                            Persentase Realisasi TW Ini</option>
+                                        <option value="persentase_evaluasi_twminsatu"
+                                            {{ request('jenis_data') == 'persentase_evaluasi_twminsatu' ? 'selected' : '' }}>
+                                            Persentase Evaluasi TW Ini</option>
+                                        <option value="persentase_dokumen_selesai_twminsatu"
+                                            {{ request('jenis_data') == 'persentase_dokumen_selesai_twminsatu' ? 'selected' : '' }}>
+                                            Persentase Validasi/Selesai TW Ini</option>
+                                    </select>
+                                    <div
+                                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        @elseif(request('mode') == 'rekap_satker')
+                            <div class="flex items-center space-x-3">
+                                <label for="selected_satker" class="text-gray-800 font-bold text-base">
+                                    Satker:
+                                </label>
+                                <div class="relative">
+                                    <select name="selected_satker" id="selected_satker" onchange="this.form.submit()"
+                                        class="block w-full appearance-none bg-white border-2 border-orange-200 text-gray-900 font-bold py-2 pl-4 pr-10 rounded-xl shadow-sm focus:outline-none focus:border-orange-400 focus:ring-4 focus:ring-orange-50 cursor-pointer transition ease-in-out duration-150">
+                                        @foreach ($data['satkers'] as $satker)
+                                            <option value="{{ $satker }}"
+                                                {{ request('selected_satker', $data['selected_satker'] ?? '') == $satker ? 'selected' : '' }}>
+                                                {{ $satker }}</option>
+                                        @endforeach
+                                    </select>
+                                    <div
+                                        class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
                     </form>
 
                     <button id="downloadBtn"
@@ -250,68 +282,163 @@
                     </button>
                 </div>
 
-                <div class="overflow-x-auto bg-white rounded-xl shadow-md border border-gray-200">
+                <div class="overflow-x-auto bg-white rounded-xl shadow-md border border-gray-200"
+                    id="tabel-monitoring">
 
-                    <table id="tabel-monitoring" class="w-full text-sm text-center border-collapse whitespace-nowrap">
-
-                        <thead class="text-xs uppercase font-bold text-gray-800">
-                            <tr>
-                                <th rowspan="2" class="border border-gray-200 px-4 py-3 align-middle bg-blue-50">
-                                </th>
-                                <th rowspan="2" class="border border-gray-200 px-4 py-3 align-middle bg-blue-50">
-                                    Pilar</th>
-                                <th colspan="{{ count($data['satkers']) }}"
-                                    class="border border-gray-200 px-4 py-2 bg-blue-50">
-                                    Satuan Kerja
-                                </th>
-                            </tr>
-                            <tr>
-                                @foreach ($data['satkers'] as $satker)
-                                    <th class="border border-gray-200 px-3 py-2 bg-blue-50/50">{{ $satker }}</th>
-                                @endforeach
-                            </tr>
-                        </thead>
-
-                        <tbody class="text-gray-700">
-                            @foreach ($data['pivotData'] as $row)
-                                <tr class="hover:bg-gray-50 transition-colors duration-200">
-
-                                    <td class="border border-gray-200 px-4 py-2 font-bold bg-white">
-                                        @if ($row['indikator'] === 'I.')
-                                            A
-                                        @else
-                                            B
-                                        @endif
-                                    </td>
-                                    <td class="border border-gray-200 px-4 py-2 font-bold bg-white">
-                                        {{ $row['pilar'] }}
-                                    </td>
-
+                    @if ($data['mode'] === 'lintas_satker')
+                        <table class="w-full text-sm text-center border-collapse whitespace-nowrap">
+                            <thead class="text-xs uppercase font-bold text-gray-800">
+                                <tr>
+                                    <th rowspan="2"
+                                        class="border border-gray-200 px-4 py-3 align-middle bg-blue-50"></th>
+                                    <th rowspan="2"
+                                        class="border border-gray-200 px-4 py-3 align-middle bg-blue-50">Pilar</th>
+                                    <th colspan="{{ count($data['satkers']) }}"
+                                        class="border border-gray-200 px-4 py-2 bg-blue-50">Satuan Kerja</th>
+                                </tr>
+                                <tr>
                                     @foreach ($data['satkers'] as $satker)
-                                        @php
-                                            $nilai = $row[$satker];
-                                            $warnaClass = '';
-
-                                            // Logika Pewarnaan menggunakan Arbitrary Values Tailwind
-                                            if ($nilai == 100) {
-                                                $warnaClass = 'bg-[#00fa9a] text-black font-bold'; // Hijau terang
-                                            } elseif ($nilai > 0 && $nilai < 100) {
-                                                $warnaClass = 'bg-[#ffeb3b] text-black font-bold'; // Kuning
-                                            } elseif ($nilai === '0' || $nilai === 0 || $nilai === '0.00') {
-                                                $warnaClass = 'bg-[#ffe4e1] text-black'; // Pink muda
-                                            } else {
-                                                $warnaClass = 'bg-white text-gray-400'; // Untuk nilai kosong (-)
-                                            }
-                                        @endphp
-
-                                        <td class="border border-gray-200 px-3 py-2 {{ $warnaClass }}">
-                                            {{ $nilai !== null ? $nilai : '-' }}
-                                        </td>
+                                        <th class="border border-gray-200 px-3 py-2 bg-blue-50/50">{{ $satker }}
+                                        </th>
                                     @endforeach
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                @foreach ($data['pivotData'] as $row)
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="border border-gray-200 px-4 py-2 font-bold bg-white">
+                                            @if ($row['indikator'] === 'I.')
+                                                A
+                                            @else
+                                                B
+                                            @endif
+                                        </td>
+                                        <td class="border border-gray-200 px-4 py-2 font-bold bg-white text-left">
+                                            {{ $row['pilar'] }}
+                                        </td>
+                                        @foreach ($data['satkers'] as $satker)
+                                            @php
+                                                $nilai = $row[$satker];
+                                                $warnaClass = '';
+                                                $teksTampil = '';
+
+                                                if ($nilai === null) {
+                                                    $warnaClass = 'bg-red-500 text-white font-bold'; // Merah untuk Belum Isi
+                                                    $teksTampil = 'Belum Isi';
+                                                } elseif ($nilai >= 100) {
+                                                    $warnaClass = 'bg-[#00fa9a] text-black font-bold'; // Hijau terang
+                                                    $teksTampil = $nilai . '%';
+                                                } elseif ($nilai > 0 && $nilai < 100) {
+                                                    $warnaClass = 'bg-[#ffeb3b] text-black font-bold'; // Kuning
+                                                    $teksTampil = $nilai . '%';
+                                                } elseif ($nilai === '0' || $nilai === 0 || $nilai === '0.00') {
+                                                    $warnaClass = 'bg-[#ffe4e1] text-black'; // Pink muda
+                                                    $teksTampil = $nilai . '%';
+                                                } else {
+                                                    $warnaClass = 'bg-white text-gray-400';
+                                                    $teksTampil = '-';
+                                                }
+                                            @endphp
+                                            <td class="border border-gray-200 px-3 py-2 {{ $warnaClass }}">
+                                                {{ $teksTampil }}
+                                            </td>
+                                        @endforeach
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @elseif($data['mode'] === 'rekap_satker')
+                        @php
+                            $getBadgeClass = function ($val) {
+                                if ($val === null) {
+                                    return 'bg-red-500 text-white font-bold';
+                                }
+                                if ($val >= 100) {
+                                    return 'bg-[#00fa9a] text-black font-bold';
+                                }
+                                if ($val > 0 && $val < 100) {
+                                    return 'bg-[#ffeb3b] text-black font-bold';
+                                }
+                                if ($val === '0' || $val === 0 || $val === '0.00') {
+                                    return 'bg-[#ffe4e1] text-black';
+                                }
+                                return 'bg-white text-gray-400';
+                            };
+
+                            $getTeks = function ($val) {
+                                if ($val === null) {
+                                    return 'Belum Isi';
+                                }
+                                if ($val === '') {
+                                    return '-';
+                                }
+                                return $val . '%';
+                            };
+                        @endphp
+
+                        <table class="w-full text-sm text-center border-collapse whitespace-nowrap">
+                            <thead class="text-xs uppercase font-bold text-gray-800 bg-orange-50">
+                                <tr>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle">Kode</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle text-left">Pilar</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle" title="Target Setahun">
+                                        Target<br>Setahun</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle"
+                                        title="Target Sampai Triwulan Ini">Target<br>s.d TW Ini</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle"
+                                        title="Realisasi Sampai Triwulan Ini">Realisasi<br>s.d TW Ini</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle bg-indigo-100"
+                                        title="% Penetapan Target">% Penetapan</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle bg-blue-100"
+                                        title="% Realisasi TW Ini">% Realisasi</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle bg-yellow-100"
+                                        title="% Evaluasi TW Ini">% Evaluasi</th>
+                                    <th class="border border-gray-200 px-4 py-3 align-middle bg-green-100"
+                                        title="% Validasi TW Ini">% Validasi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                @forelse($data['rekapData'] as $item)
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
+                                        <td class="border border-gray-200 px-4 py-2 font-bold">{{ $item->kode_2 }}
+                                        </td>
+                                        <td class="border border-gray-200 px-4 py-2 font-bold text-left">
+                                            {{ $item->kode_3 }}</td>
+
+                                        <td class="border border-gray-200 px-4 py-2">{{ $item->target_setahun ?? 0 }}
+                                        </td>
+                                        <td class="border border-gray-200 px-4 py-2 font-semibold text-blue-800">
+                                            {{ $item->target_triwulan_ini ?? 0 }}</td>
+                                        <td class="border border-gray-200 px-4 py-2 font-semibold text-green-700">
+                                            {{ $item->realisasi_triwulan_ini ?? 0 }}</td>
+
+                                        <td
+                                            class="border border-gray-200 px-4 py-2 {{ $getBadgeClass($item->persentase_penetapan_target) }}">
+                                            {{ $getTeks($item->persentase_penetapan_target) }}
+                                        </td>
+                                        <td
+                                            class="border border-gray-200 px-4 py-2 {{ $getBadgeClass($item->persentase_realisasi_twminsatu) }}">
+                                            {{ $getTeks($item->persentase_realisasi_twminsatu) }}
+                                        </td>
+                                        <td
+                                            class="border border-gray-200 px-4 py-2 {{ $getBadgeClass($item->persentase_evaluasi_twminsatu) }}">
+                                            {{ $getTeks($item->persentase_evaluasi_twminsatu) }}
+                                        </td>
+                                        <td
+                                            class="border border-gray-200 px-4 py-2 {{ $getBadgeClass($item->persentase_dokumen_selesai_twminsatu) }}">
+                                            {{ $getTeks($item->persentase_dokumen_selesai_twminsatu) }}
+                                        </td>
+                                    </tr>
+                                @empty
+                                    <tr>
+                                        <td colspan="9"
+                                            class="border border-gray-200 px-4 py-8 text-center text-gray-500 italic">
+                                            Tidak ada data untuk Satker ini.</td>
+                                    </tr>
+                                @endforelse
+                            </tbody>
+                        </table>
+                    @endif
                 </div>
 
                 <br>

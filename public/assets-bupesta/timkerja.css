@@ -842,3 +842,50 @@ h2 {
 .btn-batal-mini:hover {
     background-color: #dc2626;
 }
+
+/* Desain Label/Badge Anggota Tim */
+.badge-anggota {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #f3f4f6;
+    color: #f79039;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid #f79039;
+    transition: all 0.2s ease;
+    margin-bottom: 5px;
+}
+
+.badge-anggota:hover {
+    background: #f79039;
+    color: #fff;
+}
+
+/* Khusus Badge di Mode Edit (Warna Merah untuk Hapus) */
+.badge-anggota-hapus {
+    background: #ffe4e6;
+    color: #e11d48;
+    border-color: #e11d48;
+}
+
+.badge-anggota-hapus:hover {
+    background: #e11d48;
+    color: #fff;
+}
+
+/* Wadah Badge */
+.wadah-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    min-height: 40px;
+    padding: 10px;
+    border: 1px dashed #d1d5db;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: #fafafa;
+}

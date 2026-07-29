@@ -22,9 +22,9 @@ class BupestaTimKerjaController extends Controller
         $tahun = $request->input('tahun', '2026');
         $data = [];
 
-        $data["user_active"] = Bupesta_User::where('nip_pegawai', '197307011995121001')->first();
+        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
         // $data["user_active"] = Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
-        $data["id_judul"] = "1";
+        $data["id_judul"] = "2";
         $data["judul"] = "Tim Kerja";
 
         // =========================================================================
@@ -50,6 +50,7 @@ class BupestaTimKerjaController extends Controller
         $data['pegawai_prov'] = Cache::remember('pegawai_prov_1100', 1440, function () {
             return DB::table('bupesta_user')
                 ->where('kode_satker', '1100')
+                ->orderBy('name', 'asc') // Menambahkan sorting berdasarkan nama A-Z
                 ->get();
         });
 
@@ -60,7 +61,10 @@ class BupestaTimKerjaController extends Controller
 
         // Ambil semua user dan kelompokkan berdasarkan kode_satker untuk dropdown
         $data['all_users'] = Cache::remember('all_users_grouped', 1440, function () {
-            return DB::table('bupesta_user')->get()->groupBy('kode_satker');
+            return DB::table('bupesta_user')
+                ->orderBy('name', 'asc') // Menambahkan sorting berdasarkan nama A-Z
+                ->get()
+                ->groupBy('kode_satker');
         });
 
         // dd($data['all_users']);
@@ -117,8 +121,9 @@ class BupestaTimKerjaController extends Controller
                 $timKerja = new Bupesta_TimKerja();
                 $timKerja->kode_tim_kerja = $kodeTimKerjaBaru; // Gunakan kode hasil generate
                 $timKerja->nama_tim_kerja = $request->nama_tim_kerja;
-                $timKerja->nama_ketua = $request->nama_ketua;
+                $timKerja->nip_ketua_tim = $request->nama_ketua;
                 $timKerja->tahun = $tahun;
+                $timKerja->status = 2;
                 $timKerja->save();
 
                 // --- 3. SIMPAN KEGIATAN BARU ---
@@ -149,6 +154,7 @@ class BupestaTimKerjaController extends Controller
 
             return redirect()->back()->with('success', 'Tim Kerja berhasil ditambahkan!');
         } catch (\Exception $e) {
+            // MATIKAN fungsi back() sementara
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
@@ -248,6 +254,43 @@ class BupestaTimKerjaController extends Controller
             ]);
         } catch (\Exception $e) {
             return response()->json(['success' => false, 'message' => $e->getMessage()], 500);
+        }
+    }
+
+    public function updateInfoUmum(Request $request)
+    {
+        // 1. Validasi Input
+        $request->validate([
+            'kode_kegiatan'            => 'required|string',
+            'nama_kegiatan'            => 'required|string|max:150',
+            'tahun_kegiatan'           => 'required|string|max:50',
+            'detail_anggota_tim'       => 'nullable|array', // Memastikan ini menerima array dari select multiple
+            'detail_informasi_penting' => 'nullable|string',
+            'detail_jadwal'            => 'nullable|string',
+        ]);
+
+        try {
+            // 2. Cari Data Kegiatan
+            $kegiatan = Bupesta_Kegiatan::where('kode_kegiatan', $request->kode_kegiatan)->firstOrFail();
+
+            // 3. Gabungkan Array NIP menjadi string dengan koma (Permintaan No 4)
+            $nipAnggotaTim = '';
+            if ($request->has('detail_anggota_tim') && !empty($request->detail_anggota_tim)) {
+                $nipAnggotaTim = implode(',', $request->detail_anggota_tim);
+            }
+
+            // 4. Lakukan Update Data
+            $kegiatan->update([
+                'nama_kegiatan'            => $request->nama_kegiatan,
+                'tahun_kegiatan'           => $request->tahun_kegiatan,
+                'detail_anggota_tim'       => $nipAnggotaTim,
+                'detail_informasi_penting' => $request->detail_informasi_penting,
+                'detail_jadwal'            => $request->detail_jadwal,
+            ]);
+
+            return redirect()->back()->with('success', 'Informasi Umum Kegiatan berhasil diperbarui!');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 }

@@ -29,39 +29,53 @@ class Jazirah2Controller extends Controller
     {
         $data["judul"] = "New Jazirah - Dashboard";
         $data["user_active"] = Jazirah2_User::where('username', 'adrian.devano')->get();
+        // $data["user_active"] = Jazirah2_User::where('username', auth()->user()->username)->get();
 
         $tahun = $request->input('tahun', '2026');
 
-        $jenisData = $request->input('jenis_data', 'penetapan_target');
+        // Mode tampilan: 'lintas_satker' atau 'rekap_satker'
+        $mode = $request->input('mode', 'lintas_satker');
+        $data['mode'] = $mode;
 
-        $rawData = DB::table('monitoring_jazirah')->where('tahun', $tahun)->get();
+        // Ambil semua data dari view monitoring_jazirah
+        $rawData = DB::table('monitoring_jazirah3')->where('tahun', $tahun)->get();
 
-        // dd($rawData);
-
-        // Inisialisasi array $data
-        // $data = [];
-
-        // Memasukkan satker ke dalam array $data
+        // Siapkan daftar satker yang ada
         $data['satkers'] = $rawData->pluck('satker')->unique()->sort()->values();
-        $data['pivotData'] = [];
 
-        foreach ($rawData as $item) {
-            $key = $item->kode_2 . '|' . $item->kode_3;
+        if ($mode === 'lintas_satker') {
+            // Fitur Lama: Tabel Persentase (Pilih Kolom: Realisasi / Evaluasi / Validasi)
+            $jenisData = $request->input('jenis_data', 'persentase_penetapan_target'); // Kita ganti default-nya ke yang paling awal alurnya
+            $data['jenis_data'] = $jenisData;
 
-            if (!isset($data['pivotData'][$key])) {
-                $data['pivotData'][$key] = [
-                    'indikator' => $item->kode_2,
-                    'pilar' => $item->kode_3,
-                ];
+            $data['pivotData'] = [];
+            foreach ($rawData as $item) {
+                $key = $item->kode_2 . '|' . $item->kode_3;
 
-                foreach ($data['satkers'] as $satker) {
-                    $data['pivotData'][$key][$satker] = null;
+                if (!isset($data['pivotData'][$key])) {
+                    $data['pivotData'][$key] = [
+                        'indikator' => $item->kode_2,
+                        'pilar' => $item->kode_3,
+                    ];
+
+                    foreach ($data['satkers'] as $satker) {
+                        $data['pivotData'][$key][$satker] = null;
+                    }
                 }
-            }
 
-            $data['pivotData'][$key][$item->satker] = $item->$jenisData;
+                // Masukkan nilai sesuai pilihan dropdown (Persentase Realisasi, Evaluasi, atau Selesai)
+                $data['pivotData'][$key][$item->satker] = $item->$jenisData;
+            }
+        } else if ($mode === 'rekap_satker') {
+            // Fitur Baru: Rekap Per Satker
+            // Jika tidak ada satker yang dipilih, ambil satker pertama
+            $selectedSatker = $request->input('selected_satker', $data['satkers']->first());
+            $data['selected_satker'] = $selectedSatker;
+
+            // Filter data khusus untuk satker yang dipilih saja
+            $rekapData = $rawData->where('satker', $selectedSatker)->values();
+            $data['rekapData'] = $rekapData;
         }
-        // dd($data['pivotData']);
 
         return view('jazirah2026.jazirah-dashboard', compact('data'));
     }
@@ -70,7 +84,7 @@ class Jazirah2Controller extends Controller
     {
         $request->validate([
             'pilar' => ['nullable', 'in:I,II,III,IV,V,VI'],
-            'satker' => ['nullable', 'string', 'max:50'], // bisa kamu ketatkan jadi in/exists kalau perlu
+            'satker' => ['nullable', 'string', 'max:50'],
         ]);
 
         $data["judul"] = "New Jazirah";
@@ -78,47 +92,39 @@ class Jazirah2Controller extends Controller
         // $data["user_active"] = Jazirah2_User::where('username', 'gunadi.subagia')->get();
         $data["user_active"] = Jazirah2_User::where('username', 'adrian.devano')->get();
         // $data["user_active"] = Jazirah2_User::where('username', 'cut.amalia')->get();
-        $data['pilars'] = ['I', 'II', 'III', 'IV', 'V', 'VI']; // Contoh data pilar
+
+        $data['pilars'] = ['I', 'II', 'III', 'IV', 'V', 'VI'];
+
         $data["data_subpilar"] = Jazirah2_Indikator::query()
             ->select('kode_3', 'kode_4', 'rencana_kerja', 'level')
             ->where('level', 4)
             ->get();
-        // dd($data["data_subpilar"]);
 
-        // dd($data["user_active"]);
-
-        if ($data["user_active"][0]->role === 'admin' or $data["user_active"][0]->kode_satker === '1100') {
-            $data["satker_selected"] = $data["satker_selected"] = $request->input('satker') ?? '1100';; // contoh: "11" / "1100" / dll
+        // Penyesuaian pengecekan User Active
+        if ($data["user_active"][0]->role === 'admin' || $data["user_active"][0]->kode_satker === '1100') {
+            $data["satker_selected"] = $request->input('satker') ?? '1100';
         } else {
             $data["satker_selected"] = $data["user_active"][0]->kode_satker;
         };
 
-        // dd($data["satker_selected"]);
-
-        // nilai filter terpilih
-        $data["pilar_selected"] = $request->input('pilar');   // "I".."VI" atau null
+        $data["pilar_selected"] = $request->input('pilar');
         $data['subpilar_selected'] = $request->input('subpilar');
-        // $data["satker_selected"] = "1100"; // contoh: "11" / "1100" / dll
-        $data["tahun"] = $request->input('tahun') ?? '2026'; // contoh: "11" / "1100" / dll
+        $data["tahun"] = $request->input('tahun') ?? '2026';
 
         $data["users"] = Jazirah2_User::query()
             ->select('name', 'username', 'kode_satker', 'role')
             ->where('kode_satker', $data["satker_selected"])
             ->orderBy('name')
             ->get();
-        // dd($data["users"]);
 
-        // daftar satker untuk dropdown
         $data["satker"] = Satker::query()
             ->select('kode_satker', 'nama_satker')
             ->orderBy('kode_satker')
             ->get();
 
         $tahunLalu = $data["tahun"] - 1;
-
         $id_indikator_me = null;
 
-        // dd($request->input('task'));
         if ($request->input('task') !== null) {
             $id_indikator_me = DB::table('Jazirah2_Hasil')
                 ->where('penanggungjawab', 'LIKE', '%' . $data["user_active"][0]->username . '%')
@@ -126,10 +132,7 @@ class Jazirah2Controller extends Controller
                 ->pluck('id_indikator');
         };
 
-        // dd($id_indikator_me);
-
         $data["indikator"] = Jazirah2_Indikator::query()
-            // Menambahkan filter berdasarkan id dari tabel hasil (wajib)
             ->when(!is_null($id_indikator_me), function ($q) use ($id_indikator_me) {
                 $q->whereIn('id', $id_indikator_me);
             })
@@ -139,68 +142,53 @@ class Jazirah2Controller extends Controller
                         ->orWhere('level', 2);
                 });
             })
-            // 2. Filter Subpilar (AND) - Hanya jalan jika input subpilar ada
             ->when(
                 $request->filled('subpilar'),
                 fn($q) =>
                 $q->where(function ($group) use ($data) {
-
-                    // 1. Kondisi Utama: Kode 4 sesuai Subpilar yang dipilih
                     $group->where('kode_4', $data['subpilar_selected'])
-
-                        // 2. ATAU: Level 3 DAN Kode 3 sesuai Pilar (Grouping lagi di dalam)
                         ->orWhere(function ($sub) use ($data) {
                             $sub->where('level', 3)
                                 ->where('kode_3', $data['pilar_selected']);
                         })
-
-                        // 3. ATAU: Level 2
                         ->orWhere('level', 2);
                 })
-                // $q->where('kode_4', $data['subpilar_selected'])
             )
             ->with(['isian' => function ($q) use ($data, $tahunLalu) {
-
                 $q->where('satker', $data["satker_selected"])
                     ->where('tahun', $data["tahun"])
-                    ->select('jazirah2_hasil.*') // penting! jangan hilangkan
+                    ->select('jazirah2_hasil.*')
                     ->selectRaw("(
-                                    SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ')
-                                    FROM bulan b
-                                    WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_target)
-                                ) AS bulan_target_nama")
+                                SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ')
+                                FROM bulan b
+                                WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_target)
+                            ) AS bulan_target_nama")
                     ->selectRaw("(
-                                    SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ')
-                                    FROM bulan b
-                                    WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_realisasi)
-                                ) AS bulan_realisasi_nama")
-                    // 1. Ambil Rencana Aksi Tahun Lalu
+                                SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ')
+                                FROM bulan b
+                                WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_realisasi)
+                            ) AS bulan_realisasi_nama")
                     ->selectRaw("(
-                    SELECT prev.rencanaaksi
-                    FROM jazirah2_hasil prev
-                    WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
-                    AND prev.tahun = ?
-                    AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
-                    -- AND prev.deleted_at IS NULL -- Buka komentar ini jika pakai soft deletes
-                    ORDER BY prev.id DESC
-                    LIMIT 1
-                ) AS rencanaaksi_tahun_lalu", [$tahunLalu])
-
-                    // 2. Ambil Output Tahun Lalu
+                SELECT prev.rencanaaksi
+                FROM jazirah2_hasil prev
+                WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
+                AND prev.tahun = ?
+                AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
+                ORDER BY prev.id DESC
+                LIMIT 1
+            ) AS rencanaaksi_tahun_lalu", [$tahunLalu])
                     ->selectRaw("(
-                    SELECT prev.output
-                    FROM jazirah2_hasil prev
-                    WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
-                    AND prev.tahun = ?
-                    AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
-                    -- AND prev.deleted_at IS NULL -- Buka komentar ini jika pakai soft deletes
-                    ORDER BY prev.id DESC
-                    LIMIT 1
-                ) AS output_tahun_lalu", [$tahunLalu]); // Binding param ke-2;
+                SELECT prev.output
+                FROM jazirah2_hasil prev
+                WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker)
+                AND prev.tahun = ?
+                AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator)
+                ORDER BY prev.id DESC
+                LIMIT 1
+            ) AS output_tahun_lalu", [$tahunLalu]);
             }])
             ->get();
-        // dd($data["indikator"][23]);
-        // dd($data);
+
         return view('jazirah2026.jazirah-lembarkerja', compact('data'));
     }
 
