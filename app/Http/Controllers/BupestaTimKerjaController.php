@@ -212,6 +212,38 @@ class BupestaTimKerjaController extends Controller
         }
     }
 
+    public function updateKetuaKabKota(Request $request)
+    {
+        // Validasi data yang masuk
+        $request->validate([
+            'kode_tim_kerja' => 'required',
+            'kode_satker'    => 'required|numeric',
+            'nip_pegawai'    => 'nullable' // Boleh kosong jika user ingin mereset/menghapus ketua
+        ]);
+
+        try {
+            // Gabungkan string 'ketuatim_' dengan kode satker (contoh: ketuatim_1101)
+            $namaKolom = 'ketuatim_' . $request->kode_satker;
+
+            // Update ke database
+            DB::table('bupesta_timkerja')
+                ->where('kode_tim_kerja', $request->kode_tim_kerja)
+                ->update([
+                    $namaKolom => $request->nip_pegawai
+                ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Ketua Tim berhasil diperbarui!'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan: ' . $e->getMessage()
+            ], 500);
+        }
+    }
+
     public function updatePjk(Request $request)
     {
         // === DEBUGGING (Hapus garis miring ganda di bawah ini untuk mengaktifkan) ===

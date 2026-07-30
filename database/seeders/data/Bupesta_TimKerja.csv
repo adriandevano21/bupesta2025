@@ -1,25 +1,28 @@
-kode_tim_kerja,nama_tim_kerja,icon_tim_kerja,tahun,nip_ketua_tim,status
-2024s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2024,,1
-2024s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2024,,1
-2024s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2024,,1
-2024s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2024,,1
-2024s105,Pengolahan dan TI,"<i class=""fa-solid fa-computer fa-xl""></i>",2024,,1
-2024s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2024,,1
-2024s107,Diseminasi Statistik,"<i class=""fa-solid fa-comments fa-xl""></i>",2024,,1
-2024s108,Transformasi dan Budaya Organisasi,"<i class=""fa-solid fa-shuffle fa-xl""></i>",2024,,1
-2024s109,Pembinaan Statistik Sektoral,"<i class=""fa-solid fa-handshake fa-xl""></i>",2024,,1
-2025s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2025,,1
-2025s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2025,,1
-2025s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2025,,1
-2025s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2025,,1
-2025s105,"Metodologi, Pengolahan, Infrastruktur dan Inovasi Digital","<i class=""fa-solid fa-computer fa-xl""></i>",2025,,1
-2025s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2025,,1
-2025s107,Diseminasi dan Pelayanan Statistik,"<i class=""fa-solid fa-comments fa-xl""></i>",2025,,1
-2026s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2026,197405171996121001,1
-2026s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2026,196712291991121001,1
-2026s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2026,198410312008011005,1
-2026s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2026,198306042006021003,1
-2026s105,Metodologi dan Sistem Informasi Statistik,"<i class=""fa-solid fa-computer fa-xl""></i>",2026,197307011995121001,1
-2026s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2026,198605172008012002,1
-2026s107,"Diseminasi, Pemberdayaan, dan Evaluasi Penyelenggaraan Statistik","<i class=""fa-solid fa-comments fa-xl""></i>",2026,198504142009021005,1
-2026s108,Zona Integritas,"<i class=""fa-solid fa-shield""></i>",2026,198308122006022001,2
+kode_tim_kerja,nama_tim_kerja,icon_tim_kerja,tahun,nip_ketua_tim,status,ketuatim_1100,ketuatim_1101,ketuatim_1102,ketuatim_1103,ketuatim_1104,ketuatim_1105,ketuatim_1106,ketuatim_1107,ketuatim_1108,ketuatim_1109,ketuatim_1110,ketuatim_1111,ketuatim_1112,ketuatim_1113,ketuatim_1114,ketuatim_1115,ketuatim_1116,ketuatim_1117,ketuatim_1118,ketuatim_1171,ketuatim_1172,ketuatim_1173,ketuatim_1174,ketuatim_1175
+2024s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s105,Pengolahan dan TI,"<i class=""fa-solid fa-computer fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s107,Diseminasi Statistik,"<i class=""fa-solid fa-comments fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s108,Transformasi dan Budaya Organisasi,"<i class=""fa-solid fa-shuffle fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2024s109,Pembinaan Statistik Sektoral,"<i class=""fa-solid fa-handshake fa-xl""></i>",2024,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s105,"Metodologi, Pengolahan, Infrastruktur dan Inovasi Digital","<i class=""fa-solid fa-computer fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2025s107,Diseminasi dan Pelayanan Statistik,"<i class=""fa-solid fa-comments fa-xl""></i>",2025,,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s101,Umum,"<i class=""fa-solid fa-briefcase fa-xl""></i>",2026,197405171996121001,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s102,Statistik Sosial,"<i class=""fa-solid fa-people-group fa-xl""></i>",2026,196712291991121001,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s103,"Statistik Harga, Distribusi dan Jasa","<i class=""fa-solid fa-truck-plane fa-xl""></i>",2026,198410312008011005,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s104,Statistik Produksi,"<i class=""fa-solid fa-seedling fa-xl""></i>",2026,198306042006021003,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s105,Metodologi dan Sistem Informasi Statistik,"<i class=""fa-solid fa-computer fa-xl""></i>",2026,197307011995121001,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s106,Neraca Wilayah dan Analisis,"<i class=""fa-solid fa-scale-balanced fa-xl""></i>",2026,198605172008012002,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s107,"Diseminasi, Pemberdayaan, dan Evaluasi Penyelenggaraan Statistik","<i class=""fa-solid fa-comments fa-xl""></i>",2026,198504142009021005,1,,,,,,,,,,,,,,,,,,,,,,,,
+2026s108,Zona Integritas,,2026,198308122006022001,2,,,,,,,,,,,,,,,,,,,,,,,,
+2026s109,Manajemen Resiko,,2026,198505122009021003,2,,,,,,,,,,,,,,,,,,,,,,,,
+2026s110,Change Agen Network (CAN),NULL,2026,198207102011012017,2,,,,,,,,,,,,,,,,,,,,,,,,
+2026s111,Sensus Ekonomi 2026,NULL,2026,197808032002121006,2,,,,,,,,,,,,,,,,,,,,,,,,

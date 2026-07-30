@@ -377,3 +377,345 @@ function hapusAnggotaTim(nip) {
 
     renderBadgesAnggota();
 }
+
+// Fungsi memproses data saat header tim diklik
+function klikHeaderTim(kodeTim) {
+    const jsonElement = document.getElementById('data-tim-' + kodeTim);
+    if (!jsonElement) {
+        console.error("Data tim tidak ditemukan!");
+        return;
+    }
+
+    // 1. Parsing JSON Data
+    const dataTim = JSON.parse(jsonElement.textContent);
+
+    // 2. Tampilkan Modal
+    document.getElementById('modalTimKerjaBesar').style.display = 'flex';
+
+    // Aktifkan tab pertama secara default
+    openTabTim({ currentTarget: document.querySelector('.tab-link-tim') }, 'tab-info-tim');
+
+    // ==========================================
+    // 3. SET DATA UNTUK TAB INFO & EDIT
+    // ==========================================
+    document.getElementById('judul_dinamis_tim').textContent = dataTim.nama_tim_kerja;
+    document.getElementById('teks_nama_tim_kerja').textContent = dataTim.nama_tim_kerja;
+
+    // Set form edit
+    document.getElementById('form_edit_kode_tim').value = dataTim.kode_tim_kerja;
+    document.getElementById('input_edit_nama_tim').value = dataTim.nama_tim_kerja;
+
+    // Cari & Tampilkan Nama Ketua Provinsi (1100)
+    const selectProv = document.getElementById('input_edit_ketua_prov');
+    selectProv.selectedIndex = 0; // RESET WAJIB DULU
+
+    if (dataTim.nip_ketua_tim && dataTim.nip_ketua_tim !== 'null') {
+        selectProv.value = dataTim.nip_ketua_tim;
+    }
+    const namaKetuaProv = selectProv.selectedIndex > 0 ? selectProv.options[selectProv.selectedIndex].text : 'Belum ada ketua';
+    document.getElementById('teks_ketua_tim_prov').textContent = namaKetuaProv;
+
+    // ==========================================
+    // 4. SET DATA 23 KETUA TIM KAB/KOTA (1101-1175)
+    // ==========================================
+    document.getElementById('aktif_kode_tim').value = dataTim.kode_tim_kerja;
+
+    // Daftar Satker 23 Kab/Kota
+    const satkerCodes = [
+        '1101','1102','1103','1104','1105','1106','1107','1108','1109','1110',
+        '1111','1112','1113','1114','1115','1116','1117','1118',
+        '1171','1172','1173','1174','1175'
+    ];
+
+    satkerCodes.forEach(satkerCode => {
+        let nipKetuaKab = dataTim['ketuatim_' + satkerCode];
+
+        const selectEl = document.getElementById('select_ketuatim_' + satkerCode);
+        const textNamaEl = document.querySelector('#btn_ketuatim_' + satkerCode + ' .teks-nama-ketua');
+        const btnProfil = document.getElementById('btn_ketuatim_' + satkerCode);
+
+        if (selectEl && textNamaEl) {
+            // A. SAPU BERSIH TOTAL (Paksa kosongkan value dropdown)
+            selectEl.value = "";
+            selectEl.selectedIndex = 0;
+
+            // B. Masukkan nilai baru HANYA JIKA VALID & ADA DI DATABASE
+            if (nipKetuaKab !== null && nipKetuaKab !== 'null' && nipKetuaKab !== undefined && String(nipKetuaKab).trim() !== '') {
+                selectEl.value = nipKetuaKab;
+            }
+
+            // C. Evaluasi Ulang Tampilan (Cek apakah dropdown berhasil terisi NIP)
+            if (selectEl.value !== "") {
+                // Tampilkan Nama jika pegawai ditemukan di dalam dropdown
+                textNamaEl.textContent = selectEl.options[selectEl.selectedIndex].text;
+                btnProfil.setAttribute('data-nip', selectEl.value);
+                btnProfil.classList.add('ada-data'); // Memberi warna oranye (jika css digunakan)
+            } else {
+                // Kembalikan ke text default jika kosong
+                selectEl.value = ""; // Kunci lagi agar tidak nyangkut
+                textNamaEl.textContent = 'Belum ada Ketua';
+                btnProfil.removeAttribute('data-nip');
+                btnProfil.classList.remove('ada-data');
+            }
+
+            // D. Pastikan Form tertutup dan Label View terbuka
+            document.getElementById('area_edit_ketuatim_' + satkerCode).style.display = 'none';
+            document.getElementById('tampilan_ketuatim_' + satkerCode).style.display = 'flex';
+        }
+    });
+}
+
+// ==========================================
+// FUNGSI PENDUKUNG
+// ==========================================
+
+// Fungsi Tab Khusus Modal Tim
+function openTabTim(evt, tabName) {
+    const tabContents = document.getElementsByClassName("tab-content-tim");
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].style.display = "none";
+    }
+
+    const tabLinks = document.getElementsByClassName("tab-link-tim");
+    for (let i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    if (evt) evt.currentTarget.classList.add("active");
+}
+
+// Toggling mode Edit Inline Ketua Tim
+function toggleEditKetuaTim(kodeSatker) {
+    const areaTampil = document.getElementById('tampilan_ketuatim_' + kodeSatker);
+    const areaEdit = document.getElementById('area_edit_ketuatim_' + kodeSatker);
+
+    if (areaEdit.style.display === 'none') {
+        areaTampil.style.display = 'none';
+        areaEdit.style.display = 'flex'; // Atau block menyesuaikan css Anda
+    } else {
+        areaTampil.style.display = 'block';
+        areaEdit.style.display = 'none';
+    }
+}
+
+// ==========================================
+// FUNGSI MEMPROSES DATA SAAT HEADER TIM DIKLIK
+// ==========================================
+function klikHeaderTim(kodeTim) {
+    const jsonElement = document.getElementById('data-tim-' + kodeTim);
+    if (!jsonElement) {
+        console.error("Data tim tidak ditemukan!");
+        return;
+    }
+
+    // 1. Parsing JSON Data
+    const dataTim = JSON.parse(jsonElement.textContent);
+
+    // 2. Tampilkan Modal
+    document.getElementById('modalTimKerjaBesar').style.display = 'flex';
+
+    // Aktifkan tab pertama secara default
+    openTabTim({ currentTarget: document.querySelector('.tab-link-tim') }, 'tab-info-tim');
+
+    // ==========================================
+    // 3. SET DATA UNTUK TAB INFO & EDIT UMUM
+    // ==========================================
+    document.getElementById('judul_dinamis_tim').textContent = dataTim.nama_tim_kerja;
+    document.getElementById('teks_nama_tim_kerja').textContent = dataTim.nama_tim_kerja;
+
+    // Set form edit
+    const formKodeTim = document.getElementById('form_edit_kode_tim');
+    const inputNamaTim = document.getElementById('input_edit_nama_tim');
+    if(formKodeTim) formKodeTim.value = dataTim.kode_tim_kerja;
+    if(inputNamaTim) inputNamaTim.value = dataTim.nama_tim_kerja;
+
+    // Cari & Tampilkan Nama Ketua Provinsi (1100)
+    const selectProv = document.getElementById('input_edit_ketua_prov');
+    if(selectProv) {
+        selectProv.selectedIndex = 0; // RESET WAJIB DULU
+
+        if (dataTim.nip_ketua_tim && dataTim.nip_ketua_tim !== 'null') {
+            selectProv.value = dataTim.nip_ketua_tim;
+        }
+        const namaKetuaProv = selectProv.selectedIndex > 0 ? selectProv.options[selectProv.selectedIndex].text : 'Belum ada ketua';
+
+        const teksKetuaProv = document.getElementById('teks_ketua_tim_prov');
+        if(teksKetuaProv) teksKetuaProv.textContent = namaKetuaProv;
+    }
+
+    // ==========================================
+    // 4. SET DATA 23 KETUA TIM KAB/KOTA (1101-1175)
+    // ==========================================
+    const aktifKodeTim = document.getElementById('aktif_kode_tim');
+    if(aktifKodeTim) aktifKodeTim.value = dataTim.kode_tim_kerja;
+
+    // Daftar Satker 23 Kab/Kota
+    const satkerCodes = [
+        '1101','1102','1103','1104','1105','1106','1107','1108','1109','1110',
+        '1111','1112','1113','1114','1115','1116','1117','1118',
+        '1171','1172','1173','1174','1175'
+    ];
+
+    satkerCodes.forEach(satkerCode => {
+        let nipKetuaKab = dataTim['ketuatim_' + satkerCode];
+
+        const selectEl = document.getElementById('select_ketuatim_' + satkerCode);
+        const textNamaEl = document.querySelector('#btn_ketuatim_' + satkerCode + ' .teks-nama-ketua');
+        const btnProfil = document.getElementById('btn_ketuatim_' + satkerCode);
+
+        // Hanya proses jika elemen select dan tombol tersebut ADA di HTML
+        if (selectEl && textNamaEl && btnProfil) {
+
+            // A. SAPU BERSIH TOTAL (Paksa kosongkan value dropdown)
+            selectEl.value = "";
+            selectEl.selectedIndex = 0;
+
+            // B. Masukkan nilai baru HANYA JIKA VALID & ADA DI DATABASE
+            if (nipKetuaKab !== null && nipKetuaKab !== 'null' && nipKetuaKab !== undefined && String(nipKetuaKab).trim() !== '') {
+                selectEl.value = nipKetuaKab;
+            }
+
+            // C. Evaluasi Ulang Tampilan (Cek apakah dropdown berhasil terisi NIP)
+            if (selectEl.value !== "") {
+                // Tampilkan Nama jika pegawai ditemukan di dalam dropdown
+                textNamaEl.textContent = selectEl.options[selectEl.selectedIndex].text;
+                btnProfil.setAttribute('data-nip', selectEl.value);
+                btnProfil.classList.add('ada-data'); // Memberi warna oranye
+            } else {
+                // Kembalikan ke text default jika kosong
+                selectEl.value = ""; // Kunci lagi agar tidak nyangkut
+                textNamaEl.textContent = 'Belum ada Ketua';
+                btnProfil.removeAttribute('data-nip');
+                btnProfil.classList.remove('ada-data');
+            }
+
+            // D. Pastikan Form tertutup dan Label View terbuka
+            const areaEdit = document.getElementById('area_edit_ketuatim_' + satkerCode);
+            const areaTampil = document.getElementById('tampilan_ketuatim_' + satkerCode);
+
+            if(areaEdit) areaEdit.style.display = 'none';
+            if(areaTampil) areaTampil.style.display = 'flex';
+        }
+    });
+}
+
+
+// ==========================================
+// FUNGSI SIMPAN KETUA TIM KAB/KOTA VIA AJAX
+// ==========================================
+async function simpanKetuaTim(kodeSatker) {
+
+    // 1. Validasi Keberadaan Elemen Input Terlebih Dahulu
+    // [PERHATIKAN ID INI: form_edit_kode_tim. Apakah ID ini ada di Blade Anda?]
+    const formKodeTim = document.getElementById('form_edit_kode_tim');
+    const selectEl = document.getElementById('select_ketuatim_' + kodeSatker);
+    const btnSimpan = document.querySelector(`#area_edit_ketuatim_${kodeSatker} .btn-simpan-mini`);
+
+    // --- LOGIKA PENCARI JEJAK ERROR ---
+    if (!formKodeTim || !selectEl || !btnSimpan) {
+        let elemenHilang = [];
+        if (!formKodeTim) elemenHilang.push("Input ID Tim (form_edit_kode_tim)");
+        if (!selectEl) elemenHilang.push("Dropdown Pegawai (select_ketuatim_" + kodeSatker + ")");
+        if (!btnSimpan) elemenHilang.push("Tombol Simpan (#area_edit_ketuatim_" + kodeSatker + " .btn-simpan-mini)");
+
+        alert("Gagal menyimpan! Elemen HTML ini tidak ditemukan:\n- " + elemenHilang.join("\n- "));
+        return;
+    }
+    // ----------------------------------
+
+    const kodeTim = formKodeTim.value;
+
+    if (!kodeTim || kodeTim.trim() === '') {
+        alert("Gagal membaca ID Tim Kerja! Silakan tutup modal dan klik ulang tim kerja.");
+        return;
+    }
+
+    const nipBaru = selectEl.value;
+    const namaBaru = selectEl.selectedIndex > 0 ? selectEl.options[selectEl.selectedIndex].text : '';
+    const originalIcon = btnSimpan.innerHTML;
+
+    // Ubah tombol jadi loading
+    btnSimpan.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+    btnSimpan.disabled = true;
+
+    try {
+        // Cek Keberadaan Token CSRF
+        const csrfTokenEl = document.querySelector('meta[name="csrf-token"]');
+        if (!csrfTokenEl) {
+            throw new Error("Meta tag CSRF-Token tidak ditemukan di Layout HTML Anda!");
+        }
+
+        // Kirim data via fetch
+        const response = await fetch('/timkerja/update-ketua-kabkota', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': csrfTokenEl.getAttribute('content')
+            },
+            body: JSON.stringify({
+                kode_tim_kerja: kodeTim,
+                kode_satker: kodeSatker,
+                nip_pegawai: nipBaru
+            })
+        });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("🚨 DETAIL ERROR DARI LARAVEL:", errorText);
+            alert(`Penyimpanan Gagal (Error ${response.status}). Tekan tombol F12 untuk melihat detail!`);
+
+            btnSimpan.innerHTML = originalIcon;
+            btnSimpan.disabled = false;
+            return;
+        }
+
+        // Baca Response JSON
+        const data = await response.json();
+
+        if (data.success) {
+            // Update Tampilan Label/Badge di layar
+            const textNamaEl = document.querySelector(`#btn_ketuatim_${kodeSatker} .teks-nama-ketua`);
+            const btnProfil = document.getElementById(`btn_ketuatim_${kodeSatker}`);
+
+            if(textNamaEl && btnProfil) {
+                if (nipBaru !== "") {
+                    textNamaEl.textContent = namaBaru;
+                    btnProfil.setAttribute('data-nip', nipBaru);
+                    btnProfil.classList.add('ada-data');
+                } else {
+                    textNamaEl.textContent = 'Belum ada Ketua';
+                    btnProfil.removeAttribute('data-nip');
+                    btnProfil.classList.remove('ada-data');
+                }
+            }
+
+            // Update data JSON di HTML agar tidak nyangkut saat dibuka lagi
+            const jsonElement = document.getElementById('data-tim-' + kodeTim);
+            if (jsonElement) {
+                let dataTimObj = JSON.parse(jsonElement.textContent);
+                dataTimObj['ketuatim_' + kodeSatker] = nipBaru;
+                jsonElement.textContent = JSON.stringify(dataTimObj);
+            }
+
+            // Tutup form edit kembali ke mode view
+            toggleEditKetuaTim(kodeSatker);
+
+            if (typeof Toast !== 'undefined') {
+                Toast.fire({ icon: 'success', title: data.message });
+            }
+
+        } else {
+            alert('Gagal: ' + data.message);
+        }
+
+    } catch (error) {
+        console.error("Sistem JS Crash:", error);
+        alert('Terjadi kesalahan JavaScript: ' + error.message);
+    } finally {
+        // Kembalikan tombol ke keadaan semula
+        btnSimpan.innerHTML = originalIcon;
+        btnSimpan.disabled = false;
+    }
+}

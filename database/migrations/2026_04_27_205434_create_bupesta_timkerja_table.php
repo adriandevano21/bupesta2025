@@ -18,6 +18,30 @@ return new class extends Migration
             $table->string('tahun', 50)->nullable();
             $table->string('nip_ketua_tim', 20)->nullable();
             $table->string('status', 20)->nullable();
+            $table->string('ketuatim_1100', 30)->nullable();
+            $table->string('ketuatim_1101', 30)->nullable();
+            $table->string('ketuatim_1102', 30)->nullable();
+            $table->string('ketuatim_1103', 30)->nullable();
+            $table->string('ketuatim_1104', 30)->nullable();
+            $table->string('ketuatim_1105', 30)->nullable();
+            $table->string('ketuatim_1106', 30)->nullable();
+            $table->string('ketuatim_1107', 30)->nullable();
+            $table->string('ketuatim_1108', 30)->nullable();
+            $table->string('ketuatim_1109', 30)->nullable();
+            $table->string('ketuatim_1110', 30)->nullable();
+            $table->string('ketuatim_1111', 30)->nullable();
+            $table->string('ketuatim_1112', 30)->nullable();
+            $table->string('ketuatim_1113', 30)->nullable();
+            $table->string('ketuatim_1114', 30)->nullable();
+            $table->string('ketuatim_1115', 30)->nullable();
+            $table->string('ketuatim_1116', 30)->nullable();
+            $table->string('ketuatim_1117', 30)->nullable();
+            $table->string('ketuatim_1118', 30)->nullable();
+            $table->string('ketuatim_1171', 30)->nullable();
+            $table->string('ketuatim_1172', 30)->nullable();
+            $table->string('ketuatim_1173', 30)->nullable();
+            $table->string('ketuatim_1174', 30)->nullable();
+            $table->string('ketuatim_1175', 30)->nullable();
         });
     }
 

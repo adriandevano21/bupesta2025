@@ -66,6 +66,7 @@ Route::controller(BupestaTimKerjaController::class)->group(function () {
     Route::get('/timkerja', 'timkerja');
     Route::post('/timkerja/store', 'store');
     Route::put('/timkerja/update/{id}', 'update');
+    Route::post('/timkerja/update-ketua-kabkota', 'updateKetuaKabKota');
     // Route untuk mengambil detail 1 kegiatan berdasarkan kode_kegiatannya (Format JSON)
     Route::get('/kegiatan/get-data/{kode_kegiatan}', 'getDetailKegiatan');
     Route::post('/kegiatan/update-pjk', 'updatePjk')->name('kegiatan.updatePjk');

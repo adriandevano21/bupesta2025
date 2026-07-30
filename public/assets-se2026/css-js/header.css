@@ -5,14 +5,24 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    /* Mencegah konten paling bawah tertutup oleh footer yang fixed */
+    padding-bottom: 40px;
+}
+
+/* =========================================================
+   HEADER / NAVBAR (Selalu di atas)
+   ========================================================= */
 header {
     position: fixed;
-    z-index: 1;
+    z-index: 9999;
+    /* Ditingkatkan agar tidak ketimpa elemen apa pun */
     width: 100%;
     top: 0;
-    color: #f79039;
+    left: 0;
     height: 68px;
     background-color: #fff;
+    color: #f79039;
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -20,7 +30,6 @@ header {
 .posisitengah {
     max-width: 95%;
     margin: 0 auto;
-    /* Dioptimalkan */
 }
 
 .logobps {
@@ -34,6 +43,9 @@ header {
     height: 55px;
 }
 
+/* =========================================================
+   MENU & DROPDOWN
+   ========================================================= */
 .menuatas {
     list-style: none;
     float: right;
@@ -43,19 +55,16 @@ header {
 .menuatas li {
     display: inline-block;
     padding: 15px 15px 0 0;
-    /* Dioptimalkan */
     font-size: 13px;
 }
 
-/* Menggabungkan properti dasar link menu */
 .menuatas li a,
 .dropdown-menuatas>a {
-    color: #000000;
+    color: #000;
     text-decoration: none;
     padding: 20px 5px;
 }
 
-/* Menggabungkan state hover dan active */
 .menuatas li a:hover,
 .menuatas>li>a.active,
 .dropdown-menuatas:hover>a {
@@ -67,18 +76,84 @@ header {
     color: #f79039;
 }
 
+.menuatas li a.no-hover:hover {
+    border-bottom: none !important;
+    padding: 5px !important;
+    color: inherit;
+}
+
 .tahun-dropdown {
-    color: #000000;
-        padding: 5px;
+    color: #000;
+    padding: 5px;
     font-size: 14px;
     border-radius: 5px;
     border: 1px solid #ccc;
     margin-top: -10px;
 }
 
+.dropdown-menuatas {
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.submenu-menuatas {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: #fff;
+    min-width: 200px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10000;
+    /* Lebih tinggi dari header agar dropdown tampil sempurna */
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 1px solid #ddd;
+}
+
+ul.submenu-menuatas:hover,
+.dropdown-menuatas:hover .submenu-menuatas {
+    display: block;
+}
+
+ul.submenu-menuatas:hover {
+    flex-direction: column;
+}
+
+ul.submenu-menuatas li {
+    float: none;
+    display: block;
+    padding: 0;
+}
+
+.submenu-menuatas li a {
+    display: block;
+    white-space: nowrap;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.submenu-menuatas li a:hover {
+    background-color: #f0f0f0;
+    color: #f79039;
+}
+
+.submenu-menuatas>li>a.active {
+    background-color: #f8f9fa;
+    color: #f79039;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   KONTEN UTAMA
+   ========================================================= */
 .konten {
     padding-top: 68px;
-    /* Dioptimalkan */
+    /* Mengimbangi tinggi header */
 }
 
 .konten-tengah {
@@ -96,31 +171,6 @@ header {
     color: rgb(90, 90, 90);
 }
 
-.navigasi {
-    padding-top: 45px;
-    /* Dioptimalkan */
-}
-
-/* Menggabungkan styling serupa pada navigasi */
-.navigasi .judul,
-.navigasi .isi {
-    color: rgb(59, 59, 59);
-    border-left: 6px solid #f79039;
-    background-color: #ccebff;
-}
-
-.navigasi .judul {
-    padding-left: 15px;
-    /* Dioptimalkan */
-    font-size: 25px;
-}
-
-.navigasi .isi {
-    padding: 0 0 10px 60px;
-    /* Dioptimalkan */
-    font-size: 11px;
-}
-
 .masukposisitengah {
     max-width: 100%;
     overflow: hidden;
@@ -131,6 +181,33 @@ header {
     height: 65px;
 }
 
+/* =========================================================
+   NAVIGASI (BREADCRUMB / KETERANGAN)
+   ========================================================= */
+.navigasi {
+    padding-top: 45px;
+}
+
+.navigasi .judul,
+.navigasi .isi {
+    color: rgb(59, 59, 59);
+    border-left: 6px solid #f79039;
+    background-color: #ccebff;
+}
+
+.navigasi .judul {
+    padding-left: 15px;
+    font-size: 25px;
+}
+
+.navigasi .isi {
+    padding: 0 0 10px 60px;
+    font-size: 11px;
+}
+
+/* =========================================================
+   ANIMASI TEKS BERJALAN
+   ========================================================= */
 .animasitext {
     color: #fff;
     white-space: nowrap;
@@ -160,73 +237,13 @@ header {
     }
 }
 
-.dropdown-menuatas {
-    position: relative;
-    display: inline-block;
-    font-size: 13px;
-}
-
-ul.submenu-menuatas:hover {
-    display: flex;
-    flex-direction: column;
-}
-
-ul.submenu-menuatas li {
-    float: none;
-    display: block;
-    padding: 0;
-}
-
-.submenu-menuatas {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background-color: #ffffff;
-    min-width: 200px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    border: 1px solid #ddd;
-}
-
-.submenu-menuatas li a {
-    display: block;
-    white-space: nowrap;
-    padding: 10px 15px;
-    /* text-decoration dan color dihapus karena akan diwariskan atau lebih mudah di-maintain */
-    text-decoration: none;
-    color: #000000;
-}
-
-.menuatas li a.no-hover:hover {
-    border-bottom: none !important;
-    padding: 5px !important;
-    color: inherit;
-}
-
-.submenu-menuatas li a:hover {
-    background-color: #f0f0f0;
-    color: #f79039;
-}
-
-.submenu-menuatas>li>a.active {
-    background-color: #f8f9fa;
-    color: #f79039;
-    font-weight: 600;
-    border-radius: 4px;
-}
-
-.dropdown-menuatas:hover .submenu-menuatas {
-    display: block;
-}
-
+/* =========================================================
+   TOMBOL DOWNLOAD (SWEETALERT2)
+   ========================================================= */
 .swal2-download-btn {
     display: block;
     background-color: #f79039;
-    color: white !important;
+    color: #fff !important;
     padding: 12px;
     text-align: center;
     border-radius: 6px;
@@ -240,10 +257,16 @@ ul.submenu-menuatas li {
     background-color: #d97d32;
 }
 
+/* =========================================================
+   FOOTER (Selalu di bawah dan terdepan)
+   ========================================================= */
 footer {
     position: fixed;
+    z-index: 9999;
+    /* Ditambahkan agar tidak tertimpa elemen lain */
     width: 100%;
     bottom: 0;
+    left: 0;
     height: 30px;
     padding: 5px 0;
     background: #f79039;
@@ -253,10 +276,14 @@ footer {
 }
 
 /* =========================================================
-   RESPONSIVE DESIGN (Disesuaikan untuk Mobile)
+   RESPONSIVE DESIGN (Mobile & Tablet)
    ========================================================= */
-
 @media (max-width: 992px) {
+    header {
+        height: auto;
+        padding-bottom: 10px;
+    }
+
     .menuatas {
         float: none;
         display: flex;
@@ -267,11 +294,6 @@ footer {
         float: none;
         text-align: center;
         margin-top: 10px;
-    }
-
-    header {
-        height: auto;
-        padding-bottom: 10px;
     }
 
     .konten {
@@ -285,7 +307,6 @@ footer {
         flex-direction: column;
     }
 
-    /* Aturan .logobps float & center sudah ter-cover di max-width: 992px */
     .logobps img {
         height: 45px;
     }
@@ -296,7 +317,6 @@ footer {
         white-space: nowrap;
         padding: 5px 15px;
         margin-top: 5px;
-        /* Mengganti margin 4 arah */
         width: 100%;
         justify-content: flex-start;
         align-items: center;
@@ -311,14 +331,12 @@ footer {
 
     .menuatas li {
         padding-right: 15px;
-        /* Dioptimalkan */
     }
 
     .menuatas li a {
         padding: 5px 0;
     }
 
-    /* Hover state redundan dihapus */
     .dropdown-menuatas {
         padding-top: 0;
     }

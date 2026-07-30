@@ -23,7 +23,31 @@ class Bupesta_TimKerja extends Model
         'icon_tim_kerja',
         'tahun',
         'nip_ketua_tim',
-        'status'
+        'status',
+        'ketuatim_1100',
+        'ketuatim_1101',
+        'ketuatim_1102',
+        'ketuatim_1103',
+        'ketuatim_1104',
+        'ketuatim_1105',
+        'ketuatim_1106',
+        'ketuatim_1107',
+        'ketuatim_1108',
+        'ketuatim_1109',
+        'ketuatim_1110',
+        'ketuatim_1111',
+        'ketuatim_1112',
+        'ketuatim_1113',
+        'ketuatim_1114',
+        'ketuatim_1115',
+        'ketuatim_1116',
+        'ketuatim_1117',
+        'ketuatim_1118',
+        'ketuatim_1171',
+        'ketuatim_1172',
+        'ketuatim_1173',
+        'ketuatim_1174',
+        'ketuatim_1175'
     ];
 
     public $timestamps = false;
