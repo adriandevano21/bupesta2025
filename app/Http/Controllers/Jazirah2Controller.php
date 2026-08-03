@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bupesta_TimKerja;
+use App\Models\Bupesta_User;
 use App\Models\Jazirah2_Hasil;
 use App\Models\Jazirah2_Indikator;
 use App\Models\Jazirah2_User;
 use App\Models\Satker;
+use App\Models\UserActivity;
 use Carbon\Carbon;
 // use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,6 +24,7 @@ class Jazirah2Controller extends Controller
     public function index()
     {
         $data["judul"] = "Jazirah";
+        $data["id_judul"] = 3;
         $data["indikator"] = Jazirah2_Indikator::all();
         return view('jazirah2026.dashbooard', compact('data'));
     }
@@ -28,25 +32,36 @@ class Jazirah2Controller extends Controller
     public function dashboard(Request $request)
     {
         $data["judul"] = "New Jazirah - Dashboard";
-        $data["user_active"] = Jazirah2_User::where('username', 'adrian.devano')->get();
+        $data["id_judul"] = "3";
+        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
         // $data["user_active"] = Jazirah2_User::where('username', auth()->user()->username)->get();
 
         $tahun = $request->input('tahun', '2026');
+        // Default Mode sekarang adalah rekap_satker
+        $mode = $request->input('mode', 'rekap_satker');
+        // Default Periode sekarang adalah bulan_berjalan
+        $periode = $request->input('periode', 'bulan_berjalan');
 
-        // Mode tampilan: 'lintas_satker' atau 'rekap_satker'
-        $mode = $request->input('mode', 'lintas_satker');
         $data['mode'] = $mode;
+        $data['periode'] = $periode;
 
-        // Ambil semua data dari view monitoring_jazirah
-        $rawData = DB::table('monitoring_jazirah3')->where('tahun', $tahun)->get();
+        // Memanggil view database yang sesuai (contoh: monitoring_jazirah_tw1 atau monitoring_jazirah_bulan_berjalan)
+        $viewName = 'monitoring_jazirah_' . $periode;
+        $rawData = DB::table($viewName)->where('tahun', $tahun)->get();
 
-        // Siapkan daftar satker yang ada
         $data['satkers'] = $rawData->pluck('satker')->unique()->sort()->values();
 
+        // Menyesuaikan akhiran nama kolom sesuai dengan periode
+        $suffix = ($periode === 'bulan_berjalan') ? '_bulan_ini' : '_' . $periode;
+
         if ($mode === 'lintas_satker') {
-            // Fitur Lama: Tabel Persentase (Pilih Kolom: Realisasi / Evaluasi / Validasi)
-            $jenisData = $request->input('jenis_data', 'persentase_penetapan_target'); // Kita ganti default-nya ke yang paling awal alurnya
-            $data['jenis_data'] = $jenisData;
+            $jenisDataParam = $request->input('jenis_data', 'persentase_penetapan_target');
+            $data['jenis_data'] = $jenisDataParam;
+
+            // Gabungkan nama kolom yang dipilih dengan suffix (kecuali penetapan target karena tidak ada suffix tw)
+            $jenisDataKolom = ($jenisDataParam === 'persentase_penetapan_target')
+                ? 'persentase_penetapan_target'
+                : $jenisDataParam . $suffix;
 
             $data['pivotData'] = [];
             foreach ($rawData as $item) {
@@ -57,29 +72,127 @@ class Jazirah2Controller extends Controller
                         'indikator' => $item->kode_2,
                         'pilar' => $item->kode_3,
                     ];
-
                     foreach ($data['satkers'] as $satker) {
                         $data['pivotData'][$key][$satker] = null;
                     }
                 }
-
-                // Masukkan nilai sesuai pilihan dropdown (Persentase Realisasi, Evaluasi, atau Selesai)
-                $data['pivotData'][$key][$item->satker] = $item->$jenisData;
+                $data['pivotData'][$key][$item->satker] = $item->$jenisDataKolom ?? null;
             }
         } else if ($mode === 'rekap_satker') {
-            // Fitur Baru: Rekap Per Satker
-            // Jika tidak ada satker yang dipilih, ambil satker pertama
             $selectedSatker = $request->input('selected_satker', $data['satkers']->first());
             $data['selected_satker'] = $selectedSatker;
 
-            // Filter data khusus untuk satker yang dipilih saja
-            $rekapData = $rawData->where('satker', $selectedSatker)->values();
-            $data['rekapData'] = $rekapData;
-        }
+            // Menyesuaikan nama kolom raw numbers
+            $targetCol = ($suffix === '_bulan_ini') ? 'target_bulan_ini' : 'target_triwulan' . $suffix;
+            $realisasiCol = ($suffix === '_bulan_ini') ? 'realisasi_bulan_ini' : 'realisasi_triwulan' . $suffix;
 
+            $pReal = 'persentase_realisasi' . $suffix;
+            $pEval = 'persentase_evaluasi' . $suffix;
+            $pDok = 'persentase_dokumen_selesai' . $suffix;
+            $pTindakLanjut = 'persentase_tindaklanjut' . $suffix;
+
+            // Merapikan koleksi agar seragam dibaca oleh Blade View tanpa harus mikir _tw1 atau _bulan_ini lagi
+            $data['rekapData'] = $rawData->where('satker', $selectedSatker)->map(function ($item) use ($targetCol, $realisasiCol, $pReal, $pEval, $pTindakLanjut, $pDok) {
+                return (object) [
+                    'kode_2' => $item->kode_2,
+                    'kode_3' => $item->kode_3,
+                    'target_setahun' => $item->target_setahun ?? 0,
+                    'target_periode' => $item->$targetCol ?? 0,
+                    'realisasi_periode' => $item->$realisasiCol ?? 0,
+                    'persentase_penetapan_target' => $item->persentase_penetapan_target ?? null,
+                    'persentase_realisasi' => $item->$pReal ?? null,
+                    'persentase_evaluasi' => $item->$pEval ?? null,
+                    'persentase_tindaklanjut' => $item->$pTindakLanjut ?? null, // [BARU]
+                    'persentase_dokumen_selesai' => $item->$pDok ?? null,
+                ];
+            })->values();
+        }
         return view('jazirah2026.jazirah-dashboard', compact('data'));
     }
 
+    public function jazirahlk(Request $request)
+    {
+        UserActivity::log("https://bupesta.web.bps.go.id/timkerja");
+        $tahun = $request->input('tahun', '2026');
+        $data = [];
+
+        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        // $data["user_active"] = Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
+        $data["id_judul"] = "3";
+        $data["judul"] = "Tim Kerja";
+        $tahun = $request->input('tahun', '2026');
+        // Default Mode sekarang adalah rekap_satker
+        $mode = $request->input('mode', 'rekap_satker');
+        // Default Periode sekarang adalah bulan_berjalan
+        $periode = $request->input('periode', 'bulan_berjalan');
+
+        $data['mode'] = $mode;
+        $data['periode'] = $periode;
+
+        // Memanggil view database yang sesuai (contoh: monitoring_jazirah_tw1 atau monitoring_jazirah_bulan_berjalan)
+        $viewName = 'monitoring_jazirah_' . $periode;
+        $rawData = DB::table($viewName)->where('tahun', $tahun)->get();
+
+        $data['satkers'] = $rawData->pluck('satker')->unique()->sort()->values();
+
+        // Menyesuaikan akhiran nama kolom sesuai dengan periode
+        $suffix = ($periode === 'bulan_berjalan') ? '_bulan_ini' : '_' . $periode;
+
+        if ($mode === 'lintas_satker') {
+            $jenisDataParam = $request->input('jenis_data', 'persentase_penetapan_target');
+            $data['jenis_data'] = $jenisDataParam;
+
+            // Gabungkan nama kolom yang dipilih dengan suffix (kecuali penetapan target karena tidak ada suffix tw)
+            $jenisDataKolom = ($jenisDataParam === 'persentase_penetapan_target')
+                ? 'persentase_penetapan_target'
+                : $jenisDataParam . $suffix;
+
+            $data['pivotData'] = [];
+            foreach ($rawData as $item) {
+                $key = $item->kode_2 . '|' . $item->kode_3;
+
+                if (!isset($data['pivotData'][$key])) {
+                    $data['pivotData'][$key] = [
+                        'indikator' => $item->kode_2,
+                        'pilar' => $item->kode_3,
+                    ];
+                    foreach ($data['satkers'] as $satker) {
+                        $data['pivotData'][$key][$satker] = null;
+                    }
+                }
+                $data['pivotData'][$key][$item->satker] = $item->$jenisDataKolom ?? null;
+            }
+        } else if ($mode === 'rekap_satker') {
+            $selectedSatker = $request->input('selected_satker', $data['satkers']->first());
+            $data['selected_satker'] = $selectedSatker;
+
+            // Menyesuaikan nama kolom raw numbers
+            $targetCol = ($suffix === '_bulan_ini') ? 'target_bulan_ini' : 'target_triwulan' . $suffix;
+            $realisasiCol = ($suffix === '_bulan_ini') ? 'realisasi_bulan_ini' : 'realisasi_triwulan' . $suffix;
+
+            $pReal = 'persentase_realisasi' . $suffix;
+            $pEval = 'persentase_evaluasi' . $suffix;
+            $pDok = 'persentase_dokumen_selesai' . $suffix;
+            $pTindakLanjut = 'persentase_tindaklanjut' . $suffix;
+
+            // Merapikan koleksi agar seragam dibaca oleh Blade View tanpa harus mikir _tw1 atau _bulan_ini lagi
+            $data['rekapData'] = $rawData->where('satker', $selectedSatker)->map(function ($item) use ($targetCol, $realisasiCol, $pReal, $pEval, $pTindakLanjut, $pDok) {
+                return (object) [
+                    'kode_2' => $item->kode_2,
+                    'kode_3' => $item->kode_3,
+                    'target_setahun' => $item->target_setahun ?? 0,
+                    'target_periode' => $item->$targetCol ?? 0,
+                    'realisasi_periode' => $item->$realisasiCol ?? 0,
+                    'persentase_penetapan_target' => $item->persentase_penetapan_target ?? null,
+                    'persentase_realisasi' => $item->$pReal ?? null,
+                    'persentase_evaluasi' => $item->$pEval ?? null,
+                    'persentase_tindaklanjut' => $item->$pTindakLanjut ?? null, // [BARU]
+                    'persentase_dokumen_selesai' => $item->$pDok ?? null,
+                ];
+            })->values();
+        }
+        return view('jazirah2026.jazirah-lk', compact('data'));
+    }
     public function lembarkerja(Request $request)
     {
         $request->validate([

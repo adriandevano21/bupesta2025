@@ -7,7 +7,7 @@
 
 <div class="posisitengah">
     <div class="logobps">
-        <a href="/dashboard-jazirah">
+        <a href="/">
             <img src="{{ asset('assets-se2026/img/Logo-SE2026.png') }}" alt="Logo SE2026">
         </a>
     </div>

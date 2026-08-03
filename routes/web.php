@@ -55,6 +55,8 @@ Route::controller(Jazirah2Controller::class)->group(function () {
     Route::get('/admin-jazirah', 'admin')->name('admin.jazirah');
     Route::post('/setting-evaluator', 'settingevaluator')->name('setting.evaluator');
     Route::post('/google-drive/files', 'getFileList');
+
+    Route::get('/jazirah-lk', 'jazirahlk')->name('jazirah.jazirahlk');
 });
 
 Route::controller(SE2026Controller::class)->group(function () {
@@ -76,4 +78,7 @@ Route::controller(BupestaTimKerjaController::class)->group(function () {
 Route::controller(UserController::class)->group(function () {
     Route::put('/profil/lengkapi', 'update')->name('profil.updateLengkap');
     Route::get('/pegawai/get-profil/{nip}', 'getProfilPegawai');
+    Route::get('/adminbupesta', 'adminbupesta')->name('simpeg.index');
+    Route::post('/import-simpeg', 'importDatasimpeg')->name('simpeg.import');
+    Route::delete('/simpeg/delete-by-versi', 'destroyByVersiData')->name('simpeg.delete_by_versi');
 });

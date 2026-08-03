@@ -30,7 +30,7 @@
         $userActive = $data['user_active'] ?? null;
         $userRole = $userActive->bupesta ?? '';
         $userNip = $userActive->nip_pegawai ?? '';
-        $userSatker = $userActive->kode_satker ?? ''; // Asumsi key: kode_satker
+        $userSatker = $userActive->kode_Satker ?? ''; // Asumsi key: kode_Satker
 
         // 1. Caching Otorisasi
         $isAdmin = $userRole === 'admin';
