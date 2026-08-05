@@ -1,3 +1,17 @@
+/* ==========================================================================
+   1. VARIABEL GLOBAL
+   ========================================================================== */
+:root {
+    --warna-utama: #f79039;
+    --teks-gelap: #374151;
+    --teks-abu: #6b7280;
+    --abu-muda: #f3f4f6;
+    --transisi-halus: all 0.3s ease;
+}
+
+/* ==========================================================================
+   2. RESET & BASE STYLES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -10,9 +24,10 @@ body {
     padding-bottom: 40px;
 }
 
-/* =========================================================
-   HEADER / NAVBAR (Selalu di atas)
-   ========================================================= */
+/* ==========================================================================
+   3. LAYOUT UTAMA (HEADER, KONTEN, FOOTER)
+   ========================================================================== */
+/* --- Header --- */
 header {
     position: fixed;
     z-index: 9999;
@@ -22,7 +37,7 @@ header {
     left: 0;
     height: 68px;
     background-color: #fff;
-    color: #f79039;
+    color: var(--warna-utama);
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -43,9 +58,57 @@ header {
     height: 55px;
 }
 
-/* =========================================================
-   MENU & DROPDOWN
-   ========================================================= */
+/* --- Konten --- */
+.konten {
+    padding-top: 68px;
+    /* Mengimbangi tinggi header */
+}
+
+.konten-tengah {
+    padding: 45px 20px 75px 20px;
+    background-color: var(--warna-utama);
+}
+
+.konten-tengah .judul {
+    font-size: 22px;
+    color: rgb(59, 59, 59);
+}
+
+.konten-tengah .isi {
+    font-size: 14px;
+    color: rgb(90, 90, 90);
+}
+
+.masukposisitengah {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.backgroundbiru {
+    background: var(--warna-utama);
+    height: 65px;
+}
+
+/* --- Footer --- */
+footer {
+    position: fixed;
+    z-index: 9999;
+    /* Ditambahkan agar tidak tertimpa elemen lain */
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    padding: 5px 0;
+    background: var(--warna-utama);
+    color: #fff;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* ==========================================================================
+   4. NAVIGASI & MENU
+   ========================================================================== */
+/* --- Menu Atas --- */
 .menuatas {
     list-style: none;
     float: right;
@@ -68,12 +131,12 @@ header {
 .menuatas li a:hover,
 .menuatas>li>a.active,
 .dropdown-menuatas:hover>a {
-    color: #f79039;
-    border-bottom: 3px solid #f79039;
+    color: var(--warna-utama);
+    border-bottom: 3px solid var(--warna-utama);
 }
 
 .menuatas li a.active i {
-    color: #f79039;
+    color: var(--warna-utama);
 }
 
 .menuatas li a.no-hover:hover {
@@ -91,6 +154,7 @@ header {
     margin-top: -10px;
 }
 
+/* --- Dropdown Menu --- */
 .dropdown-menuatas {
     position: relative;
     display: inline-block;
@@ -138,52 +202,17 @@ ul.submenu-menuatas li {
 
 .submenu-menuatas li a:hover {
     background-color: #f0f0f0;
-    color: #f79039;
+    color: var(--warna-utama);
 }
 
 .submenu-menuatas>li>a.active {
     background-color: #f8f9fa;
-    color: #f79039;
+    color: var(--warna-utama);
     font-weight: 600;
     border-radius: 4px;
 }
 
-/* =========================================================
-   KONTEN UTAMA
-   ========================================================= */
-.konten {
-    padding-top: 68px;
-    /* Mengimbangi tinggi header */
-}
-
-.konten-tengah {
-    padding: 45px 20px 75px 20px;
-    background-color: #f79039;
-}
-
-.konten-tengah .judul {
-    font-size: 22px;
-    color: rgb(59, 59, 59);
-}
-
-.konten-tengah .isi {
-    font-size: 14px;
-    color: rgb(90, 90, 90);
-}
-
-.masukposisitengah {
-    max-width: 100%;
-    overflow: hidden;
-}
-
-.backgroundbiru {
-    background: #f79039;
-    height: 65px;
-}
-
-/* =========================================================
-   NAVIGASI (BREADCRUMB / KETERANGAN)
-   ========================================================= */
+/* --- Breadcrumb / Navigasi Keterangan --- */
 .navigasi {
     padding-top: 45px;
 }
@@ -191,7 +220,7 @@ ul.submenu-menuatas li {
 .navigasi .judul,
 .navigasi .isi {
     color: rgb(59, 59, 59);
-    border-left: 6px solid #f79039;
+    border-left: 6px solid var(--warna-utama);
     background-color: #ccebff;
 }
 
@@ -205,9 +234,298 @@ ul.submenu-menuatas li {
     font-size: 11px;
 }
 
-/* =========================================================
-   ANIMASI TEKS BERJALAN
-   ========================================================= */
+/* ==========================================================================
+   5. MODAL POPUP
+   ========================================================================== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    background: #fff;
+    width: 90%;
+    max-width: 60%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: modalMuncul 0.3s ease;
+    overflow: hidden;
+}
+
+.modal-xl {
+    max-width: 900px;
+    border-radius: 8px;
+}
+
+@keyframes modalMuncul {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: var(--warna-utama);
+    color: #fff;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.tutup-modal {
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.tutup-modal:hover {
+    color: #ffe0c2;
+}
+
+.modal-body {
+    padding: 20px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.modal-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #e2e8f0;
+    text-align: right;
+}
+
+/* ==========================================================================
+   6. FORM & INPUT
+   ========================================================================== */
+.grup-input,
+.grup-tampil {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.grup-input label,
+.grup-tampil label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.grup-input label {
+    color: #4a5568;
+}
+
+.grup-tampil label {
+    color: #718096;
+}
+
+.input-form,
+.select-pegawai {
+    padding: 0 20px;
+    height: 42px;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    width: 100%;
+    box-sizing: border-box;
+    transition: var(--transisi-halus);
+    background-color: #fff;
+}
+
+.input-form:focus,
+.select-pegawai:focus {
+    outline: none;
+    border-color: var(--warna-utama);
+    box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.2);
+}
+
+/* ==========================================================================
+   7. TOMBOL (BUTTONS)
+   ========================================================================== */
+.btn-edit {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(243, 244, 246, 0.005);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    color: #4b5563;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: var(--transisi-halus);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
+
+.btn-edit:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: var(--warna-utama);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: var(--warna-utama);
+}
+
+.btn-hapus-baris {
+    background: #fc8181;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: 0.2s;
+    flex-shrink: 0;
+}
+
+.btn-hapus-baris:hover {
+    background: #e53e3e;
+}
+
+.btn-tambah-kegiatan {
+    background: var(--abu-muda);
+    color: var(--warna-utama);
+    border: 1px dashed #a0aec0;
+    height: 42px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: 0.2s;
+    margin-top: 5px;
+}
+
+.btn-tambah-kegiatan:hover {
+    background: #e2e8f0;
+    border-color: var(--warna-utama);
+}
+
+.btn-simpan,
+.btn-tambah-tim {
+    background: var(--warna-utama);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transisi-halus);
+}
+
+.btn-simpan {
+    padding: 10px 20px;
+}
+
+.btn-tambah-tim {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 6px rgba(247, 144, 57, 0.2);
+}
+
+.btn-simpan:hover,
+.btn-tambah-tim:hover {
+    filter: brightness(0.9);
+}
+
+.btn-tambah-tim:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(247, 144, 57, 0.3);
+}
+
+.btn-tambah-tim i {
+    margin-right: 8px;
+}
+
+.btn-simpan-mini,
+.btn-batal-mini {
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.2s;
+}
+
+.btn-simpan-mini {
+    background-color: #10b981;
+}
+
+.btn-simpan-mini:hover {
+    background-color: #059669;
+}
+
+.btn-batal-mini {
+    background-color: #ef4444;
+}
+
+.btn-batal-mini:hover {
+    background-color: #dc2626;
+}
+
+.btn-edit-inline {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: 0.2s;
+    padding: 5px;
+}
+
+.btn-edit-inline:hover {
+    color: var(--warna-utama);
+    transform: scale(1.1);
+}
+
+/* --- Tombol Download (SweetAlert2) --- */
+.swal2-download-btn {
+    display: block;
+    background-color: var(--warna-utama);
+    color: #fff !important;
+    padding: 12px;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.swal2-download-btn:hover {
+    background-color: #d97d32;
+}
+
+/* ==========================================================================
+   8. ANIMASI KUSTOM
+   ========================================================================== */
 .animasitext {
     color: #fff;
     white-space: nowrap;
@@ -237,47 +555,10 @@ ul.submenu-menuatas li {
     }
 }
 
-/* =========================================================
-   TOMBOL DOWNLOAD (SWEETALERT2)
-   ========================================================= */
-.swal2-download-btn {
-    display: block;
-    background-color: #f79039;
-    color: #fff !important;
-    padding: 12px;
-    text-align: center;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-}
-
-.swal2-download-btn:hover {
-    background-color: #d97d32;
-}
-
-/* =========================================================
-   FOOTER (Selalu di bawah dan terdepan)
-   ========================================================= */
-footer {
-    position: fixed;
-    z-index: 9999;
-    /* Ditambahkan agar tidak tertimpa elemen lain */
-    width: 100%;
-    bottom: 0;
-    left: 0;
-    height: 30px;
-    padding: 5px 0;
-    background: #f79039;
-    color: #fff;
-    text-align: center;
-    font-size: 13px;
-}
-
-/* =========================================================
-   RESPONSIVE DESIGN (Mobile & Tablet)
-   ========================================================= */
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+/* Tablet Besar & Laptop Kecil */
 @media (max-width: 992px) {
     header {
         height: auto;
@@ -301,6 +582,7 @@ footer {
     }
 }
 
+/* Tablet & Mobile Besar */
 @media (max-width: 768px) {
     header {
         display: flex;
@@ -379,6 +661,7 @@ footer {
     }
 }
 
+/* Mobile Kecil */
 @media (max-width: 480px) {
     .menuatas li {
         font-size: 12px;

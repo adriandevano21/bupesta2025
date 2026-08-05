@@ -4,6 +4,7 @@ use App\Http\Controllers\BupestaTimKerjaController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\JazirahController;
 use App\Http\Controllers\DashboardActivityController;
+use App\Http\Controllers\IstController;
 use App\Http\Controllers\Jazirah2Controller;
 use App\Http\Controllers\SE2026Controller;
 use App\Http\Controllers\UserController;
@@ -81,4 +82,22 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/adminbupesta', 'adminbupesta')->name('simpeg.index');
     Route::post('/import-simpeg', 'importDatasimpeg')->name('simpeg.import');
     Route::delete('/simpeg/delete-by-versi', 'destroyByVersiData')->name('simpeg.delete_by_versi');
+});
+
+Route::controller(IstController::class)->group(function () {
+    Route::get('/ist', 'index')->name('ist.index');
+
+    // Pengaturan Periode & Informasi oleh Admin
+    Route::post('/ist/update-periode', 'updatePeriode')->name('ist.updatePeriode');
+
+    // Submit Kuesioner Tahap 1_1
+    Route::post('/ist/store-penilaian', 'storePenilaian')->name('ist.storePenilaian');
+
+    // Pejabat Menetapkan Kandidat Tahap 1_2
+    Route::post('/ist/tetapkan', 'tetapkanKandidat')->name('ist.tetapkan');
+
+    // Pejabat Membatalkan Kandidat Tahap 1_2
+    Route::post('/ist/batalkan', 'batalkanKandidat')->name('ist.batalkan');
+
+    Route::post('/ist/store-pertanyaan', 'storePertanyaan')->name('ist.storePertanyaan');
 });

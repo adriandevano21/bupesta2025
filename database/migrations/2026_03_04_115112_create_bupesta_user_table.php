@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('jazirah', 100)->nullable();
             $table->string('cinema', 100)->nullable();
             $table->string('kinerja', 100)->nullable();
+            $table->string('ist', 100)->nullable();
             $table->timestamps();
         });
     }

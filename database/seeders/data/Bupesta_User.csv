@@ -1,706 +1,688 @@
-id,name,username,tahun,nip_pegawai,no_hp,kode_satker,golongan,jabatan,urlfoto,bupesta,jazirah,cinema,kinerja
-1,"Agus Andria, SST, M.Si.",andria,2025,197908302000121006,,1100,IV/b,Kepala BPS Provinsi,,kepala,kepala,kepala,kepala
-2,"Nurzakiah, SE",zakiah,2025,197005271992012001,,1100,III/d,Fungsional Umum BPS Provinsi,,pegawai,,,
-3,Alfisyahrin,alfisyah,2025,198207142007011001,,1100,III/a,Fungsional Umum BPS Provinsi,,pegawai,,,
-4,"Abd. Hakim, S.Si, M.Si",ahakim,2025,196712291991121001,,1100,IV/c,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-5,"Haifa Sari, SST, M.Si.",haifa,2025,198308122006022001,,1100,IV/b,Analis Pengelolaan Keuangan APBN Ahli Madya BPS Provinsi,,pegawai,,,
-6,"Oriza Santifa, S.Si, M.Si.",oriza,2025,197307011995121001,,1100,IV/b,Pranata Komputer Ahli Madya BPS Provinsi,,pegawai,,,
-7,"Hendra Gunawan, SST, M.Si",goen,2025,198306042006021003,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-8,"Meita Jumiartanti, SST, M.Si.",meitaj,2025,198605172008012002,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-9,"Yan Yan Gustiana, S.ST., M.Stat",yanyan,2025,197808032002121006,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-10,"Hendri Achmad Hudori, SST, M.Si.",hendri.hudori,2025,198504142009021005,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-11,"Akhmad Sugito, SST, M.Si",akh.sugito,2025,198410312008011005,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,pegawai,,,
-12,"Kahar Muzzakar, SST, M.Si",kaharm,2025,198505122009021003,,1100,IV/a,Pranata Komputer Ahli Madya BPS Provinsi,,pegawai,,,
-13,"M. Alimuddin, SST, M.T",alimuddin,2025,198512052008011002,,1100,IV/a,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,,,
-14,"Wira Junardi, SST, M.T.",wira,2025,198906132012111001,,1100,III/d,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,,,
-15,"Rodiah, S.E",rodiah2,2025,197904222005022001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-16,"Hilda Aprina, SST, M.Si.",haprina,2025,199104142014102001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-17,"Fikri, SE, M.S.M",fikri2,2025,198804162008011001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-18,"Nyimas Eka Yunia Hasnita, S.P",nyimas.hasnita,2025,198206252006042003,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-19,"Afrizal, S.Si",afrizal2,2025,198308072011011009,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-20,"Dhani Fitri Yanthi, S.Si",dhani.fitri,2025,198406272011012022,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-21,"Dina Nirmala Sari, S.Si.",dina.niersa,2025,198404022011012022,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-22,"Hendra Dharmawan, SST, M.Si.",hendrad,2025,198512092009021002,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-23,"Nur Hasanah, SST, M.Si.",nurh,2025,198607312009022006,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-24,"Nilam Humaira, SST",nilam,2025,198607292009022005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-25,"Ridha Mutia, SE, M.Si",ridha.mutia,2025,198608082006042005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-26,"Melly, SST",melly2,2025,198604222009022005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-27,"Juliana, SP",juliana.sp,2025,198507222011012015,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-28,"Fitral Pratomo, SST",fitral,2025,198407082008011003,,1100,III/d,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,,,
-29,"M. Reza, SE, M.Si.",mreza,2025,198806092008011001,,1100,III/c,Pranata Keuangan APBN Penyelia BPS Provinsi,,pegawai,,,
-30,"Maulidya, SE",maulid,2025,198612202006042001,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,,,
-31,"Raiski Ramadhoni, S.E., M.AP.",raiski,2025,198605212006041003,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-32,"Azwar, S.E",azwar,2025,197109132001121003,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,,,
-33,"Darwis Abubakar, SE, M.Si",darwisab,2025,198806012008011003,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-34,"Dwi Susanti, SE",dwisusanti,2025,198411122006042002,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,,,
-35,"Mega Thursina, SST",mega.thursina,2025,199303312016022002,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-36,"Ismaturrahmi Suhaimi, SST",isma.suhaimi,2025,199504052017012001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-37,"Cahya Danu Rahman, SST, M.Ec.Dev.",cahya.rahman,2025,199202072017011001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-38,"Fitri Mulyani, SST",fitri.mulyani,2025,199503172018022001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,,,
-39,"Munandar, S.Si",munandar,2025,198012212010031001,,1100,III/c,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,,,
-40,"Adrian Devano, S.Tr.Stat.",adrian.devano,2025,199906212022011001,082285993357,1100,III/b,Pranata Komputer Ahli Pertama BPS Provinsi,,admin,admin,admin,admin
-41,"Nova Misrina, S.M.",nova.misrina,2025,198611192011012016,,1100,III/b,Penata Laksana Barang Mahir BPS Provinsi,,pegawai,,,
-42,"Thariana Ayu Islami, S.Tr.Stat.",thariana.ayu,2025,199706102019122001,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-43,"Ichsan Hasanudin, SST",ichsan.hasanudin,2025,199501232018021001,,1100,III/b,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,,,
-44,"M. Nigel Biaggi, S.Tr.Stat",nigel.biaggi,2025,199804242019121002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-45,"Destiana Fitri, S.Tr.Stat.",destianaf,2025,199609292019012001,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-46,"Maulizasari, S.Stat.",maulizasari,2025,199509142019032002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-47,"Mazaya Alifah Syadzwina, S.Tr.Stat.",mazaya.alifah,2025,199607132019012002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-48,"Nasliyah Husna, S.P",nasliyah.husna,2025,198902272012122001,,1100,III/b,Pengelola Pengadaan Barang dan Jasa Ahli Pertama BPS Provinsi,,pegawai,,,
-49,"Mukhlis, S.E.",mukhlis7,2025,197709152007011002,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-50,"Muhammad Hafidz Al Ahmad Bit, S.Tr.Stat.",hafidz.alahmad,2025,199905312021041001,,1100,III/a,Analis SDM Aparatur Ahli Pertama BPS Provinsi,,pegawai,,,
-51,"Anandika Dian Pramesti, S.Tr.Stat.",dian.pramesti,2025,199711192021042001,,1100,III/a,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,,,
-52,"Zahlul Fuadi, S.Tr.Stat.",zahlul.fuadi,2025,200101292023021004,,1100,III/a,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,,,
-53,"Muhammad Farhan, S.Tr.Stat",muhammad.farhan,2025,200204232024121003,,1100,III/a,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,,,
-54,"Naura Shada Kirana, S.Tr.Stat.",naurashada,2025,200207272024122003,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-55,"Sinta Nuriyah, S.Tr.Stat.",sintanuriyah,2025,200112232024122004,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,,,
-56,"Akhyarul Kamal, A.Md.Stat.",akhyarul.kamal,2025,199805032023021001,,1100,II/c,Statistisi Terampil BPS Provinsi,,pegawai,,,
-57,"Yulia Geubrina, SST, M.Si",yuliageubrina,2025,199107012014102001,,1100,III/d,Staf BPS Provinsi,,pegawai,,,
-58,"Mirza Maulana, S.Pd",mirzamaulana-pppk,2025,199007152025211064,,1100,IX,Staf BPS Provinsi,,pegawai,,,
-59,"Hendra Saputra, S.E.",hendrasaputra-pppk,2025,198703132025211055,,1100,IX,Staf BPS Provinsi,,pegawai,,,
-60,"Faisal, S.E",fais-pppk,2025,197811292025211019,,1100,IX,Staf BPS Provinsi,,pegawai,,,
-61,"Teuku Yanisrullah, S.E.",teukuyanis-pppk,2025,198405012025211055,,1100,IX,Staf BPS Provinsi,,pegawai,,,
-62,"Clarissa Azarine, S.Tr.Stat.",azarineclarissa,2025,200301092026032001,,1100,III/a,Staf BPS Provinsi,,pegawai,,,
-63,"Riska Fazilla, S.Tr.Stat.",riskafazilla,2025,200207082026032003,,1100,III/a,Staf BPS Provinsi,,pegawai,,,
-64,Marhami,marhami,2025,197704092009012004,,1100,II/d,Staf BPS Provinsi,,pegawai,,,
-65,"Tasdik Ilhamudin, S.Si, M.Si",tasdik,2025,197405171996121001,,1100,IV/b,Kepala Bagian Umum,,kepala-umum,kepala-umum,kepala-umum,kepala-umum
-66,"Reza Rezki Pulungan, SST",pulungan,2025,198504232008011001,,1100,IV/a,Analis Anggaran Ahli Madya Bagian Umum,,pegawai,,,
-67,"Fadlun Andrian, SE, MM",fadlun.andrian,2025,198209142002121004,,1100,IV/a,Arsiparis Ahli Madya Bagian Umum,,pegawai,,,
-68,"Cut Emalita, SE.",emalita,2025,197409041993122001,,1100,III/d,Arsiparis Ahli Pertama Bagian Umum,,pegawai,,,
-69,"Wahdini, S.Psi.",wahdini,2025,198207102011012017,,1100,III/d,Analis SDM Aparatur Ahli Muda Bagian Umum,,pegawai,,,
-70,"Ita Meriati, SE",ita.meriati,2025,197612182002122004,,1100,III/d,Arsiparis Ahli Pertama Bagian Umum,,pegawai,,,
-71,"Bambang Wahyudi, SE",b.wahyudi,2025,198407162006021002,,1100,III/c,Statistisi Ahli Pertama Bagian Umum,,pegawai,,,
-72,"Nelvi Istiqamah, SE",nelvi,2025,198909282011012010,,1100,III/c,Arsiparis Ahli Muda Bagian Umum,,pegawai,,,
-73,"Edo Mara Nasution, S.E.",edomara,2025,198306172005021001,,1100,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama Bagian Umum,,pegawai,,,
-74,"Chairina, S.M.",Chairina,2025,198603032005022001,,1100,III/b,Pengelola Pengadaan Barang dan Jasa Ahli Pertama Bagian Umum,,pegawai,,,
-75,"Gunadi Subagia, S.Tr.Stat.",gunadi.subagia,2025,199707072019011003,,1100,III/b,Statistisi Ahli Pertama Bagian Umum,,pegawai,,,
-76,"Zukhra, SE",zukhra,2025,198712272011011011,,1100,III/b,Penata Laksana Barang Mahir Bagian Umum,,pegawai,,,
-77,"Elisa Ismi, S.Stat.",elisa.ismi,2025,199407262019032001,,1100,III/b,Statistisi Ahli Pertama Bagian Umum,,pegawai,,,
-78,"Kanasha Humaira, SST",kanasha.humaira,2025,199507292017012001,,1100,III/b,Pranata Komputer Ahli Pertama Bagian Umum,,pegawai,,,
-79,"Dewi Putri Rahayu, A.Md.",dewirahayu,2025,198908192011012010,,1100,III/b,Pranata Keuangan APBN Mahir Bagian Umum,,pegawai,,,
-80,"Ferfi Hamdina, SE",ferfi.hamdina,2025,198802102008012002,,1100,III/b,Penata Laksana Barang Mahir Bagian Umum,,pegawai,,,
-81,"Cut Sandra Novalia, SE",cut.sandra,2025,198401132002122003,,1100,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama Bagian Umum,,pegawai,,,
-82,"Dhien Auliatu Asra, S.E.",dhien.asra,2025,199401102022032014,,1100,III/a,Pengelola Pengadaan Barang dan Jasa Ahli Pertama Bagian Umum,,pegawai,,,
-83,"Cut Fatin Nabilah, A.Md.",cutfatin-pppk,2025,199508142024212010,,1100,VII,Arsiparis Terampil Bagian Umum,,pegawai,,,
-84,"Andi Arif Ginting, A.Md.Kb.N.",andi.arif,2025,200007152022011006,,1100,II/c,Pranata Keuangan APBN Terampil Bagian Umum,,pegawai,,,
-85,"Reyhan Octavianri, S.I.Kom",reyhan.octavianri,2025,199510312025061003,,1100,III/a,Staf Bagian Umum,,pegawai,,,
-86,"Saiful Ambiya, S.H.",saiful.ambiya,2025,199609272025061003,,1100,III/a,Staf Bagian Umum,,pegawai,,,
-87,"Maulidin, A.Md.A.P",maulidin,2025,199808112025061003,,1100,II/c,Staf Bagian Umum,,pegawai,,,
-88,"Sumiati, A.Md.Kom",su.miati,2025,199308032025062004,,1100,II/c,Staf Bagian Umum,,pegawai,,,
-89,Mirza Syaputra,mirzasyaputra-pppk,2025,199012102025211069,,1100,V,Staf Bagian Umum,,pegawai,,,
-90,M. Sofyan,msofyan-pppk,2025,197610072025211021,,1100,V,Staf Bagian Umum,,pegawai,,,
-91,Riza Fahmi,rizafahmi-pppk,2025,199201142025211047,,1100,V,Staf Bagian Umum,,pegawai,,,
-92,Iskandar,iskandar4-pppk,2025,199712012025211026,,1100,V,Staf Bagian Umum,,pegawai,,,
-93,Syahrul Ramadhan,syahrulrama-pppk,2025,199801292025211022,,1100,V,Staf Bagian Umum,,pegawai,,,
-94,Apriliza,apriliza-pppk,2025,198704252025211038,,1100,V,Staf Bagian Umum,,pegawai,,,
-95,"Tsamirfuadi, SE",tsamir,2025,197206052005021001,,1101,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-96,Subarno,subarno,2025,198303062014061003,,1101,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-97,"Rustim, SE",rustim,2025,196907221990121001,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-98,"Roni Rahmadi, SP",roni.rahmadi,2025,198705122011011005,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-99,"Zainal Amin, S.Si",zainal.amin,2025,198505292011011010,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-100,"Edhi Prabowo, SST",edhi.prabowo,2025,199403242018021001,,1101,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-101,"Widya Khairani, SST",widya.khairani,2025,199507282018022001,,1101,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-102,"Salsabila Latifah Putri, S.Tr.Stat.",salsabila.putri,2025,200004182023022001,,1101,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-103,"Fajar Akhmad Anshori, S.Tr.Stat.",fajar.anshori,2025,200005152023021004,,1101,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-104,"Alfredo Abdul Aziz, S.Tr.Stat.",alfredoaziz,2025,200004212023021005,,1101,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-105,"Zuhdi Ali Hisyam, S.Tr.Stat.",zuhdi.ali,2025,200107242024121002,,1101,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-106,M. Rizal Zalmi,rizal.zalmi,2025,197004151991091001,,1101,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-107,Jarlian,jarlian,2025,196809251990121001,,1101,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-108,Djamaluddin,djamaluddin,2025,197008031994021001,,1101,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-109,"Eri Alfanta, S.Sos.",erialfanta-pppk,2025,199509192025211048,,1101,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-110,Roni Lahanta,roni.lahanta,2025,198310272007011002,,1101,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-111,Riswan Amin,riswan.amin,2025,197709202007011002,,1101,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-112,"Hadisha Shafa Anasya, A.Md.Stat.",hadishafanasya,2025,200308292026032001,,1101,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-113,Hendra Prabisma,hendra.prabisma,2025,198203162014061002,,1101,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-114,"Aidil Fajri, SST",aidil.fajri,2025,199302122017011001,,1101,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-115,Marfiansyah,marfiansyah-pppk,2025,198605052025211074,,1101,V,Staf Subbagian Umum,,pegawai,,,
-116,Junansah,junansah-pppk,2025,198806082025211057,,1101,V,Staf Subbagian Umum,,pegawai,,,
-117,Jaya Arjuna,jayaarjuna-pppk,2025,199107032025211048,,1101,V,Staf Subbagian Umum,,pegawai,,,
-118,Rosmar Fitri Wahyuni,rosmarwahyuni-pppk,2025,198806102025212075,,1101,V,Staf Subbagian Umum,,pegawai,,,
-119,"Subhan, SST, M.Si",subhan,2025,198307182006021002,,1102,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-120,"Asmuddin, SE",asmuddin,2025,197812312011011017,,1102,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-121,"Meutia Sari, S.Mn",meutiasari,2025,197305262002122003,,1102,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-122,"Delita Arianti, S.Tr.Stat.",delita.ari,2025,199612252021042001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-123,"Qori Nur Laeli, S.Tr.Stat.",qori.laeli,2025,199612292019122001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-124,"Raina Sari, SST",raina.sari,2025,199402022018022001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-125,"Najwan Yusnianda, S.Tr.Stat",najwan.yusnianda,2025,199706082019121001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-126,"Muhammad Nasyiruddin, S.M.",m.nasyiruddin,2025,198806192008011003,,1102,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-127,"Husnil Hidayat, A.Md",husnil,2025,198705232010031001,,1102,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-128,"Anwar Ibrahim, S.Tr.Stat.",anwar.ibrahim,2025,200007042023021003,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-129,"Nadia Ariska, S.Tr.Stat.",nadiaariska,2025,199911192023022001,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-130,"Nurul Isna, S.Tr.Stat.",nurul.isna,2025,200110142023102002,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-131,"Muhammad Azzam, S.Tr.Stat",muhammad.azzam,2025,200204022024121003,,1102,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-132,"Syahrul Yuanda, A.Md",syahruly-pppk,2025,199309012024211003,,1102,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-133,Arwin Rafit Hidayat,arwit.rafit,2025,198202282002121003,,1102,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-134,"Muhammad Aidil, S.Kel.",muhaidil-pppk,2025,199304012025211043,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-135,"Juliana Santi, S.Si.",julianasanti-pppk,2025,199710042025212035,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-136,"Fitria, S.Si.",fitria-pppk,2025,199504142025212058,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-137,"Desriansyah Putra, S.Kel.",desriansyah-pppk,2025,199312152025211045,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-138,Ahmad Dayan,ahmad.dayan,2025,198205152007011001,,1102,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-139,"Egi Nawwar Sukma, S.Tr.Stat.",eginawwar,2025,200112122026031001,,1102,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-140,"Erisya Desi Deria, S.Tr.Stat.",erisya,2025,199607192019012002,,1102,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-141,"Andi Sanjaya, SE, M.Si.",andi.sanjaya,2025,198103202005021003,,1102,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,,,
-142,Asbar Ibrati,asbaribrati-pppk,2025,198509172025211044,,1102,V,Staf Subbagian Umum,,pegawai,,,
-143,"Kusni Rohani Rumahorbo, SST, M.Si",kusni,2025,198401302007012004,,1103,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-144,"Bustami, S.M.",bustami,2025,197311202006041010,,1103,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-145,"Agustamardian, S.PKP",agustam,2025,198508282010031001,,1103,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-146,"Amirudin Romansyah, S.Tr.Stat",amirudin.romansyah,2025,199611052019121001,,1103,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-147,"Diana Ayu Ratnasari, SST",diana.ayu,2025,199606092018022002,,1103,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-148,Yenni Yati,yenni.yati,2025,197104242007012003,,1103,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-149,"Irama Ahmadi, S.E.",irama.ahmadi,2025,197701012006041038,,1103,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-150,"Haslim, S.E.",haslim,2025,197707192006041002,,1103,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-151,"Masri, S.M.",masri2,2025,198208202007011002,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-152,"Rabbal Amsyah, S.E",rabbal.amsyah,2025,197704022007011002,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-153,"Bayu Rayhan Anassai, S.Tr.Stat",bayu.rayhan,2025,200103062024121002,,1103,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-154,Firdaus,firdaus4,2025,198510252006041001,,1103,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-155,"Patria Nusa, S.E.",patria.nusa,2025,197409132006041001,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-156,"Ananda Fortuna, S.Tr.Stat.",anandafortuna,2025,200108122023102001,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-157,"Thalita Silmi Azrani, S.Tr.Stat.",silmi.azrani,2025,200006012023022003,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-158,"Muksalmina, A.Md.Kom.",muksalmina-pppk,2025,199803282024211002,,1103,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-159,"Reni Harpianti, S.Si.",reniharpianti-pppk,2025,199203192025212054,,1103,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-160,"Firmansyah, S.H.",firmansyah-pppk,2025,198511012025211043,,1103,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-161,"Zidan Akbar Al Aqsha, S.Tr.Stat.",zidanaqsha,2025,200307262026031002,,1103,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-162,Fajri Hendra,fajri.hendra,2025,198405272009111001,,1103,II/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-163,Armia,armia2,2025,198012152007011001,,1103,II/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-164,"Isabella Ratna Putri, S.Tr.Stat.",isabella.putri,2025,199701112019122001,,1103,III/b,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-165,"Adlin, SE",adlin,2025,197112011993121001,,1103,III/d,Fungsional Umum Subbagian Umum,,pegawai,,,
-166,Juniadi,juniadi-pppk,2025,197706102025211045,,1103,V,Staf Subbagian Umum,,pegawai,,,
-167,Adelio Asyadda,adelioasyadda-pppk,2025,200403202025211001,,1103,V,Staf Subbagian Umum,,pegawai,,,
-168,"Muhammad Ridha, SST",mridha,2025,198109132006021001,,1104,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-169,Idrus Sardi,idrus.sardi,2025,198110222003121005,,1104,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-170,Azhari,azhari4,2025,198005032003121002,,1104,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-171,Suhada,suhada2,2025,197910032007011002,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-172,Hervan Syachri,hervan.syachri,2025,198511082007011003,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-173,Hajidan Saidi,hajidan.saidi,2025,198007312007011002,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-174,Ahmad Dani,ahmad.dani,2025,198007262007011001,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-175,Chici Freni,chici.freni,2025,198409232007012001,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-176,"Titianingrum, SST",titianingrum,2025,198810272013112001,,1104,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-177,"Nur Asiah Pulungan, A. Md",nurasiah.pulungan,2025,197506112002122003,,1104,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-178,"Tri Widiantoro, SST, M.Stat",tri.widiantoro,2025,199205262014121002,,1104,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-179,"Sanrianika Simarmata, S.Stat.",ika_simarmata,2025,198601252009022006,,1104,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-180,"Aditya Faizal Arifin, S.Tr.Stat.",faizal.arifin,2025,199803262021041001,,1104,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-181,"Santi Maudila Putri, S.Tr.Stat.",santi.maudila,2025,200009042023022001,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-182,"Muhammad Imam Al Matin, S.Tr.Stat.",imam.almatin,2025,200006122023021002,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-183,"Siti Nur Wulan Sha Bana, S.Tr.Stat.",wulan.shabana,2025,200011252023102001,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-184,"Fika Fuza Syahdana, S.Tr.Stat.",fika.fuza,2025,200105262024122002,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-185,"Novita Sari, S.Si.",sari.novita,2025,199611212022032007,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-186,"Indri Hafsari, S.Si.",indri.hafsari,2025,198803212022032003,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-187,"Efriandi, S.Tr.Stat.",efriandi,2025,199804292022011001,,1104,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-188,"Hasbi Adami, S.Sos.",,2025,198003062025211027,,1104,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-189,"Alifah Suhaila, A.Md.Stat.",alifahsuhaila,2025,200410302026032001,,1104,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-190,"Mustapa Kamal, SE",mustapa.kamal,2025,198306012011011012,,1104,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-191,"Sehrul Amri, A.Md",sehrul.amri,2025,198605162011011017,,1104,III/b,Statistisi Mahir Subbagian Umum,,pegawai,,,
-192,"Soffia Zaronah Desky, A.Md.",soffiadesky-pppk,2025,199102252025212046,,1104,VII,Staf Subbagian Umum,,pegawai,,,
-193,"Irwan Jaya Deski, A.Md.Kep.",,2025,199303302025211037,,1104,VII,Staf Subbagian Umum,,pegawai,,,
-194,Hendra Syah Putra,hendraputra-pppk,2025,199310042025211052,,1104,V,Staf Subbagian Umum,,pegawai,,,
-195,Abdul Rajak,,2025,198610012025211053,,1104,V,Staf Subbagian Umum,,pegawai,,,
-196,"Mawarzi Lista Agung, SST",mawarzi,2025,198511122009021003,,1105,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-197,Kamala Devie,kamala,2025,197803062003122005,,1105,III/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-198,Muhammad Ali,muhali,2025,198309062014061002,,1105,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-199,Zainuddin,zainuddin6,2025,196912311992031036,,1105,III/d,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-200,"Nurmasyithah, A.Md, S.E.",nurmasyithah,2025,198701132010032001,,1105,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-201,"Zubaidah, S.E.",zubaidah,2025,198009062011012009,,1105,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-202,"Irwandi, S.E.",irwandi2,2025,198003062006041015,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-203,"Maulini Septya, SST",maulini.septya,2025,199109202014102002,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-204,"Wahyu Septia Irawan, S.E.",wahyu.septia,2025,198609102010031001,,1105,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-205,Zahniar Abdullah Aqsa,zahniar,2025,197110101992012001,,1105,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-206,"Mukhlis, S.E.",mukhlis5,2025,198406102007011003,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-207,Yusrizal,yusrizal,2025,197811202009011005,,1105,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-208,"Muzakkir, S.E.",muzakkir,2025,198104102007011002,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-209,Musliyadi,musliyadi,2025,197604211996031003,,1105,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-210,"Annisa Ramadhanty, S.Tr.Stat.",annisa.ramadhanty,2025,199801052019122003,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-211,"Akhmad Zaki, S.Si., M.M.",azaki,2025,199203072019031001,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-212,"Sarina Ayu Meilanda, S.Stat.",sarina.ayu,2025,199405032019032002,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-213,"Dwi Kartika Sari, S.Tr.Stat.",dwikartika,2025,199904092023022001,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-214,"Muhammad Agus Mauliza, S.Tr.Stat.",agus.mauliza,2025,199508282019011004,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-215,"Nurmitra Sari Purba, S.Tr.Stat",nurmitra.spurba,2025,199704032019122002,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-216,"Alfajri Hidayat, S.Tr.Stat.",alfajri.hidayat,2025,200004062023101002,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-217,"Rizki Nazhif Nur, S.Tr.Stat.",rizki.nazhif,2025,200006282023021002,,1105,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-218,"Eizatie Rahmatika, A.Md",eizatie.rahmatika,2025,199911272022032005,,1105,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-219,"Idawati, S.Pi",idawati-pppk,2025,199409032025212045,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-220,"Suraiya Istiqlal Annisa, S.Sos.",suraiyaannisa-pppk,2025,199508132025212049,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-221,"Supiandi, S.H.",supiandi-pppk,2025,198408122025211062,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-222,Novizal,novizal,2025,197406092007101001,,1105,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-223,Jamaluddin,jamal,2025,197906262007011002,,1105,II/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-224,Iskandar,iskandar6,2025,197310052014061002,,1105,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-225,"Jufri, SE",jufri2,2025,198012112011011007,,1105,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-226,Subandi Putra,subandiputra-pppk,2025,199203032025211060,,1105,V,Staf Subbagian Umum,,pegawai,,,
-227,"Andi Hardiyanto, SST",andihdy,2025,197605281999011001,,1106,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-228,"Effendy, S.Si",effen,2025,197605051996121001,,1106,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-229,"Nuelda Amalia, SST, M.SE",nuelda,2025,198601142008012001,,1106,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-230,"Firdaus, S.Si",firdaus3,2025,198308292011011013,,1106,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-231,"Hendra Saputra, SST",hendra.saputra,2025,198407162008011004,,1106,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-232,"Adi Fadli Rajab, SST",adi.rajab,2025,199202132014121001,,1106,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-233,"Ruzi Simatra, SE",ruzi_simatra,2025,198710162008011001,,1106,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-234,"Alif Muhammad Arrasyid, S.Tr.Stat.",alif.arrasyid,2025,199912192023021004,,1106,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-235,"Satya Indra Kusworo, S.Tr.Stat",satya.indra,2025,200104282024121003,,1106,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-236,"Salsabila Shafa Putri Rahadian, S.Tr.Stat",shafarahadian,2025,200206242024122001,,1106,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-237,"Muhammad Saleh, A.Md.",m.saleh,2025,197112272006041017,,1106,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-238,Winsyah,winsyah,2025,197506272006041015,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-239,Ade Afianum Kurniawati,ade.kurniawati,2025,198503012006042008,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-240,Agus Irawan,agus.irawan,2025,197308282006041020,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-241,"Siti Nurrahmah, A.Md",siti.nurrahmah,2025,199705172022032016,,1106,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-242,"Muhammad Iman Sukriyansyah, SST",imans,2025,198410272008011003,,1106,III/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-243,"Dadi Rusmansyah, S.S.",dadirusman-pppk,2025,198112072025211021,,1106,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-244,"Syukri, S.H.",syukri-pppk,2025,198512172025211033,,1106,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-245,"Anggia Sari Siregar, A.Md.Stat.",anggiasiregar,2025,200110162026032002,,1106,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-246,"Nafis Bahraien, S.P.",nafis.bahraien,2025,198304192010031001,,1106,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-247,"Rania Sahira, A.Md",rania.sahira,2025,199811142022032014,,1106,II/c,Statistisi Terampil Subbagian Umum,,pegawai,,,
-248,Hendri Syahputra,hendrisyah-pppk,2025,199701272025211042,,1106,V,Staf Subbagian Umum,,pegawai,,,
-249,Sabarudin,sabarudin-pppk,2025,198903182025211048,,1106,V,Staf Subbagian Umum,,pegawai,,,
-250,"Devi Indriastuti, SST, M.Si.",devi.indria,2025,198212172004122001,,1107,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-251,"Titiek Zurriyati, S.Si",titiek,2025,197902252002122004,,1107,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-252,"Meiza Aulia, SP, M.Si",meiza_aulia,2025,198405232011011012,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-253,"Jufrizal, SE",jufrizal,2025,198204232005021002,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-254,"M. Nazaruddin Z, SP",nazaruddin,2025,198211272011011011,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-255,"Firmansyah, SE",firmans,2025,198411172011011010,,1107,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-256,"Tika Widya Wardani, S.Si",tika.widya,2025,198807112014032003,,1107,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-257,"Afriyani, S.Stat.",afriyani,2025,199509102019032001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-258,"Safriadi, S.P.",safriadi,2025,198807152011011004,,1107,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-259,"Farazilla Ummaira, S.Stat.",farazilla,2025,199508052019032001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-260,"Dhia Ulfakhirah, S.Tr.Stat",dhia.ulfakhirah,2025,199707152019122002,,1107,III/b,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-261,"T. Hamdani, SE",thamdani,2025,197204092006041013,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-262,"Gharisa Nur Fitri, S.Tr.Stat.",gharisa.nur,2025,199711132021042001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-263,Riniwati,riniwati,2025,198611132006042002,,1107,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-264,Darwis,darwis,2025,197208012001121003,,1107,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-265,"Muhammad Apriesya Wastu Nirbhaya, S.Tr.Stat.",apriesya.wastu,2025,199904022023101001,,1107,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-266,"Ayu Aina Nurkhaliza, S.Tr.Stat.",ayuainaa,2025,200010052023022001,,1107,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-267,"Salsabila Ainayafani, S.Tr.Stat.",salsabila.ainaya,2025,199902052022012003,,1107,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-268,"Haris Yusuf, A.Md",haris.yusuf,2025,199402182022031002,,1107,III/a,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-269,"Muhammad Khumaidi, A.Md",muh.khumaidi,2025,199411102022031003,,1107,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-270,"Saifuddin, S.E.",saifudd-pppk,2025,198307162025211060,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-271,"Rusli. A, S.E.",rusli-pppk,2025,198408042025211043,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-272,"Azhar Bahagia, S.P.",azharbahagia-pppk,2025,199102032025211051,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-273,"Muarrif, S.A.P.",muarrif-pppk,2025,199712292025211030,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-274,"Teuku Ariansyah, SE",ariansyah,2025,198304112011011014,,1107,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-275,"Lisnadiani, SE",lisnadiani,2025,198811102008012001,,1107,III/c,Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum,,pegawai,,,
-276,Cut Suriati,cutsuriati-pppk,2025,197704122025212020,,1107,V,Staf Subbagian Umum,,pegawai,,,
-277,Yuli Candra,yulicandra-pppk,2025,198907192025211041,,1107,V,Staf Subbagian Umum,,pegawai,,,
-278,"Rudi Hermanto, SST, M.Si.",rhermanto,2025,197804192002121002,,1108,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-279,Adli,adli,2025,197208111991101001,,1108,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-280,Syarifah Effa Safrida,syarifah.safrida,2025,197701022007012002,,1108,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-281,"Ar Razy Ridha Maulana, SST, M.Si.",arrazy.ridha,2025,199307102016021002,,1108,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-282,"Bahzur Andria, SE",bahzur_andria,2025,198506062011011022,,1108,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-283,"Ghea Yolana Parusta, S.ST",ghea.parusta,2025,198707142009122002,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-284,"Ikhsanuddin, SE",ikhsanuddin2,2025,197303062006041021,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-285,"Ridhatullah Daud, M.S.M",ridhatullah.daud,2025,198509152010031001,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-286,"Rahmad Hidayat, S.Si.",rahmadhidayat,2025,198205122011011016,,1108,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-287,"Mustafa, SE, M.E.",mustafa,2025,198402012011011012,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-288,"Muhammad Syafittri, SE",muhammad.syafitri,2025,198208142010031002,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-289,"Sri Yulianti, S.Si",sri.yulianti,2025,198604102012122001,,1108,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-290,"Desri Helida, S.Stat.",desri.helida,2025,199512272019032001,,1108,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-291,"Aulia Rachman, S.Stat.",aulia.rachman,2025,199210042019031001,,1108,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-292,"Eva Maulia, S.Stat.",eva.maulia,2025,199508142019032001,,1108,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-293,"Nelly Eliza, A.Md",nelly,2025,198806132012122004,,1108,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-294,"Annisa Kahmiliani, S.Tr.Stat.",annisakahmiliani,2025,200011052023022002,,1108,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-295,"Tri Nanda Farida, A.Md",tri.nanda,2025,199508022022032010,,1108,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-296,"Fauziah, S.Tr.Stat.",fauziah3,2025,199905222022012003,,1108,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-297,"Syarifah Nurussana, A.Md",syarifah.nurussana,2025,198704202022032002,,1108,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-298,"Zulviyana, SE",vieya,2025,198302262006042003,,1108,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-299,"Muttaqin, S.HI.",muttaqin2-pppk,2025,198805212025211040,,1108,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-300,"Nyak Naiza Muzayanna, S.Si.",nyakmuzayanna-pppk,2025,199912112025212020,,1108,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-301,Nensi Fitrah,nensi.fitrah,2025,198811072008012001,,1108,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-302,"Amrizal, SE",amrizal2,2025,198206212011011006,,1108,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-303,"Zulfahmi, A.Md",zulfahmi,2025,198505092010031001,,1108,III/b,Statistisi Mahir Subbagian Umum,,pegawai,,,
-304,"Suwardi, ST",suwardi-pppk,2025,197504172025211003,,1108,IX,Staf Subbagian Umum,,pegawai,,,
-305,"Bahagia, A.Md.",bahagia-pppk,2025,198709012025211052,,1108,VII,Staf Subbagian Umum,,pegawai,,,
-306,Al Ikram Wardana,alwardana-pppk,2025,200010212025211013,,1108,V,Staf Subbagian Umum,,pegawai,,,
-307,Junaidi,junaidi2-pppk,2025,198210172025211054,,1108,III,Staf Subbagian Umum,,pegawai,,,
-308,"Fakhriadi, SP, M.S.M.",fakhriadi,2025,197206301992011002,,1109,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-309,"Rizal Rahmad, SST, M.Stat",rrahmad,2025,198407132007011005,,1109,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-310,"Jabal Nur, S.E",jabal,2025,198407082006041006,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-311,"Lyli Suryani, S.E",lyli,2025,197302212006042002,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-312,"Samsul Bahri, S.E",samsulbahri,2025,197111102006041037,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-313,"Hazmah Junina, SE",hazmah,2025,197406152003122002,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-314,"Syarwani, SE",syarwani,2025,197201181992031004,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-315,"Rozy Fatilla, SST",rozy.fatilla,2025,198502142009021003,,1109,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-316,"Safriani, S.M.",safriani,2025,198311282007012001,,1109,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-317,"Moh. Jabir Mubarok, SST, M.T.",jabirm,2025,199210302016021001,,1109,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-318,"Saiful Bahri, S.Sos.",saiful.bahri,2025,198109062009111001,,1109,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-319,"Muhammad Harrys, S.M.",harrys,2025,198311272006041007,,1109,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-320,"Hafni Zahra, S.E",hafni,2025,198604072006042001,,1109,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-321,Fitriani,fitriani,2025,198506152007102001,,1109,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-322,"Annisa Rahmawati, S.Si.",annisa.rahmawati,2025,199508232019032001,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-323,"Nurul Raiyan, S.Tr.Stat.",nurul.raiyan,2025,199712102019122004,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-324,"Akram Akramur Rasyid, S.Tr.Stat.",akram.rasyid,2025,199609052019011001,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-325,"Irmayasanti, S.M.",irmayasanti,2025,198304182006042002,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-326,"Zulfiadi, SE",zulfiadi,2025,198103302011011006,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-327,"Yusnidar, S.E.",yusnidar,2025,197812312002122002,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-328,"Bismi, S.E.",bismi,2025,198001011999031003,,1109,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-329,"Muzakir Muslem, S.E.",muzakir,2025,198204142009111002,,1109,III/b,Pranata Keuangan APBN Mahir BPS Kabupaten/Kota,,pegawai,,,
-330,"Della Rizki, A.Md.",della.rizki,2025,199504222022032007,,1109,III/a,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-331,"Munawar, S.M",mnawar,2025,197505112007011005,,1109,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-332,"Tahyudin, S.M.",tahyudin,2025,198005172007011003,,1109,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-333,"Almira Diva Sanya, S.Tr.Stat.",almiradiva,2025,199910222023022001,,1109,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-334,"Tukia Dara, S.M",daratukia,2025,198301122006042002,,1109,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-335,"Hajrul Multazam, S.Tr.Stat.",hajrul.multazam,2025,199804122022011003,,1109,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-336,"Muchsin, S.M.",chsin,2025,198508152007101001,,1109,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-337,"Fachri Al Hazs Nst, A.Md",fachri.alhazs,2025,199405122022031004,,1109,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-338,"Eka Fitria, SST",eka.fitria,2025,199303222016022001,,1109,III/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-339,"Zahri Zahkiri, S.H.",zahrizahkiri-pppk,2025,199508072025211052,,1109,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-340,"Rakhmadi, S.Sos.",rakhmadi-pppk,2025,198704282025211044,,1109,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-341,"Agussalim, S.Si",agussalim2,2025,198108052011011011,,1109,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-342,"Rahmayetti Harahap, AMd.Kom",rahmayetti-pppk,2025,198506162024212003,,1109,VII,Pranata SDM Aparatur Terampil Subbagian Umum,,pegawai,,,
-343,"Musliadi, A.Md.",musliadi-pppk,2025,198612232025211040,,1109,VII,Staf Subbagian Umum,,pegawai,,,
-344,Roni Saputra,ronisaputra-pppk,2025,198709112025211048,,1109,V,Staf Subbagian Umum,,pegawai,,,
-345,Ir. Maimun,maim,2025,196904011994011001,,1110,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-346,"Muhammad, SE",muhammad2,2025,196901081990031005,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-347,"Munawir, SE",munawir2,2025,198401102010031001,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-348,"Rahmati, S.Si",rahmati,2025,197611132002122004,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-349,"Elida Fitri, S.Si",elida.fitri,2025,198705212011012019,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-350,"Yuli Rahmawati, S.Sos",yuli.rahmawati,2025,198902242011012016,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-351,"Irfan, SE",irfan3,2025,198310042011011011,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-352,"Farah Mutia, S.Si.",farah.mutia,2025,198505152012122001,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-353,"Faizah, S.Si",faizah.daud,2025,198510062011012017,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-354,"Fakrurrazi, SE",fakhrurrazi,2025,198105202006041024,,1110,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-355,"Cut Sherly Amalia, S.Stat.",cut.amalia,2025,199503132019032001,,1110,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-356,Karlina Dewi,karlina.dewi,2025,198305012006042017,,1110,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-357,"Muhammad Nurullah Riyadi, S.Tr.Stat.",nurullah.riyadi,2025,199702262019121001,,1110,III/b,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-358,"Andissi Eka Putri, SST",andissi,2025,199409102017012001,,1110,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-359,Septya Putri,septyaputri,2025,198709102008012001,,1110,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-360,"Ahmad Fathur Rahman, S.Tr.Stat.",ahmad.fathur,2025,200010022023101001,,1110,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-361,"Saifuddin, A.Md",saifuddin-pppk,2025,198907252024211002,,1110,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-362,"Putri Ayu Humaera, A.Md.Stat.",putri.humaera,2025,200012052023022003,,1110,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-363,"Fakhrur Gazi, SP",ghazi.beurahman,2025,198005302011011007,,1110,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-364,Muhammad Rian Fazli,rian.fazli,2025,198405272005021001,,1110,III/b,Fungsional Umum Subbagian Umum,,pegawai,,,
-365,Rukaiyah,rukaiyah,2025,198401112006042003,,1110,III/b,Staf Subbagian Umum,,pegawai,,,
-366,Reza Fakhrizal,fakhrizal,2025,197904052009011010,,1110,III/a,Staf Subbagian Umum,,pegawai,,,
-367,Nazaruddin,nazaruddinzr,2025,198003232002121003,,1110,II/d,Staf Subbagian Umum,,pegawai,,,
-368,Cut Sajida Tasya,cuttasya-pppk,2025,200003122025212020,,1110,V,Staf Subbagian Umum,,pegawai,,,
-369,Rizki Gustianda,rizkigusti-pppk,2025,198608142025211056,,1110,V,Staf Subbagian Umum,,pegawai,,,
-370,T Zulkarnaen,tzulkarnaen-pppk,2025,197906262025211043,,1110,V,Staf Subbagian Umum,,pegawai,,,
-371,Herry Yusrizal,herryyusrizal-pppk,2025,198507162025211053,,1110,V,Staf Subbagian Umum,,pegawai,,,
-372,"Armelia Amri, SST, M.Si.",armelia,2025,197911282003122005,,1111,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-373,"Fitri Aswin, S.Si, M.S.M",fitri.aswin,2025,198501102009022008,,1111,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-374,"Reonold Z, S.E",reonold,2025,197812062006041014,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-375,"Hendri Gunawan, S.P.",hendri.gunawan,2025,198402232011011007,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-376,"Tarjudin, S.T.",tarjudin,2025,198405102010031001,,1111,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-377,"Novrizal, SE, M.S.M",novriz,2025,198711052006041002,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-378,"Nurisah, SE",nurisah,2025,198701152008012001,,1111,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-379,"Ikhwan, SE",ikhwan,2025,198208022003121003,,1111,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-380,"Riki Triandicki, S.Tr.Stat.",riki.triandicki,2025,199810092021041001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-381,"Syukur, SE",syukur2,2025,198202182009011015,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-382,"Saiful Yadi, S.E",saiful.yadi,2025,197408222006041012,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-383,"Ratna Dewita, SE",ratna.dewita,2025,198005222009112001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-384,"Ismail Isa, SE",ismail.isa,2025,198505082009111001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-385,"Khairon, SE",khairon,2025,197610112003121003,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-386,"Nurhasanah, S.E.",nur.hasanah,2025,199411202022032006,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-387,"Pinky Aulia Viradina, S.Tr.Stat.",pinky.aulia,2025,199807192023022001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-388,"Sevy Dyahartanti, S.Tr.Stat.",sevy.dyah,2025,199909112023022001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-389,"Karima Yulisda, S.Tr.Stat.",karima.yulisda,2025,199808132019122001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-390,"Gestyan Ramadhan, S.Tr.Stat.",gestyan.rmd,2025,200012162023101003,,1111,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-391,"Zati Azmiana, A.Md",zati.azmiana,2025,199005082022032009,,1111,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-392,"Karisma Suryani, A.Md.",karisma.suryani,2025,199907232022032009,,1111,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-393,"Zulfahmi, S.H.",zulfahmi-pppk,2025,199210252025211039,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-394,"Muhammad Ery Khairizal, S.EI.",erykhairizal-pppk,2025,199206032025211048,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-395,"Asniati, S.Pd.",asniati-pppk,2025,199111142025212053,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-396,Muhar Fuadhi Zaima,muhar.zaima,2025,198111232007011001,,1111,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-397,"Revina Siregar, A.Md.Stat.",revinasiregar,2025,200203012026032001,,1111,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-398,"Iqbal Firdaus, SST, M.App.Ec, M.Si.",ibaldaus,2025,198802182010121007,,1111,IV/a,Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum,,pegawai,,,
-399,Hamdani,hamdani2,2025,197805132007011002,,1111,III/a,Staf Subbagian Umum,,pegawai,,,
-400,Saifuddin,fuddin-pppk,2025,197606152025211050,,1111,V,Staf Subbagian Umum,,pegawai,,,
-401,"Ali Abrori, S.Si",ali.abrori,2025,197207241994121001,,1112,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-402,"Sri Mulyadi Armadianto, SE",srimul,2025,198501152011011017,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-403,"M. Nasir Edi Faisal, S.E.",nasiref,2025,197708262011011009,,1112,III/d,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-404,"Sabri Novriadi, SST",sabrin,2025,198811012010121004,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-405,"Mukhsin, S.Si.",mukhsin,2025,198703252012121001,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-406,"Jamalludin, SST, M.E.K.K",jamall,2025,199001012012111001,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-407,"Reza Fatahillah, S.M.",rezaf,2025,198808272008011001,,1112,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-408,"Maghfira Ramadhani, S.Tr.Stat.",maghfira.ramadhani,2025,199801072022012001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-409,"T.Fachrul Husaini, S.Tr.Stat.",fachrul.husaini,2025,199804302021041001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-410,"Lisa Nurlyeni, S.Tr.Stat.",lisa.nurlyeni,2025,199812162021042001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-411,Muhammad,muhammad,2025,197412031999031003,,1112,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-412,"Irfan Prasetya Kamajaya, S.Tr.Stat.",irfan.kamajaya,2025,200003142023021002,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-413,"Rizky Puspitasari, S.Tr.Stat",rizky.puspitasari,2025,200204272024122001,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-414,"Fahmi Fadhillah, S.Si.",fahmi.fadhillah,2025,199209012022031003,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-415,"Rindu Trimarta Nafri, S.Tr.Stat.",rindu.trimarta,2025,200003312023022001,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-416,"Dian Rahmawati Salis, S.Tr.Stat.",dian.salis,2025,200104102023102001,,1112,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-417,"Ike Purnama Sari, A. Md",ike.purnama,2025,199803122022032018,,1112,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-418,"Al Munzir, A.Md.",al.munzir,2025,199501192022031005,,1112,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-419,"Zuhendra, S.Pd.",zuhendra-pppk,2025,198711052025211041,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-420,"Wardi, S.E.",wardi-pppk,2025,199302022025211056,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-421,"Mansur, S.Pd.",mansur-pppk,2025,199210012025211051,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-422,Waldy Kurniawan,waldy,2025,198605272006041004,,1112,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-423,"Tomi Agusardi, SP",tomi,2025,198304252011011005,,1112,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-424,"Rauzatul Munawarah, A.Md.Ak.",rauzatul.munawarah,2025,200011242025062005,,1112,II/c,Staf Subbagian Umum,,pegawai,,,
-425,Fuji Sukatdi,fujisukatdi-pppk,2025,200411032025211002,,1112,V,Staf Subbagian Umum,,pegawai,,,
-426,Meri Elfina,merielfina-pppk,2025,198605242025212030,,1112,V,Staf Subbagian Umum,,pegawai,,,
-427,"T. Syamsul Alam, S.E., M.M.",samsul,2025,197807062011011007,,1113,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-428,Maiyal Fitri,maiyal.fitri,2025,198605252014062002,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-429,Abdullah. K,abdullah.k,2025,198005202014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-430,Abdul Rahman,abdul.rahman,2025,197105232014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-431,Na'im,naim3,2025,198306032014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-432,"Mat Salim, SE",mat.salim,2025,196804161990031003,,1113,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-433,"Febby Adrian, S.Tr.Stat.",febby.adrian,2025,199902162021041001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-434,"Yuraida, S.Si.",yuraida,2025,198807252011012015,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-435,"Armida Dewi, SST",armida.dewi,2025,199406252019012001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-436,"Saleh Salihin, SST",saleh.salihin,2025,199407102018021001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-437,"Muhammad Ichsan, S.E., M.A.P.",m.ichsan,2025,198801162008011002,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-438,"Latifah Hasanah, S.Tr.Stat.",latifahhasanah,2025,199901302022012003,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-439,"Olivia Dyta Marhadika, S.Tr.Stat.",olivia.dyta,2025,199909302023102001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-440,"Alivya Septiriana Putri. S, S.Tr.Stat.",alivyaputri,2025,200009072023022001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-441,"Syafaruddin, S.M",syafarudd,2025,198502022014061001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-442,"Ririn Yustika Putri, S.Tr.Stat.",ririn.putri,2025,199712212021042002,,1113,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-443,"Basyariah, S.M.",basyariah,2025,198006042007012002,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-444,"Rizka Khairiya Handayani, A.Md",rizka.khairiya,2025,199809052022032012,,1113,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-445,"Erna Sari, A.Md.",ernasari-pppk,2025,199406042024212005,,1113,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-446,"Julaiha, S.P.",julaiha-pppk,2025,199706042025212046,,1113,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-447,"Syarifuddin, S.P.",syarifuddin-pppk,2025,198812202025211043,,1113,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-448,"Kevin Rizkika Setiawan, S.Tr.Stat.",kevinrizkika,2025,200210212026031001,,1113,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-449,Rabudin,rabudin-pppk,2025,199503292025211038,,1113,V,Staf Subbagian Umum,,pegawai,,,
-450,Mastina,mastina-pppk,2025,198801062025212036,,1113,V,Staf Subbagian Umum,,pegawai,,,
-451,"Nurmanuddin, SE",nurmanuddin,2025,197112161994011001,,1114,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-452,"Wahyu Agung Sutikno, SST",wagung,2025,198203262003121006,,1114,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-453,"Ichwan, S.E",ichwanmuksin,2025,198209012012121001,,1114,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-454,"Novi Ermayani, S.Si",novi.erma,2025,198005232006042004,,1114,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-455,"Muhammad Iqbal, S.Si",m.iqbal,2025,198606162011011014,,1114,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-456,"Irvan Syahputra, SE",irvan.syah,2025,198503152011011010,,1114,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-457,"Nur Asiah, SP",nur.asiah,2025,198205292011012006,,1114,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-458,"Muhammad Rizki Syazali, SST, M.Kom.",mrizki.syazali,2025,199301032016021001,,1114,III/c,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-459,"Nurul Aviva Purnamawanti, SST",nurulaviva,2025,199101312013112001,,1114,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-460,"Vania Arisandy Zalri, S.Tr.Stat.",vania.zalri,2025,199803312021042001,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-461,"Irja Nailal Ulya, S.Tr.Stat.",irja.ulya,2025,199704232019121001,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-462,"Rizkiandiyani, A.Md",rizkian,2025,198510102010032001,,1114,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-463,"Irmadayani Ray, S.Stat.",irmadayani.ray,2025,199502222019032002,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-464,"Fairuz Afifah Reefana Poeri, S.Tr.Stat.",fairuzpoeri,2025,200010242023022002,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-465,"Zarro Aga, S.Si",zarro.aga,2025,199507232022031010,,1114,III/a,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-466,"Alam Kurniawan, S.E",alam,2025,198304032008011007,,1114,III/a,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-467,"Jasrizal, S.E.",jasrizal,2025,198612302006041003,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-468,"Nur Amalina Fauzi, S.Tr.Stat.",namalinaf,2025,200106022023102003,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-469,"Miftah Hafidz Nasution, A.Md",miftah.hafidz,2025,200005212022031002,,1114,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-470,Yudhi Armanda,armanda,2025,197612192003121003,,1114,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-471,"Juwita Purnamasari, S.P.",juwitapurnama-pppk,2025,199006102025212064,,1114,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-472,Fitri Yati Jusuf,fitrijusuf,2025,198312082008012006,,1114,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-473,"Suriyanto, SE",suriyanto,2025,197809082011011012,,1114,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-474,Yuyun Syafrina,syafrina,2025,198706132008012001,,1114,II/d,Statistisi Terampil Subbagian Umum,,pegawai,,,
-475,Nurlina,nurlina-pppk,2025,198608262025212038,,1114,V,Staf Subbagian Umum,,pegawai,,,
-476,Syahrul Efendi,syahrulefendi-pppk,2025,198211172025211036,,1114,V,Staf Subbagian Umum,,pegawai,,,
-477,M. Iskandar,miskandar-pppk,2025,199112282025211054,,1114,V,Staf Subbagian Umum,,pegawai,,,
-478,Afrizal,afrizal-pppk,2025,198704112025211034,,1114,V,Staf Subbagian Umum,,pegawai,,,
-479,"Dr. Nuri Rosmika, SST, M.Si",nuri_rosmika,2025,198306302006022001,,1115,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-480,"M. Hanis Aufa, SE",hanis.aufa,2025,198504262011011010,,1115,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-481,"Didi Setiawan, SE",didi.setiawan,2025,197406282006041003,,1115,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-482,"Safriani, SE",safrian,2025,197412162003122002,,1115,III/d,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-483,"Ahmad Kamal, S.Tr.Stat.",ahmad.kamal,2025,199710082019121003,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-484,"Kafie Achmad Aviev, S.Tr.Stat.",achmad.aviev,2025,199807092022011001,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-485,"Ghifari Azka Wali, S.Tr.Stat.",azka.wali,2025,199803222019121003,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-486,"Muhammad Hafid Nasution, S.Tr.Stat.",hafid.nasution,2025,199809102021041001,,1115,III/b,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-487,"Fadhlurrohman Henriwan, S.Tr.Stat.",fadhlur.henriwan,2025,199806022021041001,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-488,"Rasya Az Zahra, S.Tr.Stat",rasya.azzahra,2025,200111032024122001,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-489,"Adelina Wiza, S.Tr.Stat.",adelina.wiza,2025,199712102019122003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-490,"Aprilia Putri Sariningrum, S.Tr.Stat.",aprilia.putri,2025,200104062023102003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-491,"Sita Aliya Rutba, S.Tr.Stat.",sita.aliya,2025,200108212023102003,,1115,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-492,"Salma Dafia Milatina, S.Tr.Stat.",salma.dafia,2025,200105172023102003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-493,"Mia Maysura Syahmara, A.Md",mia.maysura,2025,199605312022032010,,1115,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-494,"Reza Aulya, A.Md.Kom.",rezaaulya-pppk,2025,199712242024211004,,1115,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-495,"Syaputra Raiza, A.Md",syaputra.raiza,2025,198811242022031002,,1115,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-496,"Muhammad Yusuf, A.Md",muhammad.yusuf,2025,199704222022031011,,1115,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-497,"Helmi M. Efendi, S.E.",helmiefendi-pppk,2025,198706092025211051,,1115,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-498,"Mahdinur, S.E.",mahdinur-pppk,2025,198612052025211049,,1115,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-499,"Fitra Rustam, SE",fitra.rustam,2025,198805182008011001,,1115,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-500,"Andy Syarifuddin, SST, M.Ak.",andy.syarifuddin,2025,199208092014121002,,1115,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,,,
-501,Efendi Sulaiman,esulaiman-pppk,2025,198810202025211051,,1115,V,Staf Subbagian Umum,,pegawai,,,
-502,Putri Mailisa Sari,putrisari-pppk,2025,199502062025212046,,1115,V,Staf Subbagian Umum,,pegawai,,,
-503,Musliadi Us,musliadius-pppk,2025,199403042025211055,,1115,V,Staf Subbagian Umum,,pegawai,,,
-504,"Dr Azwar, S.Pd., M.Si",azwar4,2025,197306161998011001,,1116,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-505,"Juhrin, S.E.",juhrin,2025,197004022003121002,,1116,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-506,Emayani,emayani,2025,198402022007012002,,1116,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-507,"Edi Kurniawan, SST",ekurniawan,2025,199009162014101001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-508,"Elda Elnovita, S.Si, M.Si",e.elnovita,2025,198606052010032001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-509,"T. DI. Oria Salam, SST, M.Si.",tedy.oria,2025,198809182010121001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-510,"Endah Kamilah Taufik, SST",endah.taufik,2025,199301102014122001,,1116,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-511,"Aviv Alvian Nur, SST, M.Sc",aviv.alvian,2025,199401282016021001,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-512,"Adelin Namira, SST",adelin.namira,2025,199309222017012002,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-513,"Kamil Aulia, SST",kamil.aulia,2025,199305182016021001,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-514,"Muhammad Rizqi, S.Tr.Stat.",rizqi.muhammad,2025,199710302019121001,,1116,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-515,"Yama Risnaldi Putra, S.Tr.Stat.",yama.putra,2025,200104152023101001,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-516,"Nurdiana, S.E.",nur.diana,2025,199611302022032025,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-517,"Siti Armanisa, S.Tr.Stat.",siti.armanisa,2025,200108012023102001,,1116,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-518,"M. Rifqi Jundullah, S.Tr.Stat.",rifqijundullah,2025,200011132023021002,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-519,"Fadhila Ramadhani Gita Putri, S.Tr.Stat",fadhilaputri,2025,200212032024122001,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-520,"Annisa Syifaulhaq, S.Tr.Stat.",annisasyifa,2025,200210112024122002,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-521,"Anisa Fransiska, A.Md",anisa.fransiska,2025,199306172022032008,,1116,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-522,"Aang Saputra, SST, M.Si.",aang,2025,198411152008011002,,1116,IV/a,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-523,Darwin Dani,darwin,2025,198208102006041017,,1116,III/b,Fungsional Umum Subbagian Umum,,pegawai,,,
-524,"Cut Vicky Mauliana, A.Md",cut.vicky,2025,199807222025062005,,1116,II/c,Staf Subbagian Umum,,pegawai,,,
-525,Angga Pratama,anggapratama-pppk,2025,199605222025211027,,1116,V,Staf Subbagian Umum,,pegawai,,,
-526,Zaini,zaini-pppk,2025,199107132025211044,,1116,V,Staf Subbagian Umum,,pegawai,,,
-527,Ermalinda,ermalinda-pppk,2025,199206022025212050,,1116,V,Staf Subbagian Umum,,pegawai,,,
-528,Erlidar,erlidar-pppk,2025,197909122025212022,,1116,V,Staf Subbagian Umum,,pegawai,,,
-529,"Raja Maulana, S.Si, M.Sc",raja,2025,198212252011011007,,1117,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-530,"Supriadi Y., S.M",supriadi.y,2025,197703112006041013,,1117,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-531,"Amirah Balqis Safiruddin, S.Tr.Stat.",amirah.balqis,2025,199810032021042001,,1117,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-532,"Ardiansyah, S.E",ardians,2025,197203082002121003,,1117,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-533,"Della Fahria Amalina, S.Tr.Stat",della.fahria,2025,200110232024122001,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-534,"Piyen Lestari, A.Md",piyen.lestari,2025,198901092012122001,,1117,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-535,"M. Ziko Azizi, S.Tr.Stat",ziko.azizi,2025,200212312024121001,,1117,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-536,"Muhamad Taufik Hidayat, S.Tr.Stat.",muh.tahidayat,2025,200007072023021004,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-537,"Siti Suratemi, S.Si",siti.suratemi,2025,199306272022032010,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-538,Safrizal Ependi,safrizal.ependi,2025,197912282006041015,,1117,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-539,Agussalim,agussalim4,2025,196804242007011003,,1117,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,,,
-540,"Angga Lazi Ken Atayna, A.Md.Kom",anggalazi-pppk,2025,199906112024211001,,1117,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-541,"Arsani, S.Sos.",arsani-pppk,2025,197812302025211061,,1117,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-542,"Nur Yudha Jati Prakoso, S.Tr.Stat.",nuryudhajatip,2025,200209152026031003,,1117,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-543,Fitra Satriandi,fitra.satriandi,2025,198406242009111001,,1117,II/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-544,Sirwan,sirwan,2025,197102022007011004,,1117,II/d,Staf BPS Kabupaten/Kota,,pegawai,,,
-545,"Cut Meutia, S.Si",cut.meutia,2025,198212122010032001,,1117,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-546,"Ilmiadi, S.Si.",ilmiadi,2025,198704162011011014,,1117,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,,,
-547,Firdaus,firdaus-pppk,2025,198408102025211058,,1117,V,Staf Subbagian Umum,,pegawai,,,
-548,Hendra Syahputra,hendrasyah-pppk,2025,198006202025211035,,1117,V,Staf Subbagian Umum,,pegawai,,,
-549,Maulana Pulih Uripno Ps,maulanauripno-pppk,2025,198611142025211037,,1117,V,Staf Subbagian Umum,,pegawai,,,
-550,Maulidawani,maulidawani-pppk,2025,199607272025212075,,1117,V,Staf Subbagian Umum,,pegawai,,,
-551,"Khairul Andri Lubis, SST., M.Si",khairulandrilubis,2025,198310102007011012,,1118,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-552,"Rahmayanti, SST",rahmayanti,2025,198910102012112001,,1118,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-553,"Ilyas, SE",ilyas,2025,196905281992031002,,1118,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-554,"Yanisa Medrina Rahman, SST, M.T.",yanisa,2025,199006052014101001,,1118,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-555,"Khairul Rijal, S.Tr.Stat",aroeljal,2025,198610272008011002,,1118,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-556,"Muhammad, S.E",muhammad3,2025,197202022007011004,,1118,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-557,"Syauki, S.E.",syauki,2025,197406162003121002,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-558,"M.Chairul Mugti, S.Tr.Stat.",chairul.mugti,2025,199912262023021004,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-559,"Masrida, S.E",masrida,2025,198302102007011002,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-560,"Kananda Rafi Pradana, S.Tr.Stat.",kananda.rafi,2025,200107202023101001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-561,"Alicia Dwi Syafitri, S.Tr.Stat.",alicia.dwi,2025,200201022023102001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-562,"Daniel Angga Sagitama, S.Tr.Stat",danielsagitama,2025,200112162024121002,,1118,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-563,"Ii Desika, S.Tr.Stat.",ii.desika,2025,200212172024122001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-564,"Agmi Purnama, S.Tr.Stat.",agmi.purnama,2025,200008152023022004,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-565,"Munazir, A.Md",munazir-pppk,2025,199104222024211001,,1118,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-566,"Fadhilah, SST.",fadhilah-pppk,2025,199303102025212056,,1118,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-567,"Sari Yunus, S.Si, M.S.M",sariyunus.aw,2025,198211052011011007,,1118,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-568,"Aris Suwandi, S.Stat.",aris.suwandi,2025,199305112019031002,,1118,III/b,Statistisi Ahli Pertama Subbagian Umum,,pegawai,,,
-569,"Ismadi, A.Md.",ismadi-pppk,2025,198705092025211055,,1118,VII,Staf Subbagian Umum,,pegawai,,,
-570,Mishardi,mishardi-pppk,2025,199004152025211057,,1118,V,Staf Subbagian Umum,,pegawai,,,
-571,Cut Nur Asnani,cutasnani-pppk,2025,198208302025212030,,1118,V,Staf Subbagian Umum,,pegawai,,,
-572,"Tedi Herdiawan, S.Sos, M.A.P",tedi.herdiawan,2025,197006181994031002,,1171,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-573,Ricky Nasser,ricky.nasser,2025,197412232009011007,,1171,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-574,"Muhammad Iqbal Iradah, S.ST, M. Si",iradah,2025,198006142006021001,,1171,IV/a,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-575,"Rochadi, SST",rochadi,2025,197712062000121002,,1171,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-576,"Zaini, SE",zaini,2025,197407091996031003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-577,"Widya Syafitri, SST, M.Si.",widyasyafitri,2025,198906022013112001,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-578,"Retno Aruming Galih, SST",aruming,2025,198508212008012003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-579,"Zia Ul Fajri, S.E",zia.ulfajri,2025,198610142008011004,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-580,"Fakhrur Razi, SE, MM",fakhrur.razi,2025,197803262001121005,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-581,"Ditalia Trisnawati, SST",ditalia,2025,198603162009022006,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-582,"M. Muflik Teguh Yuli Pitoyo, SST, M.A.",muflikteguh,2025,199012102014101001,,1171,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-583,"Leninoviyanti, SE, M.Si.",leni.vianty,2025,198010152002122003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-584,"Mursalina, SST, M.Si.",mursalina,2025,198512012009022007,,1171,III/d,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-585,"Zelvia Yunalda, S.ST",zelvia,2025,198706052009122004,,1171,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-586,"Sabran, S.M., M.Si.",sabran,2025,198512292011011015,,1171,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-587,"Adi Nurhady, S.E.",adi.nurhady,2025,198508152005021002,,1171,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-588,"Muhammad Aja Fajrian, SST, M.Si.",aja.fajrian,2025,199212272016021001,,1171,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-589,"Isyatun Mardhiah, S.Si.",isyatun,2025,198411032009022008,,1171,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-590,"Rais Fahmi, S.P",rais.fahmi,2025,198009162006041015,,1171,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-591,"Rusli, S.E",rusli,2025,196903011988031001,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-592,"Teuku Ferdi Ardiansyah, S.E.",ferdi.ardian,2025,198801092011011009,,1171,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-593,"Rossana Idris, S.M",rossana,2025,197606062006042041,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-594,"Kesuma Millati, S.Stat.",kesuma.millati,2025,199611222019032001,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-595,Sriana Ab,sriana.ab,2025,197904112007012001,,1171,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-596,"Samsuddin, SE",samsuddin,2025,197101012006041074,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-597,Rini Kipiani,rini.kipiani,2025,198508052007102002,,1171,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,,,
-598,"Achmad Maulana, S.E.",achmadmaulana-pppk,2025,198711272025211055,,1171,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-599,"Syofmarlianisyah Putri, S.Tr.Stat.",syofmarlianisyahp,2025,200303102026032001,,1171,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-600,"Rediansyah Arief, SP, M.Si",reddy,2025,198308242011011014,,1171,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-601,Ari Hermawan,ari.hermawan,2025,198403192009111001,,1171,II/c,Fungsional Umum Subbagian Umum,,pegawai,,,
-602,"Siti Ruqahayati, A.Md.Kb.N.",siti.ruqahayati,2025,199903032022012001,,1171,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,,,
-603,Herman Apriadi,,2025,199104182025211053,,1171,V,Staf Subbagian Umum,,pegawai,,,
-604,"Budi Kurniawan, S.Si",budi_kurniawan,2025,198504262010031001,,1172,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-605,Abdul Wahid,abdul.wahid,2025,197207222006041017,,1172,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-606,"Chris Candra Januar Pratama, SST, M.Si.",chris.candra,2025,199201052014101001,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-607,"Muhammad Adil, SH",adil,2025,198708112011011007,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-608,"Hendra Gunawan, SE",hendragun,2025,198106072011011011,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-609,"Nur Alfi Syahri, S.Tr.Stat.",alfi.syahri,2025,199712312021042001,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-610,"Dhahratul Aini, S.Stat.",dhahratul.aini,2025,199604052019032001,,1172,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-611,"Intan Putri Ananda, S.Tr.Stat.",intanputri,2025,199906162022012003,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-612,"Fitria Nur Japar, S.Tr.Stat.",fitria.nur,2025,200001182022012003,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-613,"Yasmin, S.Tr.Stat.",yasmin,2025,199806132021042001,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-614,"Silvira Berliana, S.Tr.Stat.",silviraberliana,2025,200003262023022001,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-615,"Muhardi Wansyah, S.Tr.Stat.",muhardi.wansyah,2025,200103262023101002,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-616,"Navika Artiari, S.Tr.Stat.",navika.artiari,2025,200101302024122004,,1172,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-617,"Norvan Bagus Ramadhan, S.Tr.Stat.",norvan.ramadhan,2025,200111262024121003,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-618,"Ahmad Thahir, A.Md",ahmadthahir-pppk,2025,198606022024211002,,1172,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-619,"Hasbi, S.E.",hasbi-pppk,2025,198806122025211068,,1172,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-620,"Mahfuzah, S.Si, M.Si.",fuzah,2025,198303312010032001,,1172,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-621,Arrazi Warja,arraziwarja-pppk,2025,199112082025211049,,1172,V,Staf Subbagian Umum,,pegawai,,,
-622,Ikhsan,ikhsan-pppk,2025,199110142025211057,,1172,V,Staf Subbagian Umum,,pegawai,,,
-623,Zulkarnain,zulkarnain-pppk,2025,197705052025211050,,1172,V,Staf Subbagian Umum,,pegawai,,,
-624,Miftahur Rahman,miftahurr-pppk,2025,198812132025211043,,1172,V,Staf Subbagian Umum,,pegawai,,,
-625,Ir. Sudariah,sudariah,2025,196805081994012001,,1173,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-626,Afrizal Asyhari,afrizal.asyhari,2025,198304142014061002,,1173,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,,,
-627,"Reza Putra, SST, M.Si.",reza.putra,2025,198601212009021002,,1173,IV/a,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-628,"Farid Yulian, SST, M.S.M",faridy,2025,198507272008011002,,1173,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-629,"Mustika Sari, SST",mustikasari,2025,198607282009022005,,1173,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-630,"Aulia Feriza, S.P.",feriza,2025,198806302012121001,,1173,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-631,"Maulanasyah, SE.",maulanasyah,2025,198411052006041004,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-632,"Haris Noprianto, SST",haris.noprianto,2025,199012172014101001,,1173,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-633,"Muharrina, S.Si",muharrina,2025,198609242010032002,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-634,"Fazri Alam, S.E.",fazri.alam,2025,198801122010031001,,1173,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-635,"Adriansyah, S.E.",adriansyah4,2025,198205192007011001,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-636,"Adinda Mutiara Sani, S.Stat",adindamutiara,2025,199609212019032001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-637,"Sawitri, S.Si., M.Sc.",sawitri,2025,199201282019032001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-638,"Nanda Safwati, S.Tr.Stat.",nanda.safwati,2025,199712212019122001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-639,"Sulaiman, S.E.",sulaiman4,2025,197306102006041022,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-640,"Fani Visara, S.Tr.Stat.",fani.visara,2025,200009302023022002,,1173,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-641,"Tiffani Ayundita Auliannisa, S.Tr.Stat.",tiffaniaul,2025,200002162023022002,,1173,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-642,"Turhamun, S E.",turhamun-pppk,2025,198808132025211044,,1173,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-643,Riki Hamdani,rikihamdani,2025,198503272009011007,,1173,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-644,"Mirna Febrina, SST",mirnafebrina,2025,198902182010122008,,1173,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-645,"Dahniar, S.M.",dahniar,2025,198307022005022001,,1173,III/a,Pranata Keuangan APBN Mahir Subbagian Umum,,pegawai,,,
-646,Zuriah,zuriah,2025,197008161992012001,,1173,III/b,Staf Subbagian Umum,,pegawai,,,
-647,Hamdani,ham,2025,198203282009011008,,1173,III/a,Staf Subbagian Umum,,pegawai,,,
-648,Budiman,budiman-pppk,2025,199302062025211035,,1173,V,Staf Subbagian Umum,,pegawai,,,
-649,Iskandar,iskandar5-pppk,2025,197403252025211017,,1173,V,Staf Subbagian Umum,,pegawai,,,
-650,Putri Ayu Wulandari,putriayu-pppk,2025,199609212025212041,,1173,V,Staf Subbagian Umum,,pegawai,,,
-651,"Sardi, SE, M.Si.",sardi,2025,197508191994021001,,1174,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-652,"Chalida Rahmi, SE, M.M.",chalida.rahmi,2025,197410151993122001,,1174,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-653,"Hani`ah, SST., M.Ec.Dev",haniah,2025,198311012006022001,,1174,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,pegawai,,,
-654,"Abdullah Nurdin, SE",anurdin,2025,197104041992011001,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-655,Yusmaniar,yusmaniar,2025,197102111992012001,,1174,III/d,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,,,
-656,"Hera Lestari, S.Si",hera.lestari,2025,198401302011012012,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-657,"Januar Fadli, SE, M.S.M",januar.fadli,2025,198501102011011005,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-658,"Suci Maulida, SST",smaulida,2025,199109112014102001,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-659,"Yusra, S.E, M.S.M",yusra,2025,198503262006042002,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-660,"Ema Juniati, SST",juniati,2025,198806162008012002,,1174,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-661,"Nadya Husna, S.Tr.Stat.",nadya.husna,2025,199907092022012002,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-662,"Rahmad Riza, S.Tr.Stat",mriza,2025,198705122008011001,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-663,"Salviyana Nurdin, S.Sos",salviyana,2025,198608022010032002,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-664,"Muhammad Arfi Wahyudi, S.Tr.Stat.",arfi.wahyudi,2025,200112312023101001,,1174,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-665,"Muhammad Fachry Nazuli, S.Tr.Stat.",fachry.nazuli,2025,200007142023021003,,1174,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-666,"Rizqina Rahmati, S.Tr.Stat.",rizqina.rahmati,2025,200007272023022005,,1174,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-667,"Fakhrul Razi, A.Md",fakhrulrazi-pppk,2025,198808172024211002,,1174,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-668,"Mughlisuddin, SE",muglis,2025,196904241994011001,,1174,IV/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-669,Iryani,iryani,2025,196804071991032002,,1174,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-670,Yusmadi,yusmadi,2025,197101111992011001,,1174,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-671,"Mulya Saputra, S.Kom",mulyasaputra-pppk,2025,198711172025211036,,1174,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-672,"Madinawati Suarzi, S.E",madinasuarzi-pppk,2025,199102272025212036,,1174,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-673,Muhammad Ikhwani,ikhwani,2025,198504302009111001,,1174,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-674,"Zulkarnaini, S.Si, M.S.M.",zulkarnaini,2025,197805162011011010,,1174,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-675,"Muhammad Bohari Rahman, S.Stat.",m.bohari,2025,199506062019031001,,1174,III/b,Statistisi Ahli Pertama Subbagian Umum,,pegawai,,,
-676,"Zakiah Azzah, A.Md.Kb.N.",zakiah.azzah,2025,200011052022012002,,1174,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,,,
-677,"Humaira, A.Md.",humaira-pppk,2025,198204052025212045,,1174,VII,Staf Subbagian Umum,,pegawai,,,
-678,Abdurrahman,abdurrahman-pppk,2025,197509202025211027,,1174,V,Staf Subbagian Umum,,pegawai,,,
-679,Teuku Irmansyah,teukuirman-pppk,2025,197803092025211039,,1174,V,Staf Subbagian Umum,,pegawai,,,
-680,Dimas Zakaria Hardana,dimashardana-pppk,2025,198803292025211040,,1174,V,Staf Subbagian Umum,,pegawai,,,
-681,"Adi Putra, SP",adiputra,2025,197208131993011001,,1175,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako
-682,"Arpian, SE",arpian,2025,198203282011011010,,1175,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,,,
-683,"Tri Wahyudi, S.Stat.",triwahyudi,2025,199703012019031001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-684,"Arma Juwita, S.Tr.Stat.",arma.juwita,2025,199602202019012001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-685,"Rissa Afrianti Afhan, S.Tr.Stat.",rissa,2025,199704142019012001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-686,"Suciarti Pertiwi, S.Tr.Stat.",suciarti.pertiwi,2025,199712012021042001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-687,"Raden Daffa Ivan Febrio, S.Tr.Stat.",radendaffai,2025,200002202023021003,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-688,"Rahadian Budi Kusumah, S.Tr.Stat.",rahadian.budi,2025,200007292023101001,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-689,"Putri Nurhilwa Salsabila, S.Tr.Stat.",putri.nurhilwa,2025,200107032023102005,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-690,"Mutia Soraya Adila, S.Tr.Stat.",mutiasoraya,2025,200002022023022001,,1175,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-691,"M. Thariq Alfatih, S.Tr.Stat.",thariq.alfatih,2025,199809092022011002,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-692,"Jasika Lisayoana, S.Tr.Stat.",yoanalisa,2025,200001142023022002,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,,,
-693,"Fauzan Helmi, A.Md",fauzanhelmi-pppk,2025,199510292024211001,,1175,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,,,
-694,Ferri Ahmad Shauqi,shauqi,2025,197604182006041022,,1175,III/b,Staf BPS Kabupaten/Kota,,pegawai,,,
-695,"Sri Deza Kurnia Devi, S.T.",sridevi-pppk,2025,199412042025212046,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-696,"Tahan Boang Manalu, S.Pd.",,2025,199105192025211136,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-697,"Joni, S.Pd.",,2025,198908012025211064,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,,,
-698,Ibrahim,ibrahim5,2025,198004122009011007,,1175,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-699,"Farid Akbar Arifandi, S.Tr.Stat.",faridakbar,2025,200110252026031001,,1175,III/a,Staf BPS Kabupaten/Kota,,pegawai,,,
-700,"Rizqe Putri Rosalia, A.Md.Stat.",rizqe.rosalia,2025,200309292026032001,,1175,II/c,Staf BPS Kabupaten/Kota,,pegawai,,,
-701,"Erni Lusiani, S.Stat.",erni.lusiani,2025,199604202019032003,,1175,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag
-702,Supriadi Hamdani Berasa,supriadi.hamdani,2025,198207082009111002,,1175,II/d,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,,,
-703,"Andini Anastasya Iskandar, A.Md.Kb.N.",andini.iskandar,2025,199907282022012004,,1175,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,,,
-704,Syah Iman Lavau,syahlavau-pppk,2025,197903262025211024,,1175,V,Staf Subbagian Umum,,pegawai,,,
-705,Sarno Satriansyah Berasa,,2025,198710052025211069,,1175,V,Staf Subbagian Umum,,pegawai,,,
+id,name,username,tahun,nip_pegawai,no_hp,kode_satker,golongan,jabatan,urlfoto,bupesta,jazirah,cinema,kinerja,ist
+1,"Agus Andria, SST, M.Si.",andria,,197908302000121006,,1100,IV/c,Kepala BPS Provinsi,,kepala,kepala,kepala,kepala,kepala
+2,"Nurzakiah, SE",zakiah,,197005271992012001,,1100,III/d,Fungsional Umum BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+3,Alfisyahrin,alfisyah,,198207142007011001,,1100,III/a,Fungsional Umum BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+4,"Abd. Hakim, S.Si, M.Si",ahakim,,196712291991121001,,1100,IV/c,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+5,"Haifa Sari, SST, M.Si.",haifa,,198308122006022001,,1100,IV/b,Analis Pengelolaan Keuangan APBN Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+6,"Oriza Santifa, S.Si, M.Si.",oriza,,197307011995121001,,1100,IV/b,Pranata Komputer Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+7,"Hendra Gunawan, SST, M.Si",goen,,198306042006021003,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+8,"Akhmad Sugito, SST, M.Si",akh.sugito,,198410312008011005,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+9,"M. Alimuddin, SST, M.T",alimuddin,,198512052008011002,,1100,IV/a,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+10,"Meita Jumiartanti, SST, M.Si.",meitaj,,198605172008012002,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+11,"Hendri Achmad Hudori, SST, M.Si.",hendri.hudori,,198504142009021005,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+12,"Kahar Muzzakar, SST, M.Si",kaharm,,198505122009021003,,1100,IV/a,Pranata Komputer Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+13,"Yan Yan Gustiana, S.ST., M.Stat",yanyan,,197808032002121006,,1100,IV/a,Statistisi Ahli Madya BPS Provinsi,,madya,madya,madya,madya,madya
+14,"Rodiah, S.E",rodiah2,,197904222005022001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+15,"Nyimas Eka Yunia Hasnita, S.P",nyimas.hasnita,,198206252006042003,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+16,"Fitral Pratomo, SST",fitral,,198407082008011003,,1100,III/d,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+17,"Fikri, SE, M.S.M",fikri2,,198804162008011001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+18,"Hendra Dharmawan, SST, M.Si.",hendrad,,198512092009021002,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+19,"Melly, SST",melly2,,198604222009022005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+20,"Nilam Humaira, SST",nilam,,198607292009022005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+21,"Nur Hasanah, SST, M.Si.",nurh,,198607312009022006,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+22,"Ridha Mutia, SE, M.Si",ridha.mutia,,198608082006042005,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+23,"Afrizal, S.Si",afrizal2,,198308072011011009,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+24,"Yulia Geubrina, SST, M.Si",yuliageubrina,,199107012014102001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+25,"Hilda Aprina, SST, M.Si.",haprina,,199104142014102001,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+26,"Dhani Fitri Yanthi, S.Si",dhani.fitri,,198406272011012022,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+27,"Dina Nirmala Sari, S.Si.",dina.niersa,,198404022011012022,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+28,"Juliana, SP",juliana.sp,,198507222011012015,,1100,III/d,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+29,"Wira Junardi, SST, M.T.",wira,,198906132012111001,,1100,III/d,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+30,"Maulidya, SE",maulid,,198612202006042001,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+31,"Raiski Ramadhoni, S.E., M.AP.",raiski,,198605212006041003,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+32,"Ichsan Hasanudin, SST",ichsan.hasanudin,,199501232018021001,,1100,III/c,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+33,"Fitri Mulyani, SST",fitri.mulyani,,199503172018022001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+34,"Dwi Susanti, SE",dwisusanti,,198411122006042002,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+35,"Cahya Danu Rahman, SST, M.Ec.Dev.",cahya.rahman,,199202072017011001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+36,"Kanasha Humaira, SST",kanasha.humaira,,199507292017012001,,1100,III/c,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+37,"Ismaturrahmi Suhaimi, SST, M.Sc.",isma.suhaimi,,199504052017012001,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+38,"Mega Thursina, SST",mega.thursina,,199303312016022002,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+39,"Azwar, S.E",azwar,,197109132001121003,,1100,III/c,Statistisi Penyelia BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+40,"Munandar, S.Si",munandar,,198012212010031001,,1100,III/c,Pranata Komputer Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+41,"M. Reza, SE, M.Si.",mreza,,198806092008011001,,1100,III/c,Pranata Keuangan APBN Penyelia BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+42,"Darwis Abubakar, SE, M.Si",darwisab,,198806012008011003,,1100,III/c,Statistisi Ahli Muda BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+43,"Nova Misrina, S.M.",nova.misrina,,198611192011012016,,1100,III/b,Penata Laksana Barang Mahir BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+44,"Nasliyah Husna, S.P",nasliyah.husna,,198902272012122001,,1100,III/b,Pengelola Pengadaan Barang dan Jasa Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+45,"Destiana Fitri, S.Tr.Stat.",destianaf,,199609292019012001,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+46,"Adrian Devano, S.Tr.Stat.",adrian.devano,,199906212022011001,,1100,III/b,Pranata Komputer Ahli Pertama BPS Provinsi,,admin,admin,admin,admin,admin
+47,"Thariana Ayu Islami, S.Tr.Stat.",thariana.ayu,,199706102019122001,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+48,"Mazaya Alifah Syadzwina, S.Tr.Stat.",mazaya.alifah,,199607132019012002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+49,"Maulizasari, S.Stat.",maulizasari,,199509142019032002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+50,"M. Nigel Biaggi, S.Tr.Stat",nigel.biaggi,,199804242019121002,,1100,III/b,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+51,"Sinta Nuriyah, S.Tr.Stat.",sintanuriyah,,200112232024122004,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+52,"Naura Shada Kirana, S.Tr.Stat.",naurashada,,200207272024122003,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+53,"Zahlul Fuadi, S.Tr.Stat.",zahlul.fuadi,,200101292023021004,,1100,III/a,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+54,"Muhammad Hafidz Al Ahmad Bit, S.Tr.Stat.",hafidz.alahmad,,199905312021041001,,1100,III/a,Analis SDM Aparatur Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+55,"Anandika Dian Pramesti, S.Tr.Stat.",dian.pramesti,,199711192021042001,,1100,III/a,Pranata Komputer Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+56,"Mukhlis, S.E.",mukhlis7,,197709152007011002,,1100,III/a,Statistisi Ahli Pertama BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+57,"Faisal, S.E",fais-pppk,,197811292025211019,,1100,IX,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+58,"Hendra Saputra, S.E.",hendrasaputra-pppk,,198703132025211055,,1100,IX,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+59,"Mirza Maulana, S.Pd",mirzamaulana-pppk,,199007152025211064,,1100,IX,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+60,"Teuku Yanisrullah, S.E.",teukuyanis-pppk,,198405012025211055,,1100,IX,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+61,"Clarissa Azarine, S.Tr.Stat.",azarineclarissa,,200301092026032001,,1100,III/a,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+62,"Riska Fazilla, S.Tr.Stat.",riskafazilla,,200207082026032003,,1100,III/a,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+63,Marhami,marhami,,197704092009012004,,1100,II/d,Staf BPS Provinsi,,pegawai,pegawai,pegawai,pegawai,pegawai
+64,"Tasdik Ilhamudin, S.Si, M.Si",tasdik,,197405171996121001,,1100,IV/b,Kepala Bagian Umum,,kabag,kabag,kabag,kabag,kabag
+65,"Fadlun Andrian, SE, MM",fadlun.andrian,,198209142002121004,,1100,IV/a,Arsiparis Ahli Madya Bagian Umum,,madya,madya,madya,madya,madya
+66,"Reza Rezki Pulungan, SST",pulungan,,198504232008011001,,1100,IV/a,Analis Anggaran Ahli Madya Bagian Umum,,madya,madya,madya,madya,madya
+67,"Wahdini, S.Psi.",wahdini,,198207102011012017,,1100,III/d,Analis SDM Aparatur Ahli Muda Bagian Umum,,pegawai,pegawai,pegawai,pegawai,panitia
+68,"Ita Meriati, SE",ita.meriati,,197612182002122004,,1100,III/d,Arsiparis Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+69,"Cut Emalita, SE.",emalita,,197409041993122001,,1100,III/d,Arsiparis Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+70,"Nelvi Istiqamah, SE",nelvi,,198909282011012010,,1100,III/c,Arsiparis Ahli Muda Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+71,"Bambang Wahyudi, SE",b.wahyudi,,198407162006021002,,1100,III/c,Statistisi Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+72,"Zukhra, SE",zukhra,,198712272011011011,,1100,III/b,Penata Laksana Barang Mahir Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+73,"Dewi Putri Rahayu, A.Md.",dewirahayu,,198908192011012010,,1100,III/b,Pranata Keuangan APBN Mahir Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+74,"Cut Sandra Novalia, SE",cut.sandra,,198401132002122003,,1100,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+75,"Ferfi Hamdina, SE",ferfi.hamdina,,198802102008012002,,1100,III/b,Penata Laksana Barang Mahir Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+76,"Gunadi Subagia, S.Tr.Stat.",gunadi.subagia,,199707072019011003,,1100,III/b,Statistisi Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+77,"Edo Mara Nasution, S.E.",edomara,,198306172005021001,,1100,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+78,"Chairina, S.M.",Chairina,,198603032005022001,,1100,III/b,Pengelola Pengadaan Barang dan Jasa Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+79,"Elisa Ismi, S.Stat.",elisa.ismi,,199407262019032001,,1100,III/b,Statistisi Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+80,"Dhien Auliatu Asra, S.E.",dhien.asra,,199401102022032014,,1100,III/a,Pengelola Pengadaan Barang dan Jasa Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+81,"Saiful Ambiya, S.H.",saiful.ambiya,,199609272025061003,,1100,III/a,Penyuluh Hukum Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+82,"Reyhan Octavianri, S.I.Kom",reyhan.octavianri,,199510312025061003,,1100,III/a,Pranata Humas Ahli Pertama Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+83,"Cut Fatin Nabilah, A.Md.",cutfatin-pppk,,199508142024212010,,1100,VII,Arsiparis Terampil Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+84,"Sumiati, A.Md.Kom",su.miati,,199308032025062004,,1100,II/c,Pranata SDM Aparatur Terampil Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+85,"Andi Arif Ginting, A.Md.Kb.N.",andi.arif,,200007152022011006,,1100,II/c,Pranata Keuangan APBN Terampil Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+86,"Maulidin, A.Md.A.P",maulidin,,199808112025061003,,1100,II/c,Arsiparis Terampil Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+87,Syahrul Ramadhan,syahrulrama-pppk,,199801292025211022,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+88,Riza Fahmi,rizafahmi-pppk,,199201142025211047,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+89,Mirza Syaputra,mirzasyaputra-pppk,,199012102025211069,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+90,M. Sofyan,msofyan-pppk,,197610072025211021,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+91,Iskandar,iskandar4-pppk,,199712012025211026,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+92,Apriliza,apriliza-pppk,,198704252025211038,,1100,V,Staf Bagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+93,"Tsamirfuadi, SE",tsamir,,197206052005021001,,1101,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+94,Subarno,subarno,,198303062014061003,,1101,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+95,"Rustim, SE",rustim,,196907221990121001,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+96,"Roni Rahmadi, SP",roni.rahmadi,,198705122011011005,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+97,"Zainal Amin, S.Si",zainal.amin,,198505292011011010,,1101,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+98,"Edhi Prabowo, SST",edhi.prabowo,,199403242018021001,,1101,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+99,"Widya Khairani, SST",widya.khairani,,199507282018022001,,1101,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+100,"Salsabila Latifah Putri, S.Tr.Stat.",salsabila.putri,,200004182023022001,,1101,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+101,"Fajar Akhmad Anshori, S.Tr.Stat.",fajar.anshori,,200005152023021004,,1101,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+102,"Zuhdi Ali Hisyam, S.Tr.Stat.",zuhdi.ali,,200107242024121002,,1101,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+103,Jarlian,jarlian,,196809251990121001,,1101,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+104,M. Rizal Zalmi,rizal.zalmi,,197004151991091001,,1101,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+105,"Eri Alfanta, S.Sos.",erialfanta-pppk,,199509192025211048,,1101,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+106,Roni Lahanta,roni.lahanta,,198310272007011002,,1101,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+107,Riswan Amin,riswan.amin,,197709202007011002,,1101,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+108,"Hadisha Shafa Anasya, A.Md.Stat.",hadishafanasya,,200308292026032001,,1101,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+109,Hendra Prabisma,hendra.prabisma,,198203162014061002,,1101,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+110,"Aidil Fajri, SST",aidil.fajri,,199302122017011001,,1101,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+111,Rosmar Fitri Wahyuni,rosmarwahyuni-pppk,,198806102025212075,,1101,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+112,Marfiansyah,marfiansyah-pppk,,198605052025211074,,1101,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+113,Junansah,junansah-pppk,,198806082025211057,,1101,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+114,Jaya Arjuna,jayaarjuna-pppk,,199107032025211048,,1101,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+115,"Subhan, SST, M.Si",subhan,,198307182006021002,,1102,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+116,"Asmuddin, SE",asmuddin,,197812312011011017,,1102,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+117,"Meutia Sari, S.Mn",meutiasari,,197305262002122003,,1102,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+118,"Muhammad Nasyiruddin, S.M.",m.nasyiruddin,,198806192008011003,,1102,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+119,"Najwan Yusnianda, S.Tr.Stat",najwan.yusnianda,,199706082019121001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+120,"Qori Nur Laeli, S.Tr.Stat.",qori.laeli,,199612292019122001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+121,"Husnil Hidayat, A.Md",husnil,,198705232010031001,,1102,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+122,"Delita Arianti, S.Tr.Stat.",delita.ari,,199612252021042001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+123,"Raina Sari, SST",raina.sari,,199402022018022001,,1102,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+124,"Anwar Ibrahim, S.Tr.Stat.",anwar.ibrahim,,200007042023021003,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+125,"Muhammad Azzam, S.Tr.Stat",muhammad.azzam,,200204022024121003,,1102,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+126,"Nadia Ariska, S.Tr.Stat.",nadiaariska,,199911192023022001,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+127,"Nurul Isna, S.Tr.Stat.",nurul.isna,,200110142023102002,,1102,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+128,"Syahrul Yuanda, A.Md",syahruly-pppk,,199309012024211003,,1102,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+129,Arwin Rafit Hidayat,arwit.rafit,,198202282002121003,,1102,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+130,"Desriansyah Putra, S.Kel.",desriansyah-pppk,,199312152025211045,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+131,"Fitria, S.Si.",fitria-pppk,,199504142025212058,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+132,"Juliana Santi, S.Si.",julianasanti-pppk,,199710042025212035,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+133,"Muhammad Aidil, S.Kel.",muhaidil-pppk,,199304012025211043,,1102,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+134,"Egi Nawwar Sukma, S.Tr.Stat.",eginawwar,,200112122026031001,,1102,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+135,Ahmad Dayan,ahmad.dayan,,198205152007011001,,1102,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+136,"Erisya Desi Deria, S.Tr.Stat.",erisya,,199607192019012002,,1102,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+137,"Andi Sanjaya, SE, M.Si.",andi.sanjaya,,198103202005021003,,1102,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+138,Asbar Ibrati,asbaribrati-pppk,,198509172025211044,,1102,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+139,"Kusni Rohani Rumahorbo, SST, M.Si",kusni,,198401302007012004,,1103,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+140,"Bustami, S.M.",bustami,,197311202006041010,,1103,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+141,"Sabri Novriadi, SST",sabrin,,198811012010121004,,1103,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+142,"Agustamardian, S.PKP",agustam,,198508282010031001,,1103,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+143,"Amirudin Romansyah, S.Tr.Stat",amirudin.romansyah,,199611052019121001,,1103,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+144,"Diana Ayu Ratnasari, SST",diana.ayu,,199606092018022002,,1103,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+145,"Irama Ahmadi, S.E.",irama.ahmadi,,197701012006041038,,1103,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+146,"Haslim, S.E.",haslim,,197707192006041002,,1103,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+147,Yenni Yati,yenni.yati,,197104242007012003,,1103,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+148,"Patria Nusa, S.E.",patria.nusa,,197409132006041001,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+149,"Bayu Rayhan Anassai, S.Tr.Stat",bayu.rayhan,,200103062024121002,,1103,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+150,"Ananda Fortuna, S.Tr.Stat.",anandafortuna,,200108122023102001,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+151,"Rabbal Amsyah, S.E",rabbal.amsyah,,197704022007011002,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+152,"Masri, S.M.",masri2,,198208202007011002,,1103,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+153,"Muksalmina, A.Md.Kom.",muksalmina-pppk,,199803282024211002,,1103,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+154,"Firmansyah, S.H.",firmansyah-pppk,,198511012025211043,,1103,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+155,"Reni Harpianti, S.Si.",reniharpianti-pppk,,199203192025212054,,1103,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+156,"Zidan Akbar Al Aqsha, S.Tr.Stat.",zidanaqsha,,200307262026031002,,1103,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+157,Armia,armia2,,198012152007011001,,1103,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+158,Fajri Hendra,fajri.hendra,,198405272009111001,,1103,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+159,"Isabella Ratna Putri, S.Tr.Stat.",isabella.putri,,199701112019122001,,1103,III/b,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+160,"Adlin, SE",adlin,,197112011993121001,,1103,III/d,Fungsional Umum Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+161,Adelio Asyadda,adelioasyadda-pppk,,200403202025211001,,1103,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+162,Juniadi,juniadi-pppk,,197706102025211045,,1103,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+163,"Muhammad Ridha, SST",mridha,,198109132006021001,,1104,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+164,Idrus Sardi,idrus.sardi,,198110222003121005,,1104,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+165,Azhari,azhari4,,198005032003121002,,1104,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+166,Hajidan Saidi,hajidan.saidi,,198007312007011002,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+167,Ahmad Dani,ahmad.dani,,198007262007011001,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+168,Chici Freni,chici.freni,,198409232007012001,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+169,Hervan Syachri,hervan.syachri,,198511082007011003,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+170,Suhada,suhada2,,197910032007011002,,1104,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+171,"Titianingrum, SST",titianingrum,,198810272013112001,,1104,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+172,"Tri Widiantoro, SST, M.Stat",tri.widiantoro,,199205262014121002,,1104,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+173,"Nur Asiah Pulungan, A. Md",nurasiah.pulungan,,197506112002122003,,1104,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+174,"Sanrianika Simarmata, S.Stat.",ika_simarmata,,198601252009022006,,1104,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+175,"Aditya Faizal Arifin, S.Tr.Stat.",faizal.arifin,,199803262021041001,,1104,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+176,"Muhammad Imam Al Matin, S.Tr.Stat.",imam.almatin,,200006122023021002,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+177,"Santi Maudila Putri, S.Tr.Stat.",santi.maudila,,200009042023022001,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+178,"Novita Sari, S.Si.",sari.novita,,199611212022032007,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+179,"Indri Hafsari, S.Si.",indri.hafsari,,198803212022032003,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+180,"Fika Fuza Syahdana, S.Tr.Stat.",fika.fuza,,200105262024122002,,1104,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+181,"Efriandi, S.Tr.Stat.",efriandi,,199804292022011001,,1104,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+182,"Hasbi Adami, S.Sos.",,,198003062025211027,,1104,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+183,"Alifah Suhaila, A.Md.Stat.",alifahsuhaila,,200410302026032001,,1104,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+184,"Mustapa Kamal, SE",mustapa.kamal,,198306012011011012,,1104,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+185,"Sehrul Amri, A.Md",sehrul.amri,,198605162011011017,,1104,III/b,Statistisi Mahir Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+186,"Irwan Jaya Deski, A.Md.Kep.",,,199303302025211037,,1104,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+187,"Soffia Zaronah Desky, A.Md.",soffiadesky-pppk,,199102252025212046,,1104,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+188,Hendra Syah Putra,hendraputra-pppk,,199310042025211052,,1104,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+189,Abdul Rajak,,,198610012025211053,,1104,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+190,"Mawarzi Lista Agung, SST",mawarzi,,198511122009021003,,1105,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+191,Kamala Devie,kamala,,197803062003122005,,1105,III/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+192,Muhammad Ali,muhali,,198309062014061002,,1105,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+193,"Wahyu Septia Irawan, S.E.",wahyu.septia,,198609102010031001,,1105,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+194,"Nurmasyithah, A.Md, S.E.",nurmasyithah,,198701132010032001,,1105,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+195,Zainuddin,zainuddin6,,196912311992031036,,1105,III/d,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+196,"Zubaidah, S.E.",zubaidah,,198009062011012009,,1105,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+197,"Irwandi, S.E.",irwandi2,,198003062006041015,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+198,"Maulini Septya, SST, M.E.",maulini.septya,,199109202014102002,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+199,"Akhmad Zaki, S.Si., M.M.",azaki,,199203072019031001,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+200,Zahniar Abdullah Aqsa,zahniar,,197110101992012001,,1105,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+201,"Mukhlis, S.E.",mukhlis5,,198406102007011003,,1105,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+202,"Annisa Ramadhanty, S.Tr.Stat.",annisa.ramadhanty,,199801052019122003,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+203,"Muzakkir, S.E.",muzakkir,,198104102007011002,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+204,Yusrizal,yusrizal,,197811202009011005,,1105,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+205,"Nurmitra Sari Purba, S.Tr.Stat",nurmitra.spurba,,199704032019122002,,1105,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+206,Musliyadi,musliyadi,,197604211996031003,,1105,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+207,"Alfajri Hidayat, S.Tr.Stat.",alfajri.hidayat,,200004062023101002,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+208,"Dwi Kartika Sari, S.Tr.Stat.",dwikartika,,199904092023022001,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+209,"Sarina Ayu Meilanda, S.Stat.",sarina.ayu,,199405032019032002,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+210,"Rizki Nazhif Nur, S.Tr.Stat.",rizki.nazhif,,200006282023021002,,1105,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+211,"Muhammad Agus Mauliza, S.Tr.Stat.",agus.mauliza,,199508282019011004,,1105,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+212,"Eizatie Rahmatika, A.Md",eizatie.rahmatika,,199911272022032005,,1105,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+213,"Suraiya Istiqlal Annisa, S.Sos.",suraiyaannisa-pppk,,199508132025212049,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+214,"Supiandi, S.H.",supiandi-pppk,,198408122025211062,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+215,"Idawati, S.Pi",idawati-pppk,,199409032025212045,,1105,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+216,Novizal,novizal,,197406092007101001,,1105,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+217,Jamaluddin,jamal,,197906262007011002,,1105,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+218,Iskandar,iskandar6,,197310052014061002,,1105,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+219,"Jufri, SE",jufri2,,198012112011011007,,1105,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+220,Subandi Putra,subandiputra-pppk,,199203032025211060,,1105,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+221,"Andi Hardiyanto, SST",andihdy,,197605281999011001,,1106,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+222,"Effendy, S.Si",effen,,197605051996121001,,1106,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+223,"Nuelda Amalia, SST, M.SE",nuelda,,198601142008012001,,1106,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+224,"Hendra Saputra, SST",hendra.saputra,,198407162008011004,,1106,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+225,"Firdaus, S.Si",firdaus3,,198308292011011013,,1106,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+226,"Ruzi Simatra, SE",ruzi_simatra,,198710162008011001,,1106,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+227,"Adi Fadli Rajab, SST",adi.rajab,,199202132014121001,,1106,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+228,"Alif Muhammad Arrasyid, S.Tr.Stat.",alif.arrasyid,,199912192023021004,,1106,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+229,"Satya Indra Kusworo, S.Tr.Stat",satya.indra,,200104282024121003,,1106,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+230,"Salsabila Shafa Putri Rahadian, S.Tr.Stat",shafarahadian,,200206242024122001,,1106,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+231,"Muhammad Saleh, A.Md.",m.saleh,,197112272006041017,,1106,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+232,"Siti Nurrahmah, A.Md",siti.nurrahmah,,199705172022032016,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+233,Ade Afianum Kurniawati,ade.kurniawati,,198503012006042008,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+234,Winsyah,winsyah,,197506272006041015,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+235,Agus Irawan,agus.irawan,,197308282006041020,,1106,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+236,"Muhammad Iman Sukriyansyah, SST",imans,,198410272008011003,,1106,III/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+237,"Dadi Rusmansyah, S.S.",dadirusman-pppk,,198112072025211021,,1106,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+238,"Syukri, S.H.",syukri-pppk,,198512172025211033,,1106,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+239,"Anggia Sari Siregar, A.Md.Stat.",anggiasiregar,,200110162026032002,,1106,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+240,"Nafis Bahraien, S.P.",nafis.bahraien,,198304192010031001,,1106,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+241,"Rania Sahira, A.Md",rania.sahira,,199811142022032014,,1106,II/d,Statistisi Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+242,Hendri Syahputra,hendrisyah-pppk,,199701272025211042,,1106,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+243,Sabarudin,sabarudin-pppk,,198903182025211048,,1106,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+244,"Jufrizal, SE",jufrizal,,198204232005021002,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+245,"Meiza Aulia, SP, M.Si",meiza_aulia,,198405232011011012,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+246,"M. Nazaruddin Z, SP",nazaruddin,,198211272011011011,,1107,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+247,"Firmansyah, SE",firmans,,198411172011011010,,1107,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+248,"Dhia Ulfakhirah, S.Tr.Stat",dhia.ulfakhirah,,199707152019122002,,1107,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+249,"Tika Widya Wardani, S.Si",tika.widya,,198807112014032003,,1107,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+250,Riniwati,riniwati,,198611132006042002,,1107,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+251,"Safriadi, S.P.",safriadi,,198807152011011004,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+252,"Gharisa Nur Fitri, S.Tr.Stat.",gharisa.nur,,199711132021042001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+253,"T. Hamdani, SE",thamdani,,197204092006041013,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+254,"Farazilla Ummaira, S.Stat.",farazilla,,199508052019032001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+255,"Afriyani, S.Stat.",afriyani,,199509102019032001,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+256,"Ardiansyah, S.E",ardians,,197203082002121003,,1107,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+257,"Salsabila Ainayafani, S.Tr.Stat.",salsabila.ainaya,,199902052022012003,,1107,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+258,Darwis,darwis,,197208012001121003,,1107,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+259,"Muhammad Apriesya Wastu Nirbhaya, S.Tr.Stat.",apriesya.wastu,,199904022023101001,,1107,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+260,"Haris Yusuf, S.Kom.",haris.yusuf,,199402182022031002,,1107,III/a,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+261,"Ayu Aina Nurkhaliza, S.Tr.Stat.",ayuainaa,,200010052023022001,,1107,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+262,"Muhammad Khumaidi, A.Md",muh.khumaidi,,199411102022031003,,1107,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+263,"Saifuddin, S.E.",saifudd-pppk,,198307162025211060,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+264,"Rusli. A, S.E.",rusli-pppk,,198408042025211043,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+265,"Azhar Bahagia, S.P.",azharbahagia-pppk,,199102032025211051,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+266,"Muarrif, S.A.P.",muarrif-pppk,,199712292025211030,,1107,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+267,"Teuku Ariansyah, SE",ariansyah,,198304112011011014,,1107,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+268,"Lisnadiani, SE",lisnadiani,,198811102008012001,,1107,III/c,Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+269,Cut Suriati,cutsuriati-pppk,,197704122025212020,,1107,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+270,Yuli Candra,yulicandra-pppk,,198907192025211041,,1107,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+271,"Rudi Hermanto, SST, M.Si.",rhermanto,,197804192002121002,,1108,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+272,Adli,adli,,197208111991101001,,1108,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+273,Syarifah Effa Safrida,syarifah.safrida,,197701022007012002,,1108,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+274,"Ar Razy Ridha Maulana, SST, M.Si.",arrazy.ridha,,199307102016021002,,1108,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+275,"Ghea Yolana Parusta, S.ST",ghea.parusta,,198707142009122002,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+276,"Bahzur Andria, SE",bahzur_andria,,198506062011011022,,1108,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+277,"Mustafa, SE, M.E.",mustafa,,198402012011011012,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+278,"Ikhsanuddin, SE",ikhsanuddin2,,197303062006041021,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+279,"Rahmad Hidayat, S.Si.",rahmadhidayat,,198205122011011016,,1108,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+280,"Muhammad Syafittri, SE, M.AP.",muhammad.syafitri,,198208142010031002,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+281,"Ridhatullah Daud, M.S.M",ridhatullah.daud,,198509152010031001,,1108,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+282,"Desri Helida, S.Stat.",desri.helida,,199512272019032001,,1108,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+283,"Sri Yulianti, S.Si",sri.yulianti,,198604102012122001,,1108,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+284,"Akram Akramur Rasyid, S.Tr.Stat.",akram.rasyid,,199609052019011001,,1108,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+285,"Eva Maulia, S.Stat.",eva.maulia,,199508142019032001,,1108,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+286,"Aulia Rachman, S.Stat.",aulia.rachman,,199210042019031001,,1108,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+287,"Tri Nanda Farida, A.Md, S.Stat.",tri.nanda,,199508022022032010,,1108,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+288,"Fauziah, S.Tr.Stat.",fauziah3,,199905222022012003,,1108,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+289,"Nelly Eliza, A.Md, S.M.",nelly,,198806132012122004,,1108,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+290,"Annisa Kahmiliani, S.Tr.Stat.",annisakahmiliani,,200011052023022002,,1108,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+291,"Syarifah Nurussana, A.Md",syarifah.nurussana,,198704202022032002,,1108,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+292,"Zulviyana, SE",vieya,,198302262006042003,,1108,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+293,"Muttaqin, S.HI.",muttaqin2-pppk,,198805212025211040,,1108,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+294,"Nyak Naiza Muzayanna, S.Si.",nyakmuzayanna-pppk,,199912112025212020,,1108,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+295,Nensi Fitrah,nensi.fitrah,,198811072008012001,,1108,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+296,"Amrizal, SE",amrizal2,,198206212011011006,,1108,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+297,"Zulfahmi, A.Md",zulfahmi,,198505092010031001,,1108,III/b,Statistisi Mahir Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+298,"Suwardi, ST",suwardi-pppk,,197504172025211003,,1108,IX,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+299,"Bahagia, A.Md.",bahagia-pppk,,198709012025211052,,1108,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+300,Al Ikram Wardana,alwardana-pppk,,200010212025211013,,1108,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+301,Junaidi,junaidi2-pppk,,198210172025211054,,1108,III,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+302,"Fakhriadi, SP, M.S.M.",fakhriadi,,197206301992011002,,1109,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+303,"Rizal Rahmad, SST, M.Stat",rrahmad,,198407132007011005,,1109,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+304,"Rochadi, SST",rochadi,,197712062000121002,,1109,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+305,"Jabal Nur, S.E",jabal,,198407082006041006,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+306,"Hazmah Junina, SE",hazmah,,197406152003122002,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+307,"Samsul Bahri, S.E",samsulbahri,,197111102006041037,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+308,"Lyli Suryani, S.E",lyli,,197302212006042002,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+309,"Syarwani, SE",syarwani,,197201181992031004,,1109,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+310,"Rozy Fatilla, SST",rozy.fatilla,,198502142009021003,,1109,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+311,"Saiful Bahri, S.Sos.",saiful.bahri,,198109062009111001,,1109,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+312,"Safriani, S.M.",safriani,,198311282007012001,,1109,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+313,"Hafni Zahra, S.E",hafni,,198604072006042001,,1109,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+314,"Moh. Jabir Mubarok, SST, M.T.",jabirm,,199210302016021001,,1109,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+315,"Muhammad Harrys, S.M.",harrys,,198311272006041007,,1109,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+316,"Zulfiadi, SE",zulfiadi,,198103302011011006,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+317,"Muzakir Muslem, S.E.",muzakir,,198204142009111002,,1109,III/b,Pranata Keuangan APBN Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+318,"Annisa Rahmawati, S.Si.",annisa.rahmawati,,199508232019032001,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+319,"Hajrul Multazam, S.Tr.Stat.",hajrul.multazam,,199804122022011003,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+320,"Bismi, S.E.",bismi,,198001011999031003,,1109,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+321,"Irmayasanti, S.M.",irmayasanti,,198304182006042002,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+322,Fitriani,fitriani,,198506152007102001,,1109,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+323,"Nurul Raiyan, S.Tr.Stat.",nurul.raiyan,,199712102019122004,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+324,"Yusnidar, S.E.",yusnidar,,197812312002122002,,1109,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+325,"Della Rizki, S.E.",della.rizki,,199504222022032007,,1109,III/a,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+326,"Tahyudin, S.M.",tahyudin,,198005172007011003,,1109,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+327,"Munawar, S.M",mnawar,,197505112007011005,,1109,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+328,"Tukia Dara, S.M",daratukia,,198301122006042002,,1109,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+329,"Almira Diva Sanya, S.Tr.Stat.",almiradiva,,199910222023022001,,1109,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+330,"Muchsin, S.M.",chsin,,198508152007101001,,1109,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+331,"Eka Fitria, SST",eka.fitria,,199303222016022001,,1109,III/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+332,"Rakhmadi, S.Sos.",rakhmadi-pppk,,198704282025211044,,1109,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+333,"Zahri Zahkiri, S.H.",zahrizahkiri-pppk,,199508072025211052,,1109,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+334,"Agussalim, S.Si",agussalim2,,198108052011011011,,1109,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+335,"Rahmayetti Harahap, AMd.Kom",rahmayetti-pppk,,198506162024212003,,1109,VII,Pranata SDM Aparatur Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+336,"Musliadi, A.Md.",musliadi-pppk,,198612232025211040,,1109,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+337,Ir. Maimun,maim,,196904011994011001,,1110,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+338,"Muhammad, SE",muhammad2,,196901081990031005,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+339,"Munawir, SE",munawir2,,198401102010031001,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+340,"Rahmati, S.Si",rahmati,,197611132002122004,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+341,"Elida Fitri, S.Si",elida.fitri,,198705212011012019,,1110,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+342,"Muhammad Nurullah Riyadi, S.Tr.Stat.",nurullah.riyadi,,199702262019121001,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+343,"Faizah, S.Si",faizah.daud,,198510062011012017,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+344,"Yuli Rahmawati, S.Sos",yuli.rahmawati,,198902242011012016,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+345,"Irfan, SE",irfan3,,198310042011011011,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+346,"Farah Mutia, S.Si.",farah.mutia,,198505152012122001,,1110,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+347,Septya Putri,septyaputri,,198709102008012001,,1110,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+348,"Andissi Eka Putri, SST",andissi,,199409102017012001,,1110,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+349,"Cut Sherly Amalia, S.Stat.",cut.amalia,,199503132019032001,,1110,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+350,"Aris Suwandi, S.Stat.",aris.suwandi,,199305112019031002,,1110,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+351,Karlina Dewi,karlina.dewi,,198305012006042017,,1110,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+352,"Ahmad Fathur Rahman, S.Tr.Stat.",ahmad.fathur,,200010022023101001,,1110,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+353,"Saifuddin, A.Md",saifuddin-pppk,,198907252024211002,,1110,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+354,"Putri Ayu Humaera, A.Md.Stat.",putri.humaera,,200012052023022003,,1110,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+355,"Fakhrur Gazi, SP",ghazi.beurahman,,198005302011011007,,1110,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+356,Muhammad Rian Fazli,rian.fazli,,198405272005021001,,1110,III/b,Fungsional Umum Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+357,"Rukaiyah, S.A.P.",rukaiyah,,198401112006042003,,1110,III/b,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+358,"Reza Fakhrizal, S.A.P.",fakhrizal,,197904052009011010,,1110,III/a,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+359,Nazaruddin,nazaruddinzr,,198003232002121003,,1110,II/d,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+360,Herry Yusrizal,herryyusrizal-pppk,,198507162025211053,,1110,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+361,T Zulkarnaen,tzulkarnaen-pppk,,197906262025211043,,1110,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+362,Cut Sajida Tasya,cuttasya-pppk,,200003122025212020,,1110,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+363,Rizki Gustianda,rizkigusti-pppk,,198608142025211056,,1110,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+364,"Armelia Amri, SST, M.Si.",armelia,,197911282003122005,,1111,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+365,"Fitri Aswin, S.Si, M.S.M",fitri.aswin,,198501102009022008,,1111,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+366,"Hendri Gunawan, S.P.",hendri.gunawan,,198402232011011007,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+367,"Tarjudin, S.T.",tarjudin,,198405102010031001,,1111,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+368,"Novrizal, SE, M.S.M",novriz,,198711052006041002,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+369,"Reonold Z, S.E",reonold,,197812062006041014,,1111,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+370,"Nurisah, SE",nurisah,,198701152008012001,,1111,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+371,"Ikhwan, SE",ikhwan,,198208022003121003,,1111,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+372,"Syukur, SE",syukur2,,198202182009011015,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+373,"Ismail Isa, SE",ismail.isa,,198505082009111001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+374,"Ratna Dewita, SE",ratna.dewita,,198005222009112001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+375,"Khairon, SE",khairon,,197610112003121003,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+376,"Riki Triandicki, S.Tr.Stat.",riki.triandicki,,199810092021041001,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+377,"Saiful Yadi, S.E",saiful.yadi,,197408222006041012,,1111,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+378,"Nurhasanah, S.E.",nur.hasanah,,199411202022032006,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+379,"Karima Yulisda, S.Tr.Stat.",karima.yulisda,,199808132019122001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+380,"Sevy Dyahartanti, S.Tr.Stat.",sevy.dyah,,199909112023022001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+381,"Gestyan Ramadhan, S.Tr.Stat.",gestyan.rmd,,200012162023101003,,1111,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+382,"Pinky Aulia Viradina, S.Tr.Stat.",pinky.aulia,,199807192023022001,,1111,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+383,"Karisma Suryani, A.Md.",karisma.suryani,,199907232022032009,,1111,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+384,"Zati Azmiana, A.Md",zati.azmiana,,199005082022032009,,1111,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+385,"Zulfahmi, S.H.",zulfahmi-pppk,,199210252025211039,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+386,"Asniati, S.Pd.",asniati-pppk,,199111142025212053,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+387,"Muhammad Ery Khairizal, S.EI.",erykhairizal-pppk,,199206032025211048,,1111,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+388,Muhar Fuadhi Zaima,muhar.zaima,,198111232007011001,,1111,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+389,"Revina Siregar, A.Md.Stat.",revinasiregar,,200203012026032001,,1111,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+390,"Iqbal Firdaus, SST, M.App.Ec, M.Si.",ibaldaus,,198802182010121007,,1111,IV/a,Analis Pengelolaan Keuangan APBN Ahli Muda Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+391,Hamdani,hamdani2,,197805132007011002,,1111,III/a,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+392,Saifuddin,fuddin-pppk,,197606152025211050,,1111,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+393,"Ali Abrori, S.Si",ali.abrori,,197207241994121001,,1112,III/d,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+394,"Jamalludin, SST, M.E.K.K",jamall,,199001012012111001,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+395,"Mukhsin, S.Si.",mukhsin,,198703252012121001,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+396,"Sri Mulyadi Armadianto, SE",srimul,,198501152011011017,,1112,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+397,"M. Nasir Edi Faisal, S.E.",nasiref,,197708262011011009,,1112,III/d,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+398,"Reza Fatahillah, S.M.",rezaf,,198808272008011001,,1112,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+399,"Maghfira Ramadhani, S.Tr.Stat.",maghfira.ramadhani,,199801072022012001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+400,"T.Fachrul Husaini, S.Tr.Stat.",fachrul.husaini,,199804302021041001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+401,"Lisa Nurlyeni, S.Tr.Stat.",lisa.nurlyeni,,199812162021042001,,1112,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+402,"Rindu Trimarta Nafri, S.Tr.Stat.",rindu.trimarta,,200003312023022001,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+403,"Irfan Prasetya Kamajaya, S.Tr.Stat.",irfan.kamajaya,,200003142023021002,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+404,Muhammad,muhammad,,197412031999031003,,1112,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+405,"Fahmi Fadhillah, S.Si.",fahmi.fadhillah,,199209012022031003,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+406,"Rizky Puspitasari, S.Tr.Stat",rizky.puspitasari,,200204272024122001,,1112,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+407,"Dian Rahmawati Salis, S.Tr.Stat.",dian.salis,,200104102023102001,,1112,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+408,"Ike Purnama Sari, A. Md",ike.purnama,,199803122022032018,,1112,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+409,"Al Munzir, A.Md.",al.munzir,,199501192022031005,,1112,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+410,"Zuhendra, S.Pd.",zuhendra-pppk,,198711052025211041,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+411,"Wardi, S.E.",wardi-pppk,,199302022025211056,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+412,"Mansur, S.Pd.",mansur-pppk,,199210012025211051,,1112,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+413,Waldy Kurniawan,waldy,,198605272006041004,,1112,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+414,"Tomi Agusardi, SP",tomi,,198304252011011005,,1112,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+415,"Rauzatul Munawarah, A.Md.Ak.",rauzatul.munawarah,,200011242025062005,,1112,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+416,Fuji Sukatdi,fujisukatdi-pppk,,200411032025211002,,1112,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+417,Meri Elfina,merielfina-pppk,,198605242025212030,,1112,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+418,"T. Syamsul Alam, S.E., M.M.",samsul,,197807062011011007,,1113,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+419,Na'im,naim3,,198306032014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+420,Maiyal Fitri,maiyal.fitri,,198605252014062002,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+421,Abdullah. K,abdullah.k,,198005202014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+422,Abdul Rahman,abdul.rahman,,197105232014061001,,1113,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+423,"Febby Adrian, S.Tr.Stat.",febby.adrian,,199902162021041001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+424,"Saleh Salihin, SST",saleh.salihin,,199407102018021001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+425,"Armida Dewi, SST",armida.dewi,,199406252019012001,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+426,"Latifah Hasanah, S.Tr.Stat.",latifahhasanah,,199901302022012003,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+427,"Yuraida, S.Si.",yuraida,,198807252011012015,,1113,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+428,"Syafaruddin, S.M",syafarudd,,198502022014061001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+429,"Olivia Dyta Marhadika, S.Tr.Stat.",olivia.dyta,,199909302023102001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+430,"Alivya Septiriana Putri. S, S.Tr.Stat.",alivyaputri,,200009072023022001,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+431,"Basyariah, S.M.",basyariah,,198006042007012002,,1113,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+432,"Ririn Yustika Putri, S.Tr.Stat.",ririn.putri,,199712212021042002,,1113,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+433,"Rizka Khairiya Handayani, A.Md",rizka.khairiya,,199809052022032012,,1113,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+434,"Fachri Al Hazs Nst, A.Md",fachri.alhazs,,199405122022031004,,1113,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+435,"Erna Sari, A.Md.",ernasari-pppk,,199406042024212005,,1113,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+436,"Syarifuddin, S.P.",syarifuddin-pppk,,198812202025211043,,1113,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+437,"Julaiha, S.P.",julaiha-pppk,,199706042025212046,,1113,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+438,"Kevin Rizkika Setiawan, S.Tr.Stat.",kevinrizkika,,200210212026031001,,1113,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+439,"Muhammad Ichsan, S.E., M.A.P.",m.ichsan,,198801162008011002,,1113,III/b,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+440,Mastina,mastina-pppk,,198801062025212036,,1113,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+441,Rabudin,rabudin-pppk,,199503292025211038,,1113,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+442,"Nurmanuddin, SE",nurmanuddin,,197112161994011001,,1114,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+443,"Wahyu Agung Sutikno, SST",wagung,,198203262003121006,,1114,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+444,"Irvan Syahputra, SE",irvan.syah,,198503152011011010,,1114,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+445,"Muhammad Rizki Syazali, SST, M.Kom.",mrizki.syazali,,199301032016021001,,1114,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+446,"Novi Ermayani, S.Si",novi.erma,,198005232006042004,,1114,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+447,"Muhammad Iqbal, S.Si",m.iqbal,,198606162011011014,,1114,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+448,"Ichwan, S.E",ichwanmuksin,,198209012012121001,,1114,III/d,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+449,"Nurul Aviva Purnamawanti, SST",nurulaviva,,199101312013112001,,1114,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+450,"Nur Asiah, SP",nur.asiah,,198205292011012006,,1114,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+451,"Irmadayani Ray, S.Stat.",irmadayani.ray,,199502222019032002,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+452,"Vania Arisandy Zalri, S.Tr.Stat.",vania.zalri,,199803312021042001,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+453,"Rizkiandiyani, A.Md",rizkian,,198510102010032001,,1114,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+454,"Irja Nailal Ulya, S.Tr.Stat.",irja.ulya,,199704232019121001,,1114,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+455,"Alam Kurniawan, S.E",alam,,198304032008011007,,1114,III/a,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+456,"Fairuz Afifah Reefana Poeri, S.Tr.Stat.",fairuzpoeri,,200010242023022002,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+457,"Zarro Aga, S.Si",zarro.aga,,199507232022031010,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+458,"Jasrizal, S.E.",jasrizal,,198612302006041003,,1114,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+459,"Miftah Hafidz Nasution, A.Md",miftah.hafidz,,200005212022031002,,1114,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+460,Yudhi Armanda,armanda,,197612192003121003,,1114,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+461,"Juwita Purnamasari, S.P.",juwitapurnama-pppk,,199006102025212064,,1114,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+462,Fitri Yati Jusuf,fitrijusuf,,198312082008012006,,1114,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+463,"Suriyanto, SE",suriyanto,,197809082011011012,,1114,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+464,Yuyun Syafrina,syafrina,,198706132008012001,,1114,II/d,Statistisi Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+465,Nurlina,nurlina-pppk,,198608262025212038,,1114,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+466,Afrizal,afrizal-pppk,,198704112025211034,,1114,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+467,M. Iskandar,miskandar-pppk,,199112282025211054,,1114,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+468,Syahrul Efendi,syahrulefendi-pppk,,198211172025211036,,1114,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+469,"Dr. Nuri Rosmika, SST, M.Si",nuri_rosmika,,198306302006022001,,1115,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+470,"M. Hanis Aufa, SE",hanis.aufa,,198504262011011010,,1115,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+471,"Safriani, SE",safrian,,197412162003122002,,1115,III/d,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+472,"Didi Setiawan, SE",didi.setiawan,,197406282006041003,,1115,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+473,"Kafie Achmad Aviev, S.Tr.Stat.",achmad.aviev,,199807092022011001,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+474,"Muhammad Hafid Nasution, S.Tr.Stat.",hafid.nasution,,199809102021041001,,1115,III/b,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+475,"Fadhlurrohman Henriwan, S.Tr.Stat.",fadhlur.henriwan,,199806022021041001,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+476,"Ahmad Kamal, S.Tr.Stat.",ahmad.kamal,,199710082019121003,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+477,"Ghifari Azka Wali, S.Tr.Stat.",azka.wali,,199803222019121003,,1115,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+478,"Adelina Wiza, S.Tr.Stat.",adelina.wiza,,199712102019122003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+479,"Aprilia Putri Sariningrum, S.Tr.Stat.",aprilia.putri,,200104062023102003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+480,"Salma Dafia Milatina, S.Tr.Stat.",salma.dafia,,200105172023102003,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+481,"Sita Aliya Rutba, S.Tr.Stat.",sita.aliya,,200108212023102003,,1115,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+482,"Rasya Az Zahra, S.Tr.Stat",rasya.azzahra,,200111032024122001,,1115,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+483,"Syaputra Raiza, A.Md",syaputra.raiza,,198811242022031002,,1115,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+484,"Mia Maysura Syahmara, A.Md",mia.maysura,,199605312022032010,,1115,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+485,"Reza Aulya, A.Md.Kom.",rezaaulya-pppk,,199712242024211004,,1115,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+486,"Muhammad Yusuf, A.Md",muhammad.yusuf,,199704222022031011,,1115,II/c,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+487,"Helmi M. Efendi, S.E.",helmiefendi-pppk,,198706092025211051,,1115,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+488,"Mahdinur, S.E.",mahdinur-pppk,,198612052025211049,,1115,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+489,"Fitra Rustam, SE",fitra.rustam,,198805182008011001,,1115,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+490,"Andy Syarifuddin, SST, M.Ak.",andy.syarifuddin,,199208092014121002,,1115,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+491,Efendi Sulaiman,esulaiman-pppk,,198810202025211051,,1115,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+492,Musliadi Us,musliadius-pppk,,199403042025211055,,1115,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+493,Putri Mailisa Sari,putrisari-pppk,,199502062025212046,,1115,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+494,"Dr Azwar, S.Pd., M.Si",azwar4,,197306161998011001,,1116,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+495,"Juhrin, S.E.",juhrin,,197004022003121002,,1116,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+496,Emayani,emayani,,198402022007012002,,1116,III/a,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+497,"Aang Saputra, SST, M.Si.",aang,,198411152008011002,,1116,IV/a,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+498,"Edi Kurniawan, SST",ekurniawan,,199009162014101001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+499,"Elda Elnovita, S.Si, M.Si",e.elnovita,,198606052010032001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+500,"T. DI. Oria Salam, SST, M.Si.",tedy.oria,,198809182010121001,,1116,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+501,"Endah Kamilah Taufik, SST",endah.taufik,,199301102014122001,,1116,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+502,"Aviv Alvian Nur, SST, M.Sc",aviv.alvian,,199401282016021001,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+503,"Kamil Aulia, SST",kamil.aulia,,199305182016021001,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+504,"Adelin Namira, SST",adelin.namira,,199309222017012002,,1116,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+505,"Muhammad Rizqi, S.Tr.Stat.",rizqi.muhammad,,199710302019121001,,1116,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+506,"Fadhila Ramadhani Gita Putri, S.Tr.Stat",fadhilaputri,,200212032024122001,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+507,"M. Rifqi Jundullah, S.Tr.Stat.",rifqijundullah,,200011132023021002,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+508,"Annisa Syifaulhaq, S.Tr.Stat.",annisasyifa,,200210112024122002,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+509,"Nurdiana, S.E.",nur.diana,,199611302022032025,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+510,"Siti Armanisa, S.Tr.Stat.",siti.armanisa,,200108012023102001,,1116,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+511,"Yama Risnaldi Putra, S.Tr.Stat.",yama.putra,,200104152023101001,,1116,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+512,"Anisa Fransiska, A.Md",anisa.fransiska,,199306172022032008,,1116,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+513,"Yasmin, S.Tr.Stat.",yasmin,,199806132021042001,,1116,III/b,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+514,Darwin Dani,darwin,,198208102006041017,,1116,III/b,Fungsional Umum Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+515,"Cut Vicky Mauliana, A.Md",cut.vicky,,199807222025062005,,1116,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+516,Ermalinda,ermalinda-pppk,,199206022025212050,,1116,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+517,Erlidar,erlidar-pppk,,197909122025212022,,1116,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+518,Zaini,zaini-pppk,,199107132025211044,,1116,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+519,Angga Pratama,anggapratama-pppk,,199605222025211027,,1116,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+520,"Raja Maulana, S.Si, M.Sc",raja,,198212252011011007,,1117,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+521,"Supriadi Y., S.M",supriadi.y,,197703112006041013,,1117,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+522,"Amirah Balqis Safiruddin, S.Tr.Stat.",amirah.balqis,,199810032021042001,,1117,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+523,"Della Fahria Amalina, S.Tr.Stat",della.fahria,,200110232024122001,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+524,"Siti Suratemi, S.Si",siti.suratemi,,199306272022032010,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+525,"M. Ziko Azizi, S.Tr.Stat",ziko.azizi,,200212312024121001,,1117,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+526,"Piyen Lestari, A.Md",piyen.lestari,,198901092012122001,,1117,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+527,"Muhamad Taufik Hidayat, S.Tr.Stat.",muh.tahidayat,,200007072023021004,,1117,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+528,Safrizal Ependi,safrizal.ependi,,197912282006041015,,1117,II/d,Statistisi Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+529,"Angga Lazi Ken Atayna, A.Md.Kom",anggalazi-pppk,,199906112024211001,,1117,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+530,"Arsani, S.Sos.",arsani-pppk,,197812302025211061,,1117,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+531,"Nur Yudha Jati Prakoso, S.Tr.Stat.",nuryudhajatip,,200209152026031003,,1117,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+532,Sirwan,sirwan,,197102022007011004,,1117,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+533,Fitra Satriandi,fitra.satriandi,,198406242009111001,,1117,II/d,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+534,"Cut Meutia, S.Si",cut.meutia,,198212122010032001,,1117,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+535,"Ilmiadi, S.Si.",ilmiadi,,198704162011011014,,1117,III/d,Statistisi Ahli Muda Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+536,Firdaus,firdaus-pppk,,198408102025211058,,1117,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+537,Hendra Syahputra,hendrasyah-pppk,,198006202025211035,,1117,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+538,Maulana Pulih Uripno Ps,maulanauripno-pppk,,198611142025211037,,1117,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+539,Maulidawani,maulidawani-pppk,,199607272025212075,,1117,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+540,"Khairul Andri Lubis, SST., M.Si",khairulandrilubis,,198310102007011012,,1118,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+541,"Rahmayanti, SST",rahmayanti,,198910102012112001,,1118,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+542,"Ilyas, SE",ilyas,,196905281992031002,,1118,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+543,"Fakrurrazi, SE",fakhrurrazi,,198105202006041024,,1118,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+544,"Yanisa Medrina Rahman, SST, M.T.",yanisa,,199006052014101001,,1118,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+545,"Khairul Rijal, S.Tr.Stat",aroeljal,,198610272008011002,,1118,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+546,"Muhammad, S.E",muhammad3,,197202022007011004,,1118,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+547,"Masrida, S.E",masrida,,198302102007011002,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+548,"M.Chairul Mugti, S.Tr.Stat.",chairul.mugti,,199912262023021004,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+549,"Syauki, S.E.",syauki,,197406162003121002,,1118,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+550,"Ii Desika, S.Tr.Stat.",ii.desika,,200212172024122001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+551,"Daniel Angga Sagitama, S.Tr.Stat",danielsagitama,,200112162024121002,,1118,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+552,"Alicia Dwi Syafitri, S.Tr.Stat.",alicia.dwi,,200201022023102001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+553,"Kananda Rafi Pradana, S.Tr.Stat.",kananda.rafi,,200107202023101001,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+554,"Agmi Purnama, S.Tr.Stat.",agmi.purnama,,200008152023022004,,1118,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+555,"Munazir, A.Md",munazir-pppk,,199104222024211001,,1118,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+556,"Fadhilah, SST.",fadhilah-pppk,,199303102025212056,,1118,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+557,"Sari Yunus, S.Si, M.S.M",sariyunus.aw,,198211052011011007,,1118,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+558,"Ismadi, A.Md.",ismadi-pppk,,198705092025211055,,1118,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+559,Mishardi,mishardi-pppk,,199004152025211057,,1118,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+560,Cut Nur Asnani,cutasnani-pppk,,198208302025212030,,1118,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+561,"Tedi Herdiawan, S.Sos, M.A.P",tedi.herdiawan,,197006181994031002,,1171,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+562,Ricky Nasser,ricky.nasser,,197412232009011007,,1171,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+563,"Mursalina, SST, M.Si.",mursalina,,198512012009022007,,1171,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+564,"Muhammad Iqbal Iradah, S.ST, M. Si",iradah,,198006142006021001,,1171,IV/a,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+565,"Widya Syafitri, SST, M.Si.",widyasyafitri,,198906022013112001,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+566,"Leninoviyanti, SE, M.Si.",leni.vianty,,198010152002122003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+567,"Fakhrur Razi, SE, MM",fakhrur.razi,,197803262001121005,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+568,"M. Muflik Teguh Yuli Pitoyo, SST, M.A.",muflikteguh,,199012102014101001,,1171,III/d,Analis Pengelolaan Keuangan APBN Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+569,"Retno Aruming Galih, SST",aruming,,198508212008012003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+570,"Ditalia Trisnawati, SST",ditalia,,198603162009022006,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+571,"Zaini, SE",zaini,,197407091996031003,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+572,"Zia Ul Fajri, S.E",zia.ulfajri,,198610142008011004,,1171,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+573,"Zelvia Yunalda, S.ST",zelvia,,198706052009122004,,1171,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+574,"Isyatun Mardhiah, S.Si.",isyatun,,198411032009022008,,1171,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+575,"Rais Fahmi, S.P",rais.fahmi,,198009162006041015,,1171,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+576,"Sabran, S.M., M.Si.",sabran,,198512292011011015,,1171,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+577,"Muhammad Aja Fajrian, SST, M.Si.",aja.fajrian,,199212272016021001,,1171,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+578,"Adi Nurhady, S.E.",adi.nurhady,,198508152005021002,,1171,III/c,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+579,"Kesuma Millati, S.Stat.",kesuma.millati,,199611222019032001,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+580,"Samsuddin, SE",samsuddin,,197101012006041074,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+581,"Rossana Idris, S.M",rossana,,197606062006042041,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+582,"Rusli, S.E",rusli,,196903011988031001,,1171,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+583,Sriana Ab,sriana.ab,,197904112007012001,,1171,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+584,"Teuku Ferdi Ardiansyah, S.E.",ferdi.ardian,,198801092011011009,,1171,III/b,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+585,Rini Kipiani,rini.kipiani,,198508052007102002,,1171,III/a,Statistisi Mahir BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+586,"Achmad Maulana, S.E.",achmadmaulana-pppk,,198711272025211055,,1171,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+587,"Syofmarlianisyah Putri, S.Tr.Stat.",syofmarlianisyahp,,200303102026032001,,1171,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+588,"Rediansyah Arief, SP, M.Si",reddy,,198308242011011014,,1171,IV/a,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+589,Ari Hermawan,ari.hermawan,,198403192009111001,,1171,II/c,Fungsional Umum Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+590,"Siti Ruqahayati, A.Md.Kb.N.",siti.ruqahayati,,199903032022012001,,1171,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+591,Herman Apriadi,,,199104182025211053,,1171,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+592,"Budi Kurniawan, S.Si",budi_kurniawan,,198504262010031001,,1172,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+593,Abdul Wahid,abdul.wahid,,197207222006041017,,1172,II/d,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+594,"Hendra Gunawan, SE",hendragun,,198106072011011011,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+595,"Muhammad Adil, SH",adil,,198708112011011007,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+596,"Chris Candra Januar Pratama, SST, M.Si.",chris.candra,,199201052014101001,,1172,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+597,"Nur Alfi Syahri, S.Tr.Stat.",alfi.syahri,,199712312021042001,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+598,"Fitria Nur Japar, S.Tr.Stat.",fitria.nur,,200001182022012003,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+599,"Intan Putri Ananda, S.Tr.Stat.",intanputri,,199906162022012003,,1172,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+600,"Dhahratul Aini, S.Stat.",dhahratul.aini,,199604052019032001,,1172,III/b,Analis Pengelolaan Keuangan APBN Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+601,"Muhardi Wansyah, S.Tr.Stat.",muhardi.wansyah,,200103262023101002,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+602,"Navika Artiari, S.Tr.Stat.",navika.artiari,,200101302024122004,,1172,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+603,"Norvan Bagus Ramadhan, S.Tr.Stat.",norvan.ramadhan,,200111262024121003,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+604,"Silvira Berliana, S.Tr.Stat.",silviraberliana,,200003262023022001,,1172,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+605,"Ahmad Thahir, A.Md",ahmadthahir-pppk,,198606022024211002,,1172,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+606,"Hasbi, S.E.",hasbi-pppk,,198806122025211068,,1172,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+607,"Mahfuzah, S.Si, M.Si.",fuzah,,198303312010032001,,1172,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+608,Zulkarnain,zulkarnain-pppk,,197705052025211050,,1172,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+609,Arrazi Warja,arraziwarja-pppk,,199112082025211049,,1172,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+610,Ikhsan,ikhsan-pppk,,199110142025211057,,1172,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+611,Miftahur Rahman,miftahurr-pppk,,198812132025211043,,1172,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+612,"Titiek Zurriyati, S.Si",titiek,,197902252002122004,,1173,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+613,Zuriah,zuriah,,197008161992012001,,1173,III/b,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+614,Afrizal Asyhari,afrizal.asyhari,,198304142014061002,,1173,II/c,Fungsional Umum BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+615,"Farid Yulian, SST, M.S.M",faridy,,198507272008011002,,1173,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+616,"Reza Putra, SST, M.Si.",reza.putra,,198601212009021002,,1173,IV/a,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+617,"Mustika Sari, SST",mustikasari,,198607282009022005,,1173,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+618,"Aulia Feriza, S.P.",feriza,,198806302012121001,,1173,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+619,"Fazri Alam, S.E.",fazri.alam,,198801122010031001,,1173,III/c,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+620,"Haris Noprianto, SST",haris.noprianto,,199012172014101001,,1173,III/c,Pranata Komputer Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+621,"Maulanasyah, SE.",maulanasyah,,198411052006041004,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+622,"Muharrina, S.Si",muharrina,,198609242010032002,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+623,"Adriansyah, S.E.",adriansyah4,,198205192007011001,,1173,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+624,"Adinda Mutiara Sani, S.Stat",adindamutiara,,199609212019032001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+625,"Sawitri, S.Si., M.Sc.",sawitri,,199201282019032001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+626,"Sulaiman, S.E.",sulaiman4,,197306102006041022,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+627,"Nanda Safwati, S.Tr.Stat.",nanda.safwati,,199712212019122001,,1173,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+628,"Tiffani Ayundita Auliannisa, S.Tr.Stat.",tiffaniaul,,200002162023022002,,1173,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+629,"Fani Visara, S.Tr.Stat.",fani.visara,,200009302023022002,,1173,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+630,"Turhamun, S E.",turhamun-pppk,,198808132025211044,,1173,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+631,Riki Hamdani,rikihamdani,,198503272009011007,,1173,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+632,"Mirna Febrina, SST",mirnafebrina,,198902182010122008,,1173,III/d,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+633,"Dahniar, S.M.",dahniar,,198307022005022001,,1173,III/a,Pranata Keuangan APBN Mahir Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+634,Hamdani,ham,,198203282009011008,,1173,III/a,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+635,Budiman,budiman-pppk,,199302062025211035,,1173,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+636,Putri Ayu Wulandari,putriayu-pppk,,199609212025212041,,1173,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+637,Iskandar,iskandar5-pppk,,197403252025211017,,1173,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+638,"Sardi, SE, M.Si.",sardi,,197508191994021001,,1174,IV/b,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+639,"Hani`ah, SST., M.Ec.Dev",haniah,,198311012006022001,,1174,IV/a,Statistisi Ahli Madya BPS Kabupaten/Kota,,madya,madya,madya,madya,madya
+640,"Chalida Rahmi, SE, M.M.",chalida.rahmi,,197410151993122001,,1174,IV/a,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+641,"Suci Maulida, SST",smaulida,,199109112014102001,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+642,Yusmaniar,yusmaniar,,197102111992012001,,1174,III/d,Statistisi Penyelia BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+643,"Januar Fadli, SE, M.S.M",januar.fadli,,198501102011011005,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+644,"Hera Lestari, S.Si",hera.lestari,,198401302011012012,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+645,"Abdullah Nurdin, SE",anurdin,,197104041992011001,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+646,"Yusra, S.E, M.S.M",yusra,,198503262006042002,,1174,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+647,"Ema Juniati, SST",juniati,,198806162008012002,,1174,III/c,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+648,"Nadya Husna, S.Tr.Stat.",nadya.husna,,199907092022012002,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+649,"Salviyana Nurdin, S.Sos",salviyana,,198608022010032002,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+650,"Muhammad Fachry Nazuli, S.Tr.Stat.",fachry.nazuli,,200007142023021003,,1174,III/b,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+651,"Rahmad Riza, S.Tr.Stat",mriza,,198705122008011001,,1174,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+652,"Rizqina Rahmati, S.Tr.Stat.",rizqina.rahmati,,200007272023022005,,1174,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+653,"Fakhrul Razi, A.Md",fakhrulrazi-pppk,,198808172024211002,,1174,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+654,"Mughlisuddin, SE",muglis,,196904241994011001,,1174,IV/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+655,Yusmadi,yusmadi,,197101111992011001,,1174,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+656,"Mulya Saputra, S.Kom",mulyasaputra-pppk,,198711172025211036,,1174,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+657,"Madinawati Suarzi, S.E",madinasuarzi-pppk,,199102272025212036,,1174,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+658,Muhammad Ikhwani,ikhwani,,198504302009111001,,1174,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+659,"Zulkarnaini, S.Si, M.S.M.",zulkarnaini,,197805162011011010,,1174,IV/a,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+660,"Zakiah Azzah, A.Md.Kb.N.",zakiah.azzah,,200011052022012002,,1174,II/c,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+661,"Humaira, A.Md.",humaira-pppk,,198204052025212045,,1174,VII,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+662,Teuku Irmansyah,teukuirman-pppk,,197803092025211039,,1174,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+663,Dimas Zakaria Hardana,dimashardana-pppk,,198803292025211040,,1174,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+664,Abdurrahman,abdurrahman-pppk,,197509202025211027,,1174,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+665,"Adi Putra, SP",adiputra,,197208131993011001,,1175,IV/a,Kepala BPS Kabupaten/Kota,,kepala-kako,kepala-kako,kepala-kako,kepala-kako,kepala-kako
+666,"Arpian, SE",arpian,,198203282011011010,,1175,III/d,Statistisi Ahli Muda BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+667,"Tri Wahyudi, S.Stat.",triwahyudi,,199703012019031001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+668,"Arma Juwita, S.Tr.Stat.",arma.juwita,,199602202019012001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+669,"Suciarti Pertiwi, S.Tr.Stat.",suciarti.pertiwi,,199712012021042001,,1175,III/b,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+670,"Putri Nurhilwa Salsabila, S.Tr.Stat.",putri.nurhilwa,,200107032023102005,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+671,"Jasika Lisayoana, S.Tr.Stat.",yoanalisa,,200001142023022002,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+672,"Rahadian Budi Kusumah, S.Tr.Stat.",rahadian.budi,,200007292023101001,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+673,"Mutia Soraya Adila, S.Tr.Stat.",mutiasoraya,,200002022023022001,,1175,III/a,Pranata Komputer Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+674,"M. Thariq Alfatih, S.Tr.Stat.",thariq.alfatih,,199809092022011002,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+675,"Raden Daffa Ivan Febrio, S.Tr.Stat.",radendaffai,,200002202023021003,,1175,III/a,Statistisi Ahli Pertama BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+676,"Fauzan Helmi, A.Md",fauzanhelmi-pppk,,199510292024211001,,1175,VII,Pranata Komputer Terampil BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+677,Ferri Ahmad Shauqi,shauqi,,197604182006041022,,1175,III/b,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+678,"Sri Deza Kurnia Devi, S.T.",sridevi-pppk,,199412042025212046,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+679,"Tahan Boang Manalu, S.Pd.",,,199105192025211136,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+680,"Joni, S.Pd.",,,198908012025211064,,1175,IX,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+681,Ibrahim,ibrahim5,,198004122009011007,,1175,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+682,"Farid Akbar Arifandi, S.Tr.Stat.",faridakbar,,200110252026031001,,1175,III/a,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+683,"Rizqe Putri Rosalia, A.Md.Stat.",rizqe.rosalia,,200309292026032001,,1175,II/c,Staf BPS Kabupaten/Kota,,pegawai,pegawai,pegawai,pegawai,pegawai
+684,"Erni Lusiani, S.Stat.",erni.lusiani,,199604202019032003,,1175,III/c,Kepala Subbagian Umum,,kasubbag,kasubbag,kasubbag,kasubbag,kasubbag
+685,Supriadi Hamdani Berasa,supriadi.hamdani,,198207082009111002,,1175,II/d,Pranata Keuangan APBN Terampil Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+686,Syah Iman Lavau,syahlavau-pppk,,197903262025211024,,1175,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
+687,Sarno Satriansyah Berasa,,,198710052025211069,,1175,V,Staf Subbagian Umum,,pegawai,pegawai,pegawai,pegawai,pegawai
