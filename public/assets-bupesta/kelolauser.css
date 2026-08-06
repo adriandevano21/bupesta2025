@@ -1,0 +1,385 @@
+/* ========================================================
+   GLOBAL UI & ALERT
+   ======================================================== */
+.alert-modern {
+    background-color: #ecfdf5;
+    color: #065f46;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border-left: 5px solid #10b981;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);
+}
+
+.alert-modern i {
+    font-size: 1.5rem;
+}
+
+/* ========================================================
+   HEADER & FILTER PANEL
+   ======================================================== */
+.header-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+    margin-bottom: 25px;
+    border: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-modern h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.header-modern p {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+.filter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-wrapper label {
+    font-weight: 600;
+    color: #334155;
+}
+
+.select-modern {
+    position: relative;
+    width: 240px;
+}
+
+.select-modern select {
+    width: 100%;
+    appearance: none;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    padding: 10px 35px 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: #0f172a;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.select-modern select:focus {
+    border-color: #3b82f6;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.select-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+/* ========================================================
+   KARTU TABEL & DATATABLES OVERRIDE
+   ======================================================== */
+.kartu-tabel {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f1f5f9;
+}
+
+/* Styling Tabel Modern */
+.modern-table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+}
+
+.modern-table th,
+.modern-table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.modern-table thead th {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+}
+
+/* Custom Header Grouping */
+.group-header {
+    border-bottom: 2px solid #cbd5e1 !important;
+    background-color: #f8fafc;
+}
+
+.sub-header th {
+    font-size: 0.75rem;
+    padding: 10px;
+}
+
+.text-blue {
+    color: #2563eb !important;
+}
+
+.text-orange {
+    color: #ea580c !important;
+}
+
+.text-green {
+    color: #16a34a !important;
+}
+
+.text-purple {
+    color: #9333ea !important;
+}
+
+/* Custom Background Kolom */
+.col-user {
+    background-color: #ffffff;
+    width: 13%;
+}
+
+.col-simpeg {
+    background-color: #f8fafc;
+    color: #475569;
+    width: 13%;
+}
+
+.col-role {
+    background-color: #fffbeb;
+    width: 8%;
+    text-align: center;
+}
+
+/* Borders & Utility */
+.border-right {
+    border-right: 1px solid #e2e8f0 !important;
+}
+
+.border-left {
+    border-left: 1px solid #e2e8f0 !important;
+}
+
+.bg-light {
+    background-color: #f8fafc !important;
+}
+
+/* DataTables UI Fixes */
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 6px 15px;
+    margin-left: 10px;
+    transition: 0.2s;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+    outline: none;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f1f5f9 !important;
+}
+
+/* STICKY COLUMN KHUSUS PROFIL (Biar tidak ikut kegeser) */
+.sticky-col {
+    position: sticky;
+    left: 0;
+    background-color: #ffffff;
+    /* Pastikan background putih padat */
+    z-index: 2;
+    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.1);
+}
+
+.modern-table thead th.sticky-col {
+    background-color: #f8fafc;
+    z-index: 3;
+    /* Header sticky harus di atas cell sticky biasa */
+}
+
+/* ========================================================
+   KOMPONEN DI DALAM TABEL
+   ======================================================== */
+/* Profil Pegawai */
+.profil-ringkas {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 250px;
+}
+
+.avatar-inisial {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.detail-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.nama-peg {
+    font-weight: 700;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.nip-peg {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-family: monospace;
+}
+
+.username-peg {
+    font-size: 0.75rem;
+    color: #3b82f6;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Badge Simpeg & Teks */
+.badge-simpeg {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    font-family: monospace;
+    border: 1px solid #bae6fd;
+}
+
+.teks-kecil {
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+/* Status Sinkronisasi */
+.status-pill {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-ok {
+    background: #dcfce7;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.status-bad {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* ========================================================
+   INLINE EDITING STYLING
+   ======================================================== */
+.editable-cell {
+    display: inline-block;
+    padding: 4px 8px;
+    border-bottom: 1px dashed #94a3b8;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    min-width: 50px;
+    text-align: center;
+    color: #334155;
+    font-size: 0.85rem;
+}
+
+.editable-cell:hover {
+    background-color: #fef3c7;
+    border-color: #d97706;
+    color: #d97706;
+}
+
+.editable-cell.mismatch {
+    color: #dc2626;
+    font-weight: 700;
+    border-bottom-color: #fca5a5;
+}
+
+.editable-cell.match {
+    color: #059669;
+    font-weight: 700;
+    border-bottom-color: #6ee7b7;
+}
+
+/* Khusus warna kolom role */
+.col-role .editable-cell {
+    border-bottom-color: #d8b4fe;
+}
+
+.inline-input {
+    width: 100px;
+    padding: 4px 8px;
+    border: 2px solid #3b82f6;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    outline: none;
+    text-align: center;
+    animation: fadeIn 0.2s;
+}
+
+.input-lebar {
+    width: 160px;
+    text-align: left;
+}
+
+.inline-input.saving {
+    background-color: #f1f5f9;
+    color: #94a3b8;
+    cursor: wait;
+    border-color: #94a3b8;
+    box-shadow: none;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

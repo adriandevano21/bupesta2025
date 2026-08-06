@@ -70,34 +70,40 @@ Route::controller(BupestaTimKerjaController::class)->group(function () {
     Route::post('/timkerja/store', 'store');
     Route::put('/timkerja/update/{id}', 'update');
     Route::post('/timkerja/update-ketua-kabkota', 'updateKetuaKabKota');
-    // Route untuk mengambil detail 1 kegiatan berdasarkan kode_kegiatannya (Format JSON)
     Route::get('/kegiatan/get-data/{kode_kegiatan}', 'getDetailKegiatan');
     Route::post('/kegiatan/update-pjk', 'updatePjk')->name('kegiatan.updatePjk');
     Route::post('/kegiatan/update-info-umum', 'updateInfoUmum')->name('kegiatan.update-info');
 });
 
 Route::controller(UserController::class)->group(function () {
-    Route::put('/profil/lengkapi', 'update')->name('profil.updateLengkap');
-    Route::get('/pegawai/get-profil/{nip}', 'getProfilPegawai');
+    // --------------------------------------------------------
+    // ROUTE PROFIL & API PEGAWAI
+    // --------------------------------------------------------
+    // Route ini dipanggil oleh Modal "Lengkapi Profil Anda"
+    Route::put('/profil/update', 'updateProfil')->name('profil.updateLengkap');
+    Route::get('/profil-pegawai/{nip}', 'getProfilPegawai')->name('profil.get');
+
+    // --------------------------------------------------------
+    // ROUTE KELOLA USER (PENGGUNA & HAK AKSES)
+    // --------------------------------------------------------
+    Route::get('/kelolauser', 'kelolaUserIndex')->name('kelolauser.index');
+    Route::put('/kelolauser/update', 'updateKelolaUser')->name('kelolauser.update');
+    // Tambahkan atau pastikan rute update via AJAX ini tersedia
+    Route::post('/kelolauser/update-inline', 'updateInline')->name('kelolauser.updateInline');
+
+    // --------------------------------------------------------
+    // ROUTE ADMIN SIMPEG (IMPOR & HAPUS VERSI)
+    // --------------------------------------------------------
     Route::get('/adminbupesta', 'adminbupesta')->name('simpeg.index');
-    Route::post('/import-simpeg', 'importDatasimpeg')->name('simpeg.import');
-    Route::delete('/simpeg/delete-by-versi', 'destroyByVersiData')->name('simpeg.delete_by_versi');
+    Route::post('/adminbupesta/import', 'importDatasimpeg')->name('simpeg.import');
+    Route::delete('/adminbupesta/hapus-versi', 'destroyByVersiData')->name('simpeg.destroyVersi');
 });
 
 Route::controller(IstController::class)->group(function () {
     Route::get('/ist', 'index')->name('ist.index');
-
-    // Pengaturan Periode & Informasi oleh Admin
     Route::post('/ist/update-periode', 'updatePeriode')->name('ist.updatePeriode');
-
-    // Submit Kuesioner Tahap 1_1
     Route::post('/ist/store-penilaian', 'storePenilaian')->name('ist.storePenilaian');
-
-    // Pejabat Menetapkan Kandidat Tahap 1_2
     Route::post('/ist/tetapkan', 'tetapkanKandidat')->name('ist.tetapkan');
-
-    // Pejabat Membatalkan Kandidat Tahap 1_2
     Route::post('/ist/batalkan', 'batalkanKandidat')->name('ist.batalkan');
-
     Route::post('/ist/store-pertanyaan', 'storePertanyaan')->name('ist.storePertanyaan');
 });

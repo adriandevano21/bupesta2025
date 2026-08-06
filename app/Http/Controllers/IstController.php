@@ -6,6 +6,7 @@ use App\Models\Bupesta_User;
 use App\Models\Ist_PenilaianTahap1;
 use App\Models\Ist_Periode;
 use App\Models\Ist_Pertanyaan;
+use App\Models\UserActivity;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,7 +16,7 @@ class IstController extends Controller
     public function index(Request $request)
     {
         // 1. DEFAULT AWAL & LOGGING (Tahap Testing)
-        // UserActivity::log("https://bupesta.web.bps.go.id/ist");
+        UserActivity::log("https://bupesta.web.bps.go.id/ist");
 
         // Ambil tahun dari request, default ke tahun saat ini
         $tahun = $request->input('tahun', date('Y'));
