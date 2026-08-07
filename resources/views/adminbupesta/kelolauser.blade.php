@@ -87,10 +87,18 @@
                     </div>
 
                     <div class="filter-wrapper">
-                        <label for="filter_satker"><i class="fa-solid fa-filter"></i> Satker:</label>
+                        {{-- TOMBOL SYNC/INSERT PEGAWAI BARU --}}
+                        <form action="{{ route('kelolauser.syncBaru') }}" method="POST" class="d-inline"
+                            onsubmit="return confirm('Proses ini akan meng-insert pegawai yang belum ada, dan mengecek pegawai yang telah keluar. Lanjutkan?');">
+                            @csrf
+                            <button type="submit" class="btn-sync-baru">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> Tarik Data Baru
+                            </button>
+                        </form>
+
                         <div class="select-modern">
                             <select id="filter_satker" class="input-form">
-                                <option value="">Semua Wilayah</option>
+                                <option value="">Semua Wilayah (Satker)</option>
                                 @foreach ($data['list_satker'] as $satker)
                                     <option value="{{ $satker }}">{{ $satker }}</option>
                                 @endforeach
@@ -121,7 +129,7 @@
                                     <th class="col-simpeg border-right">Data SIMPEG</th>
                                     <th class="col-user">Data App</th>
                                     <th class="col-simpeg">Data SIMPEG</th>
-                                    {{-- Kolom Aplikasi Dipecah Jelas --}}
+                                    {{-- Kolom Aplikasi --}}
                                     <th class="col-role border-left">BuPeSta</th>
                                     <th class="col-role">Jazirah</th>
                                     <th class="col-role">Cinema</th>
@@ -132,6 +140,9 @@
                             <tbody>
                                 @foreach ($data['users'] as $u)
                                     @php
+                                        // LOGIKA CEK EKSISTENSI & KESAMAAN
+                                        $isDiSimpeg = !empty($u->nama_simpeg) || !empty($u->satker_simpeg);
+
                                         $isSatkerSama = $u->kode_satker == $u->kode_wilayah;
                                         $isJabatanSama =
                                             strtolower(trim($u->jabatan ?? '')) ==
@@ -139,17 +150,21 @@
                                         $isGolonganSama =
                                             strtolower(trim($u->golongan ?? '')) ==
                                             strtolower(trim($u->golongan_simpeg ?? ''));
-                                        $isSinkron =
-                                            $u->kode_wilayah && $isSatkerSama && $isJabatanSama && $isGolonganSama;
+
+                                        $isSinkron = $isDiSimpeg && $isSatkerSama && $isJabatanSama && $isGolonganSama;
                                     @endphp
                                     <tr>
                                         {{-- PROFIL PEGAWAI (DIFREEZE / STICKY) --}}
                                         <td class="sticky-col sticky-col-1 border-right">
                                             <div class="profil-ringkas">
-                                                <div class="avatar-inisial">{{ substr($u->name ?? 'A', 0, 1) }}</div>
+                                                <div class="avatar-inisial {{ !$isDiSimpeg ? 'bg-abu' : '' }}">
+                                                    {{ substr($u->name ?? 'A', 0, 1) }}
+                                                </div>
                                                 <div class="detail-info">
-                                                    <span
-                                                        class="nama-peg">{{ $u->nama_simpeg ?? ($u->name ?? 'Kosong') }}</span>
+                                                    <span class="nama-peg"
+                                                        style="{{ !$isDiSimpeg ? 'text-decoration: line-through; color: #94a3b8;' : '' }}">
+                                                        {{ $u->name ?: ($u->nama_simpeg ?: 'Kosong') }}
+                                                    </span>
                                                     <span class="nip-peg">{{ $u->nip_pegawai }}</span>
                                                     <span class="username-peg"><i class="fa-solid fa-at"></i>
                                                         {{ $u->username }}</span>
@@ -159,20 +174,27 @@
 
                                         {{-- SATKER --}}
                                         <td class="col-user">
-                                            <span class="editable-cell {{ $isSatkerSama ? 'match' : 'mismatch' }}"
+                                            <span
+                                                class="editable-cell {{ $isSatkerSama && $isDiSimpeg ? 'match' : 'mismatch' }}"
                                                 data-inline-edit="true" data-nip="{{ $u->nip_pegawai }}"
                                                 data-kolom="kode_satker">
                                                 {{ $u->kode_satker ?: 'Klik_Isi' }}
                                             </span>
                                         </td>
                                         <td class="col-simpeg border-right">
-                                            <span class="badge-simpeg">{{ $u->kode_wilayah ?: '-' }}</span>
-                                            <div class="teks-kecil mt-1">{{ $u->satker_simpeg ?: '-' }}</div>
+                                            @if ($isDiSimpeg)
+                                                <span class="badge-simpeg">{{ $u->kode_wilayah ?: '-' }}</span>
+                                                <div class="teks-kecil mt-1">{{ $u->satker_simpeg ?: '-' }}</div>
+                                            @else
+                                                <div class="teks-kecil" style="color: #ef4444;"><i
+                                                        class="fa-solid fa-ban"></i> Tdk Ada</div>
+                                            @endif
                                         </td>
 
                                         {{-- JABATAN --}}
                                         <td class="col-user">
-                                            <span class="editable-cell {{ $isJabatanSama ? 'match' : 'mismatch' }}"
+                                            <span
+                                                class="editable-cell {{ $isJabatanSama && $isDiSimpeg ? 'match' : 'mismatch' }}"
                                                 data-inline-edit="true" data-nip="{{ $u->nip_pegawai }}"
                                                 data-kolom="jabatan">
                                                 {{ $u->jabatan ?: 'Klik_Isi' }}
@@ -184,7 +206,8 @@
 
                                         {{-- GOLONGAN --}}
                                         <td class="col-user">
-                                            <span class="editable-cell {{ $isGolonganSama ? 'match' : 'mismatch' }}"
+                                            <span
+                                                class="editable-cell {{ $isGolonganSama && $isDiSimpeg ? 'match' : 'mismatch' }}"
                                                 data-inline-edit="true" data-nip="{{ $u->nip_pegawai }}"
                                                 data-kolom="golongan">
                                                 {{ $u->golongan ?: 'Klik_Isi' }}
@@ -194,7 +217,7 @@
                                             <strong>{{ $u->golongan_simpeg ?: '-' }}</strong>
                                         </td>
 
-                                        {{-- AKSES (ROLE) SEMUA APLIKASI SEJAJAR --}}
+                                        {{-- AKSES (ROLE) --}}
                                         <td class="col-role border-left">
                                             <span class="editable-cell fw-bold text-dark" data-inline-edit="true"
                                                 data-nip="{{ $u->nip_pegawai }}" data-kolom="bupesta">
@@ -226,14 +249,17 @@
                                             </span>
                                         </td>
 
-                                        {{-- STATUS SINKRON --}}
+                                        {{-- STATUS 3 TINGKAT (Tdk Ada, Sama, Beda) --}}
                                         <td class="text-center border-left bg-light">
-                                            @if ($isSinkron)
+                                            @if (!$isDiSimpeg)
+                                                <div class="status-pill status-ghost"><i
+                                                        class="fa-solid fa-ghost"></i> Tidak Ada</div>
+                                            @elseif($isSinkron)
                                                 <div class="status-pill status-ok"><i class="fa-solid fa-check"></i>
                                                     Sama</div>
                                             @else
-                                                <div class="status-pill status-bad"><i class="fa-solid fa-xmark"></i>
-                                                    Beda</div>
+                                                <div class="status-pill status-warn"><i
+                                                        class="fa-solid fa-triangle-exclamation"></i> Beda</div>
                                             @endif
                                         </td>
                                     </tr>

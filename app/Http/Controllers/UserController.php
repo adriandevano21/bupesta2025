@@ -223,4 +223,78 @@ class UserController extends Controller
 
         return redirect()->back()->with('error', 'Gagal menghapus data atau tidak ada data pada versi tanggal tersebut.');
     }
+
+    // =========================================================================
+    // FITUR TAMBAH PEGAWAI OTOMATIS (SINKRONISASI DARI SIMPEG)
+    // =========================================================================
+    public function syncPegawaiBaru()
+    {
+        // 1. Ambil semua NIP yang saat ini sudah terdaftar di Bupesta User
+        $userNips = DB::table('bupesta_user')->pluck('nip_pegawai')->toArray();
+        
+        // 2. Ambil data SIMPEG yang NIP-nya BELUM ADA di Bupesta User
+        $simpegBaru = DB::table('bupesta_datasimpeg')
+            ->whereNotIn('nip', $userNips)
+            ->whereNotNull('nip')
+            ->where('nip', '!=', '')
+            ->get();
+
+        $insertData = [];
+        foreach ($simpegBaru as $simpeg) {
+            
+            // PEMETAAN WILAYAH KE KODE SATKER (Sama seperti logika SQL sebelumnya)
+            $wil = strtolower($simpeg->wilayah);
+            $kodeSatker = null;
+            if (strpos($wil, 'simeulue') !== false) $kodeSatker = '1101';
+            elseif (strpos($wil, 'aceh singkil') !== false) $kodeSatker = '1102';
+            elseif (strpos($wil, 'aceh selatan') !== false) $kodeSatker = '1103';
+            elseif (strpos($wil, 'aceh tenggara') !== false) $kodeSatker = '1104';
+            elseif (strpos($wil, 'aceh timur') !== false) $kodeSatker = '1105';
+            elseif (strpos($wil, 'aceh tengah') !== false) $kodeSatker = '1106';
+            elseif (strpos($wil, 'aceh barat daya') !== false) $kodeSatker = '1112';
+            elseif (strpos($wil, 'aceh barat') !== false) $kodeSatker = '1107';
+            elseif (strpos($wil, 'aceh besar') !== false) $kodeSatker = '1108';
+            elseif (strpos($wil, 'pidie jaya') !== false) $kodeSatker = '1118';
+            elseif (strpos($wil, 'pidie') !== false) $kodeSatker = '1109';
+            elseif (strpos($wil, 'bireuen') !== false) $kodeSatker = '1110';
+            elseif (strpos($wil, 'aceh utara') !== false) $kodeSatker = '1111';
+            elseif (strpos($wil, 'gayo lues') !== false) $kodeSatker = '1113';
+            elseif (strpos($wil, 'aceh tamiang') !== false) $kodeSatker = '1114';
+            elseif (strpos($wil, 'nagan raya') !== false) $kodeSatker = '1115';
+            elseif (strpos($wil, 'aceh jaya') !== false) $kodeSatker = '1116';
+            elseif (strpos($wil, 'bener meriah') !== false) $kodeSatker = '1117';
+            elseif (strpos($wil, 'banda aceh') !== false) $kodeSatker = '1171';
+            elseif (strpos($wil, 'sabang') !== false) $kodeSatker = '1172';
+            elseif (strpos($wil, 'langsa') !== false) $kodeSatker = '1173';
+            elseif (strpos($wil, 'lhokseumawe') !== false) $kodeSatker = '1174';
+            elseif (strpos($wil, 'subulussalam') !== false) $kodeSatker = '1175';
+            elseif (strpos($wil, 'prov. aceh') !== false || strpos($wil, 'provinsi aceh') !== false) $kodeSatker = '1100';
+
+            // Siapkan data untuk di-insert (menggunakan NIP sebagai default username sementara)
+            $insertData[] = [
+                'nip_pegawai' => $simpeg->nip,
+                'name'        => $simpeg->nama,
+                'username'    => $simpeg->nip, 
+                'kode_satker' => $kodeSatker,
+                'jabatan'     => $simpeg->jabatan,
+                'golongan'    => $simpeg->gol_akhir,
+                'bupesta'     => 'user', // Set default role
+                'created_at'  => now(),
+                'updated_at'  => now()
+            ];
+        }
+
+        // 3. Masukkan ke database (Menggunakan array_chunk agar aman dari over-memory jika datanya ribuan)
+        if (count($insertData) > 0) {
+            foreach (array_chunk($insertData, 100) as $chunk) {
+                DB::table('bupesta_user')->insert($chunk);
+            }
+        }
+
+        // 4. Hitung juga berapa User yang tidak ada di SIMPEG (sebagai laporan)
+        $simpegNips = DB::table('bupesta_datasimpeg')->pluck('nip')->toArray();
+        $userTidakAda = DB::table('bupesta_user')->whereNotIn('nip_pegawai', $simpegNips)->count();
+
+        return redirect()->back()->with('success', count($insertData) . ' Pegawai baru berhasil di-insert! Dan ditemukan ' . $userTidakAda . ' pegawai yang tidak ada di data SIMPEG.');
+    }
 }

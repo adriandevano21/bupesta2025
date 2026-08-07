@@ -89,7 +89,7 @@ async function lihatProfilPegawai(elemen) {
     if (!nip) return;
 
     try {
-        const res = await fetch(`/pegawai/get-profil/${nip}`);
+        const res = await fetch(`/profil-pegawai/${nip}`);
         const data = await res.json();
 
         if (data && !data.error) {

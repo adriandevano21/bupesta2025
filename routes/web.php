@@ -76,24 +76,12 @@ Route::controller(BupestaTimKerjaController::class)->group(function () {
 });
 
 Route::controller(UserController::class)->group(function () {
-    // --------------------------------------------------------
-    // ROUTE PROFIL & API PEGAWAI
-    // --------------------------------------------------------
-    // Route ini dipanggil oleh Modal "Lengkapi Profil Anda"
     Route::put('/profil/update', 'updateProfil')->name('profil.updateLengkap');
     Route::get('/profil-pegawai/{nip}', 'getProfilPegawai')->name('profil.get');
-
-    // --------------------------------------------------------
-    // ROUTE KELOLA USER (PENGGUNA & HAK AKSES)
-    // --------------------------------------------------------
     Route::get('/kelolauser', 'kelolaUserIndex')->name('kelolauser.index');
     Route::put('/kelolauser/update', 'updateKelolaUser')->name('kelolauser.update');
-    // Tambahkan atau pastikan rute update via AJAX ini tersedia
     Route::post('/kelolauser/update-inline', 'updateInline')->name('kelolauser.updateInline');
-
-    // --------------------------------------------------------
-    // ROUTE ADMIN SIMPEG (IMPOR & HAPUS VERSI)
-    // --------------------------------------------------------
+    Route::post('/kelolauser/sync-baru', 'syncPegawaiBaru')->name('kelolauser.syncBaru');
     Route::get('/adminbupesta', 'adminbupesta')->name('simpeg.index');
     Route::post('/adminbupesta/import', 'importDatasimpeg')->name('simpeg.import');
     Route::delete('/adminbupesta/hapus-versi', 'destroyByVersiData')->name('simpeg.destroyVersi');
