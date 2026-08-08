@@ -14,12 +14,15 @@
 
     <div>
         <ul class="menuatas">
+            {{-- id_judul = 1 --}}
             <li>
-                <a href="/dashboard-kinerja?tahun={{ $tahunDipilih }}">
+                <a href="/dashboard-kinerja?tahun={{ $tahunDipilih }}"
+                    class="{{ $data['id_judul'] === '1' ? 'active' : '' }}">
                     <i class="fa-solid fa-tachometer-alt"></i><span>&nbsp; Kinerja</span>
                 </a>
             </li>
 
+            {{-- id_judul = 2 --}}
             <li class="dropdown-menuatas">
                 <a href="#" class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
                     <i class="fa-solid fa-bowl-rice"></i><span>&nbsp; BuPeSta</span>
@@ -54,22 +57,34 @@
                 </ul>
             </li>
 
+            {{-- id_judul = 3 --}}
             <li>
                 <a href="/jazirah-dashboard?tahun={{ $tahunDipilih }}"
                     class="{{ $data['id_judul'] === '3' ? 'active' : '' }}">
                     <i class="fa-solid fa-file"></i><span>&nbsp; Jazirah</span>
                 </a>
             </li>
+
+            {{-- id_judul = 4 --}}
             <li>
-                <a href="/cinema?tahun={{ $tahunDipilih }}">
+                <a href="/ist?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '4' ? 'active' : '' }}">
+                    <i class="fa-solid fa-award"></i><span>&nbsp; IST</span>
+                </a>
+            </li>
+
+            {{-- id_judul = 5 --}}
+            <li>
+                <a href="/cinema?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '5' ? 'active' : '' }}">
                     <i class="fa-solid fa-film"></i><span>&nbsp; Cinema</span>
                 </a>
             </li>
+
             <li>
                 <a href="https://qna.bpsaceh.com/">
                     <i class="fa-regular fa-folder"></i><span>&nbsp; Kotak</span>
                 </a>
             </li>
+
             <li>
                 <a href="#" id="showModal">
                     <i class="fa-solid fa-book"></i><span>&nbsp; Panduan</span>

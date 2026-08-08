@@ -85,6 +85,13 @@ Route::controller(UserController::class)->group(function () {
     Route::get('/adminbupesta', 'adminbupesta')->name('simpeg.index');
     Route::post('/adminbupesta/import', 'importDatasimpeg')->name('simpeg.import');
     Route::delete('/adminbupesta/hapus-versi', 'destroyByVersiData')->name('simpeg.destroyVersi');
+    Route::get('/hukdispegawai', 'hukdispegawai')->name('hukdispegawai.index');
+    Route::post('/hukdispegawai/store', 'storeHukdis')->name('hukdispegawai.store');
+    Route::post('/hukdispegawai/delete', 'deleteHukdis')->name('hukdispegawai.delete');
+    Route::get('/datasimpeg', 'dataSimpeg')->name('datasimpeg.index');
+    Route::post('/datasimpeg/store', 'storeDataSimpeg')->name('datasimpeg.store');
+    Route::post('/datasimpeg/update', 'updateDataSimpeg')->name('datasimpeg.update');
+    Route::post('/datasimpeg/delete', 'deleteDataSimpeg')->name('datasimpeg.delete');
 });
 
 Route::controller(IstController::class)->group(function () {

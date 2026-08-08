@@ -23,11 +23,11 @@ class IstController extends Controller
 
         $data = [];
         // Hardcode NIP untuk testing role admin (seperti yang Anda tentukan sebelumnya)
-        $data["user_active"] = Bupesta_User::where('nip_pegawai', '197903262025211024')->first();
+        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
         // Jika sudah masuk tahap production, gunakan kode di bawah ini:
         // $data["user_active"] = Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
 
-        $data["id_judul"] = "2"; // Agar menu navbar BuPeSta tetap menyala
+        $data["id_judul"] = "4"; // Agar menu navbar BuPeSta tetap menyala
         $data["judul"] = "Pemilihan IST";
 
         // Menentukan role pengguna aktif
@@ -399,7 +399,7 @@ class IstController extends Controller
         $periodeId = $request->input('periode_id');
         // Jika sudah tahap production, sebaiknya pakai: auth()->user()->nip_pegawai
         // Sementara kita pakai input hidden dari blade atau default data dummy admin:
-        $nipPemilih = $request->input('nip_pemilih') ?? '197903262025211024';
+        $nipPemilih = $request->input('nip_pemilih') ?? '199906212022011001';
         // $nipPemilih = auth()->user()->nip_pegawai;
 
         // Menangkap array multi-dimensi dari kuesioner.

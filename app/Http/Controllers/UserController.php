@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bupesta_User;
 use App\Models\Bupesta_Datasimpeg;
 use App\Imports\DatasimpegImport;
+use App\Models\Bupesta_Hukdis;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -231,7 +232,7 @@ class UserController extends Controller
     {
         // 1. Ambil semua NIP yang saat ini sudah terdaftar di Bupesta User
         $userNips = DB::table('bupesta_user')->pluck('nip_pegawai')->toArray();
-        
+
         // 2. Ambil data SIMPEG yang NIP-nya BELUM ADA di Bupesta User
         $simpegBaru = DB::table('bupesta_datasimpeg')
             ->whereNotIn('nip', $userNips)
@@ -241,7 +242,7 @@ class UserController extends Controller
 
         $insertData = [];
         foreach ($simpegBaru as $simpeg) {
-            
+
             // PEMETAAN WILAYAH KE KODE SATKER (Sama seperti logika SQL sebelumnya)
             $wil = strtolower($simpeg->wilayah);
             $kodeSatker = null;
@@ -274,7 +275,7 @@ class UserController extends Controller
             $insertData[] = [
                 'nip_pegawai' => $simpeg->nip,
                 'name'        => $simpeg->nama,
-                'username'    => $simpeg->nip, 
+                'username'    => $simpeg->nip,
                 'kode_satker' => $kodeSatker,
                 'jabatan'     => $simpeg->jabatan,
                 'golongan'    => $simpeg->gol_akhir,
@@ -296,5 +297,185 @@ class UserController extends Controller
         $userTidakAda = DB::table('bupesta_user')->whereNotIn('nip_pegawai', $simpegNips)->count();
 
         return redirect()->back()->with('success', count($insertData) . ' Pegawai baru berhasil di-insert! Dan ditemukan ' . $userTidakAda . ' pegawai yang tidak ada di data SIMPEG.');
+    }
+
+    public function hukdispegawai()
+    {
+        $data['judul'] = 'Hukuman Disiplin Pegawai';
+        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
+        $data['id_judul'] = 0;
+        $data['hukdis'] = Bupesta_Hukdis::orderBy('created_at', 'desc')->get();
+
+        return view('adminbupesta.hukdispegawai', compact('data'));
+    }
+
+    // Fungsi Memproses Copy-Paste Excel
+    public function storeHukdis(Request $request)
+    {
+        $pastedData = $request->input('excel_data');
+
+        if (empty($pastedData)) {
+            return back()->with('error', 'Data tidak boleh kosong!');
+        }
+
+        // Pisahkan data per baris (Enter)
+        $rows = explode("\n", trim($pastedData));
+        $insertData = [];
+
+        foreach ($rows as $row) {
+            // Pisahkan data per kolom (Tab) dari Excel
+            $cols = explode("\t", trim($row));
+
+            // Pastikan baris yang di-paste setidaknya punya 6 kolom
+            if (count($cols) >= 6) {
+                $insertData[] = [
+                    'nip_bps'    => $cols[0],
+                    'nama'       => $cols[1],
+                    'satker'     => $cols[2],
+                    'jenis'      => $cols[3],
+                    'hukuman'    => $cols[4],
+                    'tmt_mulai'  => $cols[5],
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
+        }
+
+        if (count($insertData) > 0) {
+            Bupesta_Hukdis::insert($insertData);
+            return back()->with('success', count($insertData) . ' Data Hukdis Berhasil Ditambahkan!');
+        }
+
+        return back()->with('error', 'Gagal! Format baris tidak sesuai (Pastikan copy persis 6 kolom dari Excel).');
+    }
+
+    // Fungsi Hapus Data (Sebagian / Semua)
+    public function deleteHukdis(Request $request)
+    {
+        // Jika tombol "Hapus Semua" yang ditekan
+        if ($request->action === 'all') {
+            Bupesta_Hukdis::truncate(); // truncate() jauh lebih cepat & me-reset ID ke 1
+            return back()->with('success', 'Seluruh data Riwayat Hukdis berhasil dikosongkan!');
+        }
+
+        // Jika tombol "Hapus Terpilih" yang ditekan
+        if ($request->action === 'selected' && !empty($request->ids)) {
+            Bupesta_Hukdis::whereIn('id', $request->ids)->delete();
+            return back()->with('success', count($request->ids) . ' Data Hukdis terpilih berhasil dihapus!');
+        }
+
+        return back()->with('error', 'Tidak ada aksi atau data yang dipilih.');
+    }
+
+    // 1. Menampilkan Halaman Data Simpeg
+    public function dataSimpeg()
+    {
+        $data['judul'] = 'Data Pegawai (SIMPEG)';
+        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
+        $data['id_judul'] = 0;
+        $data['simpeg'] = \App\Models\Bupesta_Datasimpeg::orderBy('created_at', 'desc')->get();
+
+        return view('adminbupesta.admin', compact('data')); // Sesuaikan dengan nama file blade Anda
+    }
+
+    // 2. Memproses Copy-Paste Excel & Tanggal Global
+    public function storeDataSimpeg(Request $request)
+    {
+        $pastedData = $request->input('excel_data');
+        $tanggalVersi = $request->input('tanggal_versidata'); // Ambil input tanggal tunggal
+
+        if (empty($pastedData) || empty($tanggalVersi)) {
+            return back()->with('error', 'Data Excel dan Tanggal Versi Data tidak boleh kosong!');
+        }
+
+        $rows = explode("\n", trim($pastedData));
+        $insertData = [];
+
+        foreach ($rows as $row) {
+            // Bersihkan \r jika copy-paste dari Windows, lalu pecah berdasarkan Tab
+            $cols = explode("\t", rtrim($row, "\r"));
+
+            // Pastikan baris memiliki minimal 14 kolom dari Excel
+            if (count($cols) >= 14) {
+                $insertData[] = [
+                    'nip_bps'           => $cols[0],
+                    'nip'               => $cols[1],
+                    'nama'              => $cols[2],
+                    'kode_org'          => $cols[3],
+                    'jabatan'           => $cols[4],
+                    'wilayah'           => $cols[5],
+                    'tmt_jab'           => $cols[6],
+                    'gol_akhir'         => $cols[7],
+                    'tmt_gol'           => $cols[8],
+                    'status'            => $cols[9],
+                    'pend_sk'           => $cols[10],
+                    'mks_thn'           => $cols[11],
+                    'mks_bln'           => $cols[12],
+                    'tempat_lahir'      => $cols[13],
+                    'tanggal_versidata' => $tanggalVersi, // Disuntikkan ke semua baris
+                    'created_at'        => now(),
+                    'updated_at'        => now(),
+                ];
+            }
+        }
+
+        if (count($insertData) > 0) {
+            \App\Models\Bupesta_Datasimpeg::insert($insertData);
+            return back()->with('success', count($insertData) . ' Data SIMPEG Berhasil Ditambahkan untuk versi tanggal ' . $tanggalVersi);
+        }
+
+        return back()->with('error', 'Gagal! Format baris tidak sesuai (Pastikan copy persis 14 kolom dari Excel).');
+    }
+
+    // 3. Mengupdate Data Individual (Menu Edit)
+    public function updateDataSimpeg(Request $request)
+    {
+        $request->validate(['id_edit' => 'required']);
+
+        \App\Models\Bupesta_Datasimpeg::where('id', $request->id_edit)->update([
+            'nip_bps'           => $request->nip_bps,
+            'nip'               => $request->nip,
+            'nama'              => $request->nama,
+            'kode_org'          => $request->kode_org,
+            'jabatan'           => $request->jabatan,
+            'wilayah'           => $request->wilayah,
+            'tmt_jab'           => $request->tmt_jab,
+            'gol_akhir'         => $request->gol_akhir,
+            'tmt_gol'           => $request->tmt_gol,
+            'status'            => $request->status,
+            'pend_sk'           => $request->pend_sk,
+            'mks_thn'           => $request->mks_thn,
+            'mks_bln'           => $request->mks_bln,
+            'tempat_lahir'      => $request->tempat_lahir,
+            'tanggal_versidata' => $request->tanggal_versidata,
+        ]);
+
+        return back()->with('success', 'Data Pegawai atas nama ' . $request->nama . ' berhasil diperbarui!');
+    }
+
+    // Fungsi Hapus Data SIMPEG (Satuan, Terpilih, atau Semua)
+    public function deleteDataSimpeg(Request $request)
+    {
+        // 1. Jika tombol "Kosongkan Tabel" ditekan
+        if ($request->action === 'all') {
+            \App\Models\Bupesta_Datasimpeg::truncate();
+            return back()->with('success', 'Seluruh Data SIMPEG berhasil dikosongkan!');
+        }
+
+        // 2. Jika tombol "Hapus Terpilih" ditekan
+        if ($request->action === 'selected' && !empty($request->ids)) {
+            \App\Models\Bupesta_Datasimpeg::whereIn('id', $request->ids)->delete();
+            return back()->with('success', count($request->ids) . ' Data SIMPEG terpilih berhasil dihapus!');
+        }
+
+        // 3. Jika tombol "Hapus Satuan" di baris tabel ditekan
+        if ($request->action === 'single' && !empty($request->id_delete)) {
+            \App\Models\Bupesta_Datasimpeg::where('id', $request->id_delete)->delete();
+            return back()->with('success', 'Data pegawai berhasil dihapus!');
+        }
+
+        return back()->with('error', 'Tidak ada data atau aksi yang dipilih.');
     }
 }
