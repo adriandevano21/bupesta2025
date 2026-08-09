@@ -274,7 +274,7 @@
                         @endif
 
                         {{-- Tombol Manajemen Pertanyaan & Pengaturan Periode yang sebelumnya tetap di bawah sini... --}}
-                        @if (in_array($data['user_active']->ist ?? '', ['admin', 'panitia']))
+                        @if (in_array($data['user_active']->ist ?? '', ['admin']))
                             <button type="button" class="btn-tambah-tim" style="background-color: #3b82f6;"
                                 onclick="bukaModalPertanyaan()">
                                 <i class="fa-solid fa-clipboard-question"></i> Manajemen Pertanyaan
@@ -471,38 +471,38 @@
                             <li
                                 class="ist-step {{ $activeStep >= 1 ? 'completed' : '' }} {{ $activeStep == 1 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-flag"></i></div>
-                                <div class="ist-step-text">Persiapan<br>Tahap 1</div>
+                                <div class="ist-step-text">Persiapan</div>
                             </li>
                             <li
                                 class="ist-step {{ $activeStep >= 2 ? 'completed' : '' }} {{ $activeStep == 2 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-users"></i></div>
-                                <div class="ist-step-text">Tahap 1.1<br>(Pemilihan)</div>
+                                <div class="ist-step-text">Pemilihan dan Penilaian<br>Satker</div>
                                 <div class="ist-step-tooltip">{{ formatTanggal($periode->mulai_tahap1_1 ?? null) }} -
                                     {{ formatTanggal($periode->akhir_tahap1_1 ?? null) }}</div>
                             </li>
                             <li
                                 class="ist-step {{ $activeStep >= 3 ? 'completed' : '' }} {{ $activeStep == 3 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-user-check"></i></div>
-                                <div class="ist-step-text">Tahap 1.2<br>(Penetapan)</div>
+                                <div class="ist-step-text">Penetapan<br>Satker</div>
                                 <div class="ist-step-tooltip">{{ formatTanggal($periode->mulai_tahap1_2 ?? null) }} -
                                     {{ formatTanggal($periode->akhir_tahap1_2 ?? null) }}</div>
                             </li>
                             <li
                                 class="ist-step {{ $activeStep >= 4 ? 'completed' : '' }} {{ $activeStep == 4 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-arrows-rotate"></i></div>
-                                <div class="ist-step-text">Persiapan<br>Tahap 2</div>
+                                <div class="ist-step-text">Pengumuman IST<br>Setiap Satker</div>
                             </li>
                             <li
                                 class="ist-step {{ $activeStep >= 5 ? 'completed' : '' }} {{ $activeStep == 5 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-folder-open"></i></div>
-                                <div class="ist-step-text">Tahap 2.1<br>(Berkas)</div>
+                                <div class="ist-step-text">Seleksi Berkas<br>Provinsi</div>
                                 <div class="ist-step-tooltip">{{ formatTanggal($periode->mulai_tahap2_1 ?? null) }} -
                                     {{ formatTanggal($periode->akhir_tahap2_1 ?? null) }}</div>
                             </li>
                             <li
                                 class="ist-step {{ $activeStep >= 6 ? 'completed' : '' }} {{ $activeStep == 6 ? 'active' : '' }}">
                                 <div class="ist-step-marker"><i class="fa-solid fa-clipboard-check"></i></div>
-                                <div class="ist-step-text">Tahap 2.2<br>(Penilaian)</div>
+                                <div class="ist-step-text">Penilaian dan Penetapan<br>Perwakilan Provinsi</div>
                                 <div class="ist-step-tooltip">{{ formatTanggal($periode->mulai_tahap2_2 ?? null) }} -
                                     {{ formatTanggal($periode->akhir_tahap2_2 ?? null) }}</div>
                             </li>
@@ -530,6 +530,23 @@
                                 tahun {{ $tahun }}. Silakan tunggu informasi lebih lanjut dari panitia atau
                                 hubungi Admin jika terdapat kekeliruan.
                             </p>
+                        </div>
+                    @endif
+
+                    @if ($activeStep == 1)
+                        {{-- KONTEN TAHAP PERSIAPAN --}}
+                        <div class="ist-info-box" style="margin-top: 20px;">
+                            <div class="ist-info-header">
+                                <h3><i class="fa-solid fa-bullhorn"></i> Informasi Persiapan IST</h3>
+                            </div>
+                            <div class="ist-info-body">
+                                @if ($periode && $periode->informasi_persiapan)
+                                    <p>{!! nl2br(e($periode->informasi_persiapan)) !!}</p>
+                                @else
+                                    <p><em>Belum ada informasi persiapan yang dipublikasikan oleh Panitia/Admin.</em>
+                                    </p>
+                                @endif
+                            </div>
                         </div>
                     @endif
 
@@ -588,11 +605,72 @@
 
                                 <div class="ist-info-body">
 
+                                    <p style="margin-bottom: 12px; font-weight: 600; color: #374151;">Silakan ikuti
+                                        langkah-langkah berikut untuk memberikan penilaian:</p>
+                                    <ol style="margin-left: 20px; color: #4b5563; line-height: 1.7; font-size: 13px;">
+                                        <li>Pilih <strong>3 (tiga) orang pegawai</strong> calon Insan Statistik Teladan
+                                            pilihan Anda dari tabel di bawah ini.</li>
+                                        <li>Klik tombol <span
+                                                style="background-color: #f79039; color: #fff; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold;"><i
+                                                    class="fa-solid fa-star"></i> Menilai</span> pada kolom aksi di
+                                            baris pegawai yang Anda pilih.</li>
+                                        <li>Isi skor kuesioner pada jendela <em>modal</em> yang muncul. <em>Live
+                                                Score</em> akan otomatis menjumlahkan nilai yang Anda berikan.</li>
+                                        <li>Setelah Anda selesai memberikan nilai kepada tepat 3 orang pegawai, kotak
+                                            <strong>Finalisasi Penilaian</strong> akan otomatis muncul di atas tabel.
+                                        </li>
+                                        <li>Klik tombol <strong>"Finalisasi & Kirim Penilaian"</strong> untuk
+                                            mengirimkan suara Anda ke sistem.</li>
+                                    </ol>
+
+                                    {{-- TOMBOL INFORMASI PERSYARATAN --}}
+                                    <div style="text-align: right; margin-bottom: 15px;">
+                                        <button type="button" class="ist-btn-outline-small"
+                                            id="btn-info-persyaratan"
+                                            style="border-color: #f79039; color: #000000; padding: 8px 15px;">
+                                            <i class="fa-solid fa-list-check"></i> Persyaratan IST
+                                        </button>
+                                    </div>
+                                    {{-- MODAL PERSYARATAN IST --}}
+                                    <div id="modal-persyaratan" class="modal-overlay">
+                                        <div class="modal-content" style="max-width: 550px;">
+                                            <div class="modal-header" style="background-color: #f79039;">
+                                                <h3><i class="fa-solid fa-list-check"></i> Persyaratan Administratif
+                                                    IST</h3>
+                                                <span class="tutup-modal" id="tutup-modal-persyaratan">&times;</span>
+                                            </div>
+                                            <div class="modal-body" style="text-align: left; padding: 25px;">
+                                                <p
+                                                    style="margin-bottom: 15px; font-weight: 600; color: #374151; font-size: 14px;">
+                                                    Persyaratan administratif peserta pemilihan Insan Statistik Teladan
+                                                    (IST) adalah:
+                                                </p>
+                                                <ol type="a"
+                                                    style="margin-left: 20px; color: #4b5563; line-height: 1.8; font-size: 13.5px;">
+                                                    <li>Pejabat Fungsional Jenjang Muda ke bawah, Pejabat Pengawas dan
+                                                        Pelaksana;</li>
+                                                    <li>Masa Kerja minimal 5 (lima) tahun dari sejak diangkat sebagai
+                                                        CPNS;</li>
+                                                    <li>Tidak sedang/pernah dijatuhi hukuman disiplin ringan dan sedang
+                                                        selama 2 (dua)
+                                                        tahun terakhir;</li>
+                                                    <li>Tidak sedang/pernah dijatuhi hukuman disiplin tingkat berat
+                                                        selama bekerja;</li>
+                                                </ol>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn-simpan" id="btn-tutup-persyaratan"
+                                                    style="background-color: #f79039;">Tutup</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+
                                     {{-- PANEL FINALISASI --}}
                                     <div id="panel-finalisasi"
                                         style="display:none; background: #ecfdf5; border: 2px dashed #10b981; padding: 25px; border-radius: 12px; text-align: center; margin-bottom: 25px; box-shadow: 0 4px 10px rgba(16, 185, 129, 0.1);">
                                         <h3 style="color: #059669; margin-bottom: 10px;"><i
-                                                class="fa-solid fa-party-horn"></i> Luar Biasa!</h3>
+                                                class="fa-solid fa-party-horn"></i> Terima Kasih!</h3>
                                         <p style="color: #047857; margin-bottom: 20px; font-size: 14px;">Anda telah
                                             selesai menilai 3 kandidat. Silakan periksa kembali rincian skor di tabel,
                                             lalu klik tombol di bawah untuk mengirim data.</p>
@@ -775,47 +853,12 @@
                     {{-- ==================================================================== --}}
                     @if ($activeStep == 3 && $periode && $periode->is_active)
 
-                        {{-- BLOK 1: TAMPILAN PILIHAN USER (READ-ONLY UNTUK SEMUA ROLE) --}}
-                        <div class="ist-info-box" style="text-align: center; margin-top: 20px;">
-                            <h3 style="color: #64748b; margin-bottom: 15px;"><i class="fa-solid fa-lock"></i>
-                                Penilaian Tahap 1.1 Telah Ditutup</h3>
-                            @if ($sudahMenilai)
-                                <p style="color: #475569;">Berikut adalah 3 kandidat unggulan yang telah Anda berikan
-                                    nilai pada tahap sebelumnya.</p>
-                                <div class="ist-grid-cards" style="margin-top: 25px;">
-                                    @foreach ($pilihanUser ?? [] as $pilihan)
-                                        <div class="ist-card-pilihan"
-                                            style="border-top: 4px solid #94a3b8; filter: grayscale(15%);">
-                                            @if (!empty($pilihan->url_foto))
-                                                <img src="{{ $pilihan->url_foto }}" class="foto-bulat"
-                                                    onerror="this.outerHTML='<i class=\'fa-solid fa-circle-user\' style=\'color: #94a3b8; font-size: 85px; margin-bottom: 10px;\'></i>'">
-                                            @else
-                                                <i class="fa-solid fa-circle-user"
-                                                    style="color: #94a3b8; font-size: 85px; margin-bottom: 10px;"></i>
-                                            @endif
-                                            <h4 style="margin-top: 10px;">{{ $pilihan->nama }}</h4>
-                                            <div style="font-size: 11px; color:#64748b; margin-bottom: 10px;">
-                                                {{ $pilihan->gol_akhir }} &bull; {{ $pilihan->pend_sk }}</div>
-                                            <span class="badge-skor"
-                                                style="font-size: 14px; padding: 6px 15px; background: #f1f5f9; color: #475569;">Skor
-                                                Kuesioner: {{ $pilihan->skor_kuesioner }}</span>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @else
-                                <div
-                                    style="padding: 20px; background: #fff1f2; border: 1px dashed #fecdd3; border-radius: 8px; color: #e11d48; margin-top: 15px; font-weight: bold;">
-                                    <i class="fa-solid fa-circle-exclamation"></i> Anda tidak melakukan partisipasi
-                                    penilaian pada Tahap 1.1.
-                                </div>
-                            @endif
-                        </div>
-
                         {{-- BLOK 2: KLASEMEN REKAPITULASI & PENETAPAN (KHUSUS PEJABAT/PANITIA) --}}
                         @if ($isPejabat)
                             <div class="ist-info-box" style="margin-top: 25px;">
                                 <div class="ist-info-header">
-                                    <h3><i class="fa-solid fa-ranking-star"></i> Klasemen & Penetapan Perwakilan Satker
+                                    <h3><i class="fa-solid fa-ranking-star"></i> Rekapitulasi Penilaian dan Penetapan
+                                        Perwakilan Satker
                                     </h3>
                                 </div>
 
@@ -873,7 +916,7 @@
                                         {{-- Tampilan Satker Asal --}}
                                         <div class="ist-winner-badge">
                                             <i class="fa-solid fa-building-user"></i>
-                                            {{ $kandidatTerpilih->wilayah ?? 'Satuan Kerja' }}
+                                            BPS {{ $kandidatTerpilih->wilayah ?? 'Satuan Kerja' }}
                                         </div>
 
                                         <div style="margin-top: 30px; position: relative; z-index: 5;">
@@ -962,6 +1005,42 @@
                                 @endif
                             </div>
                         @endif
+
+                        {{-- BLOK 1: TAMPILAN PILIHAN USER (READ-ONLY UNTUK SEMUA ROLE) --}}
+                        <div class="ist-info-box" style="text-align: center; margin-top: 20px;">
+                            <h3 style="color: #64748b; margin-bottom: 15px;"><i class="fa-solid fa-lock"></i>
+                                Pemilihan dan Penilaian Satker Telah Ditutup</h3>
+                            @if ($sudahMenilai)
+                                <p style="color: #475569;">Berikut adalah 3 kandidat unggulan yang telah Anda berikan
+                                    nilai pada tahap sebelumnya.</p>
+                                <div class="ist-grid-cards" style="margin-top: 25px;">
+                                    @foreach ($pilihanUser ?? [] as $pilihan)
+                                        <div class="ist-card-pilihan"
+                                            style="border-top: 4px solid #94a3b8; filter: grayscale(15%);">
+                                            @if (!empty($pilihan->url_foto))
+                                                <img src="{{ $pilihan->url_foto }}" class="foto-bulat"
+                                                    onerror="this.outerHTML='<i class=\'fa-solid fa-circle-user\' style=\'color: #94a3b8; font-size: 85px; margin-bottom: 10px;\'></i>'">
+                                            @else
+                                                <i class="fa-solid fa-circle-user"
+                                                    style="color: #94a3b8; font-size: 85px; margin-bottom: 10px;"></i>
+                                            @endif
+                                            <h4 style="margin-top: 10px;">{{ $pilihan->nama }}</h4>
+                                            <div style="font-size: 11px; color:#64748b; margin-bottom: 10px;">
+                                                {{ $pilihan->gol_akhir }} &bull; {{ $pilihan->pend_sk }}</div>
+                                            <span class="badge-skor"
+                                                style="font-size: 14px; padding: 6px 15px; background: #f1f5f9; color: #475569;">Skor
+                                                Kuesioner: {{ $pilihan->skor_kuesioner }}</span>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                <div
+                                    style="padding: 20px; background: #fff1f2; border: 1px dashed #fecdd3; border-radius: 8px; color: #e11d48; margin-top: 15px; font-weight: bold;">
+                                    <i class="fa-solid fa-circle-exclamation"></i> Anda tidak melakukan partisipasi
+                                    dalam Pemilihan dan Penilaian Satker
+                                </div>
+                            @endif
+                        </div>
                     @endif
 
                     {{-- ==================================================================== --}}

@@ -499,8 +499,8 @@ document.addEventListener("DOMContentLoaded", function () {
             e.preventDefault();
             const form = btnTetapkan.closest('.form-tetapkan');
             Swal.fire({
-                title: 'Tetapkan Kandidat?',
-                text: "Kandidat ini akan dikunci sebagai perwakilan unggulan Satker Anda ke tingkat Provinsi.",
+                title: 'Tetapkan IST?',
+                text: "Pegawai ini akan menjadi IST perwakilan Satker Anda ke tingkat Provinsi Aceh.",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#f79039',
@@ -531,4 +531,40 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     });
+
+    // =========================================================
+    // LOGIKA MODAL PERSYARATAN IST
+    // =========================================================
+    const btnInfoPersyaratan = document.getElementById('btn-info-persyaratan');
+    const modalPersyaratan = document.getElementById('modal-persyaratan');
+    const tutupModalPersyaratan = document.getElementById('tutup-modal-persyaratan');
+    const btnTutupPersyaratan = document.getElementById('btn-tutup-persyaratan');
+
+    if (btnInfoPersyaratan && modalPersyaratan) {
+        // Buka Modal
+        btnInfoPersyaratan.addEventListener('click', function () {
+            modalPersyaratan.style.display = 'flex';
+        });
+
+        // Tutup via tombol 'X'
+        if (tutupModalPersyaratan) {
+            tutupModalPersyaratan.addEventListener('click', function () {
+                modalPersyaratan.style.display = 'none';
+            });
+        }
+
+        // Tutup via tombol 'Tutup' di bawah
+        if (btnTutupPersyaratan) {
+            btnTutupPersyaratan.addEventListener('click', function () {
+                modalPersyaratan.style.display = 'none';
+            });
+        }
+
+        // Tutup jika klik area gelap (luar modal)
+        window.addEventListener('click', function (event) {
+            if (event.target === modalPersyaratan) {
+                modalPersyaratan.style.display = 'none';
+            }
+        });
+    }
 });
