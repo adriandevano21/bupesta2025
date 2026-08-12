@@ -59,7 +59,7 @@
     <!-- Main Page -->
     <div id="page">
         <header>
-            @include('layout2.navbar-se2026')
+            @include('adminbupesta.navbar-admin')
         </header>
 
         <div class="konten">
@@ -197,56 +197,6 @@
 
             </div>
 
-            {{-- Modal Lengkapi Profil --}}
-            @if ($userActive && empty($userActive->no_hp))
-                <div id="modalLengkapiProfil" class="modal-overlay" style="display: flex;">
-                    <div class="modal-content">
-
-                        <div class="modal-header">
-                            <h3>Lengkapi Profil Anda</h3>
-                        </div>
-
-                        <div class="modal-body">
-                            <p style="margin-bottom: 15px; color: #e53e3e; font-size: 0.9rem;">
-                                * Mohon lengkapi nomor HP dan data profil Anda sebelum melanjutkan.
-                            </p>
-
-                            <form action="{{ route('profil.updateLengkap') }}" method="POST">
-                                @csrf
-                                @method('PUT')
-
-                                <div class="grup-input">
-                                    <label for="no_hp">Nomor HP</label>
-                                    <input type="text" id="no_hp" name="no_hp" class="input-form"
-                                        placeholder="Contoh: 08123456789" required>
-                                </div>
-
-                                <div class="grup-input">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="input-form" value="{{ $userActive->name }}"
-                                        disabled>
-                                </div>
-
-                                <div class="grup-input">
-                                    <label>Username</label>
-                                    <input type="text" class="input-form" value="{{ $userActive->username }}"
-                                        disabled>
-                                </div>
-
-                                <input type="hidden" name="nip_pegawai" value="{{ $userNip }}">
-
-                                <div class="modal-footer"
-                                    style="margin-top: 20px; text-align: right; border-top: 1px solid #e2e8f0; padding-top: 15px;">
-                                    <button type="submit" class="btn-simpan">Simpan Profil</button>
-                                </div>
-
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-            @endif
-
             <br>
 
             <!-- Footer -->
@@ -256,16 +206,6 @@
         </div>
     </div>
 
-    {{-- Bridge PHP to JS (Sangat Disederhanakan) --}}
-    <script>
-        window.BupestaConfig = {
-            userName: "{{ auth()->check() ? auth()->user()->name : 'Guest' }}",
-            successMessage: "{{ session('success') }}",
-        };
-        window.userActiveNip = "{{ $userNip }}";
-    </script>
-
-    <!-- Custom Scripts -->
     <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>
     <script src="{{ asset('assets-bupesta/hukdis.js') }}"></script>
 

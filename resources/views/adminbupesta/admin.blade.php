@@ -44,7 +44,7 @@
 
     <div id="page">
         <header>
-            @include('layout2.navbar-se2026')
+            @include('adminbupesta.navbar-admin')
         </header>
 
         <div class="konten">

@@ -92,6 +92,7 @@ Route::controller(UserController::class)->group(function () {
     Route::post('/datasimpeg/store', 'storeDataSimpeg')->name('datasimpeg.store');
     Route::post('/datasimpeg/update', 'updateDataSimpeg')->name('datasimpeg.update');
     Route::post('/datasimpeg/delete', 'deleteDataSimpeg')->name('datasimpeg.delete');
+    Route::get('/aktivitasuser', 'aktivitasuser')->name('aktivitasuser.index');
 });
 
 Route::controller(IstController::class)->group(function () {

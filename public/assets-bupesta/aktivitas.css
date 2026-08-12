@@ -1,0 +1,460 @@
+:root {
+    --warna-utama: #f79039;
+    --warna-hover: #e07b29;
+    --abu-latar: #f8fafc;
+    --putih: #ffffff;
+    --teks-gelap: #1e293b;
+    --teks-abu: #64748b;
+    --border: #e2e8f0;
+}
+
+/* HEADER DASHBOARD */
+.header-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--putih);
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.header-title h2 {
+    color: var(--warna-utama);
+    font-size: 22px;
+    margin: 0 0 4px 0;
+    font-weight: 700;
+}
+
+.header-title p {
+    color: var(--teks-abu);
+    font-size: 13px;
+    margin: 0;
+}
+
+/* FILTER TANGGAL */
+.header-filter-tanggal form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--abu-latar);
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.header-filter-tanggal label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teks-gelap);
+}
+
+.header-filter-tanggal input[type="date"] {
+    border: 1px solid var(--border);
+    background: var(--putih);
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--warna-utama);
+    padding: 5px 10px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* SECTION DASHBOARD */
+.bagian-section {
+    margin-bottom: 30px;
+}
+
+.section-title h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--teks-gelap);
+    margin: 0 0 15px 0;
+}
+
+.section-title h3 span {
+    color: var(--warna-utama);
+}
+
+/* KARTU STATISTIK */
+.grid-stat {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.card-stat {
+    background: var(--putih);
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-left: 5px solid var(--warna-utama);
+}
+
+.card-stat.oren { border-left-color: #f79039; }
+.card-stat.hijau { border-left-color: #10b981; }
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: rgba(247, 144, 57, 0.1);
+    color: var(--warna-utama);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.card-stat.hijau .icon-box { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+
+.stat-info h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--teks-gelap);
+}
+
+.stat-info p {
+    margin: 2px 0 0 0;
+    font-size: 12px;
+    color: var(--teks-abu);
+}
+
+/* GRAFIK & WIDGET */
+.grid-grafik {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.card-chart, .card-widget {
+    background: var(--putih);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.chart-header h4, .card-widget h4 {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: var(--teks-gelap);
+    font-weight: 600;
+}
+
+.chart-body {
+    position: relative;
+    height: 250px;
+    width: 100%;
+}
+
+/* RANKING LIST */
+.list-ranking {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-ranking li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border);
+    gap: 10px;
+}
+
+.list-ranking li:last-child {
+    border-bottom: none;
+}
+
+.rank-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #f79039;
+    color: var(--putih);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.rank-num.alt { background: #3b82f6; }
+
+.rank-title {
+    flex-grow: 1;
+    font-size: 13px;
+    color: var(--teks-gelap);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.rank-badge {
+    background: rgba(247, 144, 57, 0.12);
+    color: #d97706;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.rank-badge.alt {
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+}
+
+.text-kosong {
+    color: #94a3b8;
+    font-size: 13px;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* KARTU TABEL */
+.kartu-tabel {
+    background: var(--putih);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.tabel-top-bar {
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.tabel-top-bar h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--warna-utama);
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.search-box input {
+    padding: 8px 12px 8px 36px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    width: 220px;
+    background-color: var(--abu-latar);
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    background: var(--putih);
+    border-color: var(--warna-utama);
+}
+
+.tabel-responsive {
+    overflow-x: auto;
+}
+
+.tabel-modern {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.tabel-modern th {
+    background-color: rgba(247, 144, 57, 0.08);
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 13px;
+    border-bottom: 2px solid rgba(247, 144, 57, 0.15);
+}
+
+.sort-link {
+    text-decoration: none;
+    color: var(--warna-utama);
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.sort-link:hover { color: var(--warna-hover); }
+.sort-gray { color: #cbd5e1; }
+.sort-active { color: var(--warna-utama); }
+
+.tabel-modern td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--teks-gelap);
+}
+
+.tabel-modern tbody tr:hover {
+    background-color: #fffaf6;
+}
+
+.waktu-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+    color: #475569;
+}
+
+.pengguna-badge {
+    font-weight: 600;
+    color: #0ea5e9;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.ip-badge {
+    background: #f0fdfa;
+    color: #0f766e;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 12px;
+    border: 1px solid #ccfbf1;
+}
+
+.user-agent-teks {
+    color: var(--teks-abu);
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-oren { color: var(--warna-utama); }
+
+.text-kosong-tabel {
+    text-align: center;
+    padding: 30px !important;
+    color: #94a3b8;
+}
+
+/* ========================================================= 
+   PERBAIKAN TOTAL TAMPILAN PAGINATION LARAVEL
+   ========================================================= */
+.pagination-wrapper {
+    padding: 15px 20px;
+    background: #fafafa;
+    border-top: 1px solid var(--border);
+}
+
+/* Pengecilan & Perapian Icon Panah SVG Tailwind */
+.pagination-wrapper svg {
+    width: 16px !important;
+    height: 16px !important;
+    vertical-align: middle;
+}
+
+.pagination-wrapper nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.pagination-wrapper nav > div:first-child p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--teks-abu);
+}
+
+.pagination-wrapper nav > div:last-child {
+    display: flex;
+    align-items: center;
+}
+
+/* Styling Tombol Angka & Navigasi */
+.pagination-wrapper nav span.relative, 
+.pagination-wrapper nav a.relative {
+    padding: 6px 12px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
+    margin: 0 2px !important;
+    text-decoration: none !important;
+    color: var(--teks-gelap) !important;
+    border: 1px solid var(--border) !important;
+    background: var(--putih) !important;
+    transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.pagination-wrapper nav a.relative:hover {
+    background: var(--warna-utama) !important;
+    color: var(--putih) !important;
+    border-color: var(--warna-utama) !important;
+}
+
+.pagination-wrapper nav span[aria-current="page"] > span {
+    background: var(--warna-utama) !important;
+    color: var(--putih) !important;
+    border-color: var(--warna-utama) !important;
+    font-weight: 700 !important;
+}
+
+/* Fallback Bootstrap Pagination */
+.pagination-wrapper .pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 4px;
+}
+
+.pagination-wrapper .page-item .page-link {
+    padding: 6px 12px;
+    font-size: 13px;
+    color: var(--teks-gelap);
+    background: var(--putih);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.pagination-wrapper .page-item.active .page-link {
+    background: var(--warna-utama);
+    color: var(--putih);
+    border-color: var(--warna-utama);
+    font-weight: 700;
+}

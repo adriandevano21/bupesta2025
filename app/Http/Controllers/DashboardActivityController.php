@@ -23,7 +23,7 @@ class DashboardActivityController extends Controller
 
         // Data login user
         $data["dailyLogins"] = DB::table('user_activities as ua')
-            ->join('users as u', 'ua.user_id', '=', 'u.nip_pegawai')
+            ->join('bupesta_user as u', 'ua.user_id', '=', 'u.nip_pegawai')
             ->select(
                 DB::raw('DATE(ua.created_at) as login_date'),
                 'u.name',

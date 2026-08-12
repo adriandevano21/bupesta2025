@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="{{ asset('assets-se2026/css-js/header.css') }}">
+<link rel="stylesheet" href="{{ asset('assets-bupesta/header.css') }}">
 
 @php
     // Gunakan helper request() bawaan Laravel agar lebih elegan
@@ -16,22 +16,27 @@
         <ul class="menuatas">
             {{-- id_judul = 1 --}}
             <li>
-                <a href="/dashboard-kinerja?tahun={{ $tahunDipilih }}"
-                    class="{{ $data['id_judul'] === '1' ? 'active' : '' }}">
-                    <i class="fa-solid fa-tachometer-alt"></i><span>&nbsp; Kinerja</span>
+                <a href="/kelolauser?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '1' ? 'active' : '' }}">
+                    <i class="fa-solid fa-user"></i><span>&nbsp; Kelola User</span>
                 </a>
             </li>
 
             {{-- id_judul = 2 --}}
             <li class="dropdown-menuatas">
                 <a href="#" class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
-                    <i class="fa-solid fa-bowl-rice"></i><span>&nbsp; BuPeSta</span>
+                    <i class="fa-solid fa-bowl-rice"></i><span>&nbsp; Data Pegawai</span>
                 </a>
                 <ul class="submenu-menuatas">
                     <li>
-                        <a href="../timkerja?tahun={{ $tahunDipilih }}"
+                        <a href="../adminbupesta?tahun={{ $tahunDipilih }}"
                             class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
-                            <i class="fa-solid fa-users"></i><span>&nbsp; Tim Kerja BPS Aceh</span>
+                            <i class="fa-solid fa-users"></i><span>&nbsp; Database SIMPEG</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../hukdispegawai?tahun={{ $tahunDipilih }}"
+                            class="{{ $data['id_judul'] === '2' ? 'active' : '' }}">
+                            <i class="fa-solid fa-users"></i><span>&nbsp; Hukuman Disiplin Pegawai</span>
                         </a>
                     </li>
                 </ul>
@@ -39,35 +44,9 @@
 
             {{-- id_judul = 3 --}}
             <li>
-                <a href="/jazirah-dashboard?tahun={{ $tahunDipilih }}"
+                <a href="/aktivitasuser?tahun={{ $tahunDipilih }}"
                     class="{{ $data['id_judul'] === '3' ? 'active' : '' }}">
-                    <i class="fa-solid fa-file"></i><span>&nbsp; Jazirah</span>
-                </a>
-            </li>
-
-            {{-- id_judul = 4 --}}
-            <li>
-                <a href="/ist?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '4' ? 'active' : '' }}">
-                    <i class="fa-solid fa-award"></i><span>&nbsp; IST</span>
-                </a>
-            </li>
-
-            {{-- id_judul = 5 --}}
-            <li>
-                <a href="/cinema?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '5' ? 'active' : '' }}">
-                    <i class="fa-solid fa-film"></i><span>&nbsp; Cinema</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="https://qna.bpsaceh.com/">
-                    <i class="fa-regular fa-folder"></i><span>&nbsp; Kotak</span>
-                </a>
-            </li>
-
-            <li>
-                <a href="#" id="showModal">
-                    <i class="fa-solid fa-book"></i><span>&nbsp; Panduan</span>
+                    <i class="fa-solid fa-file"></i><span>&nbsp; User Activity</span>
                 </a>
             </li>
 
@@ -110,33 +89,6 @@
                 const params = new URLSearchParams(window.location.search);
                 params.set('tahun', this.value);
                 window.location.search = params.toString();
-            });
-        }
-
-        // 2. Modal Unduh Buku Pedoman
-        const btnModal = document.getElementById("showModal");
-        if (btnModal) {
-            btnModal.addEventListener("click", function(e) {
-                e.preventDefault();
-                Swal.fire({
-                    title: 'Unduh Buku Pedoman',
-                    html: `
-                    <div style="display:flex; flex-direction:column; gap:10px; margin-top:15px;">
-                        <a href="BUKPED BUPESTA.pdf" download class="swal2-download-btn">
-                            📘 Buku Pedoman BuPeSta
-                        </a>
-                        <a href="BUKPED BUPESTA TAGUEN.pdf" download class="swal2-download-btn">
-                            📙 Buku Pedoman BuPeSta (Taguen)
-                        </a>
-                    </div>
-                `,
-                    icon: 'info',
-                    showConfirmButton: false,
-                    showCloseButton: true,
-                    width: 460,
-                    padding: '1.5em',
-                    background: '#fff',
-                });
             });
         }
 

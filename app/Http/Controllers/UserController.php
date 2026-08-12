@@ -6,18 +6,13 @@ use App\Models\Bupesta_User;
 use App\Models\Bupesta_Datasimpeg;
 use App\Imports\DatasimpegImport;
 use App\Models\Bupesta_Hukdis;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    // =========================================================================
-    // FITUR PROFIL USER (EXISTING)
-    // =========================================================================
-
-    // Diubah namanya jadi updateProfil agar tidak bentrok
     public function updateProfil(Request $request)
     {
         Bupesta_User::where('nip_pegawai', $request->nip_pegawai)->update([
@@ -34,25 +29,6 @@ class UserController extends Controller
         }
         return response()->json(['error' => 'Data pegawai tidak ditemukan'], 404);
     }
-
-    // =========================================================================
-    // FITUR KELOLA PENGGUNA (BARU) - Gabung Simpeg & User Group by Satker
-    // =========================================================================
-    // =========================================================================
-    // FITUR KELOLA PENGGUNA - Tampilan DataTables
-    // =========================================================================
-
-    // =========================================================================
-    // FITUR KELOLA PENGGUNA - Tampilan DataTables dengan Sandingan SIMPEG
-    // =========================================================================
-
-    // =========================================================================
-    // FITUR KELOLA PENGGUNA - Tampilan DataTables dengan Sandingan SIMPEG
-    // =========================================================================
-
-    // =========================================================================
-    // FITUR KELOLA PENGGUNA - Tampilan DataTables
-    // =========================================================================
 
     public function kelolaUserIndex()
     {
@@ -110,7 +86,6 @@ class UserController extends Controller
         return view('adminbupesta.kelolauser', compact('data'));
     }
 
-    // FUNGSI BARU UNTUK MERESPON AJAX DARI INLINE EDITING
     public function updateInline(Request $request)
     {
         // Parameter dari Javascript: nip_pegawai, kolom, value_baru
@@ -153,9 +128,6 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'Data & Hak akses pengguna berhasil diperbarui secara manual!');
     }
-    // =========================================================================
-    // FITUR ADMIN SIMPEG (EXISTING)
-    // =========================================================================
 
     public function adminbupesta(Request $request)
     {
@@ -225,9 +197,6 @@ class UserController extends Controller
         return redirect()->back()->with('error', 'Gagal menghapus data atau tidak ada data pada versi tanggal tersebut.');
     }
 
-    // =========================================================================
-    // FITUR TAMBAH PEGAWAI OTOMATIS (SINKRONISASI DARI SIMPEG)
-    // =========================================================================
     public function syncPegawaiBaru()
     {
         // 1. Ambil semua NIP yang saat ini sudah terdaftar di Bupesta User
@@ -310,7 +279,6 @@ class UserController extends Controller
         return view('adminbupesta.hukdispegawai', compact('data'));
     }
 
-    // Fungsi Memproses Copy-Paste Excel
     public function storeHukdis(Request $request)
     {
         $pastedData = $request->input('excel_data');
@@ -350,7 +318,6 @@ class UserController extends Controller
         return back()->with('error', 'Gagal! Format baris tidak sesuai (Pastikan copy persis 6 kolom dari Excel).');
     }
 
-    // Fungsi Hapus Data (Sebagian / Semua)
     public function deleteHukdis(Request $request)
     {
         // Jika tombol "Hapus Semua" yang ditekan
@@ -368,7 +335,6 @@ class UserController extends Controller
         return back()->with('error', 'Tidak ada aksi atau data yang dipilih.');
     }
 
-    // 1. Menampilkan Halaman Data Simpeg
     public function dataSimpeg()
     {
         $data['judul'] = 'Data Pegawai (SIMPEG)';
@@ -380,7 +346,6 @@ class UserController extends Controller
         return view('adminbupesta.admin', compact('data')); // Sesuaikan dengan nama file blade Anda
     }
 
-    // 2. Memproses Copy-Paste Excel & Tanggal Global
     public function storeDataSimpeg(Request $request)
     {
         $pastedData = $request->input('excel_data');
@@ -429,7 +394,6 @@ class UserController extends Controller
         return back()->with('error', 'Gagal! Format baris tidak sesuai (Pastikan copy persis 14 kolom dari Excel).');
     }
 
-    // 3. Mengupdate Data Individual (Menu Edit)
     public function updateDataSimpeg(Request $request)
     {
         $request->validate(['id_edit' => 'required']);
@@ -455,7 +419,6 @@ class UserController extends Controller
         return back()->with('success', 'Data Pegawai atas nama ' . $request->nama . ' berhasil diperbarui!');
     }
 
-    // Fungsi Hapus Data SIMPEG (Satuan, Terpilih, atau Semua)
     public function deleteDataSimpeg(Request $request)
     {
         // 1. Jika tombol "Kosongkan Tabel" ditekan
@@ -477,5 +440,116 @@ class UserController extends Controller
         }
 
         return back()->with('error', 'Tidak ada data atau aksi yang dipilih.');
+    }
+
+    public function aktivitasuser(Request $request)
+    {
+        $data['judul'] = 'Log Aktivitas Pengguna';
+        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
+        $data['id_judul'] = "3";
+        
+        // 1. Parameter Filter
+        $tahun   =$request->input('tahun', '2026');
+        $tanggal =$request->input('tanggal', Carbon::today()->toDateString()); // Default hari ini
+
+        // Sorting Tabel
+        $sortBy  =$request->input('sort_by', 'created_at');
+        $sortDir = strtolower($request->input('sort_dir', 'desc')) === 'asc' ? 'asc' : 'desc';
+
+        $allowedSorts = ['created_at', 'user_id', 'activity', 'ip_address', 'user_agent'];
+        if (!in_array($sortBy, $allowedSorts)) {$sortBy = 'created_at';
+        }
+
+        $data['judul']         = 'Log Aktivitas Pengguna';
+        $data['tahun_pilihan'] =$tahun;
+        $data['tanggal_pilihan'] =$tanggal;
+        $data['sort_by']       =$sortBy;
+        $data['sort_dir']      =$sortDir;
+
+        // =========================================================================
+        // BARIS 1: REKAP HARI INI / TANGGAL TERPILIH (1 HARI)
+        // =========================================================================
+
+        // A. Jumlah Pegawai yang Login pada Tanggal Terpilih
+        $data['total_login_hari_ini'] = DB::table('user_activities')
+            ->whereDate('created_at', $tanggal)
+            ->whereRaw('LOWER(activity) LIKE ?', ['%login%'])
+            ->selectRaw('COUNT(DISTINCT IFNULL(user_id, "Anon")) as total')
+            ->value('total') ?? 0;
+
+        // B. Top 5 Aktivitas Hari Ini / Terpilih (Kecuali Login)
+        $data['top_aktivitas_hari_ini'] = DB::table('user_activities')
+            ->select('activity', DB::raw('COUNT(DISTINCT CONCAT(DATE(created_at), IFNULL(user_id, "Anon"))) as total'))
+            ->whereDate('created_at', $tanggal)
+            ->whereRaw('LOWER(activity) NOT LIKE ?', ['%login%'])
+            ->groupBy('activity')
+            ->orderBy('total', 'desc')
+            ->limit(5)
+            ->get();
+
+        // C. Aktivitas Terbanyak Hari Ini / Terpilih (Elemen Pertama)
+        $data['aktivitas_terbanyak_hari_ini'] =$data['top_aktivitas_hari_ini']->first()->activity ?? '-';
+
+        // D. Top 5 User Agent / Browser Hari Ini / Terpilih
+        $data['top_user_agent_hari_ini'] = DB::table('user_activities')
+            ->select('user_agent', DB::raw('COUNT(DISTINCT CONCAT(DATE(created_at), IFNULL(user_id, "Anon"))) as total'))
+            ->whereDate('created_at', $tanggal)
+            ->groupBy('user_agent')
+            ->orderBy('total', 'desc')
+            ->limit(5)
+            ->get();
+
+        // =========================================================================
+        // BARIS 2: REKAPAN TREN (30 HARI & 12 BULAN)
+        // =========================================================================
+
+        // A. Tren Pegawai yang Akses Harian (30 Hari Terakhir s/d Tanggal Terpilih)
+        $startDate30 = Carbon::parse($tanggal)->subDays(29)->toDateString();$harian30Raw = DB::table('user_activities')
+            ->selectRaw('DATE(created_at) as tgl, COUNT(DISTINCT IFNULL(user_id, "Anon")) as total')
+            ->whereBetween(DB::raw('DATE(created_at)'), [$startDate30,$tanggal])
+            ->groupBy(DB::raw('DATE(created_at)'))
+            ->orderBy('tgl', 'asc')
+            ->pluck('total', 'tgl')
+            ->toArray();
+
+        $chartHarianLabels = [];$chartHarianData   = [];
+        for ($i = 29; $i >= 0; $i--) {
+            $dt = Carbon::parse($tanggal)->subDays($i);$dateKey = $dt->toDateString();$chartHarianLabels[] = $dt->translatedFormat('d M');$chartHarianData[]   = $harian30Raw[$dateKey] ?? 0;
+        }
+
+        $data['chart_harian_30'] = [             'labels' =>$chartHarianLabels,
+            'data'   => $chartHarianData,
+        ];
+
+        // B. Tren Pegawai yang Akses Per Bulan (12 Bulan dalam Tahun Terpilih)
+        $bulananRaw = DB::table('user_activities')
+            ->selectRaw('MONTH(created_at) as bulan, COUNT(DISTINCT CONCAT(DATE(created_at), IFNULL(user_id, "Anon"))) as total')
+            ->whereYear('created_at', $tahun)
+            ->groupBy(DB::raw('MONTH(created_at)'))
+            ->pluck('total', 'bulan')
+            ->toArray();
+
+        $namaBulan = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'];
+        $data['chart_bulanan_12'] = [             'labels' =>$namaBulan,
+            'data'   => array_map(fn($m) => $bulananRaw[$m] ?? 0, range(1, 12))
+        ];
+
+        // =========================================================================
+        // BARIS 3: DATA LOG KESELURUHAN (TABEL & PAGINATION)
+        // =========================================================================
+
+        $data['aktivitas'] = DB::table('user_activities')
+            ->whereYear('created_at', $tahun)
+            ->orderBy($sortBy,$sortDir)
+            ->paginate(50)
+            ->appends([
+                'tahun'    => $tahun,
+                'tanggal'  => $tanggal,
+                'sort_by'  => $sortBy,
+                'sort_dir' => $sortDir,
+            ]);
+
+        return view('adminbupesta.aktivitas', compact('data'));
     }
 }
