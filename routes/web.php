@@ -102,4 +102,6 @@ Route::controller(IstController::class)->group(function () {
     Route::post('/ist/tetapkan', 'tetapkanKandidat')->name('ist.tetapkan');
     Route::post('/ist/batalkan', 'batalkanKandidat')->name('ist.batalkan');
     Route::post('/ist/store-pertanyaan', 'storePertanyaan')->name('ist.storePertanyaan');
+    Route::post('/ist/upload-sk', 'uploadSkKandidat')->name('ist.uploadSk');
+    Route::post('/ist/validasi-sk', 'validasiSkKandidat')->name('ist.validasiSk');
 });

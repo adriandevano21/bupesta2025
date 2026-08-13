@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\DB;
 
 class IstController extends Controller
 {
+    // =========================================================================
+    // HELPER: Ambil user aktif
+    // Lokal  : gunakan NIP hardcode untuk development
+    // Produksi: gunakan auth()->user()->nip_pegawai setelah deploy
+    // =========================================================================
+    private function getUserActive()
+    {
+        // --- MODE LOKAL (development) ---
+        return Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+
+        // --- MODE PRODUKSI (aktifkan baris ini & nonaktifkan baris di atas setelah deploy) ---
+        // return Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
+    }
+
     public function index(Request $request)
     {
         // 1. DEFAULT AWAL & LOGGING (Tahap Testing)
@@ -22,10 +36,8 @@ class IstController extends Controller
         $tahun = $request->input('tahun', date('Y'));
 
         $data = [];
-        // Hardcode NIP untuk testing role admin (seperti yang Anda tentukan sebelumnya)
-        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
-        // Jika sudah masuk tahap production, gunakan kode di bawah ini:
-        // $data["user_active"] = Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
+        // Menggunakan helper getUserActive untuk mode testing / production
+        $data["user_active"] = $this->getUserActive();
 
         $data["id_judul"] = "4"; // Agar menu navbar BuPeSta tetap menyala
         $data["judul"] = "Pemilihan IST";
@@ -214,18 +226,23 @@ class IstController extends Controller
             $penetapan = DB::table('ist_kandidat_tahap2 as k')
                 ->join('ist_datapegawai as d', 'k.nip_kandidat', '=', 'd.nip')
                 ->where('k.periode_id', $periode->id)
-                ->select('d.kode_wilayah', 'd.nama')
+                ->select('d.kode_wilayah', 'd.nama', 'k.nip_kandidat', 'k.link_sk', 'k.validasi_sk')
                 ->get()
                 ->keyBy('kode_wilayah'); // Jadikan kode wilayah sebagai Key array
 
             // 3. Gabungkan dan cocokkan data
             foreach ($listSatker as $s) {
                 $namaSatker = $s->kode_wilayah . ' - ' . $s->wilayah;
+                $p = $penetapan[$s->kode_wilayah] ?? null;
                 $monitoringTahap1_2[$namaSatker] = [
-                    'kode_wilayah' => $s->kode_wilayah,
-                    'wilayah' => $s->wilayah,
-                    'status' => isset($penetapan[$s->kode_wilayah]) ? 'Sudah' : 'Belum',
-                    'nama_kandidat' => isset($penetapan[$s->kode_wilayah]) ? $penetapan[$s->kode_wilayah]->nama : '-'
+                    'kode_wilayah'  => $s->kode_wilayah,
+                    'wilayah'       => $s->wilayah,
+                    'status'        => $p ? 'Sudah' : 'Belum',
+                    'nama_kandidat' => $p ? $p->nama : '-',
+                    'nip_kandidat'  => $p ? $p->nip_kandidat : '',
+                    'link_sk'       => $p->link_sk ?? null,
+                    // null=belum/menunggu | 'tervalidasi' | 'ditolak'
+                    'validasi_sk'   => $p->validasi_sk ?? null,
                 ];
             }
 
@@ -275,6 +292,7 @@ class IstController extends Controller
                 ->join('ist_datapegawai as d', 'k.nip_kandidat', '=', 'd.nip')
                 ->where('k.periode_id', $periode->id)
                 ->where('d.kode_wilayah', $data['user_active']->kode_satker)
+                ->select('k.*', 'd.nip', 'd.nama', 'd.jabatan', 'd.gol_akhir', 'd.url_foto', 'd.pend_sk', 'd.wilayah', 'd.kode_wilayah')
                 ->first();
 
             if ($kandidatData) {
@@ -397,10 +415,9 @@ class IstController extends Controller
     public function storePenilaian(Request $request)
     {
         $periodeId = $request->input('periode_id');
-        // Jika sudah tahap production, sebaiknya pakai: auth()->user()->nip_pegawai
-        // Sementara kita pakai input hidden dari blade atau default data dummy admin:
-        $nipPemilih = $request->input('nip_pemilih') ?? '199906212022011001';
-        // $nipPemilih = auth()->user()->nip_pegawai;
+        
+        // Menggunakan NIP dari helper getUserActive
+        $nipPemilih = $request->input('nip_pemilih') ?? $this->getUserActive()->nip_pegawai;
 
         // Menangkap array multi-dimensi dari kuesioner.
         // Bentuknya: ['nip_A' => ['id_tanya1'=>5, 'id_tanya2'=>4], 'nip_B' => [...], ...]
@@ -469,5 +486,67 @@ class IstController extends Controller
             ->delete();
 
         return redirect()->back()->with('success', 'Penetapan dibatalkan. Tabel klasemen kembali dibuka.');
+    }
+
+    // ====================================================================
+    // FUNGSI UPLOAD LINK SK PENETAPAN (TAHAP 1.2)
+    // ====================================================================
+    public function uploadSkKandidat(Request $request)
+    {
+        $request->validate([
+            'periode_id'   => 'required|integer',
+            'nip_kandidat' => 'required|string',
+            'link_sk'      => 'required|url|max:2000',
+        ]);
+
+        \App\Models\Ist_KandidatTahap2::where('periode_id', $request->input('periode_id'))
+            ->where('nip_kandidat', $request->input('nip_kandidat'))
+            ->update([
+                'link_sk'     => $request->input('link_sk'),
+                'validasi_sk' => null, // Reset ke null (menunggu) setiap upload/upload ulang
+            ]);
+
+        return redirect()->back()->with('success', 'Link SK Penetapan berhasil disimpan. Menunggu validasi panitia.');
+    }
+
+    // ====================================================================
+    // FUNGSI VALIDASI / REJECT SK PENETAPAN (TAHAP 1.2) - Panitia & Admin
+    // ====================================================================
+    public function validasiSkKandidat(Request $request)
+    {
+        $request->validate([
+            'periode_id'   => 'required|integer',
+            'nip_kandidat' => 'required|string',
+            'aksi'         => 'required|in:validasi,tolak,cabut',
+        ]);
+
+        $userRole = $this->getUserActive()->ist ?? '';
+
+        if (!in_array($userRole, ['admin', 'panitia'])) {
+            return redirect()->back()->with('error', 'Anda tidak memiliki akses untuk melakukan validasi.');
+        }
+
+        $aksi = $request->input('aksi');
+
+        // validasi_sk: null = menunggu, 'tervalidasi' = disetujui, 'ditolak' = ditolak
+        $nilaiValidasi = match($aksi) {
+            'validasi' => 'tervalidasi',
+            'tolak'    => 'ditolak',
+            'cabut'    => null,      // Cabut validasi → kembali menunggu
+            default    => null,
+        };
+
+        \App\Models\Ist_KandidatTahap2::where('periode_id', $request->input('periode_id'))
+            ->where('nip_kandidat', $request->input('nip_kandidat'))
+            ->update(['validasi_sk' => $nilaiValidasi]);
+
+        $pesan = match($aksi) {
+            'validasi' => 'SK Penetapan berhasil divalidasi!',
+            'tolak'    => 'SK Penetapan ditolak. Kepala BPS satker terkait perlu mengupload ulang.',
+            'cabut'    => 'Validasi SK dicabut, status kembali ke menunggu.',
+            default    => 'Aksi berhasil.',
+        };
+
+        return redirect()->back()->with('success', $pesan);
     }
 }

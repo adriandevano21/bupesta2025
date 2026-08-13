@@ -13,6 +13,32 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    // =========================================================================
+    // HELPER: Ambil user aktif
+    // Lokal  : gunakan NIP hardcode untuk development
+    // Produksi: gunakan auth()->user()->nip_pegawai setelah deploy
+    // =========================================================================
+    private function getUserActive()
+    {
+        // --- MODE LOKAL (development) ---
+        return Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+
+        // --- MODE PRODUKSI (aktifkan baris ini & nonaktifkan baris di atas setelah deploy) ---
+        // return Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
+    }
+
+    // =========================================================================
+    // HELPER: Pengunci halaman admin – hanya NIP 199906212022011001 yang boleh akses
+    // =========================================================================
+    private function guardAdmin()
+    {
+        $user = $this->getUserActive();
+
+        if (!$user || $user->nip_pegawai !== '199906212022011001') {
+            abort(403, 'Akses ditolak. Halaman ini hanya dapat dibuka oleh Admin.');
+        }
+    }
+
     public function updateProfil(Request $request)
     {
         Bupesta_User::where('nip_pegawai', $request->nip_pegawai)->update([
@@ -32,6 +58,8 @@ class UserController extends Controller
 
     public function kelolaUserIndex()
     {
+        $this->guardAdmin(); // Pengunci: hanya admin NIP 199906212022011001
+
         $users = DB::table('bupesta_user')
             ->leftJoin('bupesta_datasimpeg', 'bupesta_user.nip_pegawai', '=', 'bupesta_datasimpeg.nip')
             ->select(
@@ -76,8 +104,7 @@ class UserController extends Controller
 
         $data = [
             'judul'       => 'Kelola Pengguna',
-            'user_active' => Bupesta_User::where('nip_pegawai', '199906212022011001')->first(),
-            // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
+            'user_active' => $this->getUserActive(), // Lokal: NIP hardcode | Produksi: auth()->user()->nip_pegawai
             'id_judul'    => '0',
             'users'       => $users,
             'list_satker' => $listSatker
@@ -131,6 +158,8 @@ class UserController extends Controller
 
     public function adminbupesta(Request $request)
     {
+        $this->guardAdmin(); // Pengunci: hanya admin NIP 199906212022011001
+
         // 1. Ambil daftar tanggal versi yang unik untuk isi dropdown filter
         $listVersi = Bupesta_Datasimpeg::select('tanggal_versidata')
             ->whereNotNull('tanggal_versidata')
@@ -150,8 +179,7 @@ class UserController extends Controller
 
         $data = [
             'judul'        => 'Data SIMPEG Pegawai',
-            'user_active' => Bupesta_User::where('nip_pegawai', '199906212022011001')->first(),
-            // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
+            'user_active'  => $this->getUserActive(), // Lokal: NIP hardcode | Produksi: auth()->user()->nip_pegawai
             'id_judul'     => 0,
             'simpeg'       => $simpeg,
             'list_versi'   => $listVersi,
@@ -270,11 +298,12 @@ class UserController extends Controller
 
     public function hukdispegawai()
     {
-        $data['judul'] = 'Hukuman Disiplin Pegawai';
-        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
-        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
-        $data['id_judul'] = 0;
-        $data['hukdis'] = Bupesta_Hukdis::orderBy('created_at', 'desc')->get();
+        $this->guardAdmin(); // Pengunci: hanya admin NIP 199906212022011001
+
+        $data['judul']       = 'Hukuman Disiplin Pegawai';
+        $data['user_active'] = $this->getUserActive(); // Lokal: NIP hardcode | Produksi: auth()->user()->nip_pegawai
+        $data['id_judul']    = 0;
+        $data['hukdis']      = Bupesta_Hukdis::orderBy('created_at', 'desc')->get();
 
         return view('adminbupesta.hukdispegawai', compact('data'));
     }
@@ -337,11 +366,12 @@ class UserController extends Controller
 
     public function dataSimpeg()
     {
-        $data['judul'] = 'Data Pegawai (SIMPEG)';
-        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
-        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
-        $data['id_judul'] = 0;
-        $data['simpeg'] = \App\Models\Bupesta_Datasimpeg::orderBy('created_at', 'desc')->get();
+        $this->guardAdmin(); // Pengunci: hanya admin NIP 199906212022011001
+
+        $data['judul']       = 'Data Pegawai (SIMPEG)';
+        $data['user_active'] = $this->getUserActive(); // Lokal: NIP hardcode | Produksi: auth()->user()->nip_pegawai
+        $data['id_judul']    = 0;
+        $data['simpeg']      = \App\Models\Bupesta_Datasimpeg::orderBy('created_at', 'desc')->get();
 
         return view('adminbupesta.admin', compact('data')); // Sesuaikan dengan nama file blade Anda
     }
@@ -444,10 +474,11 @@ class UserController extends Controller
 
     public function aktivitasuser(Request $request)
     {
-        $data['judul'] = 'Log Aktivitas Pengguna';
-        $data['user_active'] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
-        // 'user_active' => Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first(),
-        $data['id_judul'] = "3";
+        $this->guardAdmin(); // Pengunci: hanya admin NIP 199906212022011001
+
+        $data['judul']       = 'Log Aktivitas Pengguna';
+        $data['user_active'] = $this->getUserActive(); // Lokal: NIP hardcode | Produksi: auth()->user()->nip_pegawai
+        $data['id_judul']    = "3";
         
         // 1. Parameter Filter
         $tahun   =$request->input('tahun', '2026');

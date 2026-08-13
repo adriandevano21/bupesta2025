@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('periode_id');
             $table->string('nip_kandidat', 50);
+            $table->string('link_sk')->nullable();
+            $table->string('validasi_sk', 20)->nullable()->default(null); // null=menunggu, 'tervalidasi', 'ditolak'
             $table->timestamps();
         });
     }
