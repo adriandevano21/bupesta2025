@@ -985,6 +985,74 @@
                                     value="{{ $data['user_active']->nip_pegawai ?? '' }}">
                             </form>
                         </div>
+                        @if ($isPejabat)
+                            <div class="ist-info-box" style="margin-top: 25px;">
+                                <div class="ist-info-header">
+                                    <h3><i class="fa-solid fa-ranking-star"></i> Rekapitulasi Penilaian dan Penetapan
+                                        Perwakilan Satker
+                                    </h3>
+                                </div>
+                                    {{-- Tombol Template SK --}}
+                                    <div style="text-align: right; margin-bottom: 12px;">
+                                        <a href="https://docs.google.com/document/d/185XHLeBfRZH5xia61ADolSLtKZRpQFOS/edit?usp=sharing&ouid=113779814476523304511&rtpof=true&sd=true"
+                                            target="_blank"
+                                            style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg,#4285f4,#1a73e8); color:#fff; padding: 9px 18px; border-radius: 30px; font-size: 12px; font-weight: 700; text-decoration: none; box-shadow: 0 3px 10px rgba(66,133,244,0.4); transition: all 0.2s;">
+                                            <i class="fa-solid fa-file-word"></i> Unduh Template SK Penetapan
+                                        </a>
+                                    </div>
+
+                                    <div style="overflow-x: auto; border-radius: 8px; border: 1px solid #e2e8f0;">
+                                        <table class="ist-table">
+                                            <thead>
+                                                <tr>
+                                                    <th width="8%" style="text-align: center;">Rank</th>
+                                                    <th width="35%">Profil Kandidat</th>
+                                                    <th width="20%" style="text-align: center;">Total Pemilih</th>
+                                                    <th width="20%" style="text-align: center;">Akumulasi Skor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse($rekapVoting as $index => $rv)
+                                                    <tr style="{{ $index === 0 ? 'background: #fffbeb;' : ($index < 3 ? 'background: #f8fafc;' : '') }}">
+                                                        <td style="text-align: center; font-weight: 900; font-size: 18px; color: {{ $index === 0 ? '#fbbf24' : ($index === 1 ? '#94a3b8' : ($index === 2 ? '#b45309' : '#cbd5e1')) }};">
+                                                            #{{ $index + 1 }}
+                                                        </td>
+                                                        <td>
+                                                            <div style="display: flex; align-items: center; gap: 12px;">
+                                                                @if (!empty($rv->url_foto))
+                                                                    <img src="{{ $rv->url_foto }}"
+                                                                        style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; border: 2px solid {{ $index === 0 ? '#fbbf24' : '#e2e8f0' }};"
+                                                                        onerror="this.outerHTML='<i class=\'fa-solid fa-circle-user\' style=\'color: #94a3b8; font-size: 45px; margin-right: 10px;\'></i>'">
+                                                                @else
+                                                                    <i class="fa-solid fa-circle-user" style="color: #94a3b8; font-size: 45px; margin-right: 10px;"></i>
+                                                                @endif
+                                                                <div>
+                                                                    <strong style="color: #1e293b; font-size: 13px;">{{ $rv->nama }}</strong><br>
+                                                                    <small style="color: #64748b;">{{ $rv->jabatan }}</small>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="text-align: center;">
+                                                            <span style="background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 12px;">
+                                                                <i class="fa-solid fa-users"></i> {{ $rv->total_pemilih }} Suara
+                                                            </span>
+                                                        </td>
+                                                        <td style="text-align: center;">
+                                                            <span style="color: var(--warna-utama); font-weight: 900; font-size: 18px;">{{ $rv->total_skor }}</span>
+                                                        </td>
+                                                    </tr>
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="5" style="text-align: center; padding: 20px;">
+                                                            Belum ada satupun pegawai yang melakukan penilaian di Satker ini.
+                                                        </td>
+                                                    </tr>
+                                                @endforelse
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        @endif
                     @endif
 
                     {{-- ==================================================================== --}}
