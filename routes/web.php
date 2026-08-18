@@ -104,4 +104,7 @@ Route::controller(IstController::class)->group(function () {
     Route::post('/ist/store-pertanyaan', 'storePertanyaan')->name('ist.storePertanyaan');
     Route::post('/ist/upload-sk', 'uploadSkKandidat')->name('ist.uploadSk');
     Route::post('/ist/validasi-sk', 'validasiSkKandidat')->name('ist.validasiSk');
+    Route::post('/ist/berkas/store', 'storeBerkasProvinsi')->name('ist.storeBerkas');
+    Route::delete('/ist/berkas/hapus/{id}', 'hapusBerkasProvinsi')->name('ist.hapusBerkas');
+    Route::post('/ist/berkas/submit', 'submitBerkasKandidat')->name('ist.submitBerkas');
 });

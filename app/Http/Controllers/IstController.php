@@ -45,6 +45,7 @@ class IstController extends Controller
         // Menentukan role pengguna aktif
         $userRole = $data["user_active"]->ist ?? '';
         $userSatker = $data["user_active"]->kode_satker ?? '';
+        $userNip = $data["user_active"]->nip_pegawai ?? '';
         $isAdmin = $userRole === 'admin';
 
         $now = Carbon::now();
@@ -327,6 +328,50 @@ class IstController extends Controller
                 ->get();
         }
 
+        // ==========================================
+        // TAHAP 2: PENGUMPULAN BERKAS PROVINSI
+        // ==========================================
+        $daftarBerkas = collect();
+        $isKandidatTahap2 = false;
+        $berkasTerkumpul = collect();
+        $pesertaTahap2 = collect();
+        $semuaPengumpulan = collect();
+
+        if ($activeStep >= 5 && $periode && $periode->is_active) {
+            // 1. Ambil Master Daftar Dokumen dari Admin
+            $daftarBerkas = \App\Models\Ist_BerkasProvinsi::where('periode_id', $periode->id)
+                            ->orderBy('urutan', 'asc')->get();
+
+            // 2. Jika user adalah Admin atau Panitia, ambil Basic List Kandidat Tahap 2
+            if ($isAdmin || $userRole == 'panitia') {
+                // Ambil daftar kandidat yang sudah ditetapkan di Tahap 1_2 (Join ke view ist_datapegawai)
+                $pesertaTahap2 = DB::table('ist_kandidat_tahap2 as k2')
+                    ->join('ist_datapegawai as p', 'k2.nip_kandidat', '=', 'p.nip')
+                    ->where('k2.periode_id', $periode->id)
+                    ->select('k2.nip_kandidat', 'p.nama', 'p.jabatan', 'p.wilayah', 'p.url_foto')
+                    ->get();
+
+                // Ambil data pengumpulan, jadikan collection, lalu kelompokkan per NIP
+                $semuaPengumpulan = DB::table('ist_pengumpulan_berkas')
+                    ->where('periode_id', $periode->id)
+                    ->get()
+                    ->groupBy('nip_kandidat');
+            }
+
+            // 3. Cek apakah user aktif adalah Kandidat Tahap 2
+            $kandidatAktif = DB::table('ist_kandidat_tahap2')
+                            ->where('periode_id', $periode->id)
+                            ->where('nip_kandidat', $userNip)->first();
+
+            if ($kandidatAktif) {
+                $isKandidatTahap2 = true;
+                $berkasTerkumpul = DB::table('ist_pengumpulan_berkas')
+                                    ->where('periode_id', $periode->id)
+                                    ->where('nip_kandidat', $userNip)
+                                    ->get()->keyBy('berkas_id');
+            }
+        }
+
         // Return ke view khusus timeline (nanti kita tambahkan data tahapannya satu per satu)
         return view('ist.ist', compact(
             'data',
@@ -342,7 +387,11 @@ class IstController extends Controller
             'rekapVoting',
             'kandidatTerpilih',
             'isPejabat',
-            'semuaKandidatTahap2'
+            'semuaKandidatTahap2',
+            'isKandidatTahap2',
+            'pesertaTahap2',
+            'semuaPengumpulan',
+            'daftarBerkas'
         ));
     }
 
@@ -548,5 +597,59 @@ class IstController extends Controller
         };
 
         return redirect()->back()->with('success', $pesan);
+    }
+
+    // --- METHOD TAHAP 2: MANAJEMEN BERKAS OLEH ADMIN ---
+    public function storeBerkasProvinsi(Request $request)
+    {
+        $request->validate([
+            'periode_id' => 'required',
+            'nama_dokumen' => 'required',
+            'urutan' => 'required|numeric'
+        ]);
+
+        \App\Models\Ist_BerkasProvinsi::updateOrCreate(
+            ['id' => $request->berkas_id], // Jika berkas_id ada, maka update. Jika null, create baru.
+            [
+                'periode_id' => $request->periode_id,
+                'urutan' => $request->urutan,
+                'nama_dokumen' => $request->nama_dokumen,
+                'keterangan' => $request->keterangan,
+                'link_template' => $request->link_template,
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Master dokumen berhasil disimpan!');
+    }
+
+    public function hapusBerkasProvinsi($id)
+    {
+        \App\Models\Ist_BerkasProvinsi::findOrFail($id)->delete();
+        return redirect()->back()->with('success', 'Dokumen berhasil dihapus!');
+    }
+
+    // --- METHOD TAHAP 2: SUBMIT URL OLEH KANDIDAT ---
+    public function submitBerkasKandidat(Request $request)
+    {
+        $request->validate([
+            'periode_id' => 'required',
+            'berkas_id' => 'required',
+            'nip_kandidat' => 'required',
+            'link_berkas' => 'required|url', // Pastikan format URL
+        ]);
+
+        \App\Models\Ist_PengumpulanBerkas::updateOrCreate(
+            [
+                'periode_id' => $request->periode_id,
+                'berkas_id' => $request->berkas_id,
+                'nip_kandidat' => $request->nip_kandidat,
+            ],
+            [
+                'link_berkas' => $request->link_berkas,
+                'catatan' => $request->catatan,
+            ]
+        );
+
+        return redirect()->back()->with('success', 'Link Berkas berhasil dikumpulkan!');
     }
 }

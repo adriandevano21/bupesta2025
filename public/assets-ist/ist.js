@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // 1. FUNGSI MODAL PENGATURAN PERIODE (KHUSUS ADMIN/PANITIA)
     // ====================================================================
-    window.bukaModalPeriode = function() {
+    window.bukaModalPeriode = function () {
         const modal = document.getElementById('modalPeriode');
         if (modal) modal.style.display = 'flex';
     };
 
-    window.tutupModalPeriode = function() {
+    window.tutupModalPeriode = function () {
         const modal = document.getElementById('modalPeriode');
         if (modal) modal.style.display = 'none';
     };
@@ -17,17 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // 2. FUNGSI MODAL MANAJEMEN PERTANYAAN (KHUSUS ADMIN/PANITIA)
     // ====================================================================
-    window.bukaModalPertanyaan = function() {
+    window.bukaModalPertanyaan = function () {
         const modal = document.getElementById('modalPertanyaan');
         if (modal) modal.style.display = 'flex';
     };
 
-    window.tutupModalPertanyaan = function() {
+    window.tutupModalPertanyaan = function () {
         const modal = document.getElementById('modalPertanyaan');
         if (modal) modal.style.display = 'none';
     };
 
-    window.tambahBarisPertanyaan = function() {
+    window.tambahBarisPertanyaan = function () {
         const wadah = document.getElementById('wadah-pertanyaan');
         const barisBaru = document.createElement('div');
         barisBaru.className = 'grup-input baris-pertanyaan';
@@ -63,18 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Saat halaman pertama dimuat, rapikan/sortir tabel (jika sedang di tahap form)
     setTimeout(() => {
-        if(document.getElementById('tabel-kandidat')) updateTableUI();
+        if (document.getElementById('tabel-kandidat')) updateTableUI();
     }, 300);
 
     // Fungsi memunculkan kembali form jika user klik "Ubah Pilihan"
-    window.editPenilaianUlang = function() {
+    window.editPenilaianUlang = function () {
         document.getElementById('wadah-hasil').style.display = 'none';
         document.getElementById('wadah-form').style.display = 'block';
         updateTableUI();
     };
 
     // Fungsi Buka Modal Kuesioner untuk kandidat tertentu
-    window.bukaModalPenilaian = function(nip, nama) {
+    window.bukaModalPenilaian = function (nip, nama) {
         // Cek Kuota: Jika belum dinilai tapi sudah ada 3 orang di memori
         if (!penilaianData[nip] && Object.keys(penilaianData).length >= 3) {
             Swal.fire('Batas Maksimal!', 'Anda sudah menilai 3 kandidat. Silakan Hapus/Edit nilai kandidat lain untuk menggantinya.', 'warning');
@@ -93,22 +93,22 @@ document.addEventListener("DOMContentLoaded", function () {
             let answers = penilaianData[nip].answers;
             for (let qId in answers) {
                 let radio = document.querySelector(`input[name="temp_q_${qId}"][value="${answers[qId]}"]`);
-                if(radio) radio.checked = true;
+                if (radio) radio.checked = true;
             }
         }
 
         const modal = document.getElementById('modalPenilaian');
-        if(modal) modal.style.display = 'flex';
+        if (modal) modal.style.display = 'flex';
     };
 
-    window.tutupModalPenilaian = function() {
+    window.tutupModalPenilaian = function () {
         const modal = document.getElementById('modalPenilaian');
-        if(modal) modal.style.display = 'none';
+        if (modal) modal.style.display = 'none';
     };
 
     // Event Listener untuk kalkulasi Live Score setiap klik Radio Button
     document.querySelectorAll('.radio-nilai').forEach(el => {
-        el.addEventListener('change', function() {
+        el.addEventListener('change', function () {
             let total = 0;
             document.querySelectorAll('.radio-nilai:checked').forEach(r => {
                 total += parseInt(r.value);
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Simpan nilai Kuesioner ke dalam memori JavaScript
-    window.simpanNilaiModal = function() {
+    window.simpanNilaiModal = function () {
         let answers = {};
         let total = 0;
         let totalQuestions = document.querySelectorAll('.ist-question-card').length;
@@ -150,16 +150,16 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Fungsi Hapus Penilaian dari memori
-    window.hapusNilai = function(nip, event) {
+    window.hapusNilai = function (nip, event) {
         event.stopPropagation(); // Cegah event klik menjalar
         delete penilaianData[nip];
         updateTableUI();
     };
 
     // Fungsi Super untuk merender status tombol dan menyortir otomatis ke atas tabel
-    window.updateTableUI = function() {
+    window.updateTableUI = function () {
         let table = document.getElementById('tbody-kandidat');
-        if(!table) return;
+        if (!table) return;
 
         let rows = Array.from(table.querySelectorAll('tr'));
 
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     // Eksekusi Submit Form setelah Finalisasi
-    window.submitFinalisasi = function() {
+    window.submitFinalisasi = function () {
         Swal.fire({
             title: 'Kirim Penilaian?',
             text: "Data 3 kandidat ini akan disimpan ke sistem.",
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
 
     // Tutup Modal jika area gelap di-klik
-    window.addEventListener('click', function(e) {
+    window.addEventListener('click', function (e) {
         const modalPeriode = document.getElementById('modalPeriode');
         const modalPertanyaan = document.getElementById('modalPertanyaan');
         const modalPenilaian = document.getElementById('modalPenilaian');
@@ -267,9 +267,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // UPDATE SCORE AREA DATA-SORT (Agar Live Score bisa di-sort manual)
     // ====================================================================
-    window.updateTableUI = function() {
+    window.updateTableUI = function () {
         let table = document.getElementById('tbody-kandidat');
-        if(!table) return;
+        if (!table) return;
         let rows = Array.from(table.querySelectorAll('tr'));
 
         rows.forEach(row => {
@@ -319,31 +319,31 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // FUNGSI SORTING ADVANCED (TEKS & ANGKA) DENGAN IKON PANAH
     // ====================================================================
-    window.istSortTable = function(n) {
+    window.istSortTable = function (n) {
         let table = document.getElementById("tabel-kandidat");
-        if(!table) return;
+        if (!table) return;
         let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
         switching = true;
         dir = "asc";
 
         // Atur UI Ikon Panah
         let headers = table.getElementsByTagName("TH");
-        for(let h=0; h<headers.length; h++) {
+        for (let h = 0; h < headers.length; h++) {
             let icon = headers[h].querySelector('i.fa-sort, i.fa-sort-up, i.fa-sort-down');
-            if(icon) {
+            if (icon) {
                 icon.className = 'fa-solid fa-sort';
                 icon.style.opacity = '0.3';
             }
         }
         let currentHeaderIcon = headers[n].querySelector('i');
-        if(currentHeaderIcon) currentHeaderIcon.style.opacity = '1';
+        if (currentHeaderIcon) currentHeaderIcon.style.opacity = '1';
 
         while (switching) {
             switching = false;
             rows = table.getElementsByTagName("TR");
 
             for (i = 1; i < (rows.length - 1); i++) {
-                if(!rows[i].getAttribute('data-nip')) continue; // Lewati baris "Data Kosong"
+                if (!rows[i].getAttribute('data-nip')) continue; // Lewati baris "Data Kosong"
 
                 shouldSwitch = false;
                 x = rows[i].getElementsByTagName("TD")[n];
@@ -371,7 +371,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (shouldSwitch) {
                 rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
                 switching = true;
-                switchcount ++;
+                switchcount++;
             } else {
                 if (switchcount == 0 && dir == "asc") {
                     dir = "desc";
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Putar Ikon Sesuai Arah
-        if(currentHeaderIcon) {
+        if (currentHeaderIcon) {
             currentHeaderIcon.className = dir === 'asc' ? 'fa-solid fa-sort-up' : 'fa-solid fa-sort-down';
         }
     };
@@ -390,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // FUNGSI PENCARIAN (FILTER TABEL) REAL-TIME
     // ====================================================================
-    window.istFilterTable = function() {
+    window.istFilterTable = function () {
         let input = document.getElementById("input-cari-kandidat");
         let filter = input.value.toLowerCase();
         let table = document.getElementById("tbody-kandidat");
@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         for (let i = 0; i < tr.length; i++) {
             // Lewati baris kosong jika ada
-            if(!tr[i].getAttribute('data-nip')) continue;
+            if (!tr[i].getAttribute('data-nip')) continue;
 
             // Mencari di kolom 2 (Profil) dan 3 (Jabatan)
             let tdProfil = tr[i].getElementsByTagName("td")[2];
@@ -420,7 +420,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // FUNGSI MODAL MONITORING PARTISIPASI
     // ====================================================================
-    window.bukaModalMonitoring = function() {
+    window.bukaModalMonitoring = function () {
         const modal = document.getElementById('modalMonitoring');
         if (modal) modal.style.display = 'flex';
     };
@@ -428,7 +428,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // FUNGSI SWITCH TAB DI DALAM MODAL MONITORING
     // ====================================================================
-    window.switchMonTab = function(tabId) {
+    window.switchMonTab = function (tabId) {
         // Atur UI Tombol Tab
         document.getElementById('btn-mon-1_1').classList.remove('active');
         document.getElementById('btn-mon-1_2').classList.remove('active');
@@ -440,7 +440,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('mon-tab-' + tabId).style.display = 'block';
     };
 
-    window.tutupModalMonitoring = function() {
+    window.tutupModalMonitoring = function () {
         const modal = document.getElementById('modalMonitoring');
         if (modal) modal.style.display = 'none';
     };
@@ -448,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ====================================================================
     // FUNGSI COPY FORMAT WA UNTUK DAFTAR PEGAWAI BELUM MENILAI (VERSI TANGGUH)
     // ====================================================================
-    window.copyDaftarWA = function(elementId) {
+    window.copyDaftarWA = function (elementId) {
         let copyText = document.getElementById(elementId);
 
         if (copyText) {
