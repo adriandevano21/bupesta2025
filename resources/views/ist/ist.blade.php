@@ -1576,7 +1576,7 @@
                         </div>
                     @endif
 
-                    @if ($activeStep >= 5 && $periode && $periode->is_active)
+                    @if ($activeStep == 5 && $periode && $periode->is_active)
                         {{-- ======================================================== --}}
                         {{-- TAMPILAN MONITORING KHUSUS ADMIN & PANITIA               --}}
                         {{-- ======================================================== --}}
@@ -1586,157 +1586,365 @@
                                     style="display: flex; justify-content: space-between; align-items: center;">
                                     <h3 style="margin: 0; color: #374151; font-size: 1.1rem;">
                                         <i class="fa-solid fa-folder-open" style="color: #10b981;"></i> Tahap 2:
-                                        Seleksi
-                                        Berkas Provinsi
+                                        Seleksi Berkas
                                     </h3>
-
-                                    {{-- Tombol Manajemen Berkas HANYA untuk Admin --}}
                                     @if ($isAdmin)
-                                        <button type="button" class="btn-tambah-tim"
-                                            style="background-color: #3b82f6;" onclick="bukaModalBerkasAdmin()">
-                                            <i class="fa-solid fa-cogs"></i> Manajemen Master Dokumen
-                                        </button>
+                                        <div style="display: flex; gap: 10px;">
+                                            <button type="button" class="btn-tambah-tim"
+                                                style="background-color: #3b82f6;" onclick="bukaModalBerkasAdmin()">
+                                                <i class="fa-solid fa-cogs"></i> Master Dok. Kandidat
+                                            </button>
+                                            <button type="button" class="btn-tambah-tim"
+                                                style="background-color: #8b5cf6;" onclick="bukaModalBerkasKepala()">
+                                                <i class="fa-solid fa-cogs"></i> Master Dok. Pimpinan
+                                            </button>
+                                        </div>
+                                        {{-- ======================================================== --}}
+                                        {{-- MODAL MASTER BERKAS PIMPINAN (KHUSUS ADMIN)              --}}
+                                        {{-- ======================================================== --}}
+                                        <div id="modalBerkasKepala" class="modal-overlay" style="display: none;">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h3><i class="fa-solid fa-cogs"></i> Manajemen Master Dokumen
+                                                        Pimpinan</h3>
+                                                    <span class="tutup-modal"
+                                                        onclick="tutupModalBerkasKepala()">×</span>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="formBerkasKepala"
+                                                        action="{{ route('ist.storeBerkasKepala') }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        <input type="hidden" name="periode_id"
+                                                            value="{{ $periode->id ?? '' }}">
+                                                        <input type="hidden" id="input_berkas_id_kepala"
+                                                            name="berkas_id" value="">
+
+                                                        <div class="grup-input">
+                                                            <label>Nomor Urut Tampilan</label>
+                                                            <input type="number" id="input_urutan_kepala"
+                                                                name="urutan" class="input-form" value="1"
+                                                                required>
+                                                        </div>
+
+                                                        <div class="grup-input">
+                                                            <label>Nama Dokumen <span
+                                                                    style="color: #ef4444;">*</span></label>
+                                                            <input type="text" id="input_nama_dokumen_kepala"
+                                                                name="nama_dokumen" class="input-form"
+                                                                placeholder="Contoh: SK Jabatan / Surat Tugas..."
+                                                                required>
+                                                        </div>
+
+                                                        <div class="grup-input">
+                                                            <label>Keterangan / Instruksi Tambahan</label>
+                                                            <textarea id="input_keterangan_kepala" name="keterangan" class="input-form" rows="2"
+                                                                style="padding-top: 10px;" placeholder="Penjelasan format dokumen..."></textarea>
+                                                        </div>
+
+                                                        <div class="grup-input">
+                                                            <label>Tautan Template (Opsional)</label>
+                                                            <input type="url" id="input_link_template_kepala"
+                                                                name="link_template" class="input-form"
+                                                                placeholder="https://docs.google.com/...">
+                                                            <small
+                                                                style="color: #64748b; margin-top: 5px; display: block;"><i
+                                                                    class="fa-solid fa-circle-info"></i> Kosongkan jika
+                                                                tidak ada format baku.</small>
+                                                        </div>
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn-hapus-baris"
+                                                                style="width: auto; padding: 0 15px; background: #94a3b8; margin-right: 10px;"
+                                                                onclick="resetFormBerkasKepala()">Batal /
+                                                                Reset</button>
+                                                            <button type="submit" id="btnSubmitBerkasKepala"
+                                                                class="btn-simpan"><i
+                                                                    class="fa-solid fa-floppy-disk"></i> Simpan
+                                                                Dokumen</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+
+                                                {{-- Tabel Daftar Dokumen yang Sudah Ada --}}
+                                                <div style="padding: 0 20px 20px 20px;">
+                                                    <h4
+                                                        style="margin-bottom: 10px; color: #374151; font-size: 0.95rem; border-top: 2px dashed #e2e8f0; padding-top: 15px;">
+                                                        Daftar Syarat Dokumen Pimpinan:</h4>
+                                                    <div style="max-height: 200px; overflow-y: auto;">
+                                                        <table class="ist-table"
+                                                            style="width: 100%; font-size: 0.8rem;">
+                                                            <thead style="background: #f8fafc;">
+                                                                <tr>
+                                                                    <th style="width: 10%;">No</th>
+                                                                    <th style="width: 70%;">Nama Dokumen</th>
+                                                                    <th style="text-align: center; width: 20%;">Aksi
+                                                                    </th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @forelse($daftarBerkasKepala ?? [] as $bk)
+                                                                    <tr>
+                                                                        <td style="text-align: center;">
+                                                                            {{ $bk->urutan }}</td>
+                                                                        <td><strong>{{ $bk->nama_dokumen }}</strong>
+                                                                        </td>
+                                                                        <td style="text-align: center;">
+                                                                            <button type="button"
+                                                                                class="btn-edit-inline"
+                                                                                onclick="editBerkasKepala({{ $bk->id }}, {{ $bk->urutan }}, '{{ addslashes($bk->nama_dokumen) }}', '{{ addslashes($bk->keterangan) }}', '{{ $bk->link_template }}')">
+                                                                                <i class="fa-solid fa-pen"></i>
+                                                                            </button>
+                                                                            <form
+                                                                                action="{{ route('ist.hapusBerkasKepala', $bk->id) }}"
+                                                                                method="POST"
+                                                                                style="display:inline-block;"
+                                                                                onsubmit="return confirm('Yakin ingin menghapus syarat dokumen ini?');">
+                                                                                @csrf
+                                                                                @method('DELETE')
+                                                                                <button type="submit"
+                                                                                    class="btn-edit-inline"
+                                                                                    style="color: #ef4444;"><i
+                                                                                        class="fa-solid fa-trash"></i></button>
+                                                                            </form>
+                                                                        </td>
+                                                                    </tr>
+                                                                @empty
+                                                                    <tr>
+                                                                        <td colspan="3"
+                                                                            style="text-align: center; color: #94a3b8; border-bottom: none;">
+                                                                            Belum ada master dokumen pimpinan yang
+                                                                            ditambahkan.</td>
+                                                                    </tr>
+                                                                @endforelse
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     @endif
                                 </div>
-                                <p style="font-size: 0.9rem; color: #6b7280; margin-top: 10px;">
-                                    Tahap pengumpulan bukti dukung, dokumen persyaratan, dan tautan tugas bagi
-                                    perwakilan
-                                    terpilih dari masing-masing Satker.
-                                </p>
-                            </div>
-                            <div
-                                style="margin-top: 25px; margin-bottom: 10px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
-                                <h4 style="margin: 0; color: #374151;"><i class="fa-solid fa-display"></i> Dashboard
-                                    Monitoring Kandidat</h4>
-                                <p style="font-size: 0.8rem; color: #6b7280; margin-top: 5px;">Klik pada judul kolom
-                                    (No, Kandidat, Satker, atau Progress) untuk mengurutkan data.</p>
                             </div>
 
-                            <div class="ist-table-responsive"
-                                style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                                <table class="ist-table" id="tabelMonitoringBerkas" style="margin: 0; width: 100%;">
-                                    <thead style="background: #1e293b; color: #fff;">
-                                        <tr>
-                                            <th style="width: 5%; text-align: center; cursor: pointer;"
-                                                onclick="sortMonitoringTable(0)">No <i class="fa-solid fa-sort"
-                                                    style="color: #94a3b8; font-size: 0.8rem; margin-left: 5px;"></i>
-                                            </th>
-                                            <th style="width: 25%; cursor: pointer;" onclick="sortMonitoringTable(1)">
-                                                Kandidat <i class="fa-solid fa-sort"
-                                                    style="color: #94a3b8; font-size: 0.8rem; margin-left: 5px;"></i>
-                                            </th>
-                                            <th style="width: 20%; cursor: pointer;" onclick="sortMonitoringTable(2)">
-                                                Asal Satker <i class="fa-solid fa-sort"
-                                                    style="color: #94a3b8; font-size: 0.8rem; margin-left: 5px;"></i>
-                                            </th>
-                                            <th style="width: 15%; text-align: center; cursor: pointer;"
-                                                onclick="sortMonitoringTable(3)">Progress Berkas <i
-                                                    class="fa-solid fa-sort"
-                                                    style="color: #94a3b8; font-size: 0.8rem; margin-left: 5px;"></i>
-                                            </th>
-                                            <th style="width: 35%;">Rincian Kelengkapan</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($pesertaTahap2 as $index => $peserta)
-                                            @php
-                                                // Ambil pengumpulan, jadikan collection jika kosong (kebal error)
-                                                $berkasUser = isset($semuaPengumpulan[$peserta->nip_kandidat])
-                                                    ? $semuaPengumpulan[$peserta->nip_kandidat]->keyBy('berkas_id')
-                                                    : collect();
+                            {{-- MENU TAB NAVIGASI --}}
+                            <div class="ist-tabs-header">
+                                <button type="button" class="ist-tab-btn active" id="btn-tab-t2-kandidat"
+                                    onclick="switchTabTahap2('kandidat')">
+                                    <i class="fa-solid fa-users"></i> Monitoring Kandidat (Tahap 2)
+                                </button>
+                                <button type="button" class="ist-tab-btn" id="btn-tab-t2-kepala"
+                                    onclick="switchTabTahap2('kepala')">
+                                    <i class="fa-solid fa-user-tie"></i> Monitoring Kepala & Kabag
+                                </button>
+                            </div>
 
-                                                $totalSyarat = $daftarBerkas->count();
-                                                $totalTerkumpul = $berkasUser->count();
-                                                $persentase =
-                                                    $totalSyarat > 0
-                                                        ? round(($totalTerkumpul / $totalSyarat) * 100)
-                                                        : 0;
-
-                                                $foto = $peserta->url_foto
-                                                    ? $peserta->url_foto
-                                                    : asset('assets-jazirah/img/user.png');
-
-                                                // Pewarnaan progress bar
-                                                $warnaProgress =
-                                                    $persentase == 100
-                                                        ? '#10b981'
-                                                        : ($persentase > 0
-                                                            ? '#f79039'
-                                                            : '#ef4444');
-                                            @endphp
+                            {{-- WADAH 1: TABEL MONITORING KANDIDAT --}}
+                            <div id="wadah-t2-kandidat" style="display: block;">
+                                <div class="ist-table-responsive"
+                                    style="border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                                    {{-- Gunakan white-space: nowrap agar tabel bisa di-scroll ke kanan --}}
+                                    <table class="ist-table" id="tabelMonKandidat"
+                                        style="margin: 0; width: 100%; white-space: nowrap;">
+                                        <thead style="background: #1e293b; color: #fff;">
                                             <tr>
-                                                <td style="text-align: center; font-weight: bold;"
-                                                    data-sort="{{ $index + 1 }}">{{ $index + 1 }}</td>
-                                                <td data-sort="{{ $peserta->nama }}">
-                                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                                        <img src="{{ $foto }}" alt="Foto"
-                                                            style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid #e2e8f0;">
-                                                        <div>
-                                                            <strong
-                                                                style="color: #1e293b; display: block; font-size: 0.9rem;">{{ $peserta->nama }}</strong>
-                                                            <span style="font-size: 0.75rem; color: #64748b;">NIP.
-                                                                {{ $peserta->nip_kandidat }}</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td data-sort="{{ $peserta->wilayah }}"
-                                                    style="font-size: 0.85rem; color: #374151;">
-                                                    {{ $peserta->wilayah }}
-                                                </td>
-                                                <td style="text-align: center;" data-sort="{{ $persentase }}">
-                                                    <strong
-                                                        style="color: {{ $warnaProgress }}; font-size: 1rem;">{{ $persentase }}%</strong>
-                                                    <div
-                                                        style="width: 100%; background-color: #f1f5f9; border-radius: 4px; height: 6px; margin-top: 5px; overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);">
-                                                        <div
-                                                            style="width: {{ $persentase }}%; background-color: {{ $warnaProgress }}; height: 100%; border-radius: 4px; transition: width 0.5s ease;">
-                                                        </div>
-                                                    </div>
-                                                    <span
-                                                        style="font-size: 0.7rem; color: #64748b; margin-top: 4px; display: block;">{{ $totalTerkumpul }}
-                                                        / {{ $totalSyarat }} Berkas</span>
-                                                </td>
-                                                <td>
-                                                    <div style="max-height: 90px; overflow-y: auto; padding-right: 5px; font-size: 0.75rem;"
-                                                        class="scroll-berkas-mini">
-                                                        <ul style="list-style: none; padding: 0; margin: 0;">
-                                                            @forelse($daftarBerkas as $berkas)
-                                                                @php $isSubmited = $berkasUser->has($berkas->id); @endphp
-                                                                <li
-                                                                    style="margin-bottom: 4px; padding-bottom: 4px; border-bottom: 1px dashed #f1f5f9; display: flex; justify-content: space-between; align-items: center;">
-                                                                    <div
-                                                                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 80%;">
-                                                                        {!! $isSubmited
-                                                                            ? '<i class="fa-solid fa-check" style="color: #10b981; margin-right: 5px;"></i>'
-                                                                            : '<i class="fa-solid fa-xmark" style="color: #ef4444; margin-right: 5px;"></i>' !!}
-                                                                        <span
-                                                                            style="color: #475569;">{{ $berkas->nama_dokumen }}</span>
-                                                                    </div>
-                                                                    @if ($isSubmited)
-                                                                        <a href="{{ $berkasUser[$berkas->id]->link_berkas }}"
-                                                                            target="_blank"
-                                                                            style="color: #3b82f6; text-decoration: none; font-weight: bold;">Lihat</a>
-                                                                    @endif
-                                                                </li>
-                                                            @empty
-                                                                <li style="color: #9ca3af; font-style: italic;">Master
-                                                                    syarat dokumen belum ditambahkan.</li>
-                                                            @endforelse
-                                                        </ul>
-                                                    </div>
-                                                </td>
+                                                <th style="width: 5%; text-align: center;">No</th>
+                                                <th style="min-width: 250px;">Kandidat</th>
+                                                <th style="min-width: 150px;">Asal Satker</th>
+                                                <th style="min-width: 120px; text-align: center;">Progress</th>
+                                                {{-- KOLOM NAMA DOKUMEN DINAMIS --}}
+                                                @foreach ($daftarBerkas as $berkas)
+                                                    <th
+                                                        style="text-align: center; min-width: 160px; background: #1e293b !important; border-left: 1px solid #334155 !important; color: #ffffff !important;">
+                                                        <i class="fa-regular fa-file-lines"
+                                                            style="color: #94a3b8; margin-right: 5px;"></i>{{ $berkas->nama_dokumen }}
+                                                    </th>
+                                                @endforeach
                                             </tr>
-                                        @empty
+                                        </thead>
+                                        <tbody>
+                                            @forelse($pesertaTahap2 as $index => $peserta)
+                                                @php
+                                                    $berkasUser = isset($semuaPengumpulan[$peserta->nip_kandidat])
+                                                        ? $semuaPengumpulan[$peserta->nip_kandidat]->keyBy('berkas_id')
+                                                        : collect();
+                                                    $totalSyarat = $daftarBerkas->count();
+                                                    $totalTerkumpul = $berkasUser->count();
+                                                    $persentase =
+                                                        $totalSyarat > 0
+                                                            ? round(($totalTerkumpul / $totalSyarat) * 100)
+                                                            : 0;
+                                                    $foto = $peserta->url_foto
+                                                        ? $peserta->url_foto
+                                                        : asset('assets-jazirah/img/user.png');
+                                                    $warnaProgress =
+                                                        $persentase == 100
+                                                            ? '#10b981'
+                                                            : ($persentase > 0
+                                                                ? '#f79039'
+                                                                : '#ef4444');
+                                                @endphp
+                                                <tr>
+                                                    <td style="text-align: center; font-weight: bold;">
+                                                        {{ $index + 1 }}</td>
+                                                    <td>
+                                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                                            <img src="{{ $foto }}" alt="Foto"
+                                                                style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid #e2e8f0;">
+                                                            <div>
+                                                                <strong
+                                                                    style="color: #1e293b; display: block; font-size: 0.9rem;">{{ $peserta->nama }}</strong>
+                                                                <span style="font-size: 0.75rem; color: #64748b;">NIP.
+                                                                    {{ $peserta->nip_kandidat }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="font-size: 0.85rem; color: #374151;">
+                                                        {{ $peserta->wilayah }}</td>
+                                                    <td style="text-align: center;">
+                                                        <strong
+                                                            style="color: {{ $warnaProgress }}; font-size: 1rem;">{{ $persentase }}%</strong>
+                                                        <span
+                                                            style="font-size: 0.7rem; color: #64748b; display: block;">{{ $totalTerkumpul }}/{{ $totalSyarat }}
+                                                            Berkas</span>
+                                                    </td>
+                                                    {{-- HASIL UPLOAD DINAMIS --}}
+                                                    @foreach ($daftarBerkas as $berkas)
+                                                        @php $submit = $berkasUser->get($berkas->id); @endphp
+                                                        <td
+                                                            style="text-align: center; vertical-align: middle; border-left: 1px dashed #e2e8f0;">
+                                                            @if ($submit)
+                                                                <a href="{{ $submit->link_berkas }}"
+                                                                    target="_blank" class="link-berkas-hijau"
+                                                                    style="padding: 4px 10px;">
+                                                                    <i class="fa-solid fa-link"></i> Buka Link
+                                                                </a>
+                                                                <span
+                                                                    style="display: block; font-size: 0.65rem; color: #64748b; margin-top: 4px;">
+                                                                    {{ \Carbon\Carbon::parse($submit->updated_at ?? $submit->created_at)->format('d/m/Y H:i') }}
+                                                                </span>
+                                                            @else
+                                                                <span
+                                                                    style="display: inline-block; padding: 4px 10px; background: #fee2e2; color: #ef4444; border-radius: 6px; font-size: 0.7rem; font-weight: bold;">
+                                                                    <i class="fa-solid fa-xmark"></i> Kosong
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                    @endforeach
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="{{ 4 + $daftarBerkas->count() }}"
+                                                        style="text-align: center; color: #6b7280; padding: 30px; border: 1px dashed #ccc;">
+                                                        Belum ada kandidat yang ditetapkan di Tahap 1_2.
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            {{-- WADAH 2: TABEL MONITORING KEPALA & KABAG --}}
+                            <div id="wadah-t2-kepala" style="display: none;">
+                                <div class="ist-table-responsive"
+                                    style="border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                                    <table class="ist-table" id="tabelMonKepala"
+                                        style="margin: 0; width: 100%; white-space: nowrap;">
+                                        <thead style="background: #0f172a; color: #fff;">
                                             <tr>
-                                                <td colspan="5"
-                                                    style="text-align: center; color: #6b7280; padding: 30px; border: 1px dashed #ccc;">
-                                                    Belum ada kandidat yang ditetapkan di Tahap 1_2. Dashboard akan
-                                                    muncul setelah ada kandidat.
-                                                </td>
+                                                <th style="width: 5%; text-align: center;">No</th>
+                                                <th style="min-width: 250px;">Nama Pimpinan</th>
+                                                <th style="min-width: 150px;">Wilayah / Satker</th>
+                                                <th style="min-width: 120px; text-align: center;">Progress</th>
+                                                {{-- KOLOM NAMA DOKUMEN DINAMIS KEPALA --}}
+                                                @foreach ($daftarBerkasKepala as $berkasK)
+                                                    <th
+                                                        style="text-align: center; min-width: 160px; background: #1e293b !important; border-left: 1px solid #334155 !important; color: #ffffff !important;">
+                                                        <i class="fa-regular fa-file-lines"
+                                                            style="color: #94a3b8; margin-right: 5px;"></i>{{ $berkasK->nama_dokumen }}
+                                                    </th>
+                                                @endforeach
                                             </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            @forelse($listKepalaKabag as $index => $kepala)
+                                                @php
+                                                    $berkasUserK = isset($semuaPengumpulanKepala[$kepala->nip])
+                                                        ? $semuaPengumpulanKepala[$kepala->nip]->keyBy('berkas_id')
+                                                        : collect();
+                                                    $totalSyaratK = $daftarBerkasKepala->count();
+                                                    $totalTerkumpulK = $berkasUserK->count();
+                                                    $persentaseK =
+                                                        $totalSyaratK > 0
+                                                            ? round(($totalTerkumpulK / $totalSyaratK) * 100)
+                                                            : 0;
+                                                    $fotoK = $kepala->urlfoto
+                                                        ? $kepala->urlfoto
+                                                        : asset('assets-jazirah/img/user.png');
+                                                    $warnaProgressK =
+                                                        $persentaseK == 100
+                                                            ? '#10b981'
+                                                            : ($persentaseK > 0
+                                                                ? '#f79039'
+                                                                : '#ef4444');
+                                                @endphp
+                                                <tr>
+                                                    <td style="text-align: center; font-weight: bold;">
+                                                        {{ $index + 1 }}</td>
+                                                    <td>
+                                                        <div style="display: flex; align-items: center; gap: 10px;">
+                                                            <img src="{{ $fotoK }}" alt="Foto"
+                                                                style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid #e2e8f0;">
+                                                            <div>
+                                                                <strong
+                                                                    style="color: #1e293b; display: block; font-size: 0.9rem;">{{ $kepala->nama }}</strong>
+                                                                <span style="font-size: 0.75rem; color: #64748b;">NIP.
+                                                                    {{ $kepala->nip }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="font-size: 0.85rem; color: #374151;">
+                                                        {{ $kepala->wilayah }}</td>
+                                                    <td style="text-align: center;">
+                                                        <strong
+                                                            style="color: {{ $warnaProgressK }}; font-size: 1rem;">{{ $persentaseK }}%</strong>
+                                                    </td>
+                                                    {{-- HASIL UPLOAD DINAMIS KEPALA --}}
+                                                    @foreach ($daftarBerkasKepala as $berkasK)
+                                                        @php $submitK = $berkasUserK->get($berkasK->id); @endphp
+                                                        <td
+                                                            style="text-align: center; vertical-align: middle; border-left: 1px dashed #e2e8f0;">
+                                                            @if ($submitK)
+                                                                <a href="{{ $submitK->link_berkas }}"
+                                                                    target="_blank" class="link-berkas-hijau"
+                                                                    style="padding: 4px 10px;">
+                                                                    <i class="fa-solid fa-link"></i> Buka Link
+                                                                </a>
+                                                                <span
+                                                                    style="display: block; font-size: 0.65rem; color: #64748b; margin-top: 4px;">
+                                                                    {{ \Carbon\Carbon::parse($submitK->updated_at ?? $submitK->created_at)->format('d/m/Y H:i') }}
+                                                                </span>
+                                                            @else
+                                                                <span
+                                                                    style="display: inline-block; padding: 4px 10px; background: #fee2e2; color: #ef4444; border-radius: 6px; font-size: 0.7rem; font-weight: bold;">
+                                                                    <i class="fa-solid fa-xmark"></i> Kosong
+                                                                </span>
+                                                            @endif
+                                                        </td>
+                                                    @endforeach
+                                                </tr>
+                                            @empty
+                                                <tr>
+                                                    <td colspan="{{ 4 + $daftarBerkasKepala->count() }}"
+                                                        style="text-align: center; color: #6b7280; padding: 30px; border: 1px dashed #ccc;">
+                                                        Data Kepala/Kabag belum ditemukan.
+                                                    </td>
+                                                </tr>
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
 
 
@@ -1745,76 +1953,245 @@
                             {{-- ======================================================== --}}
                         @elseif ($isKandidatTahap2)
                             <div
-                                style="margin-top: 25px; margin-bottom: 10px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
-                                <h4 style="margin: 0; color: #374151;"><i class="fa-solid fa-cloud-arrow-up"></i>
-                                    Tugas Pengumpulan Berkas Anda</h4>
+                                style="margin-top: 25px; margin-bottom: 20px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                                <h4 style="margin: 0; color: #374151; font-size: 1.2rem;">
+                                    <i class="fa-solid fa-cloud-arrow-up" style="color: #f79039;"></i> Tugas
+                                    Pengumpulan Berkas Anda
+                                </h4>
+                                <p style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">
+                                    Silakan unggah dokumen ke Google Drive Anda, pastikan akses tautan diatur ke "Siapa
+                                    saja yang memiliki tautan" (Anyone with the link), lalu tempelkan tautan tersebut di
+                                    bawah ini.
+                                </p>
                             </div>
 
-                            <div class="ist-table-responsive"
-                                style="border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                                <table class="ist-table" style="margin: 0;">
-                                    <thead style="background: #1e293b; color: #fff;">
-                                        <tr>
-                                            <th style="width: 5%;">No</th>
-                                            <th style="width: 45%;">Syarat Dokumen</th>
-                                            <th style="width: 25%;">Status</th>
-                                            <th style="width: 25%;">Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse($daftarBerkas as $berkas)
-                                            @php
-                                                $sudahSubmit = isset($berkasTerkumpul[$berkas->id]);
-                                                $dataSubmit = $sudahSubmit ? $berkasTerkumpul[$berkas->id] : null;
-                                            @endphp
-                                            <tr>
-                                                <td style="text-align: center;">{{ $berkas->urutan }}</td>
-                                                <td>
-                                                    <strong
-                                                        style="color: #1e293b; font-size: 0.95rem;">{{ $berkas->nama_dokumen }}</strong>
-                                                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">
-                                                        {{ $berkas->keterangan }}</div>
-                                                    @if ($berkas->link_template)
-                                                        <a href="{{ $berkas->link_template }}" target="_blank"
-                                                            class="btn-template-biru"><i
-                                                                class="fa-solid fa-file-arrow-down"></i> Unduh
-                                                            Template</a>
+                            <div class="ist-task-container">
+                                @forelse($daftarBerkas as $berkas)
+                                    @php
+                                        // Logika Cerdas & Kebal Error: Mencari data berdasarkan berkas_id dari collection
+                                        $dataSubmit = $berkasTerkumpul->where('berkas_id', $berkas->id)->first();
+                                        $sudahSubmit = !is_null($dataSubmit);
+                                    @endphp
+
+                                    <div class="ist-task-card {{ $sudahSubmit ? 'task-completed' : '' }}">
+                                        <!-- Icon Indikator -->
+                                        <div class="task-icon">
+                                            <i
+                                                class="fa-solid {{ $sudahSubmit ? 'fa-circle-check' : 'fa-folder-open' }}"></i>
+                                        </div>
+
+                                        <!-- Konten Tugas -->
+                                        <div class="task-content">
+                                            <h4><span class="task-number">{{ $berkas->urutan }}</span>
+                                                {{ $berkas->nama_dokumen }}</h4>
+                                            <p>{{ $berkas->keterangan }}</p>
+
+                                            @if ($berkas->link_template)
+                                                <a href="{{ $berkas->link_template }}" target="_blank"
+                                                    class="task-template-link">
+                                                    <i class="fa-solid fa-file-arrow-down"></i> Unduh Template /
+                                                    Format
+                                                </a>
+                                            @endif
+
+                                            <!-- Tampilan Jika Sudah Upload (Tautan Muncul Elegan) -->
+                                            @if ($sudahSubmit)
+                                                <div class="task-submitted-box">
+                                                    <div class="submitted-link-wrapper">
+                                                        <i class="fa-solid fa-link" style="color: #10b981;"></i>
+                                                        <a href="{{ $dataSubmit->link_berkas }}"
+                                                            target="_blank">{{ $dataSubmit->link_berkas }}</a>
+                                                    </div>
+                                                    @if ($dataSubmit->catatan)
+                                                        <div class="submitted-note">
+                                                            <strong>Catatan:</strong> {{ $dataSubmit->catatan }}
+                                                        </div>
                                                     @endif
-                                                </td>
-                                                <td>
-                                                    @if ($sudahSubmit)
-                                                        <span class="ist-badge badge-p1"
-                                                            style="background: #d1fae5; color: #065f46;"><i
-                                                                class="fa-solid fa-check-double"></i> Berhasil
-                                                            Disimpan</span>
-                                                        <br><a href="{{ $dataSubmit->link_berkas }}" target="_blank"
-                                                            class="link-bawah-hijau">Cek Link Anda</a>
-                                                    @else
-                                                        <span class="ist-badge badge-p3"
-                                                            style="background: #fee2e2; color: #991b1b;"><i
-                                                                class="fa-solid fa-hourglass-half"></i> Menunggu
-                                                            Upload</span>
+                                                    <div class="submitted-time">
+                                                        <i class="fa-regular fa-clock"></i> Terakhir diubah:
+                                                        {{ \Carbon\Carbon::parse($dataSubmit->updated_at ?? $dataSubmit->created_at)->format('d F Y - H:i') }}
+                                                        WIB
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        <!-- Aksi Tombol -->
+                                        <div class="task-action">
+                                            @if ($sudahSubmit)
+                                                <span class="badge-status success"><i
+                                                        class="fa-solid fa-check-double"></i> Berhasil Disimpan</span>
+                                                <button type="button" class="btn-task-action btn-edit-mode"
+                                                    onclick="bukaModalSubmitBerkas({{ $berkas->id }}, '{{ addslashes($berkas->nama_dokumen) }}', '{{ $dataSubmit->link_berkas }}', '{{ addslashes($dataSubmit->catatan) }}')">
+                                                    <i class="fa-solid fa-pen-to-square"></i> Ubah Tautan
+                                                </button>
+                                            @else
+                                                <span class="badge-status warning"><i
+                                                        class="fa-solid fa-hourglass-half"></i> Menunggu Tautan</span>
+                                                <button type="button" class="btn-task-action btn-submit-mode"
+                                                    onclick="bukaModalSubmitBerkas({{ $berkas->id }}, '{{ addslashes($berkas->nama_dokumen) }}', '', '')">
+                                                    <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Link Drive
+                                                </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div
+                                        style="text-align: center; padding: 50px 20px; background: #fff; border-radius: 12px; border: 1px dashed #cbd5e1; color: #64748b;">
+                                        <i class="fa-solid fa-box-open"
+                                            style="font-size: 40px; color: #cbd5e1; margin-bottom: 15px;"></i>
+                                        <p>Panitia Provinsi belum menetapkan daftar dokumen yang harus dikumpulkan.</p>
+                                    </div>
+                                @endforelse
+                            </div>
+                        @elseif ($isKepalaOrKabag)
+                            <div
+                                style="margin-top: 25px; margin-bottom: 20px; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px;">
+                                <h4 style="margin: 0; color: #374151; font-size: 1.2rem;">
+                                    <i class="fa-solid fa-user-tie" style="color: #f79039;"></i> Tugas Pengumpulan
+                                    Berkas Pimpinan
+                                </h4>
+                                <p style="font-size: 0.85rem; color: #64748b; margin-top: 5px;">
+                                    Silakan unggah dokumen persyaratan Anda ke Google Drive, pastikan akses tautan
+                                    diatur ke "Siapa saja yang memiliki tautan" (Anyone with the link), lalu tempelkan
+                                    tautan tersebut di bawah ini.
+                                </p>
+                            </div>
+
+                            <div class="ist-task-container">
+                                @forelse($daftarBerkasKepala as $berkasK)
+                                    @php
+                                        // Logika membaca berkas pimpinan yang sudah diupload (menggunakan get agar kebal error)
+                                        $dataSubmitK = $berkasTerkumpulKepala->get($berkasK->id);
+                                        $sudahSubmitK = !is_null($dataSubmitK);
+                                    @endphp
+
+                                    <div class="ist-task-card {{ $sudahSubmitK ? 'task-completed' : '' }}">
+                                        <!-- Icon Indikator -->
+                                        <div class="task-icon">
+                                            <i
+                                                class="fa-solid {{ $sudahSubmitK ? 'fa-circle-check' : 'fa-folder-open' }}"></i>
+                                        </div>
+
+                                        <!-- Konten Tugas -->
+                                        <div class="task-content">
+                                            <h4><span class="task-number">{{ $berkasK->urutan }}</span>
+                                                {{ $berkasK->nama_dokumen }}</h4>
+                                            <p>{{ $berkasK->keterangan }}</p>
+
+                                            @if ($berkasK->link_template)
+                                                <a href="{{ $berkasK->link_template }}" target="_blank"
+                                                    class="task-template-link">
+                                                    <i class="fa-solid fa-file-arrow-down"></i> Unduh Template /
+                                                    Format
+                                                </a>
+                                            @endif
+
+                                            <!-- Tampilan Jika Sudah Upload (Tautan Muncul Elegan) -->
+                                            @if ($sudahSubmitK)
+                                                <div class="task-submitted-box">
+                                                    <div class="submitted-link-wrapper">
+                                                        <i class="fa-solid fa-link" style="color: #10b981;"></i>
+                                                        <a href="{{ $dataSubmitK->link_berkas }}"
+                                                            target="_blank">{{ $dataSubmitK->link_berkas }}</a>
+                                                    </div>
+                                                    @if ($dataSubmitK->catatan)
+                                                        <div class="submitted-note">
+                                                            <strong>Catatan:</strong> {{ $dataSubmitK->catatan }}
+                                                        </div>
                                                     @endif
-                                                </td>
-                                                <td style="text-align: center;">
-                                                    <button type="button"
-                                                        class="btn-aksi-kandidat {{ $sudahSubmit ? 'btn-edit-link' : 'btn-tambah-link' }}"
-                                                        onclick="bukaModalSubmitBerkas({{ $berkas->id }}, '{{ addslashes($berkas->nama_dokumen) }}', '{{ $sudahSubmit ? $dataSubmit->link_berkas : '' }}', '{{ $sudahSubmit ? addslashes($dataSubmit->catatan) : '' }}')">
-                                                        <i
-                                                            class="fa-solid {{ $sudahSubmit ? 'fa-pen-to-square' : 'fa-link' }}"></i>
-                                                        {{ $sudahSubmit ? 'Ubah Link' : 'Kirim Link Drive' }}
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                        @empty
-                                            <tr>
-                                                <td colspan="4"
-                                                    style="text-align: center; color: #64748b; padding: 30px;">Panitia
-                                                    Provinsi belum merilis daftar persyaratan dokumen.</td>
-                                            </tr>
-                                        @endforelse
-                                    </tbody>
-                                </table>
+                                                    <div class="submitted-time">
+                                                        <i class="fa-regular fa-clock"></i> Terakhir diubah:
+                                                        {{ \Carbon\Carbon::parse($dataSubmitK->updated_at ?? $dataSubmitK->created_at)->format('d F Y - H:i') }}
+                                                        WIB
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        <!-- Aksi Tombol (Memanggil JS khusus pimpinan) -->
+                                        <div class="task-action">
+                                            @if ($sudahSubmitK)
+                                                <span class="badge-status success"><i
+                                                        class="fa-solid fa-check-double"></i> Berhasil Disimpan</span>
+                                                <button type="button" class="btn-task-action btn-edit-mode"
+                                                    onclick="bukaModalSubmitBerkasKepala({{ $berkasK->id }}, '{{ addslashes($berkasK->nama_dokumen) }}', '{{ $dataSubmitK->link_berkas }}', '{{ addslashes($dataSubmitK->catatan) }}')">
+                                                    <i class="fa-solid fa-pen-to-square"></i> Ubah Tautan
+                                                </button>
+                                            @else
+                                                <span class="badge-status warning"><i
+                                                        class="fa-solid fa-hourglass-half"></i> Menunggu Tautan</span>
+                                                <button type="button" class="btn-task-action btn-submit-mode"
+                                                    onclick="bukaModalSubmitBerkasKepala({{ $berkasK->id }}, '{{ addslashes($berkasK->nama_dokumen) }}', '', '')">
+                                                    <i class="fa-solid fa-cloud-arrow-up"></i> Kirim Link Drive
+                                                </button>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div
+                                        style="text-align: center; padding: 50px 20px; background: #fff; border-radius: 12px; border: 1px dashed #cbd5e1; color: #64748b;">
+                                        <i class="fa-solid fa-box-open"
+                                            style="font-size: 40px; color: #cbd5e1; margin-bottom: 15px;"></i>
+                                        <p>Panitia Provinsi belum menetapkan daftar dokumen yang harus dikumpulkan oleh
+                                            Pimpinan.</p>
+                                    </div>
+                                @endforelse
+                            </div>
+
+                            {{-- ======================================================== --}}
+                            {{-- MODAL SUBMIT BERKAS PIMPINAN (KEPALA & KABAG)            --}}
+                            {{-- ======================================================== --}}
+                            <div id="modalSubmitBerkasKepala" class="modal-overlay" style="display: none;">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h3><i class="fa-solid fa-cloud-arrow-up"></i> Kirim Tautan Dokumen Pimpinan
+                                        </h3>
+                                        <span class="tutup-modal" onclick="tutupModalSubmitBerkasKepala()">×</span>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ route('ist.submitBerkasKepala') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="periode_id"
+                                                value="{{ $periode->id ?? '' }}">
+                                            <input type="hidden" name="nip_kepala" value="{{ $userNip }}">
+
+                                            <!-- 4 INPUT INI YANG DICARI OLEH JS TADI -->
+                                            <input type="hidden" id="submit_berkas_id_kepala" name="berkas_id"
+                                                value="">
+
+                                            <div class="grup-input">
+                                                <label>Nama Dokumen</label>
+                                                <input type="text" id="submit_nama_dokumen_kepala"
+                                                    class="input-form" disabled
+                                                    style="background: #f1f5f9; font-weight: bold; color: #475569;">
+                                            </div>
+
+                                            <div class="grup-input">
+                                                <label>Tautan / Link Google Drive <span
+                                                        style="color: #ef4444;">*</span></label>
+                                                <input type="url" id="submit_link_berkas_kepala"
+                                                    name="link_berkas" class="input-form"
+                                                    placeholder="https://drive.google.com/..." required>
+                                                <small style="color: #64748b; margin-top: 5px; display: block;"><i
+                                                        class="fa-solid fa-circle-info"></i> Pastikan akses link
+                                                    diatur ke "Siapa saja yang memiliki tautan" (Anyone with the
+                                                    link).</small>
+                                            </div>
+
+                                            <div class="grup-input">
+                                                <label>Catatan Tambahan (Opsional)</label>
+                                                <textarea id="submit_catatan_kepala" name="catatan" class="input-form" rows="2"
+                                                    style="padding-top: 10px;" placeholder="Tulis catatan jika diperlukan..."></textarea>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn-simpan"><i
+                                                        class="fa-solid fa-floppy-disk"></i> Simpan Tautan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         @else
                             {{-- BLOK 1: GALERI PENGUMUMAN PERWAKILAN SATKER --}}
@@ -1880,7 +2257,6 @@
                                 </div>
                             </div>
                         @endif
-
                     @endif
 
                 </div>
@@ -2087,279 +2463,7 @@
 
     <!-- Custom Scripts -->
     <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>
-    <script src="{{ asset('assets-ist/ist.js') }}"></script>
-
-    <script>
-        // ============================================================
-        //  MONITORING MODAL: SORTING & DOWNLOAD IMAGE
-        // ============================================================
-
-        (function() {
-            // ------ SORTING ------
-            var sortState = {}; // { tableId: { col: n, asc: true } }
-
-            function initTableSort(tableId) {
-                var table = document.getElementById(tableId);
-                if (!table) return;
-                var ths = table.querySelectorAll('thead th[data-sort-col]');
-                ths.forEach(function(th) {
-                    th.addEventListener('click', function() {
-                        var col = parseInt(th.getAttribute('data-sort-col'));
-                        var type = th.getAttribute('data-sort-type') || 'string';
-                        if (!sortState[tableId]) sortState[tableId] = {
-                            col: -1,
-                            asc: true
-                        };
-                        var state = sortState[tableId];
-                        var asc = (state.col === col) ? !state.asc : true;
-                        state.col = col;
-                        state.asc = asc;
-
-                        // Reset all icons
-                        ths.forEach(function(h) {
-                            var icon = h.querySelector('.sort-icon');
-                            if (icon) icon.textContent = '⇅';
-                            h.style.background = '';
-                        });
-                        var myIcon = th.querySelector('.sort-icon');
-                        if (myIcon) myIcon.textContent = asc ? '↑' : '↓';
-                        th.style.background = 'rgba(99,102,241,0.08)';
-
-                        var tbody = table.querySelector('tbody');
-                        var rows = Array.from(tbody.querySelectorAll('tr'));
-                        rows.sort(function(a, b) {
-                            var cellA = a.cells[col];
-                            var cellB = b.cells[col];
-                            if (!cellA || !cellB) return 0;
-                            var valA = (cellA.getAttribute('data-val') || cellA.textContent)
-                                .trim();
-                            var valB = (cellB.getAttribute('data-val') || cellB.textContent)
-                                .trim();
-                            var cmp = 0;
-                            if (type === 'number') {
-                                cmp = parseFloat(valA) - parseFloat(valB);
-                            } else {
-                                cmp = valA.localeCompare(valB, 'id');
-                            }
-                            return asc ? cmp : -cmp;
-                        });
-                        rows.forEach(function(r) {
-                            tbody.appendChild(r);
-                        });
-                    });
-                });
-            }
-
-            // Init sorting for both tables when DOM ready
-            document.addEventListener('DOMContentLoaded', function() {
-                initTableSort('tbl-mon-1_1');
-                initTableSort('tbl-mon-1_2');
-            });
-
-            // Expose so switchMonTab can still update download buttons
-            window._monSortInited = true;
-        })();
-
-        // ------ DOWNLOAD IMAGE ------
-        function downloadMonitoringImage(tabId, filename) {
-            // Untuk Tab 1.1: hanya capture tabel Rekapitulasi Partisipasi saja
-            var sourceEl;
-            if (tabId === 'mon-tab-1_1') {
-                sourceEl = document.getElementById('rekap-partisipasi-wrapper');
-            } else {
-                sourceEl = document.getElementById(tabId);
-            }
-            if (!sourceEl) {
-                alert('Konten tidak ditemukan.');
-                return;
-            }
-
-            // Create a styled wrapper for cleaner export
-            var wrapper = document.createElement('div');
-            wrapper.style.cssText =
-                'background:#f8fafc; padding:24px; font-family:Poppins,sans-serif; min-width:700px; display:inline-block;';
-
-            // Header branding
-            var header = document.createElement('div');
-            header.style.cssText =
-                'text-align:center; margin-bottom:18px; padding-bottom:14px; border-bottom:2px solid #e2e8f0;';
-            header.innerHTML =
-                '<div style="font-size:18px; font-weight:700; color:#1e293b;"><span style="color:#f79039;">&#9733;</span> BPS Provinsi Aceh &mdash; Monitoring IST</div>' +
-                '<div style="font-size:12px; color:#64748b; margin-top:4px;">Diunduh pada: ' + new Date()
-                .toLocaleDateString('id-ID', {
-                    day: '2-digit',
-                    month: 'long',
-                    year: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                }) + '</div>';
-            wrapper.appendChild(header);
-
-            // Clone source element
-            var clone = sourceEl.cloneNode(true);
-            clone.style.display = 'block';
-            wrapper.appendChild(clone);
-
-            document.body.appendChild(wrapper);
-            wrapper.style.position = 'fixed';
-            wrapper.style.top = '-9999px';
-            wrapper.style.left = '-9999px';
-
-            var btn = document.getElementById(
-                tabId === 'mon-tab-1_1' ? 'btn-download-mon-1_1' : 'btn-download-mon-1_2'
-            );
-            var origText = btn ? btn.innerHTML : '';
-            if (btn) btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Menyiapkan...';
-
-            html2canvas(wrapper, {
-                scale: 2,
-                useCORS: true,
-                backgroundColor: '#f8fafc',
-                logging: false
-            }).then(function(canvas) {
-                document.body.removeChild(wrapper);
-                if (btn) btn.innerHTML = origText;
-                var link = document.createElement('a');
-                link.download = filename + '-' + new Date().toISOString().slice(0, 10) + '.png';
-                link.href = canvas.toDataURL('image/png');
-                link.click();
-            }).catch(function(err) {
-                document.body.removeChild(wrapper);
-                if (btn) btn.innerHTML = origText;
-                console.error(err);
-                alert('Gagal mengunduh gambar. Pastikan library html2canvas termuat.');
-            });
-        }
-
-        // Patch switchMonTab to sync download buttons
-        document.addEventListener('DOMContentLoaded', function() {
-            var origSwitch = window.switchMonTab;
-            window.switchMonTab = function(tabKey) {
-                if (typeof origSwitch === 'function') origSwitch(tabKey);
-                var btn11 = document.getElementById('btn-download-mon-1_1');
-                var btn12 = document.getElementById('btn-download-mon-1_2');
-                if (btn11) btn11.style.display = tabKey === '1_1' ? 'inline-flex' : 'none';
-                if (btn12) btn12.style.display = tabKey === '1_2' ? 'inline-flex' : 'none';
-            };
-        });
-
-        // ================================================================
-        // POPUP VALIDASI SK
-        // ================================================================
-        function bukaPopupValidasiSk(kodeWilayah, namaSatker, namaKandidat, linkSk, sudahValidasi, periodeId, nipKandidat) {
-            // Isi data ke popup
-            document.getElementById('popup-sk-satker').textContent = namaSatker;
-            document.getElementById('popup-sk-nama').textContent = namaKandidat;
-            document.getElementById('popup-sk-link').href = linkSk;
-            document.getElementById('popup-sk-link-text').textContent = 'Buka Dokumen SK (' + linkSk.substring(0, 40) +
-                '...)';
-            document.getElementById('popup-sk-periode-id').value = periodeId;
-            document.getElementById('popup-sk-nip').value = nipKandidat;
-
-            // Render status validasi saat ini & tombol aksi
-            var statusBox = document.getElementById('popup-sk-status-box');
-            var btnArea = document.getElementById('popup-sk-buttons-area');
-
-            if (sudahValidasi === 'tervalidasi') {
-                statusBox.innerHTML =
-                    '<span style="display:inline-flex;align-items:center;gap:8px;background:#dcfce7;color:#16a34a;padding:8px 18px;border-radius:30px;font-size:12px;font-weight:700;border:1px solid #86efac;"><i class="fa-solid fa-circle-check"></i> Status Saat Ini: Tervalidasi</span>';
-                btnArea.innerHTML =
-                    '<button type="button" onclick="konfirmasiValidasiPopup(\'cabut\')" style="flex:1; background:linear-gradient(135deg,#f97316,#ea580c); color:#fff; border:none; padding:12px 20px; border-radius:12px; font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(249,115,22,0.4);"><i class="fa-solid fa-rotate-left"></i> Cabut Validasi</button>';
-            } else if (sudahValidasi === 'ditolak') {
-                statusBox.innerHTML =
-                    '<span style="display:inline-flex;align-items:center;gap:8px;background:#fee2e2;color:#dc2626;padding:8px 18px;border-radius:30px;font-size:12px;font-weight:700;border:1px solid #fca5a5;"><i class="fa-solid fa-circle-xmark"></i> Status Saat Ini: Ditolak</span>';
-                btnArea.innerHTML =
-                    '<button type="button" onclick="konfirmasiValidasiPopup(\'cabut\')" style="flex:1; background:linear-gradient(135deg,#f97316,#ea580c); color:#fff; border:none; padding:12px 20px; border-radius:12px; font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(249,115,22,0.4);"><i class="fa-solid fa-rotate-left"></i> Cabut / Reset Status</button>';
-            } else {
-                // null / kosong / menunggu
-                statusBox.innerHTML =
-                    '<span style="display:inline-flex;align-items:center;gap:8px;background:#fefce8;color:#ca8a04;padding:8px 18px;border-radius:30px;font-size:12px;font-weight:700;border:1px solid #fde68a;"><i class="fa-solid fa-clock"></i> Status Saat Ini: Menunggu Validasi</span>';
-                btnArea.innerHTML =
-                    '<button type="button" onclick="konfirmasiValidasiPopup(\'validasi\')" style="flex:1; min-width:140px; background:linear-gradient(135deg,#10b981,#059669); color:#fff; border:none; padding:12px 20px; border-radius:12px; font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(16,185,129,0.4);"><i class="fa-solid fa-check-double"></i> Validasi SK</button>' +
-                    '<button type="button" onclick="konfirmasiValidasiPopup(\'tolak\')" style="flex:1; min-width:140px; background:linear-gradient(135deg,#ef4444,#dc2626); color:#fff; border:none; padding:12px 20px; border-radius:12px; font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 3px 10px rgba(239,68,68,0.4);"><i class="fa-solid fa-xmark"></i> Tolak Dokumen</button>';
-            }
-
-            // Tampilkan modal validasi
-            var modal = document.getElementById('modalValidasiSk');
-            modal.style.display = 'flex';
-        }
-
-        function tutupPopupValidasiSk() {
-            document.getElementById('modalValidasiSk').style.display = 'none';
-        }
-
-        function konfirmasiValidasiPopup(aksi) {
-            var teks = '';
-            if (aksi === 'validasi') teks = 'Yakin ingin memvalidasi dokumen SK ini?';
-            else if (aksi === 'tolak') teks = 'Yakin ingin menolak dokumen SK ini? Kandidat akan diminta upload ulang.';
-            else if (aksi === 'cabut') teks = 'Yakin ingin mencabut status validasi dokumen SK ini?';
-
-            document.getElementById('teks-konfirmasi-sk').textContent = teks;
-            var btnLanjut = document.getElementById('btn-lanjutkan-sk');
-
-            // Gunakan fungsi anonim untuk menghindari multiple event listener jika onclick ditambah terus
-            btnLanjut.onclick = function() {
-                document.getElementById('popup-sk-aksi').value = aksi;
-                document.getElementById('form-validasi-sk-popup').submit();
-            };
-
-            // Tutup sementara modal validasi utama atau biarkan tumpang tindih (Z-index confirm lebih tinggi)
-            document.getElementById('modalConfirmSk').style.display = 'flex';
-        }
-
-        // Tutup popup jika klik di luar area modal
-        document.addEventListener('click', function(e) {
-            var modal = document.getElementById('modalValidasiSk');
-            if (modal && e.target === modal) tutupPopupValidasiSk();
-
-            var modalConfirm = document.getElementById('modalConfirmSk');
-            if (modalConfirm && e.target === modalConfirm) modalConfirm.style.display = 'none';
-        });
-
-        /* ==========================================
-           FUNGSI MANAJEMEN BERKAS ADMIN (TAHAP 2)
-           ========================================== */
-        function bukaModalBerkasAdmin() {
-            document.getElementById('modalBerkasAdmin').style.display = 'flex';
-        }
-
-        function tutupModalBerkasAdmin() {
-            document.getElementById('modalBerkasAdmin').style.display = 'none';
-            resetFormBerkas();
-        }
-
-        function editBerkasAdmin(id, urutan, nama, ket, link) {
-            document.getElementById('input_berkas_id').value = id;
-            document.getElementById('input_urutan').value = urutan;
-            document.getElementById('input_nama_dokumen').value = nama;
-            document.getElementById('input_keterangan').value = ket;
-            document.getElementById('input_link_template').value = link;
-            document.getElementById('btnSubmitBerkas').innerText = "Update Dokumen";
-        }
-
-        function resetFormBerkas() {
-            document.getElementById('input_berkas_id').value = "";
-            document.getElementById('formBerkasAdmin').reset();
-            document.getElementById('btnSubmitBerkas').innerText = "Simpan Dokumen";
-        }
-
-        /* ==========================================
-           FUNGSI PENGUMPULAN BERKAS KANDIDAT (TAHAP 2)
-           ========================================== */
-        function bukaModalSubmitBerkas(berkasId, namaDokumen, linkEksisting, catatanEksisting) {
-            document.getElementById('submit_berkas_id').value = berkasId;
-            document.getElementById('submit_nama_dokumen').value = namaDokumen;
-            document.getElementById('submit_link_berkas').value = linkEksisting;
-            document.getElementById('submit_catatan').value = catatanEksisting;
-
-            document.getElementById('modalSubmitBerkas').style.display = 'flex';
-        }
-
-        function tutupModalSubmitBerkas() {
-            document.getElementById('modalSubmitBerkas').style.display = 'none';
-        }
-    </script>
-
+    <script src="{{ asset('assets-ist/ist.js') }}?v={{ time() }}"></script>
 </body>
 
 </html>

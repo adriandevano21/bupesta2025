@@ -2,17 +2,17 @@
    1. IST CONTAINER & MODAL HELPERS (SANGAT RINGAN)
    ========================================================= */
 .konten-ist {
+    width: 100%;
     padding: 30px 10px 80px 10px;
     background-color: transparent;
-    width: 100%;
 }
 
 .ist-modal-subtitle {
-    color: var(--warna-utama);
     margin: 25px 0 15px 0;
-    border-top: 2px dashed #e2e8f0;
     padding-top: 20px;
+    color: var(--warna-utama);
     font-size: 1rem;
+    border-top: 2px dashed #e2e8f0;
 }
 
 .ist-grid-jadwal {
@@ -22,10 +22,10 @@
 }
 
 .ist-card-jadwal {
-    background: #f8fafc;
     padding: 15px;
-    border-radius: 10px;
+    background: #f8fafc;
     border: 1px solid #e2e8f0;
+    border-radius: 10px;
 }
 
 .ist-card-jadwal strong {
@@ -37,9 +37,9 @@
 
 .ist-card-jadwal.highlight {
     grid-column: span 2;
+    margin-top: 15px;
     background: #fff7ed;
     border-color: #fed7aa;
-    margin-top: 15px;
 }
 
 .ist-card-jadwal.highlight strong {
@@ -50,37 +50,37 @@
    2. TIMELINE MODERN & CLEAN (7 TAHAPAN)
    ========================================================= */
 .ist-timeline-wrapper {
-    background: #ffffff;
+    position: relative;
+    width: 100%;
+    margin-bottom: 25px;
     padding: 35px 20px 65px 20px;
+    background: #ffffff;
+    border: 1px solid #f1f5f9;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    border: 1px solid #f1f5f9;
-    margin-bottom: 25px;
-    width: 100%;
-    position: relative;
     /* Dilarang menggunakan overflow:hidden agar tooltip tidak terpotong */
 }
 
 .ist-timeline {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
     position: relative;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .ist-timeline::before {
     content: "";
     position: absolute;
     top: 22px;
-    left: 20px;
     right: 20px;
+    left: 20px;
+    z-index: 1;
     height: 4px;
     background-color: #f1f5f9;
-    z-index: 1;
     border-radius: 4px;
 }
 
@@ -95,33 +95,38 @@
 }
 
 .ist-step-marker {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background-color: #f8fafc;
-    color: #cbd5e1;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 48px;
+    height: 48px;
+    color: #cbd5e1;
     font-size: 16px;
+    background-color: #f8fafc;
     border: 4px solid #fff;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 50%;
     box-shadow: 0 0 0 4px #f8fafc;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ist-step-text {
     margin-top: 15px;
-    font-size: 11px;
     color: #94a3b8;
     font-weight: 600;
+    font-size: 11px;
     line-height: 1.4;
     transition: all 0.3s ease;
 }
 
+/* Status Timeline: Completed & Active (Shared Properties) */
+.ist-step.completed .ist-step-marker,
+.ist-step.active .ist-step-marker {
+    color: #fff;
+    background-color: var(--warna-utama);
+}
+
 /* Status Timeline: Completed */
 .ist-step.completed .ist-step-marker {
-    background-color: var(--warna-utama);
-    color: #fff;
     box-shadow: 0 0 0 4px var(--warna-utama);
 }
 
@@ -134,10 +139,10 @@
     position: absolute;
     top: 22px;
     left: 50%;
+    z-index: -1;
     width: 100%;
     height: 4px;
     background-color: var(--warna-utama);
-    z-index: -1;
 }
 
 .ist-step:last-child::after {
@@ -146,8 +151,6 @@
 
 /* Status Timeline: Active */
 .ist-step.active .ist-step-marker {
-    background-color: var(--warna-utama);
-    color: #fff;
     box-shadow: 0 0 20px rgba(247, 144, 57, 0.5), 0 0 0 5px #ffedd5;
     transform: scale(1.15);
 }
@@ -162,19 +165,19 @@
     position: absolute;
     bottom: -45px;
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    background-color: #1e293b;
-    color: #f8fafc;
+    z-index: 9999;
     padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 10px;
+    color: #f8fafc;
     font-weight: 600;
+    font-size: 10px;
     white-space: nowrap;
+    background-color: #1e293b;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
-    z-index: 9999;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%) translateY(10px);
 }
 
 .ist-step-tooltip::before {
@@ -182,10 +185,10 @@
     position: absolute;
     top: -4px;
     left: 50%;
-    transform: translateX(-50%) rotate(45deg);
     width: 10px;
     height: 10px;
     background-color: #1e293b;
+    transform: translateX(-50%) rotate(45deg);
 }
 
 .ist-step:hover .ist-step-tooltip {
@@ -194,32 +197,31 @@
     transform: translateX(-50%) translateY(0);
 }
 
-
 /* =========================================================
    3. TAHAP 1.1: TABEL, TOMBOL AKSI, & HASIL
    ========================================================= */
 .ist-info-box {
-    background: #ffffff;
-    border-radius: 12px;
-    border-top: 5px solid var(--warna-utama);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    padding: 25px;
     margin-bottom: 25px;
+    padding: 25px;
+    background: #ffffff;
+    border-top: 5px solid var(--warna-utama);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .ist-info-header {
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 15px;
     margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
 }
 
 .ist-info-header h3 {
-    margin: 0;
-    font-size: 18px;
-    color: #1e293b;
     display: flex;
     align-items: center;
     gap: 10px;
+    margin: 0;
+    color: #1e293b;
+    font-size: 18px;
 }
 
 .ist-info-header h3 i {
@@ -231,20 +233,23 @@
     border-collapse: collapse;
 }
 
-.ist-table th {
-    background: #f8fafc;
-    color: #334155;
+.ist-table th,
+.ist-table td {
     padding: 12px 15px;
-    border-bottom: 2px solid #e2e8f0;
-    text-align: left;
-    font-size: 13px;
+}
+
+.ist-table th {
+    color: #334155;
     font-weight: 600;
+    font-size: 13px;
+    text-align: left;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
 }
 
 .ist-table td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #f1f5f9;
     vertical-align: middle;
+    border-bottom: 1px solid #f1f5f9;
     transition: background 0.3s ease;
 }
 
@@ -252,60 +257,62 @@
     background: #f8fafc;
 }
 
-/* Tombol Aksi di Tabel */
-.btn-menilai {
-    background: transparent;
-    color: var(--warna-utama);
-    border: 2px solid var(--warna-utama);
-    padding: 6px 12px;
-    border-radius: 6px;
+/* Tombol Aksi di Tabel (Shared Properties) */
+.btn-menilai,
+.btn-edit-nilai,
+.btn-hapus-nilai {
     cursor: pointer;
     font-size: 12px;
-    font-weight: bold;
+    border-radius: 6px;
     transition: 0.2s;
+}
+
+.btn-menilai,
+.btn-edit-nilai {
+    font-weight: bold;
     white-space: nowrap;
+}
+
+.btn-menilai {
+    padding: 6px 12px;
+    color: var(--warna-utama);
+    background: transparent;
+    border: 2px solid var(--warna-utama);
 }
 
 .btn-menilai:hover {
-    background: var(--warna-utama);
     color: #fff;
-    transform: translateY(-2px);
+    background: var(--warna-utama);
     box-shadow: 0 4px 6px rgba(247, 144, 57, 0.2);
+    transform: translateY(-2px);
 }
 
 .btn-edit-nilai {
-    background: #ecfdf5;
-    color: #10b981;
-    border: 1px solid #10b981;
     padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    transition: 0.2s;
-    white-space: nowrap;
+    color: #10b981;
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+}
+
+.btn-hapus-nilai {
+    margin-left: 5px;
+    padding: 6px 10px;
+    color: #ef4444;
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+}
+
+.btn-edit-nilai:hover,
+.btn-hapus-nilai:hover {
+    color: #fff;
 }
 
 .btn-edit-nilai:hover {
     background: #10b981;
-    color: #fff;
-}
-
-.btn-hapus-nilai {
-    background: #fee2e2;
-    color: #ef4444;
-    border: 1px solid #ef4444;
-    padding: 6px 10px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-    transition: 0.2s;
-    margin-left: 5px;
 }
 
 .btn-hapus-nilai:hover {
     background: #ef4444;
-    color: #fff;
 }
 
 /* Grid Hasil Penilaian Akhir */
@@ -316,40 +323,39 @@
 }
 
 .ist-card-pilihan {
+    padding: 20px;
+    text-align: center;
     background: #fff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    padding: 20px;
-    text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
     transition: 0.3s;
 }
 
 .ist-card-pilihan:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-5px);
 }
 
 .ist-card-pilihan .foto-bulat {
     width: 85px;
     height: 85px;
-    border-radius: 50%;
+    margin-bottom: 10px;
+    padding: 3px;
     object-fit: cover;
     border: 3px solid #e2e8f0;
-    padding: 3px;
-    margin-bottom: 10px;
+    border-radius: 50%;
 }
 
 .badge-skor {
     display: inline-block;
-    background: #dcfce7;
-    color: #166534;
     padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
+    color: #166534;
     font-weight: bold;
+    font-size: 12px;
+    background: #dcfce7;
+    border-radius: 20px;
 }
-
 
 /* =========================================================
    4. MODAL KUESIONER & LIVE SCORE
@@ -358,32 +364,32 @@
     position: sticky;
     top: -20px;
     z-index: 100;
-    background: #fff;
-    border: 2px solid var(--warna-utama);
-    padding: 15px 25px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(247, 144, 57, 0.2);
     float: right;
     margin-bottom: 20px;
     margin-left: 20px;
+    padding: 15px 25px;
+    text-align: center;
+    background: #fff;
+    border: 2px solid var(--warna-utama);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(247, 144, 57, 0.2);
 }
 
 .live-score-box small {
     display: block;
-    font-weight: bold;
     color: #64748b;
+    font-weight: bold;
     font-size: 11px;
-    text-transform: uppercase;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .live-score-box .angka-skor {
-    font-size: 32px;
-    font-weight: 900;
-    color: var(--warna-utama);
-    line-height: 1;
     margin-top: 5px;
+    color: var(--warna-utama);
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1;
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -399,43 +405,42 @@
     clear: both;
 }
 
-/* Clear float untuk Live Score */
 .ist-question-card {
-    background: #fff;
     padding: 18px;
-    border-radius: 8px;
+    background: #fff;
     border: 1px solid #e2e8f0;
     border-left: 4px solid var(--warna-utama);
+    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
 }
 
 .ist-q-text {
     margin: 0 0 12px 0;
-    font-size: 13.5px;
     color: #1e293b;
+    font-size: 13.5px;
     line-height: 1.5;
 }
 
 /* Radio Button Kuesioner (1-5) */
 .ist-radio-group {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .ist-radio-label {
     display: flex;
-    justify-content: center;
     align-items: center;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    color: #64748b;
-    background: #f8fafc;
-    border: 2px solid #cbd5e1;
+    justify-content: center;
     width: 42px;
     height: 42px;
+    color: #64748b;
+    font-weight: bold;
+    font-size: 14px;
+    background: #f8fafc;
+    border: 2px solid #cbd5e1;
     border-radius: 8px;
+    cursor: pointer;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -444,18 +449,17 @@
 }
 
 .ist-radio-label:hover {
-    border-color: #94a3b8;
     background: #e2e8f0;
+    border-color: #94a3b8;
 }
 
 .ist-radio-label:has(input:checked) {
-    background: var(--warna-utama);
     color: #fff;
+    background: var(--warna-utama);
     border-color: var(--warna-utama);
     box-shadow: 0 4px 10px rgba(247, 144, 57, 0.3);
     transform: scale(1.08);
 }
-
 
 /* =========================================================
    5. MEDIA QUERIES (RESPONSIVE)
@@ -464,62 +468,51 @@
     .ist-timeline-wrapper {
         padding: 25px 5px 50px 5px;
     }
-
     .ist-grid-jadwal {
         grid-template-columns: 1fr;
     }
-
     .ist-card-jadwal.highlight {
         grid-column: span 1;
     }
-
     .ist-step-text {
-        font-size: 8.5px;
         margin-top: 10px;
+        font-size: 8.5px;
     }
-
     .ist-step-marker {
         width: 32px;
         height: 32px;
         font-size: 11px;
         box-shadow: 0 0 0 3px #f8fafc;
     }
-
     .ist-timeline::before,
     .ist-step.completed::after {
         top: 15px;
         height: 3px;
     }
-
     .ist-step.completed .ist-step-marker {
         box-shadow: 0 0 0 3px var(--warna-utama);
     }
-
     .ist-step.active .ist-step-marker {
         box-shadow: 0 0 12px rgba(247, 144, 57, 0.4), 0 0 0 3px #ffedd5;
     }
-
     .ist-step-tooltip {
-        font-size: 9px;
-        padding: 5px 10px;
         bottom: -35px;
+        padding: 5px 10px;
+        font-size: 9px;
     }
-
     .ist-table th,
     .ist-table td {
-        font-size: 11px;
         padding: 10px;
+        font-size: 11px;
     }
-
     .live-score-box {
-        float: none;
-        width: 100%;
-        margin-left: 0;
         position: relative;
         top: 0;
+        float: none;
+        width: 100%;
         margin-bottom: 15px;
+        margin-left: 0;
     }
-
     .ist-radio-label {
         width: 35px;
         height: 35px;
@@ -531,42 +524,37 @@
    PERBAIKAN PADDING & JARAK MODAL FOOTER
    ========================================================= */
 .modal-footer {
-    padding: 15px 10px 10px 10px !important;
-    /* Memberikan ruang di atas, kanan, bawah, kiri */
-    background-color: #ffffff;
-    /* Memastikan warna dasar putih utuh */
-    border-top: 1px solid #e2e8f0;
-    text-align: right;
-    margin-top: 0 !important;
-    /* Menyatukan footer dengan body form */
-    border-radius: 0 0 12px 12px;
-    /* Mengikuti lengkungan sudut bawah modal */
     position: relative;
     z-index: 10;
+    margin-top: 0 !important;
+    padding: 15px 10px 10px 10px !important;
+    text-align: right;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-radius: 0 0 12px 12px;
 }
 
 /* =========================================================
-   PERBAIKAN Z-INDEX SWEETALERT (TAMPIL PALING DEPAN)
+   PERBAIKAN Z-INDEX SWEETALERT
    ========================================================= */
 .swal2-container {
     z-index: 999999 !important;
-    /* Angka yang jauh lebih tinggi dari modal-overlay kita */
 }
 
 /* =========================================================
    PROGRESS BAR MONITORING
    ========================================================= */
 .ist-progress-bg {
-    background-color: #e2e8f0;
-    border-radius: 10px;
     width: 100%;
     height: 8px;
     overflow: hidden;
+    background-color: #e2e8f0;
+    border-radius: 10px;
 }
 
 .ist-progress-fill {
-    background: linear-gradient(90deg, #34d399, #10b981);
     height: 100%;
+    background: linear-gradient(90deg, #34d399, #10b981);
     border-radius: 10px;
     transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -575,126 +563,122 @@
    ANIMASI MERIAH PEMENANG TAHAP 1 (WINNER CARD)
    ========================================================= */
 .ist-winner-card {
+    position: relative;
+    overflow: hidden;
+    padding: 40px 20px;
+    text-align: center;
     background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
     border: 2px solid #22c55e;
     border-radius: 16px;
-    padding: 40px 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
     box-shadow: 0 10px 30px rgba(34, 197, 94, 0.2);
     animation: winnerEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* Animasi Muncul Membesar */
 @keyframes winnerEntrance {
     0% {
         opacity: 0;
         transform: scale(0.8) translateY(30px);
     }
-
     100% {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
 }
 
-.ist-winner-title {
-    color: #16a34a;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+/* Shared z-index properties for winner elements */
+.ist-winner-title,
+.ist-winner-photo-container,
+.ist-winner-name,
+.ist-winner-badge,
+.ist-winner-score {
     position: relative;
     z-index: 5;
 }
 
+.ist-winner-title {
+    margin-bottom: 25px;
+    color: #16a34a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
 .ist-winner-photo-container {
-    position: relative;
     display: inline-block;
     margin-bottom: 15px;
-    z-index: 5;
+}
+
+/* Shared Winner Photo Properties */
+.ist-winner-photo,
+.ist-winner-photo-fallback {
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+    animation: pulseGlow 2s infinite alternate;
 }
 
 .ist-winner-photo {
     width: 140px;
     height: 140px;
-    border-radius: 50%;
+    padding: 5px;
     object-fit: cover;
     border: 6px solid #22c55e;
-    padding: 5px;
-    background: #fff;
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-    animation: pulseGlow 2s infinite alternate;
 }
 
 .ist-winner-photo-fallback {
     color: #22c55e;
     font-size: 140px;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
-    animation: pulseGlow 2s infinite alternate;
 }
 
-/* Animasi Cahaya Berdenyut pada Foto */
 @keyframes pulseGlow {
     0% {
+        border-color: #22c55e;
         box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
         transform: scale(1);
-        border-color: #22c55e;
     }
-
     100% {
+        border-color: #16a34a;
         box-shadow: 0 0 40px rgba(34, 197, 94, 0.8);
         transform: scale(1.03);
-        border-color: #16a34a;
     }
 }
 
 .ist-winner-name {
     margin: 0;
     color: #14532d;
-    font-size: 24px;
     font-weight: 900;
+    font-size: 24px;
     text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
-    position: relative;
-    z-index: 5;
 }
 
 .ist-winner-badge {
     display: inline-block;
-    background: #bbf7d0;
-    color: #15803d;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    border: 1px solid #86efac;
     margin-top: 5px;
-    position: relative;
-    z-index: 5;
+    padding: 6px 18px;
+    color: #15803d;
+    font-weight: bold;
+    font-size: 12px;
+    background: #bbf7d0;
+    border: 1px solid #86efac;
+    border-radius: 20px;
 }
 
 .ist-winner-score {
     display: inline-block;
-    background: linear-gradient(135deg, #16a34a, #15803d);
-    color: #fff;
     padding: 12px 30px;
-    border-radius: 30px;
+    color: #fff;
     font-weight: bold;
     font-size: 16px;
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    border-radius: 30px;
     box-shadow: 0 8px 20px rgba(22, 163, 74, 0.4);
     animation: floatBadge 3s ease-in-out infinite;
 }
 
-/* Animasi Skor Melayang */
 @keyframes floatBadge {
-
     0%,
     100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-8px);
     }
@@ -703,115 +687,76 @@
 /* ================= Bintang Animasi Latar ================= */
 .ist-star-anim {
     position: absolute;
+    z-index: 1;
     color: #fbbf24;
     opacity: 0.5;
-    z-index: 1;
     animation: twinkleRotate 4s ease-in-out infinite;
 }
 
-.star-1 {
-    top: 15%;
-    left: 15%;
-    font-size: 28px;
-    animation-delay: 0s;
-}
+.star-1 { top: 15%; left: 15%; font-size: 28px; animation-delay: 0s; }
+.star-2 { top: 25%; right: 20%; font-size: 18px; animation-delay: 0.5s; }
+.star-3 { bottom: 20%; left: 25%; font-size: 22px; animation-delay: 1s; }
+.star-4 { bottom: 35%; right: 12%; font-size: 32px; animation-delay: 1.5s; color: #f59e0b; }
+.star-5 { top: 40%; left: 8%; font-size: 20px; animation-delay: 2s; }
 
-.star-2 {
-    top: 25%;
-    right: 20%;
-    font-size: 18px;
-    animation-delay: 0.5s;
-}
-
-.star-3 {
-    bottom: 20%;
-    left: 25%;
-    font-size: 22px;
-    animation-delay: 1s;
-}
-
-.star-4 {
-    bottom: 35%;
-    right: 12%;
-    font-size: 32px;
-    animation-delay: 1.5s;
-    color: #f59e0b;
-}
-
-.star-5 {
-    top: 40%;
-    left: 8%;
-    font-size: 20px;
-    animation-delay: 2s;
-}
-
-/* Animasi Bintang Berkelip dan Berputar */
 @keyframes twinkleRotate {
-
     0%,
     100% {
-        transform: scale(0.8) rotate(0deg);
         opacity: 0.3;
+        transform: scale(0.8) rotate(0deg);
     }
-
     50% {
-        transform: scale(1.3) rotate(180deg);
         opacity: 0.8;
+        transform: scale(1.3) rotate(180deg);
     }
 }
 
 /* =========================================================
-   MENU TABS (UNTUK MODAL MONITORING & KOMPONEN LAIN)
+   MENU TABS
    ========================================================= */
 .ist-tabs-header {
     display: flex;
     gap: 8px;
-    border-bottom: 2px solid #cbd5e1;
-    overflow-x: auto;
-    padding-bottom: 0;
     margin-bottom: 25px;
+    padding-bottom: 0;
+    overflow-x: auto;
+    border-bottom: 2px solid #cbd5e1;
 }
 
 .ist-tab-btn {
+    margin-bottom: -2px;
+    padding: 12px 25px;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
     background: #f1f5f9;
     border: 1px solid #e2e8f0;
     border-bottom: none;
-    padding: 12px 25px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #64748b;
     border-radius: 8px 8px 0 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    white-space: nowrap;
-    margin-bottom: -2px;
-    /* Trik agar tab menempel sempurna dengan garis bawah */
 }
 
 .ist-tab-btn:hover {
-    background: #e2e8f0;
     color: #334155;
+    background: #e2e8f0;
 }
 
-/* Kondisi Saat Tab Sedang Dipilih / Aktif */
 .ist-tab-btn.active {
-    background: #ffffff;
     color: var(--warna-utama);
+    background: #ffffff;
     border-color: #cbd5e1;
     border-top: 4px solid var(--warna-utama);
-    /* Aksen garis tebal di atas */
     border-bottom: 2px solid #ffffff;
-    /* Menutupi garis batas di bawahnya */
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.02);
 }
 
-/* Animasi Muncul Halus saat Tab Diklik */
 @keyframes tabFadeIn {
     from {
         opacity: 0;
         transform: translateY(10px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -828,18 +773,18 @@
 }
 
 .card-kandidat-modern {
+    overflow: hidden;
     background: #fff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
-    overflow: hidden;
     transition: 0.3s ease;
 }
 
 .card-kandidat-modern:hover {
+    border-color: #10b981;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
     transform: translateY(-3px);
-    border-color: #10b981;
 }
 
 .card-kandidat-header {
@@ -854,39 +799,39 @@
 .card-kandidat-header img {
     width: 45px;
     height: 45px;
-    border-radius: 50%;
     object-fit: cover;
     border: 2px solid #fff;
+    border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .card-kandidat-header div {
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-direction: column;
 }
 
 .card-kandidat-header strong {
-    font-size: 0.95rem;
     color: #1e293b;
+    font-size: 0.95rem;
     line-height: 1.2;
 }
 
 .card-kandidat-header span {
-    font-size: 0.75rem;
-    color: #64748b;
     margin-top: 3px;
+    color: #64748b;
+    font-size: 0.75rem;
 }
 
 /* Progress Circle */
 .progress-circle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
 }
 
 .progress-circle::before {
@@ -900,9 +845,9 @@
 
 .progress-circle span {
     position: relative;
-    font-size: 0.7rem;
-    font-weight: bold;
     color: #1e293b;
+    font-weight: bold;
+    font-size: 0.7rem;
 }
 
 .card-kandidat-body {
@@ -911,14 +856,14 @@
 
 .tabel-berkas-mini {
     width: 100%;
-    border-collapse: collapse;
     font-size: 0.8rem;
+    border-collapse: collapse;
 }
 
 .tabel-berkas-mini td {
     padding: 6px 0;
-    border-bottom: 1px dashed #e2e8f0;
     color: #475569;
+    border-bottom: 1px dashed #e2e8f0;
 }
 
 .tabel-berkas-mini tr:last-child td {
@@ -927,14 +872,14 @@
 
 .link-berkas-hijau {
     display: inline-block;
-    background: #ecfdf5;
-    color: #059669;
     padding: 3px 8px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.7rem;
+    color: #059669;
     font-weight: bold;
+    font-size: 0.7rem;
+    text-decoration: none;
+    background: #ecfdf5;
     border: 1px solid #a7f3d0;
+    border-radius: 4px;
 }
 
 .link-berkas-hijau:hover {
@@ -945,13 +890,13 @@
 .btn-template-biru {
     display: inline-block;
     margin-top: 6px;
-    font-size: 0.75rem;
-    color: #3b82f6;
-    background: #eff6ff;
     padding: 4px 10px;
-    border-radius: 15px;
+    color: #3b82f6;
+    font-size: 0.75rem;
     text-decoration: none;
+    background: #eff6ff;
     border: 1px solid #bfdbfe;
+    border-radius: 15px;
     transition: 0.2s;
 }
 
@@ -959,19 +904,20 @@
     background: #dbeafe;
 }
 
+/* Shared Properties */
 .btn-aksi-kandidat {
     padding: 8px 14px;
-    border-radius: 6px;
-    font-size: 0.8rem;
     font-weight: bold;
-    cursor: pointer;
+    font-size: 0.8rem;
     border: none;
+    border-radius: 6px;
+    cursor: pointer;
     transition: 0.2s;
 }
 
 .btn-tambah-link {
-    background: #f79039;
     color: #fff;
+    background: #f79039;
 }
 
 .btn-tambah-link:hover {
@@ -979,24 +925,246 @@
 }
 
 .btn-edit-link {
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-edit-link:hover {
+    color: #1e293b;
+    background: #e2e8f0;
+}
+
+.link-bawah-hijau {
+    display: inline-block;
+    margin-top: 5px;
+    color: #10b981;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+.link-bawah-hijau:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   STYLING TUGAS KANDIDAT (TAHAP 2) - KARTU MODERN
+   ========================================================= */
+.ist-task-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ist-task-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 6px solid #f79039;
+    border-radius: 12px;
+    padding: 25px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ist-task-card:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Jika Tugas Sudah Diselesaikan (Warna Berubah Hijau) */
+.ist-task-card.task-completed {
+    border-left-color: #10b981;
+    background: #f8fafc;
+}
+
+.task-icon i {
+    font-size: 32px;
+    color: #f79039;
+    transition: 0.3s;
+}
+
+.ist-task-card.task-completed .task-icon i {
+    color: #10b981;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-number {
+    background: #e2e8f0;
+    color: #475569;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.ist-task-card.task-completed .task-number {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.task-content p {
+    margin: 0 0 12px 0;
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.task-template-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eff6ff;
+    color: #3b82f6;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #bfdbfe;
+    transition: 0.2s;
+    margin-bottom: 15px;
+}
+
+.task-template-link:hover {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* Box Link Tersubmit */
+.task-submitted-box {
+    background: #ffffff;
+    border: 1px dashed #10b981;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.submitted-link-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    background: #ecfdf5;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.submitted-link-wrapper a {
+    color: #059669;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.submitted-link-wrapper a:hover {
+    text-decoration: underline;
+}
+
+.submitted-note {
+    font-size: 0.8rem;
+    color: #475569;
+    background: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border-left: 3px solid #cbd5e1;
+}
+
+.submitted-time {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Bagian Kanan (Status & Tombol Aksi) */
+.task-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    min-width: 160px;
+}
+
+.badge-status {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.badge-status.warning { background: #fff7ed; color: #ea580c; border: 1px solid #fed7aa; }
+.badge-status.success { background: #dcfce7; color: #16a34a; border: 1px solid #86efac; }
+
+.btn-task-action {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    justify-content: center;
+}
+
+.btn-submit-mode {
+    background: linear-gradient(135deg, #f79039, #ea580c);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(247, 144, 57, 0.3);
+}
+
+.btn-submit-mode:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(247, 144, 57, 0.4);
+}
+
+.btn-edit-mode {
     background: #f1f5f9;
     color: #475569;
     border: 1px solid #cbd5e1;
 }
 
-.btn-edit-link:hover {
+.btn-edit-mode:hover {
     background: #e2e8f0;
     color: #1e293b;
 }
 
-.link-bawah-hijau {
-    font-size: 0.75rem;
-    color: #10b981;
-    text-decoration: none;
-    margin-top: 5px;
-    display: inline-block;
-}
-
-.link-bawah-hijau:hover {
-    text-decoration: underline;
+@media (max-width: 768px) {
+    .ist-task-card {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .task-action {
+        width: 100%;
+        align-items: stretch;
+    }
 }

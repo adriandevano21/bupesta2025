@@ -107,4 +107,11 @@ Route::controller(IstController::class)->group(function () {
     Route::post('/ist/berkas/store', 'storeBerkasProvinsi')->name('ist.storeBerkas');
     Route::delete('/ist/berkas/hapus/{id}', 'hapusBerkasProvinsi')->name('ist.hapusBerkas');
     Route::post('/ist/berkas/submit', 'submitBerkasKandidat')->name('ist.submitBerkas');
+
+    // Manajemen Master Berkas Kepala (Khusus Admin/Panitia)
+Route::post('/ist/master-berkas-kepala', [IstController::class, 'storeBerkasKepala'])->name('ist.storeBerkasKepala');
+Route::delete('/ist/master-berkas-kepala/{id}', [IstController::class, 'hapusBerkasKepala'])->name('ist.hapusBerkasKepala');
+
+// Pengumpulan Berkas oleh Kepala/Kabag
+Route::post('/ist/submit-berkas-kepala', [IstController::class, 'submitBerkasKepala'])->name('ist.submitBerkasKepala');
 });

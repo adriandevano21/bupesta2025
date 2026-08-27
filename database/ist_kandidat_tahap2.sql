@@ -1,35 +1,27 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               8.4.3 - MySQL Community Server - GPL
--- Server OS:                    Win64
--- HeidiSQL Version:             12.8.0.6908
--- --------------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
--- Dumping structure for table bupesta.ist_kandidat_tahap2
-CREATE TABLE IF NOT EXISTS `ist_kandidat_tahap2` (
-  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `periode_id` bigint unsigned NOT NULL,
-  `nip_kandidat` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `link_sk` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `validasi_sk` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Data exporting was unselected.
-
-/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+INSERT INTO `ist_kandidat_tahap2` (`id`, `periode_id`, `nip_kandidat`, `link_sk`, `validasi_sk`, `created_at`, `updated_at`) VALUES
+(1, 1, '199512272019032001', 'https://drive.google.com/file/d/1Noc-f6RRQ1u4vIImHlrhy0z9ry_yEorU/view?usp=drivesdk', NULL, '2026-08-13 23:41:48', '2026-08-13 23:44:39'),
+(2, 1, '199301032016021001', 'https://drive.google.com/file/d/1RFaJLKZPZXMdiG1byECu0ujXqm5iR9Vs/view?usp=drive_link', NULL, '2026-08-14 00:20:20', '2026-08-14 09:16:20'),
+(3, 1, '198502142009021003', 'https://drive.google.com/file/d/1TFubdz675bjQG2GOr2b36Ol3w_YT0ErC/view?usp=drivesdk', NULL, '2026-08-14 00:28:07', '2026-08-14 01:05:13'),
+(4, 1, '199602202019012001', 'https://drive.google.com/drive/folders/1kz7FoezrG66R-59xwPvoisTLeTPnKp2H', NULL, '2026-08-14 00:28:52', '2026-08-14 00:51:14'),
+(5, 1, '198810272013112001', 'https://drive.google.com/file/d/1WNRNmkZm51zSiEJDifIi0YjSbXva13he/view?usp=sharing', NULL, '2026-08-14 00:53:40', '2026-08-14 02:36:51'),
+(6, 1, '198607282009022005', 'https://drive.google.com/file/d/145qWIdvEe7PP7MBC30r5SPIoHWY2kl_d/view?usp=sharing', NULL, '2026-08-14 01:00:10', '2026-08-14 01:26:39'),
+(7, 1, '199801052019122003', 'https://drive.google.com/file/d/1PKgPsx6xmlKN2dTnmQRPoQR4f8R09V7w/view?usp=sharing', NULL, '2026-08-14 01:28:57', '2026-08-14 04:11:19'),
+(8, 1, '199009162014101001', 'https://drive.google.com/drive/folders/1UId7FNr1GoBfOFwddgXcfPEZOXbp3ALD?usp=sharing', NULL, '2026-08-14 01:31:55', '2026-08-14 01:33:05'),
+(9, 1, '198508282010031001', NULL, NULL, '2026-08-14 01:38:30', '2026-08-14 01:38:30'),
+(10, 1, '197703112006041013', NULL, NULL, '2026-08-14 01:41:12', '2026-08-14 01:41:12'),
+(11, 1, '199403242018021001', 'https://drive.google.com/file/d/1B-NsfjCrB-NSguT0xwAxdO8qgXi-WwJp/view?usp=drive_link', NULL, '2026-08-14 02:21:40', '2026-08-14 02:37:25'),
+(12, 1, '199611222019032001', 'https://drive.google.com/file/d/1TP4Lw5abCNB9uCMhKbZXMbCUGmg_972t/view?usp=drive_link', NULL, '2026-08-14 02:32:16', '2026-08-14 02:34:38'),
+(13, 1, '198807112014032003', 'https://drive.google.com/file/d/1to1BYZw7SH-UTD_REYBMwx7bNZszYdMv/view?usp=sharing', NULL, '2026-08-14 02:34:25', '2026-08-14 02:40:35'),
+(14, 1, '198405102010031001', NULL, NULL, '2026-08-14 03:12:43', '2026-08-14 03:12:43'),
+(15, 1, '198106072011011011', 'https://drive.google.com/file/d/1fENpwk42iebNNmiY9kylISJfd6je-4IO/view?usp=drive_link', NULL, '2026-08-14 03:21:12', '2026-08-14 07:44:55'),
+(16, 1, '198607312009022006', NULL, NULL, '2026-08-14 03:38:50', '2026-08-14 03:38:50'),
+(17, 1, '199702262019121001', 'https://drive.google.com/file/d/1xACbPkLqU2q1rf8fSRXcLR0JEjM31VyU/view?usp=sharing', NULL, '2026-08-14 03:39:34', '2026-08-14 08:06:42'),
+(18, 1, '199812162021042001', 'https://drive.google.com/file/d/1kdTx4wS0I2-d6YJ_GkEXj_WBdh9njZnY/view?usp=sharing', NULL, '2026-08-14 03:43:18', '2026-08-14 09:42:40'),
+(19, 1, '197812312011011017', 'https://drive.google.com/file/d/1ne3SgsAyZalfKCpXtVu0ofZxMsZ7NT-9/view?usp=sharing', NULL, '2026-08-14 03:44:42', '2026-08-14 07:09:31'),
+(20, 1, '198801162008011002', 'https://drive.google.com/file/d/13H4bdgMQhk_U7zTX-Xw_4L67rebKhEZB/view?usp=sharing', NULL, '2026-08-14 03:45:23', '2026-08-14 05:18:26'),
+(21, 1, '198211052011011007', 'https://drive.google.com/file/d/1AyRMxuB14XgqAPGsZLL6yjL21kEnnjmm/view?usp=sharing', NULL, '2026-08-14 03:49:00', '2026-08-14 08:11:31'),
+(22, 1, '199109112014102001', 'https://drive.google.com/file/d/1IfxHEJ57xzOH4aUdnfTPAgTOJr0Ok2dd/view?usp=sharing', NULL, '2026-08-14 04:11:28', '2026-08-14 04:52:29'),
+(23, 1, '199712102019122003', 'https://drive.google.com/file/d/1kecGUDl2UUJnsJVV7_6yrhO8tH6hZZ2V/view?usp=sharing', NULL, '2026-08-14 04:42:53', '2026-08-14 09:40:22'),
+(24, 1, '198308292011011013', 'https://drive.google.com/file/d/1ulGWVTlIXBRT_FkbPRj1Tc3ujwUd4VkX/view?usp=sharing', NULL, '2026-08-14 07:59:58', '2026-08-14 08:55:57');

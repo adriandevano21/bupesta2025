@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bupesta_User;
+use App\Models\Ist_BerkasKepala;
+use App\Models\Ist_BerkasProvinsi;
+use App\Models\Ist_PengumpulanKepala;
 use App\Models\Ist_PenilaianTahap1;
 use App\Models\Ist_Periode;
 use App\Models\Ist_Pertanyaan;
@@ -21,7 +24,7 @@ class IstController extends Controller
     private function getUserActive()
     {
         // --- MODE LOKAL (development) ---
-        return Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        return Bupesta_User::where('nip_pegawai', '197207241994121001')->first();
 
         // --- MODE PRODUKSI (aktifkan baris ini & nonaktifkan baris di atas setelah deploy) ---
         // return Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
@@ -331,44 +334,76 @@ class IstController extends Controller
         // ==========================================
         // TAHAP 2: PENGUMPULAN BERKAS PROVINSI
         // ==========================================
+        
+        // Deklarasi awal untuk Kandidat Tahap 2
         $daftarBerkas = collect();
         $isKandidatTahap2 = false;
         $berkasTerkumpul = collect();
         $pesertaTahap2 = collect();
         $semuaPengumpulan = collect();
 
-        if ($activeStep >= 5 && $periode && $periode->is_active) {
-            // 1. Ambil Master Daftar Dokumen dari Admin
-            $daftarBerkas = \App\Models\Ist_BerkasProvinsi::where('periode_id', $periode->id)
-                            ->orderBy('urutan', 'asc')->get();
+        // Deklarasi awal untuk Pimpinan (Kepala / Kabag)
+        $daftarBerkasKepala = collect();
+        $isKepalaOrKabag = in_array($userRole, ['kepala-kako', 'kabag']);
+        $berkasTerkumpulKepala = collect();
+        $listKepalaKabag = collect();
+        $semuaPengumpulanKepala = collect();
 
-            // 2. Jika user adalah Admin atau Panitia, ambil Basic List Kandidat Tahap 2
+        if ($activeStep >= 5 && $periode && $periode->is_active) {
+            
+            // 1. Ambil Master Daftar Dokumen dari Admin
+            $daftarBerkas = Ist_BerkasProvinsi::where('periode_id', $periode->id)->orderBy('urutan')->get();
+            $daftarBerkasKepala = Ist_BerkasKepala::where('periode_id', $periode->id)->orderBy('urutan')->get();
+
+            // 2. Jika user adalah Admin atau Panitia, ambil Data Monitoring
             if ($isAdmin || $userRole == 'panitia') {
-                // Ambil daftar kandidat yang sudah ditetapkan di Tahap 1_2 (Join ke view ist_datapegawai)
+                
+                // A. Monitoring Kandidat Tahap 2
                 $pesertaTahap2 = DB::table('ist_kandidat_tahap2 as k2')
                     ->join('ist_datapegawai as p', 'k2.nip_kandidat', '=', 'p.nip')
                     ->where('k2.periode_id', $periode->id)
                     ->select('k2.nip_kandidat', 'p.nama', 'p.jabatan', 'p.wilayah', 'p.url_foto')
                     ->get();
 
-                // Ambil data pengumpulan, jadikan collection, lalu kelompokkan per NIP
                 $semuaPengumpulan = DB::table('ist_pengumpulan_berkas')
                     ->where('periode_id', $periode->id)
                     ->get()
                     ->groupBy('nip_kandidat');
+
+                // B. Monitoring Pimpinan (Kepala & Kabag)
+                $listKepalaKabag = DB::table('bupesta_user as u')
+                    ->join('ist_datapegawai as p', 'u.nip_pegawai', '=', 'p.nip')
+                    ->whereIn('u.ist', ['kepala-kako', 'kabag'])
+                    ->select('u.nip_pegawai as nip', 'u.name as nama', 'p.wilayah', 'u.urlfoto')
+                    ->orderBy('u.kode_satker', 'asc') // <-- Diubah menjadi berurutan berdasarkan kode_satker
+                    ->get();
+
+                $semuaPengumpulanKepala = Ist_PengumpulanKepala::where('periode_id', $periode->id)
+                    ->get()
+                    ->groupBy('nip_kepala');
             }
 
             // 3. Cek apakah user aktif adalah Kandidat Tahap 2
             $kandidatAktif = DB::table('ist_kandidat_tahap2')
-                            ->where('periode_id', $periode->id)
-                            ->where('nip_kandidat', $userNip)->first();
+                ->where('periode_id', $periode->id)
+                ->where('nip_kandidat', $userNip)
+                ->first();
 
             if ($kandidatAktif) {
                 $isKandidatTahap2 = true;
                 $berkasTerkumpul = DB::table('ist_pengumpulan_berkas')
-                                    ->where('periode_id', $periode->id)
-                                    ->where('nip_kandidat', $userNip)
-                                    ->get()->keyBy('berkas_id');
+                    ->where('periode_id', $periode->id)
+                    ->where('nip_kandidat', $userNip)
+                    ->get()
+                    ->keyBy('berkas_id');
+            }
+
+            // 4. Cek apakah user aktif adalah Pimpinan (Kepala/Kabag)
+            if ($isKepalaOrKabag) {
+                $berkasTerkumpulKepala = Ist_PengumpulanKepala::where('periode_id', $periode->id)
+                    ->where('nip_kepala', $userNip)
+                    ->get()
+                    ->keyBy('berkas_id');
             }
         }
 
@@ -387,11 +422,16 @@ class IstController extends Controller
             'rekapVoting',
             'kandidatTerpilih',
             'isPejabat',
+            'berkasTerkumpul',
             'semuaKandidatTahap2',
             'isKandidatTahap2',
             'pesertaTahap2',
             'semuaPengumpulan',
-            'daftarBerkas'
+            'daftarBerkas',
+            'daftarBerkasKepala',
+            'berkasTerkumpulKepala',
+            'listKepalaKabag',
+            'semuaPengumpulanKepala','isKepalaOrKabag'
         ));
     }
 
@@ -651,5 +691,64 @@ class IstController extends Controller
         );
 
         return redirect()->back()->with('success', 'Link Berkas berhasil dikumpulkan!');
+    }
+
+    // =========================================================================
+    // FUNGSI TAHAP 2: BERKAS PIMPINAN (KEPALA & KABAG)
+    // =========================================================================
+
+    // 1. Admin: Simpan/Update Master Berkas Kepala
+    public function storeBerkasKepala(Request $request)
+    {
+        $request->validate([
+            'periode_id' => 'required',
+            'nama_dokumen' => 'required|string|max:255',
+            'urutan' => 'required|integer',
+        ]);
+
+        Ist_BerkasKepala::updateOrCreate(
+            ['id' => $request->berkas_id],
+            [
+                'periode_id' => $request->periode_id,
+                'urutan' => $request->urutan,
+                'nama_dokumen' => $request->nama_dokumen,
+                'keterangan' => $request->keterangan,
+                'link_template' => $request->link_template,
+            ]
+        );
+
+        return back()->with('success', 'Master dokumen pimpinan berhasil disimpan!');
+    }
+
+    // 2. Admin: Hapus Master Berkas Kepala
+    public function hapusBerkasKepala($id)
+    {
+        Ist_BerkasKepala::findOrFail($id)->delete();
+        return back()->with('success', 'Master dokumen pimpinan berhasil dihapus!');
+    }
+
+    // 3. Pimpinan: Submit Link Berkas
+    public function submitBerkasKepala(Request $request)
+    {
+        $request->validate([
+            'periode_id' => 'required',
+            'berkas_id' => 'required',
+            'nip_kepala' => 'required',
+            'link_berkas' => 'required|url',
+        ]);
+
+        Ist_PengumpulanKepala::updateOrCreate(
+            [
+                'periode_id' => $request->periode_id,
+                'berkas_id' => $request->berkas_id,
+                'nip_kepala' => $request->nip_kepala,
+            ],
+            [
+                'link_berkas' => $request->link_berkas,
+                'catatan' => $request->catatan,
+            ]
+        );
+
+        return back()->with('success', 'Tautan dokumen pimpinan berhasil disimpan!');
     }
 }

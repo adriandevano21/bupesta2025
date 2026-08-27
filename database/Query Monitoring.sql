@@ -28,7 +28,7 @@ SELECT
 
     -- 4. Persentase Evaluasi TW 3
     ROUND(
-        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 3 AND h.created_by_3 IS NOT NULL AND h.created_by_3 != '' THEN 1 ELSE 0 END) * 100.0) /
+        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 3 AND h.komentar_evaluator1 IS NOT NULL AND h.komentar_evaluator1 != '' THEN 1 ELSE 0 END) * 100.0) /
         NULLIF(SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 3 THEN 1 ELSE 0 END), 0)
     , 2) AS persentase_evaluasi_tw3,
 
@@ -82,7 +82,7 @@ SELECT
 
     -- 4. Persentase Evaluasi TW 2
     ROUND(
-        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 2 AND h.created_by_3 IS NOT NULL AND h.created_by_3 != '' THEN 1 ELSE 0 END) * 100.0) /
+        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 2 AND h.komentar_evaluator1 IS NOT NULL AND h.komentar_evaluator1 != '' THEN 1 ELSE 0 END) * 100.0) /
         NULLIF(SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 2 THEN 1 ELSE 0 END), 0)
     , 2) AS persentase_evaluasi_tw2,
 
@@ -136,7 +136,7 @@ SELECT
 
     -- 4. Persentase Evaluasi TW 1
     ROUND(
-        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 1 AND h.created_by_3 IS NOT NULL AND h.created_by_3 != '' THEN 1 ELSE 0 END) * 100.0) /
+        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 1 AND h.komentar_evaluator1 IS NOT NULL AND h.komentar_evaluator1 != '' THEN 1 ELSE 0 END) * 100.0) /
         NULLIF(SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 1 THEN 1 ELSE 0 END), 0)
     , 2) AS persentase_evaluasi_tw1,
 
@@ -188,7 +188,7 @@ SELECT
 
     -- 4. Persentase Evaluasi TW 4
     ROUND(
-        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 4 AND h.created_by_3 IS NOT NULL AND h.created_by_3 != '' THEN 1 ELSE 0 END) * 100.0) /
+        (SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 4 AND h.komentar_evaluator1 IS NOT NULL AND h.komentar_evaluator1 != '' THEN 1 ELSE 0 END) * 100.0) /
         NULLIF(SUM(CASE WHEN CEIL(h.bulan_target / 3) <= 4 THEN 1 ELSE 0 END), 0)
     , 2) AS persentase_evaluasi_tw4,
 
@@ -240,7 +240,7 @@ SELECT
 
     -- 4. Persentase Evaluasi Bulan Ini
     ROUND(
-        (SUM(CASE WHEN h.bulan_target <= MONTH(CURRENT_DATE()) AND h.created_by_3 IS NOT NULL AND h.created_by_3 != '' THEN 1 ELSE 0 END) * 100.0) /
+        (SUM(CASE WHEN h.bulan_target <= MONTH(CURRENT_DATE()) AND h.komentar_evaluator1 IS NOT NULL AND h.komentar_evaluator1 != '' THEN 1 ELSE 0 END) * 100.0) /
         NULLIF(SUM(CASE WHEN h.bulan_target <= MONTH(CURRENT_DATE()) THEN 1 ELSE 0 END), 0)
     , 2) AS persentase_evaluasi_bulan_ini,
 
