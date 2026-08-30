@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bupesta_TimKerja;
 use App\Models\Bupesta_User;
 use App\Models\Jazirah2_Hasil;
 use App\Models\Jazirah2_Indikator;
@@ -201,10 +200,9 @@ class Jazirah2Controller extends Controller
         ]);
 
         $data["judul"] = "New Jazirah";
-
-        // $data["user_active"] = Jazirah2_User::where('username', 'gunadi.subagia')->get();
-        $data["user_active"] = Jazirah2_User::where('username', 'adrian.devano')->get();
-        // $data["user_active"] = Jazirah2_User::where('username', 'cut.amalia')->get();
+        
+        $data["id_judul"] = "3";
+        $data["user_active"] = Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
 
         $data['pilars'] = ['I', 'II', 'III', 'IV', 'V', 'VI'];
 
@@ -212,12 +210,12 @@ class Jazirah2Controller extends Controller
             ->select('kode_3', 'kode_4', 'rencana_kerja', 'level')
             ->where('level', 4)
             ->get();
-
+        // dd($data["user_active"]);
         // Penyesuaian pengecekan User Active
-        if ($data["user_active"][0]->role === 'admin' || $data["user_active"][0]->kode_satker === '1100') {
+        if ($data["user_active"]->jazirah === 'admin' || $data["user_active"]->kode_satker === '1100') {
             $data["satker_selected"] = $request->input('satker') ?? '1100';
         } else {
-            $data["satker_selected"] = $data["user_active"][0]->kode_satker;
+            $data["satker_selected"] = $data["user_active"]->kode_satker;
         };
 
         $data["pilar_selected"] = $request->input('pilar');

@@ -386,9 +386,9 @@ function klikHeaderTim(kodeTim) {
         return;
     }
 
-    // 1. Parsing JSON Data
-    const dataTim = JSON.parse(jsonElement.textContent);
-
+    let dataTimRaw = document.getElementById('data-tim-' + kodeTim).textContent;
+    let dataTim = JSON.parse(dataTimRaw);
+    
     // 2. Tampilkan Modal
     document.getElementById('modalTimKerjaBesar').style.display = 'flex';
 
@@ -512,7 +512,20 @@ function klikHeaderTim(kodeTim) {
     // 1. Parsing JSON Data
     const dataTim = JSON.parse(jsonElement.textContent);
 
-    // 2. Tampilkan Modal
+    // 2. CEK OTORISASI DINAMIS: Apakah user yang login adalah Ketua Tim ini?
+    let isKetuaTimProv = (window.userActiveNip === dataTim.nip_ketua_tim);
+
+    // 3. Tampilkan paksa tombol edit daerah jika dia adalah Ketua Tim
+    document.querySelectorAll('.tim-butuh-cek-js').forEach(tombolEdit => {
+        if (isKetuaTimProv) {
+            tombolEdit.style.display = 'block';
+        } else {
+            // Sembunyikan kembali (mengandalkan style inline asli dari PHP)
+            tombolEdit.style.display = 'none';
+        }
+    });
+
+    // 4. Tampilkan Modal
     document.getElementById('modalTimKerjaBesar').style.display = 'flex';
 
     // Aktifkan tab pertama secara default
