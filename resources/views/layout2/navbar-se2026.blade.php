@@ -60,8 +60,8 @@
             </li>
 
             <li>
-                <a href="https://qna.bpsaceh.com/">
-                    <i class="fa-regular fa-folder"></i><span>&nbsp; Kotak</span>
+                <a href="/epss?tahun={{ $tahunDipilih }}" class="{{ $data['id_judul'] === '6' ? 'active' : '' }}">
+                    <i class="fa-regular fa-folder"></i><span>&nbsp; EPSS</span>
                 </a>
             </li>
 

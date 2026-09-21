@@ -4,6 +4,7 @@ use App\Http\Controllers\BupestaTimKerjaController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\JazirahController;
 use App\Http\Controllers\DashboardActivityController;
+use App\Http\Controllers\EpssController;
 use App\Http\Controllers\IstController;
 use App\Http\Controllers\Jazirah2Controller;
 use App\Http\Controllers\SE2026Controller;
@@ -107,11 +108,35 @@ Route::controller(IstController::class)->group(function () {
     Route::post('/ist/berkas/store', 'storeBerkasProvinsi')->name('ist.storeBerkas');
     Route::delete('/ist/berkas/hapus/{id}', 'hapusBerkasProvinsi')->name('ist.hapusBerkas');
     Route::post('/ist/berkas/submit', 'submitBerkasKandidat')->name('ist.submitBerkas');
+    Route::post('/ist/master-berkas-kepala', [IstController::class, 'storeBerkasKepala'])->name('ist.storeBerkasKepala');
+    Route::delete('/ist/master-berkas-kepala/{id}', [IstController::class, 'hapusBerkasKepala'])->name('ist.hapusBerkasKepala');
+    Route::post('/ist/submit-berkas-kepala', [IstController::class, 'submitBerkasKepala'])->name('ist.submitBerkasKepala');
+});
 
-    // Manajemen Master Berkas Kepala (Khusus Admin/Panitia)
-Route::post('/ist/master-berkas-kepala', [IstController::class, 'storeBerkasKepala'])->name('ist.storeBerkasKepala');
-Route::delete('/ist/master-berkas-kepala/{id}', [IstController::class, 'hapusBerkasKepala'])->name('ist.hapusBerkasKepala');
+Route::controller(EpssController::class)->group(function () {
+    Route::get('/epss', 'index')->name('epss.index');
+    Route::get('/epsssatker', 'satkerView')->name('epss.satkerView');
 
-// Pengumpulan Berkas oleh Kepala/Kabag
-Route::post('/ist/submit-berkas-kepala', [IstController::class, 'submitBerkasKepala'])->name('ist.submitBerkasKepala');
+    // Halaman Admin EPSS
+    Route::get('/adminepss', 'adminepss')->name('epss.admin');
+    
+    // CRUD Kegiatan
+    Route::post('/adminepss/kegiatan', 'storeKegiatan')->name('epss.kegiatan.store');
+    Route::put('/adminepss/kegiatan/{id}', 'updateKegiatan')->name('epss.kegiatan.update');
+    Route::delete('/adminepss/kegiatan/{id}', 'destroyKegiatan')->name('epss.kegiatan.destroy');
+
+    // CRUD Tahapan
+    Route::post('/adminepss/tahapan', 'storeTahapan')->name('epss.tahapan.store');
+    Route::put('/adminepss/tahapan/{id}', 'updateTahapan')->name('epss.tahapan.update');
+    Route::delete('/adminepss/tahapan/{id}', 'destroyTahapan')->name('epss.tahapan.destroy');
+
+    // CRUD Usulan Kegiatan
+    Route::post('/adminepss/usulan', 'storeUsulan')->name('epss.usulan.store');
+    Route::put('/adminepss/usulan/{id}', 'updateUsulan')->name('epss.usulan.update');
+    Route::delete('/adminepss/usulan/{id}', 'destroyUsulan')->name('epss.usulan.destroy');
+
+    // CRUD Nilai
+    Route::post('/adminepss/nilai', 'storeNilai')->name('epss.nilai.store');
+    Route::put('/adminepss/nilai/{id}', 'updateNilai')->name('epss.nilai.update');
+    Route::delete('/adminepss/nilai/{id}', 'destroyNilai')->name('epss.nilai.destroy');
 });

@@ -150,6 +150,7 @@ class UserController extends Controller
                 'cinema'      => $request->cinema,
                 'kinerja'     => $request->kinerja,
                 'ist'         => $request->ist,
+                'epss'        => $request->epss,
                 'updated_at'  => now()
             ]);
 

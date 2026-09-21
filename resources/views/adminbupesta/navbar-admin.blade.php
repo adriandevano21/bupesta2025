@@ -50,16 +50,13 @@
                 </a>
             </li>
 
+
+            {{-- id_judul = 4 --}}
             <li>
-                <form method="GET" id="tahunForm">
-                    <select id="tahunSelector" name="tahun" class="tahun-dropdown">
-                        @foreach ([2024, 2025, 2026] as $th)
-                            <option value="{{ $th }}" {{ $th === $tahunDipilih ? 'selected' : '' }}>
-                                {{ $th }}
-                            </option>
-                        @endforeach
-                    </select>
-                </form>
+                <a href="/adminepss?tahun={{ $tahunDipilih }}"
+                    class="{{ $data['id_judul'] === '4' ? 'active' : '' }}">
+                    <i class="fa-solid fa-file"></i><span>&nbsp; Admin EPSS</span>
+                </a>
             </li>
 
             {{-- Menu Profil --}}

@@ -24,7 +24,9 @@ class DatabaseSeeder extends Seeder
             SE2026HasilSeeder::class,
             BupestaTimKerjaSeeder::class,
             BupestaKegiatanSeeder::class,
-            BupestaUserSeeder::class
+            BupestaUserSeeder::class,
+            EpssSeeder::class,
+            EpssReferensiSeeder::class
         ]);
     }
 }

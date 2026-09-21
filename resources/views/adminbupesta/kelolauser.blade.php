@@ -118,7 +118,7 @@
                                     <th colspan="2" class="text-center group-header text-blue">Satuan Kerja</th>
                                     <th colspan="2" class="text-center group-header text-orange">Jabatan</th>
                                     <th colspan="2" class="text-center group-header text-green">Golongan</th>
-                                    <th colspan="5" class="text-center group-header text-purple border-left">Akses
+                                    <th colspan="6" class="text-center group-header text-purple border-left">Akses
                                         Aplikasi</th>
                                     <th rowspan="2" class="align-middle text-center border-left">Status</th>
                                 </tr>
@@ -135,6 +135,7 @@
                                     <th class="col-role">Cinema</th>
                                     <th class="col-role">Kinerja</th>
                                     <th class="col-role">IST</th>
+                                    <th class="col-role">EPSS</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -246,6 +247,12 @@
                                             <span class="editable-cell" data-inline-edit="true"
                                                 data-nip="{{ $u->nip_pegawai }}" data-kolom="ist">
                                                 {{ $u->ist ?: '-' }}
+                                            </span>
+                                        </td>
+                                        <td class="col-role">
+                                            <span class="editable-cell" data-inline-edit="true"
+                                                data-nip="{{ $u->nip_pegawai }}" data-kolom="epss">
+                                                {{ $u->epss ?: '-' }}
                                             </span>
                                         </td>
 
