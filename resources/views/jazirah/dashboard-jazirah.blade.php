@@ -140,8 +140,8 @@
                                             {{ request('mode', 'rekap_satker') == 'rekap_satker' ? 'selected' : '' }}>
                                             Rekap Detail Per Satker</option>
                                         <option value="lintas_satker"
-                                            {{ request('mode') == 'lintas_satker' ? 'selected' : '' }}>Rekap Lintas
-                                            Satker (Se-Provinsi)</option>
+                                            {{ request('mode') == 'lintas_satker' ? 'selected' : '' }}>Rekap
+                                            se-Provinsi Aceh</option>
                                     </select>
                                 </div>
 
@@ -354,10 +354,34 @@
                                                     class="{{ $getBadgeClass($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}">
                                                     {{ $getTeks($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}
                                                 </td>
-                                                <td style="text-align: center; font-weight: 500; color: #d97706;">
-                                                    {{ $item->perlu_di_periksa }}</td>
-                                                <td style="text-align: center; font-weight: 500; color: #dc2626;">
-                                                    {{ $item->perlu_tindak_lanjut }}</td>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    @if ($item->perlu_di_periksa > 0)
+                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=2,4"
+                                                            class="link-rekap link-rekap-periksa"
+                                                            title="Klik untuk cek dokumen yang perlu diperiksa">
+                                                            {{ $item->perlu_di_periksa }} <i
+                                                                class="fa-solid fa-arrow-up-right-from-square"
+                                                                style="font-size: 11px;"></i>
+                                                        </a>
+                                                    @else
+                                                        <span
+                                                            style="font-weight: 500; color: #d97706;">{{ $item->perlu_di_periksa }}</span>
+                                                    @endif
+                                                </td>
+                                                <td style="text-align: center; vertical-align: middle;">
+                                                    @if ($item->perlu_tindak_lanjut > 0)
+                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=4"
+                                                            class="link-rekap link-rekap-tindaklanjut"
+                                                            title="Klik untuk cek dokumen yang perlu ditindaklanjuti">
+                                                            {{ $item->perlu_tindak_lanjut }} <i
+                                                                class="fa-solid fa-arrow-up-right-from-square"
+                                                                style="font-size: 11px;"></i>
+                                                        </a>
+                                                    @else
+                                                        <span
+                                                            style="font-weight: 500; color: #dc2626;">{{ $item->perlu_tindak_lanjut }}</span>
+                                                    @endif
+                                                </td>
                                                 <td style="text-align: center; font-weight: 500; color: #059669;">
                                                     {{ $item->sudah_validasi }}</td>
                                                 <td

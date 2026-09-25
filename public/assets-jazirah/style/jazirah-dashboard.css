@@ -90,3 +90,44 @@
     .jazirah-input-group { width: 100%; justify-content: space-between; }
     .jazirah-select { flex-grow: 1; width: auto; margin-left: 10px; }
 }
+
+/* Styling untuk link angka rekap agar terlihat seperti tombol */
+    .link-rekap {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        /* Bentuk Pill / Kapsul */
+        font-weight: 700;
+        text-decoration: none !important;
+        transition: all 0.2s ease-in-out;
+        min-width: 45px;
+    }
+
+    .link-rekap-periksa {
+        background-color: #fef3c7;
+        color: #d97706 !important;
+        border: 1px solid #fde68a;
+    }
+
+    .link-rekap-periksa:hover {
+        background-color: #fde68a;
+        transform: translateY(-2px);
+        /* Efek melayang saat kursor diarahkan */
+        box-shadow: 0 4px 6px -1px rgba(217, 119, 6, 0.2);
+    }
+
+    .link-rekap-tindaklanjut {
+        background-color: #fee2e2;
+        color: #dc2626 !important;
+        border: 1px solid #fecaca;
+    }
+
+    .link-rekap-tindaklanjut:hover {
+        background-color: #fecaca;
+        transform: translateY(-2px);
+        /* Efek melayang saat kursor diarahkan */
+        box-shadow: 0 4px 6px -1px rgba(220, 38, 38, 0.2);
+    }

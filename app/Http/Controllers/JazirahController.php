@@ -16,7 +16,11 @@ class JazirahController extends Controller
 {
     private function getUserActive()
     {
-        return Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
+        // --- MODE LOKAL (development) ---
+        return Bupesta_User::where('nip_pegawai', '198605172008012002')->first();
+
+        // --- MODE PRODUKSI (aktifkan baris ini & nonaktifkan baris di atas setelah deploy) ---
+        // return Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
     }
 
     public function dashboard(Request $request)
@@ -164,68 +168,123 @@ class JazirahController extends Controller
 
     public function lembarkerja(Request $request)
     {
+        // 1. Validasi Input Parameter
         $request->validate([
-            'pilar'  => ['nullable', 'in:I,II,III,IV,V,VI'],
-            'satker' => ['nullable', 'string', 'max:50'],
+            'pilar'          => ['nullable', 'in:I,II,III,IV,V,VI'],
+            'satker'         => ['nullable', 'string', 'max:50'],
+            'tugas_saya'     => ['nullable', 'in:0,1'],
+            'status_dokumen' => ['nullable', 'string'] // Menangkap parameter "2,4" atau "4"
         ]);
 
+        // 2. Setup Data User Active & Variabel Global
         $userActive = $this->getUserActive();
-        $userRole = $userActive->jazirah ?? '';
+        $userRole   = $userActive->jazirah ?? '';
+        $username   = $userActive->username ?? '';
         
-        $tahun = $request->input('tahun', '2026');
-        $tahunLalu = $tahun - 1;
+        $tahun      = $request->input('tahun', '2026');
+        $tahunLalu  = $tahun - 1;
 
+        // 3. Penentuan Satker Selected
+        // Disederhanakan menggunakan ternary operator
         $satkerSelected = ($userRole === 'admin' || $userActive->kode_satker === '1100') 
             ? $request->input('satker', '1100') 
             : $userActive->kode_satker;
 
-        $pilarSelected = $request->input('pilar');
+        // 4. Inisialisasi Filter
+        $pilarSelected    = $request->input('pilar');
         $subpilarSelected = $request->input('subpilar');
+        $filterTugasSaya  = $request->input('tugas_saya');
+        $statusDokumen    = $request->input('status_dokumen');
 
-        $idIndikatorMe = null;
-        if ($request->filled('task')) {
-            $username = $userActive->username;
-            $idIndikatorMe = DB::table('Jazirah2_Hasil')
-                ->where('penanggungjawab', 'LIKE', "%{$username}%")
-                ->orWhere('created_by_3', 'LIKE', "%{$username}%")
-                ->pluck('id_indikator');
-        }
+        // Pecah string status dokumen menjadi array agar bisa menggunakan whereIn()
+        $statusArray = $statusDokumen ? explode(',', $statusDokumen) : [];
 
+        // 5. Query Builder Indikator
         $indikator = Jazirah2_Indikator::query()
-            ->when($idIndikatorMe, fn($q) => $q->whereIn('id', $idIndikatorMe))
-            ->when($pilarSelected, fn($q) => $q->where(fn($sub) => 
-                $sub->where('kode_3', $pilarSelected)->orWhere('level', 2)
-            ))
-            ->when($subpilarSelected, fn($q) => $q->where(fn($group) => 
-                $group->where('kode_4', $subpilarSelected)
-                      ->orWhere(fn($sub) => $sub->where('level', 3)->where('kode_3', $pilarSelected))
-                      ->orWhere('level', 2)
-            ))
-            ->with(['isian' => function ($q) use ($satkerSelected, $tahun, $tahunLalu) {
+            // --- A. Filter Tugas Saya ---
+            ->when($filterTugasSaya == '1' && !empty($username), function ($query) use ($username, $satkerSelected, $tahun) {
+                $query->whereHas('isian', function ($q) use ($username, $satkerSelected, $tahun) {
+                    $q->where('satker', $satkerSelected)
+                    ->where('tahun', $tahun)
+                    ->where(function($subQ) use ($username) {
+                        $subQ->where('penanggungjawab', 'LIKE', "%{$username}%")
+                            ->orWhere('created_by_3', 'LIKE', "%{$username}%");
+                    });
+                });
+            })
+            
+            // --- B. Filter Pilar Utama ---
+            ->when($pilarSelected, function ($query) use ($pilarSelected) {
+                $query->where(function($sub) use ($pilarSelected) {
+                    $sub->where('kode_3', $pilarSelected)->orWhere('level', 2);
+                });
+            })
+            
+            // --- C. Filter Sub-Pilar ---
+            ->when($subpilarSelected, function ($query) use ($subpilarSelected, $pilarSelected) {
+                $query->where(function($group) use ($subpilarSelected, $pilarSelected) {
+                    $group->where('kode_4', $subpilarSelected)
+                        ->orWhere(function($sub) use ($pilarSelected) {
+                            $sub->where('level', 3)->where('kode_3', $pilarSelected);
+                        })
+                        ->orWhere('level', 2);
+                });
+            })
+
+            // --- D. Filter Status Dokumen (Dari Rekap Dashboard) ---
+            // Memastikan hanya baris indikator yang memiliki isian dengan status ini yang ditarik
+            ->when(!empty($statusArray), function ($query) use ($statusArray, $satkerSelected, $tahun) {
+                $query->whereHas('isian', function ($q) use ($statusArray, $satkerSelected, $tahun) {
+                    $q->where('satker', $satkerSelected)
+                    ->where('tahun', $tahun)
+                    ->whereIn('status_dokumen', $statusArray);
+                });
+            })
+            
+            // --- E. Relasi & Eager Loading ---
+            ->with(['isian' => function ($q) use ($satkerSelected, $tahun, $tahunLalu, $statusArray) {
                 $q->where('satker', $satkerSelected)
-                  ->where('tahun', $tahun)
-                  ->select('jazirah2_hasil.*')
-                  ->selectRaw("(SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ') FROM bulan b WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_target)) AS bulan_target_nama")
-                  ->selectRaw("(SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ') FROM bulan b WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_realisasi)) AS bulan_realisasi_nama")
-                  ->selectRaw("(SELECT prev.rencanaaksi FROM jazirah2_hasil prev WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker) AND prev.tahun = ? AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator) ORDER BY prev.id DESC LIMIT 1) AS rencanaaksi_tahun_lalu", [$tahunLalu])
-                  ->selectRaw("(SELECT prev.output FROM jazirah2_hasil prev WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker) AND prev.tahun = ? AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator) ORDER BY prev.id DESC LIMIT 1) AS output_tahun_lalu", [$tahunLalu])
-                  ->with(['komentars' => fn($k) => $k->orderBy('created_at', 'asc')->with('pegawai:nip_pegawai,name,urlfoto,username,jazirah')]);
+                ->where('tahun', $tahun)
+                ->select('jazirah2_hasil.*')
+                
+                // Memastikan data isian yang diload ke dalam relasi juga difilter berdasarkan status dokumen
+                ->when(!empty($statusArray), function ($query) use ($statusArray) {
+                    $query->whereIn('status_dokumen', $statusArray);
+                })
+                
+                // Subquery untuk mapping nama bulan target
+                ->selectRaw("(SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ') FROM bulan b WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_target)) AS bulan_target_nama")
+                
+                // Subquery untuk mapping nama bulan realisasi
+                ->selectRaw("(SELECT GROUP_CONCAT(b.singkatan ORDER BY CAST(b.kode_bulan AS UNSIGNED) SEPARATOR ', ') FROM bulan b WHERE FIND_IN_SET(b.kode_bulan, jazirah2_hasil.bulan_realisasi)) AS bulan_realisasi_nama")
+                
+                // Subquery data tahun lalu (Rencana Aksi & Output)
+                ->selectRaw("(SELECT prev.rencanaaksi FROM jazirah2_hasil prev WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker) AND prev.tahun = ? AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator) ORDER BY prev.id DESC LIMIT 1) AS rencanaaksi_tahun_lalu", [$tahunLalu])
+                ->selectRaw("(SELECT prev.output FROM jazirah2_hasil prev WHERE TRIM(prev.satker) = TRIM(jazirah2_hasil.satker) AND prev.tahun = ? AND TRIM(prev.id_indikator) = TRIM(jazirah2_hasil.id_indikator) ORDER BY prev.id DESC LIMIT 1) AS output_tahun_lalu", [$tahunLalu])
+                
+                // Eager load history chat (komentar)
+                ->with(['komentars' => function ($k) {
+                    $k->orderBy('created_at', 'asc')->with('pegawai:nip_pegawai,name,urlfoto,username,jazirah');
+                }]);
             }])
             ->get();
 
+        // 6. Return Data Array
         $data = [
-            'judul'             => "New Jazirah",
-            'id_judul'          => "3",
-            'pilars'            => ['I', 'II', 'III', 'IV', 'V', 'VI'],
-            'user_active'       => $userActive,
-            'data_subpilar'     => Jazirah2_Indikator::select('kode_3', 'kode_4', 'rencana_kerja', 'level')->where('level', 4)->get(),
-            'satker_selected'   => $satkerSelected,
-            'pilar_selected'    => $pilarSelected,
-            'subpilar_selected' => $subpilarSelected,
-            'tahun'             => $tahun,
-            'satker'            => Satker::select('kode_satker', 'nama_satker')->orderBy('kode_satker')->get(),
-            'indikator'         => $indikator,
-            'all_users'         => Cache::remember('all_users_grouped', 1440, fn() => DB::table('bupesta_user')->orderBy('name', 'asc')->get()->groupBy('kode_satker')),
+            'judul'                   => "New Jazirah",
+            'id_judul'                => "3",
+            'pilars'                  => ['I', 'II', 'III', 'IV', 'V', 'VI'],
+            'user_active'             => $userActive,
+            'data_subpilar'           => Jazirah2_Indikator::select('kode_3', 'kode_4', 'rencana_kerja', 'level')->where('level', 4)->get(),
+            'satker_selected'         => $satkerSelected,
+            'pilar_selected'          => $pilarSelected,
+            'subpilar_selected'       => $subpilarSelected,
+            'tugas_saya_selected'     => $filterTugasSaya, 
+            'status_dokumen_selected' => $statusDokumen, // Dilempar ke blade jika Anda butuh alert/indikator visual bahwa filter aktif
+            'tahun'                   => $tahun,
+            'satker'                  => Satker::select('kode_satker', 'nama_satker')->orderBy('kode_satker')->get(),
+            'all_users'               => Cache::remember('all_users_grouped', 1440, fn() => DB::table('bupesta_user')->orderBy('name', 'asc')->get()->groupBy('kode_satker')),
+            'indikator'               => $indikator,
         ];
 
         return view('jazirah.lembarkerja-jazirah', compact('data'));

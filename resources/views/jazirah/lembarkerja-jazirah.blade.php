@@ -7,6 +7,7 @@
     <title>BuPeSta - {{ $data['judul'] }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Konfigurasi Font & Ikon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets-jazirah/img/favicon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +15,18 @@
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
-
-    <!-- Ikon FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS Internal/Lokal -->
     <link rel="stylesheet" href="{{ asset('assets-se2026/load/load.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-jazirah/style/jazirah-lembarkerja.css') }}">
     <link rel="stylesheet" href="{{ asset('assets-jazirah/style/potrait-warning.css') }}">
 
-    <!-- LIBRARY UNTUK EXPORT EXCEL & PDF -->
+    <!-- Library JS (Export & SweetAlert) -->
     <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="{{ asset('assets-se2026/load/load.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('assets-se2026/load/load.js') }}"></script>
 </head>
 
 <body>
@@ -48,6 +49,7 @@
             'sekretariat-kako',
         ];
         $rolesValidator = ['admin', 'sekretariat'];
+
         $isEvaluator = in_array($userRole, $rolesEvaluator);
         $canUnvalidate = in_array($userRole, $rolesValidator);
 
@@ -70,6 +72,7 @@
     @endphp
     {{-- AKHIR BLOK OPTIMASI --}}
 
+    <!-- Orientasi Perangkat Peringatan -->
     <div id="orientation-warning" style="display: none;">
         <h1>Putar Perangkat Anda</h1>
         <p>Untuk pengalaman terbaik, silakan ubah ke <strong>mode landscape</strong>.</p>
@@ -79,6 +82,7 @@
         </div>
     </div>
 
+    <!-- Animasi Loading -->
     <div id="loading">
         <div id="loader-wrapper">
             <div id="loader"></div>
@@ -138,6 +142,17 @@
                                         @endforeach
                                     </select>
                                 </div>
+
+                                <!-- FITUR BARU: TOGGLE FILTER TUGAS SAYA -->
+                                <div class="j-toggle-wrapper">
+                                    <label class="j-modern-toggle">
+                                        <input type="checkbox" name="tugas_saya" value="1"
+                                            {{ ($data['tugas_saya_selected'] ?? '') == '1' ? 'checked' : '' }}>
+                                        <span class="j-toggle-slider"></span>
+                                        <span class="j-toggle-label"><i class="fa-solid fa-user-check me-1"></i> Tugas
+                                            Saya</span>
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -172,21 +187,21 @@
                                 <tr>
                                     <th width="8%" class="text-center">Aksi</th>
                                     <th width="18%">Rencana Kerja</th>
-                                    <th width="19%">Rencana Aksi</th>
-                                    <th width="19%">Output</th>
+                                    <th width="18%">Rencana Aksi</th>
+                                    <th width="18%">Output</th>
                                     <th width="17%" class="text-center">P. Jawab</th>
                                     <th width="9%" class="text-center">Target</th>
                                     <th width="12%" class="text-center">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($data['indikator'] as $row)
+                                @forelse ($data['indikator'] as $row)
                                     @php
                                         $lvl = max(1, min(5, (int) ($row->level ?? 1)));
                                         $text = $row->rencana_kerja ?? '-';
                                         $statusDoc = $row->isian->status_dokumen ?? '0';
 
-                                        // Variabel Boolean Default
+                                        // ... (Biarkan semua deklarasi variabel PHP bawaan Anda tetap ada di sini) ...
                                         $canComment = false;
                                         $canValidate = false;
                                         $canEdit = false;
@@ -200,7 +215,6 @@
                                                 $chatBase64 = base64_encode($chatData);
                                             }
 
-                                            // Konversi ke array
                                             $rawPj = $row->isian->penanggungjawab ?? '';
                                             $array_pj = $rawPj !== '' ? array_map('trim', explode(',', $rawPj)) : [];
 
@@ -208,7 +222,6 @@
                                             $array_creator =
                                                 $rawCreator !== '' ? array_map('trim', explode(',', $rawCreator)) : [];
 
-                                            // Logika Cek Akses Gabungan
                                             $isPj = in_array($username, $array_pj);
                                             $isCreator = in_array($username, $array_creator);
 
@@ -222,7 +235,7 @@
                                         <!-- KOLOM AKSI -->
                                         <td class="text-center text-nowrap">
                                             @if ($row->pengisian === 1)
-                                                {{-- Tombol Detail (Mata) --}}
+                                                {{-- Tombol Detail --}}
                                                 <button type="button" class="btn-mata-modern"
                                                     title="Lihat Detail Isian" onclick="bukaModalKustom(this)"
                                                     data-can_comment="{{ $canComment ? '1' : '0' }}"
@@ -245,7 +258,7 @@
                                                     data-bulan_realisasi="{{ $row->isian->bulan_realisasi ?? '' }}"
                                                     data-link_buktidukung="{{ $row->isian->link_buktidukung ?? '' }}"
                                                     data-status_dokumen="{{ $statusDoc }}"
-                                                    data-komentars="{{ $chatBase64 }}" {{-- DATA HOVER TIMELINE --}}
+                                                    data-komentars="{{ $chatBase64 }}"
                                                     data-cb1="{{ $row->isian->created_by_1 ?? '' }}"
                                                     data-ca1="{{ $row->isian->created_at_1 ?? '' }}"
                                                     data-cb2="{{ $row->isian->created_by_2 ?? '' }}"
@@ -259,7 +272,7 @@
                                                     <i class="fa-solid fa-eye"></i>
                                                 </button>
 
-                                                {{-- Tombol Edit (Pensil) --}}
+                                                {{-- Tombol Edit --}}
                                                 @if ($canEdit && $statusDoc !== '5')
                                                     <button type="button" class="btn-edit-modern"
                                                         title="Edit Data Isian" onclick="bukaModalEdit(this)"
@@ -299,9 +312,6 @@
                                         <!-- KOLOM RENCANA KERJA -->
                                         <td>
                                             <div class="j-indent j-indent-lvl-{{ $lvl }}">
-                                                @if ($lvl >= 2)
-                                                    <span class="j-dash-modern"></span>
-                                                @endif
                                                 <span class="j-text-hierarchy">{{ $text }}</span>
                                             </div>
                                         </td>
@@ -351,35 +361,73 @@
                                         <!-- KOLOM STATUS -->
                                         <td class="text-center" id="status-container-{{ $row->isian->id ?? '' }}">
                                             @if ($row->pengisian === 1)
-                                                @if ($statusDoc === '1')
-                                                    <span class="badge j-badge j-bg-orange"><i
-                                                            class="bi bi-bullseye me-1"></i>Target Sudah
-                                                        Ditetapkan</span>
-                                                @elseif ($statusDoc === '2')
-                                                    <span class="badge j-badge j-bg-blue"><i
-                                                            class="bi bi-search me-1"></i>Perlu Evaluasi (Tim
-                                                        Evaluator)</span>
-                                                @elseif ($statusDoc === '3')
-                                                    <span class="badge j-badge j-bg-red"><i
-                                                            class="bi bi-exclamation-circle-fill me-1"></i>Perlu
-                                                        Ditindaklanjuti</span>
-                                                @elseif ($statusDoc === '4')
-                                                    <span class="badge j-badge j-bg-yellow"><i
-                                                            class="bi bi-search me-1"></i>Perlu Evaluasi (Tim
-                                                        Evaluator)</span>
-                                                @elseif ($statusDoc === '5')
-                                                    <span class="badge j-badge j-bg-green"><i
-                                                            class="bi bi-check-circle-fill me-1"></i>Dokumen Sudah
-                                                        Validasi</span>
-                                                @else
+                                                @php
+                                                    // Ambil bulan berjalan saat ini (1 = Januari, 12 = Desember)
+                                                    $currentMonth = (int) date('n');
+                                                    $targetBulan = $row->isian->bulan_target ?? '';
+                                                    $arrTarget = $targetBulan !== '' ? explode(',', $targetBulan) : [];
+
+                                                    // Cek apakah ada target dari Januari s.d Bulan Berjalan
+                                                    $adaTargetBerjalan = false;
+                                                    foreach ($arrTarget as $tb) {
+                                                        if ((int) trim($tb) <= $currentMonth) {
+                                                            $adaTargetBerjalan = true;
+                                                            break;
+                                                        }
+                                                    }
+                                                @endphp
+
+                                                @if ($statusDoc === '0' || $statusDoc === '')
                                                     <span class="badge j-badge j-bg-gray"><i
-                                                            class="bi bi-dash-circle-fill me-1"></i>Belum Ada
-                                                        Target</span>
+                                                            class="bi bi-dash-circle-fill me-1"></i>Perlu Menetapkan
+                                                        Target (Penanggung Jawab)</span>
+                                                @elseif (!$adaTargetBerjalan)
+                                                    <span class="badge j-badge j-bg-gray"><i
+                                                            class="bi bi-calendar-x me-1"></i>Belum Ada Target Jatuh
+                                                        Tempo</span>
+                                                @else
+                                                    @if ($statusDoc === '1')
+                                                        <span class="badge j-badge j-bg-orange"><i
+                                                                class="bi bi-bullseye me-1"></i>Perlu Realisasi
+                                                            (Penanggung Jawab)</span>
+                                                    @elseif ($statusDoc === '2')
+                                                        <span class="badge j-badge j-bg-blue"><i
+                                                                class="bi bi-search me-1"></i>Perlu Evaluasi (Tim
+                                                            Evaluator)</span>
+                                                    @elseif ($statusDoc === '3')
+                                                        <span class="badge j-badge j-bg-red"><i
+                                                                class="bi bi-exclamation-circle-fill me-1"></i>Perlu
+                                                            Ditindaklanjuti (Penanggung Jawab)</span>
+                                                    @elseif ($statusDoc === '4')
+                                                        <span class="badge j-badge j-bg-yellow"><i
+                                                                class="bi bi-search me-1"></i>Perlu Evaluasi (Tim
+                                                            Evaluator)</span>
+                                                    @elseif ($statusDoc === '5')
+                                                        <span class="badge j-badge j-bg-green"><i
+                                                                class="bi bi-check-circle-fill me-1"></i>Dokumen Sudah
+                                                            Validasi</span>
+                                                    @endif
                                                 @endif
                                             @endif
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <!-- TAMPILAN KETIKA DATA KOSONG (EMPTY STATE) -->
+                                    <tr>
+                                        <td colspan="7" class="text-center j-empty-state-cell">
+                                            <div class="j-empty-state-wrapper">
+                                                <div class="j-empty-icon">
+                                                    <i class="fa-solid fa-clipboard-list"></i>
+                                                </div>
+                                                <h5 class="j-empty-title">Belum Ada Data Tugas</h5>
+                                                <p class="j-empty-desc">
+                                                    Tidak ada dokumen atau rencana kerja yang sesuai dengan filter
+                                                    pencarian Anda saat ini.
+                                                </p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -427,7 +475,7 @@
             @endif
             <br>
             <footer>
-                <p><i class="fa-solid fa-mug-hot"></i>&nbsp; Tim Pengolahan dan TI - BPS Provinsi Aceh </p>
+                <p><i class="fa-solid fa-mug-hot"></i>&nbsp; Tim Pengolahan dan TI - BPS Provinsi Aceh</p>
             </footer>
         </div>
     </div>
@@ -441,15 +489,15 @@
             </div>
             <div class="kustom-modal-body">
 
-                <!-- ROW 1 (PINDAHAN): TIMELINE CHART (Sekarang Paling Atas) -->
+                <!-- ROW 1: TIMELINE CHART -->
                 <div class="kustom-card">
-                    <h6 class="kustom-card-title title-ungu"><i class="fa-solid fa-timeline"></i> Status Rekam Jejak
-                        Dokumen</h6>
+                    <h6 class="kustom-card-title title-ungu">
+                        <i class="fa-solid fa-timeline"></i> Status Rekam Jejak Dokumen
+                    </h6>
                     <div class="timeline-wrapper">
                         <div class="timeline-bg-line"></div>
                         <div class="timeline-progress-line" id="timeline-progress" style="width: 0%;"></div>
 
-                        <!-- Timeline Steps dengan atribut data-bs-toggle="tooltip" -->
                         <div class="timeline-step" id="step-1" data-bs-toggle="tooltip" data-bs-placement="top"
                             data-bs-html="true" title="Belum ada data">
                             <div class="timeline-circle"><i class="fa-solid fa-pen-to-square"></i></div>
@@ -481,8 +529,9 @@
                 <!-- ROW 2: INFORMASI UMUM & TARGET/REALISASI -->
                 <div class="kustom-grid-2">
                     <div class="kustom-card">
-                        <h6 class="kustom-card-title title-biru"><i class="fa-solid fa-circle-info"></i>&nbsp;
-                            Informasi Umum</h6>
+                        <h6 class="kustom-card-title title-biru">
+                            <i class="fa-solid fa-circle-info"></i> Informasi Umum
+                        </h6>
                         <table class="kustom-table-info">
                             <tbody>
                                 <tr>
@@ -518,8 +567,9 @@
                     </div>
 
                     <div class="kustom-card">
-                        <h6 class="kustom-card-title title-orange"><i class="fa-solid fa-bullseye"></i> Detail Aksi &
-                            Target</h6>
+                        <h6 class="kustom-card-title title-orange">
+                            <i class="fa-solid fa-bullseye"></i> Detail Aksi & Target
+                        </h6>
                         <table class="kustom-table-info">
                             <tbody>
                                 <tr>
@@ -555,14 +605,18 @@
                     </div>
                 </div>
 
-                <!-- ROW 3: BUKTI DUKUNG & CHAT (Side by side) -->
+                <!-- ROW 3: BUKTI DUKUNG & CHAT -->
                 <div class="kustom-grid-2">
                     <div class="kustom-card mb-0">
-                        <h6 class="kustom-card-title title-hijau d-flex justify-content-between align-items-center">
-                            <span><i class="fa-solid fa-file-pdf"></i>&nbsp; Pratinjau Bukti Dukung &nbsp;&nbsp;</span>
+                        <h6 class="kustom-card-title title-hijau" style="justify-content: space-between;">
+                            <div style="display: flex; align-items: center;">
+                                <i class="fa-solid fa-file-pdf"></i> Pratinjau Bukti Dukung
+                            </div>
                             <a href="#" id="k-btn-direct-bukti" target="_blank"
-                                class="btn btn-sm btn-outline-success" style="font-size:0.75rem; display:none;">
-                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                class="btn btn-sm btn-outline-success"
+                                style="font-size:0.75rem; display:none; border-radius: 6px;">
+                                <i class="fa-solid fa-arrow-up-right-from-square"
+                                    style="width:auto; height:auto; background:none; box-shadow:none; color:inherit; margin:0; font-size:inherit;"></i>
                             </a>
                         </h6>
                         <div class="iframe-container" id="k-iframe-wrapper">
@@ -577,16 +631,12 @@
 
                     <div class="kustom-card mb-0 d-flex flex-column"
                         style="padding: 0; overflow: hidden; border: 1px solid #e2e8f0;">
-                        <!-- Header WA -->
                         <div class="wa-header">
-                            <i class="fa-brands fa-whatsapp fs-5 text-success"></i>
-                            <span class="ms-2 fw-bold">&nbsp; Ruang Diskusi</span>
+                            <i class="fa-brands fa-whatsapp"></i> Ruang Diskusi
                         </div>
-                        <!-- Area Chat Dinamis -->
                         <div class="wa-chat-container" id="k-chat-messages">
-                            <!-- Chat akan dirender oleh JavaScript di sini -->
+                            <!-- Chat dirender via JS -->
                         </div>
-                        <!-- Input Area WA -->
                         <div class="wa-input-area">
                             <input type="text" id="k-chat-input" class="wa-input-field"
                                 placeholder="Ketik pesan..." autocomplete="off">
@@ -597,6 +647,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="kustom-modal-footer d-flex justify-content-end gap-2"
                 style="background-color: #f8fafc; padding: 12px 24px; border-top: 1px solid #e2e8f0;">
                 <button type="button" class="btn-simpan-kustom" id="btn-validasi-dokumen"
@@ -611,7 +662,6 @@
 
     {{-- Modal Profil Pegawai --}}
     <div id="modalProfilPegawai" class="modal-overlay" style="display: none; z-index: 999999;">
-        <!-- Konten Modal Profil Tetap Sama -->
         <div class="modal-content modal-profil">
             <div class="modal-header header-orange">
                 <h3 class="modal-title">Profil Pegawai</h3>
@@ -660,7 +710,6 @@
 
     <!-- AWAL MODAL EDIT KUSTOM -->
     <div id="modalEditKustom" class="kustom-modal-overlay">
-        <!-- Konten Modal Edit Tetap Sama -->
         <div class="kustom-modal-container">
             <div class="kustom-modal-header">
                 <h5><i class="fa-solid fa-pen-to-square me-2"></i>&nbsp; Edit Informasi LKE</h5>
@@ -782,7 +831,7 @@
     </div>
     <!-- AKHIR MODAL EDIT KUSTOM -->
 
-    {{-- Bridge PHP to JS --}}
+    {{-- Script Komunikasi Bridge JS-PHP --}}
     <script>
         window.BupestaConfig = {
             userName: "{{ auth()->check() ? auth()->user()->name : 'Guest' }}",
@@ -794,7 +843,10 @@
         window.SatkerUsersAktif = @json($data['all_users'][$data['satker_selected']] ?? []);
     </script>
 
+    <!-- Library JS Bootstrap (Dibersihkan dari pemanggilan duplikat) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS Lokal -->
     <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>
     <script src="{{ asset('assets-jazirah/style/jazirah-lembarkerja.js') }}"></script>
 
@@ -837,10 +889,6 @@
         </script>
     @endif
 
-    <script
-        src="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js](https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js)">
-    </script>
-
     <!-- Script Inisialisasi Tooltip & Update Hover -->
     <script>
         // Inisialisasi Bootstrap Tooltip secara global
@@ -850,28 +898,6 @@
                 return new bootstrap.Tooltip(tooltipTriggerEl);
             });
         });
-
-        // Modifikasi fungsi bukaModalKustom untuk memparsing Tooltip
-        // Sisipkan logika ini ke dalam file `jazirah-lembarkerja.js` Anda di dalam function bukaModalKustom(btn)
-        /*
-        function updateTimelineHover(btn) {
-            for (let i = 1; i <= 5; i++) {
-                let cb = btn.getAttribute(`data-cb${i}`);
-                let ca = btn.getAttribute(`data-ca${i}`);
-                let stepEl = document.getElementById(`step-${i}`);
-                
-                if (stepEl) {
-                    let tooltipInstance = bootstrap.Tooltip.getInstance(stepEl);
-                    if (cb && ca && cb !== '-' && ca !== '-') {
-                        stepEl.setAttribute('data-bs-original-title', `<b>Oleh:</b> ${cb}<br><b>Tanggal:</b> ${ca}`);
-                    } else {
-                        stepEl.setAttribute('data-bs-original-title', `Belum ada riwayat`);
-                    }
-                    if(tooltipInstance) tooltipInstance.update();
-                }
-            }
-        }
-        */
     </script>
 </body>
 
