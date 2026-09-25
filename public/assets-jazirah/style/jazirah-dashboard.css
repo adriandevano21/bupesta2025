@@ -1,74 +1,16 @@
-/* ==========================================================================
-   JAZIRAH DASHBOARD - PURE CSS (THEME: #f79039)
-   ========================================================================== */
-:root {
-    --warna-utama: #f79039;
-    --warna-utama-hover: #d6782c;
-    --bg-light: #f8fafc;
-    --teks-dark: #2d3748;
-    --border-color: #e2e8f0;
-}
+/* --- TAMBAHAN UNTUK KOMPONEN DASHBOARD BARU (MENYAMBUNG DARI CSS LAMA) --- */
 
-/* --- Layout Umum --- */
-body {
-    background-color: #f4f7f6;
-}
+.jazirah-container { width: 100%; padding: 10px 0; }
 
-.posisitengah {
-    width: 95% !important;
-    max-width: 95% !important;
-    margin: 0 auto !important;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
+/* 1. Welcome Banner & Typewriter */
+.welcome-banner { text-align: center; margin-bottom: 25px; width: 100%; margin-top: 20px; }
+.welcome-content { display: flex; justify-content: center; align-items: center; gap: 15px; }
+.welcome-content h2 { margin: 0; display: flex; align-items: center; }
+#typewriter { font-size: 28px !important; font-weight: 600 !important; color: var(--warna-utama) !important; white-space: nowrap; }
+.cursor { font-size: 28px; font-weight: 600; color: var(--warna-utama); animation: blink 0.8s infinite; margin-left: 2px; }
+@keyframes blink { 50% { opacity: 0; } }
 
-.jazirah-container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 10px 0;
-    box-sizing: border-box;
-}
-
-/* --- Welcome Banner & Animasi Maskot --- */
-.welcome-banner {
-    text-align: center;
-    margin-bottom: 25px;
-    width: 100%;
-    margin-top: 20px;
-}
-
-.welcome-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-}
-
-.welcome-content h2 {
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-
-#typewriter {
-    font-size: 28px !important;
-    font-weight: 600 !important;
-    color: var(--warna-utama) !important;
-    white-space: nowrap;
-}
-
-.cursor {
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--warna-utama);
-    animation: blink 0.8s infinite;
-    margin-left: 2px;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
-}
-
+/* Pembatas Ukuran Maskot */
 .character-container {
     position: relative;
     width: 60px;
@@ -77,7 +19,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
 .char-animation {
     max-width: 100%;
     max-height: 100%;
@@ -88,307 +29,51 @@ body {
     z-index: 1;
 }
 
-/* --- Menu Grid Horizontal (Scrollable) --- */
-.jazirah-menu-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    padding: 10px 5px 20px 5px;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(247, 144, 57, 0.6) rgba(226, 232, 240, 0.5);
-    box-sizing: border-box;
-}
+/* 2. Menu Dinamis & Tombol Aksi Admin */
+.jazirah-menu-wrapper { width: 100%; overflow-x: auto; padding: 10px 5px 20px 5px; scrollbar-width: thin; scrollbar-color: rgba(247, 144, 57, 0.6) rgba(226, 232, 240, 0.5); }
+.jazirah-menu-container { display: flex; gap: 20px; min-width: max-content; }
+.jazirah-menu-card { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 170px; padding: 20px 15px; background: #ffffff; border-radius: 18px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); text-decoration: none; transition: all 0.3s ease; text-align: center; gap: 12px; }
+.jazirah-menu-card:hover { transform: translateY(-5px); box-shadow: 0 12px 25px rgba(247, 144, 57, 0.18); border-color: var(--warna-utama); }
+.jazirah-menu-icon { width: 58px; height: 58px; border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 22px; box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3); transition: transform 0.3s ease; }
+.jazirah-menu-card:hover .jazirah-menu-icon { transform: scale(1.1) rotate(3deg); }
+.jazirah-menu-title { color: #2d3748; font-weight: 600; font-size: 13px; line-height: 1.4; margin: 0; transition: color 0.3s; }
+.jazirah-menu-card:hover .jazirah-menu-title { color: var(--warna-utama); }
 
-.jazirah-menu-container {
-    display: flex;
-    gap: 20px;
-    min-width: max-content;
-}
+/* Tombol Melayang Edit & Delete Menu */
+.jazirah-menu-card-wrapper { position: relative; }
+.jazirah-menu-card-wrapper:hover .admin-menu-actions { opacity: 1; visibility: visible; }
+.admin-menu-actions { position: absolute; top: -12px; right: -12px; display: flex; gap: 6px; opacity: 0; visibility: hidden; transition: all 0.2s ease-in-out; z-index: 10; }
+.btn-aksi { width: 34px; height: 34px; border-radius: 50%; border: none; color: white; font-size: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.15); transition: transform 0.2s; }
+.btn-aksi:hover { transform: scale(1.15); }
+.btn-edit-menu { background-color: #3b82f6; }
+.btn-delete-menu { background-color: #ef4444; }
+.btn-tambah-menu { background-color: var(--warna-utama); color: white; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; cursor: pointer; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: background 0.3s; }
+.btn-tambah-menu:hover { background-color: #d6782c; }
 
-.jazirah-menu-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 170px;
-    padding: 20px 15px;
-    background: #ffffff;
-    border-radius: 18px;
-    border: 1px solid var(--border-color);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    text-align: center;
-    gap: 12px;
-}
+/* 3. Filter Controls & Buttons */
+.jazirah-controls { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 15px; }
+.jazirah-form-filter { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
+.jazirah-input-group { display: flex; align-items: center; gap: 8px; }
+.jazirah-input-group label { font-weight: 600; color: #374151; font-size: 14px; margin: 0; }
+.jazirah-select { appearance: auto; -webkit-appearance: auto; background-color: #ffffff; border: 1px solid #d1d5db; color: #1f2937; padding: 6px 12px; border-radius: 6px; cursor: pointer; outline: none; transition: all 0.2s; font-size: 14px; min-width: 150px; }
+.jazirah-select:focus { border-color: var(--warna-utama); box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.15); }
+.jazirah-btn-download { background-color: var(--warna-utama); color: white; font-weight: 600; padding: 7px 16px; border: none; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background 0.2s; font-size: 14px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); }
+.jazirah-btn-download:hover { background-color: #d6782c; }
 
-.jazirah-menu-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(247, 144, 57, 0.18);
-    border-color: var(--warna-utama);
-}
+/* 4. Tabel Monitoring Data */
+.jazirah-table-responsive { overflow-x: auto; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; padding: 10px; }
+.jazirah-table { width: 100% !important; border-collapse: collapse !important; text-align: center; font-size: 13px; white-space: nowrap; }
+.jazirah-table th, .jazirah-table td { border: 1px solid #e2e8f0 !important; padding: 12px 14px !important; }
+.jazirah-table th { background-color: var(--warna-utama) !important; color: white !important; text-transform: uppercase; font-weight: bold; font-size: 12px; letter-spacing: 0.5px; }
+.jazirah-table tbody tr:hover { background-color: rgba(247, 144, 57, 0.05) !important; }
 
-.jazirah-menu-icon {
-    width: 58px;
-    height: 58px;
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 22px;
-    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.jazirah-menu-card:hover .jazirah-menu-icon {
-    transform: scale(1.1) rotate(3deg);
-}
-
-.jazirah-menu-title {
-    color: var(--teks-dark);
-    font-weight: 600;
-    font-size: 13px;
-    line-height: 1.4;
-    margin: 0;
-    transition: color 0.3s;
-}
-
-.jazirah-menu-card:hover .jazirah-menu-title {
-    color: var(--warna-utama);
-}
-
-/* --- Filter & Form Controls --- */
-.jazirah-controls {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    gap: 15px;
-}
-
-.jazirah-form-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    /* Jarak antar dropdown */
-    align-items: center;
-}
-
-.jazirah-input-group {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.jazirah-input-group label {
-    font-weight: 600;
-    color: #374151;
-    /* Abu-abu gelap */
-    font-size: 14px;
-    margin: 0;
-}
-
-/* Desain Dropdown Bersih seperti di gambar */
-.jazirah-select {
-    appearance: auto;
-    /* Menggunakan panah panah dropdown standar browser */
-    -webkit-appearance: auto;
-    background-color: #ffffff;
-    border: 1px solid #d1d5db;
-    /* Garis abu-abu tipis */
-    color: #1f2937;
-    /* Teks hitam standar */
-    font-weight: 400;
-    /* Teks normal (tidak bold) */
-    padding: 6px 12px;
-    /* Ukuran lebih ramping */
-    border-radius: 6px;
-    /* Sudut melengkung kecil */
-    cursor: pointer;
-    outline: none;
-    transition: all 0.2s;
-    font-size: 14px;
-    min-width: 150px;
-}
-
-.jazirah-select:focus {
-    border-color: var(--warna-utama);
-    box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.15);
-}
-
-/* Desain Tombol Download */
-.jazirah-btn-download {
-    background-color: var(--warna-utama);
-    color: white;
-    font-weight: 600;
-    padding: 7px 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: background 0.2s;
-    font-size: 14px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.jazirah-btn-download:hover {
-    background-color: var(--warna-utama-hover);
-}
-
-/* --- Tabel Responsive & DataTables --- */
-.jazirah-table-responsive {
-    overflow-x: auto;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid var(--border-color);
-    padding: 10px;
-}
-
-.jazirah-table {
-    width: 100% !important;
-    border-collapse: collapse !important;
-    text-align: center;
-    font-size: 13px;
-    white-space: nowrap;
-}
-
-.jazirah-table th, .jazirah-table td {
-    border: 1px solid var(--border-color) !important;
-    padding: 12px 14px !important;
-}
-
-.jazirah-table th {
-    background-color: var(--warna-utama) !important;
-    color: white !important;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 12px;
-    letter-spacing: 0.5px;
-}
-
-.jazirah-table tbody tr:hover {
-    background-color: rgba(247, 144, 57, 0.05) !important;
-}
-
-/* Keterangan Waktu */
-.keterangan-waktu {
-    text-align: right;
-    margin-top: 12px;
-    font-size: 12px;
-    font-style: italic;
-    color: #718096;
-    padding-right: 5px;
-}
-
-/* --- Lencana Warna Status --- */
-.badge-belum-isi { background-color: #ef4444 !important; color: white !important; font-weight: bold; }
-.badge-sempurna { background-color: #00fa9a !important; color: black !important; font-weight: bold; }
-.badge-sebagian { background-color: #ffeb3b !important; color: black !important; font-weight: bold; }
-.badge-nol { background-color: #ffe4e1 !important; color: black !important; }
-.badge-kosong { background-color: #ffffff !important; color: #a0aec0 !important; }
-.badge-notarget { background-color: #94a3b8 !important; color: white !important; font-weight: bold; font-size: 11px; }
-
-/* --- Footer --- */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 15px;
-    font-size: 13px;
-    color: #64748b;
-}
-
-/* --- Modal Lengkapi Profil --- */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: 999999;
-    display: none; /* Default disembunyikan, dirender oleh Blade jika butuh */
-    justify-content: center;
-    align-items: center;
-    backdrop-filter: blur(4px);
-}
-
-.modal-content {
-    background: white;
-    padding: 25px 30px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 480px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    animation: slideDown 0.3s ease-out forwards;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-40px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-.modal-header h3 {
-    margin: 0 0 15px 0;
-    color: var(--teks-dark);
-    font-size: 1.3rem;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 10px;
-}
-
-.grup-input {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.grup-input label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: 600;
-    color: #4a5568;
-    font-size: 13px;
-}
-
-.input-form {
-    width: 100%;
-    padding: 10px 14px;
-    border: 1px solid #cbd5e0;
-    border-radius: 8px;
-    font-size: 14px;
-    box-sizing: border-box;
-    transition: all 0.2s;
-}
-
-.input-form:focus {
-    border-color: var(--warna-utama);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.2);
-}
-
-.input-form:disabled {
-    background-color: #f8fafc;
-    cursor: not-allowed;
-    color: #718096;
-}
-
-.btn-simpan {
-    background-color: var(--warna-utama);
-    color: white;
-    padding: 10px 22px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.btn-simpan:hover {
-    background-color: var(--warna-utama-hover);
-}
+/* Lencana Persentase Kinerja */
+.badge-belum-isi { background-color: #ef4444 !important; color: white !important; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+.badge-sempurna { background-color: #00fa9a !important; color: black !important; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+.badge-sebagian { background-color: #ffeb3b !important; color: black !important; font-weight: bold; padding: 4px 8px; border-radius: 4px; }
+.badge-nol { background-color: #ffe4e1 !important; color: black !important; padding: 4px 8px; border-radius: 4px; }
+.badge-kosong { background-color: transparent !important; color: #a0aec0 !important; }
+.badge-notarget { background-color: #94a3b8 !important; color: white !important; font-weight: bold; font-size: 11px; padding: 4px 8px; border-radius: 4px; }
 
 /* Scrollbar Custom */
 .modern-scrollbar::-webkit-scrollbar { height: 8px; width: 8px; }
@@ -396,38 +81,12 @@ footer {
 .modern-scrollbar::-webkit-scrollbar-thumb { background: rgba(247, 144, 57, 0.6); border-radius: 10px; }
 .modern-scrollbar::-webkit-scrollbar-thumb:hover { background: var(--warna-utama); }
 
-/* Responsif Mobile */
+/* Responsif Tambahan Mobile */
 @media (max-width: 768px) {
-    .character-container {
-        width: 45px;
-        height: 60px;
-    }
-
-    #typewriter,
-    .cursor {
-        font-size: 20px !important;
-    }
-
-    .jazirah-controls {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .jazirah-form-filter {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .jazirah-input-group {
-        width: 100%;
-        justify-content: space-between;
-    }
-
-    /* Memastikan dropdown memanjang penuh di layar HP */
-    .jazirah-select {
-        flex-grow: 1;
-        width: auto;
-        margin-left: 10px;
-    }
+    .character-container { width: 45px; height: 60px; }
+    #typewriter, .cursor { font-size: 20px !important; }
+    .jazirah-controls { flex-direction: column; align-items: stretch; }
+    .jazirah-form-filter { flex-direction: column; align-items: stretch; gap: 12px; }
+    .jazirah-input-group { width: 100%; justify-content: space-between; }
+    .jazirah-select { flex-grow: 1; width: auto; margin-left: 10px; }
 }

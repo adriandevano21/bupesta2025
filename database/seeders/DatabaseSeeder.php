@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
             BupestaKegiatanSeeder::class,
             BupestaUserSeeder::class,
             EpssSeeder::class,
-            EpssReferensiSeeder::class
+            EpssReferensiSeeder::class,
+            JazirahMenuSeeder::class,
+            Jazirah2KomentarSeeder::class
         ]);
     }
 }

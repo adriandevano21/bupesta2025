@@ -1,0 +1,880 @@
+/* ==========================================================
+   1. ROOT VARIABEL & PENGATURAN DASAR
+   Mendefinisikan warna utama, gradasi, font, dan utilitas global
+   ========================================================== */
+.custom-jazirah-wrapper {
+    padding: 0 1.5rem;
+    margin-bottom: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    
+    /* Palet Warna Orange Utama */
+    --warna-utama: #f79039;
+    --c-main-dark: #e07d2a;
+    --c-main-light: #f9ab65;
+    
+    /* Warna Teks Global */
+    --teks-gelap: #1f2937;
+    --teks-abu: #6b7280;
+    
+    /* Gradasi Background Level Tabel & Border */
+    --bg-lvl-1: #fdecdb;
+    --bg-lvl-2: #fef2e6;
+    --bg-lvl-3: #fef7f0;
+    --bg-lvl-4: #fffcf9;
+    --bg-lvl-5: #ffffff;
+    --table-border: #f9d8bc; 
+    
+    --transisi-halus: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .custom-jazirah-wrapper { padding: 0 0.5rem; }
+}
+
+/* ==========================================================
+   2. TATA LETAK, KARTU (CARDS), & SHADOW
+   Kontainer utama untuk filter, grid, dan pembungkus data
+   ========================================================== */
+.j-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--table-border);
+}
+
+.j-premium-shadow {
+    box-shadow: 0 10px 40px -10px rgba(247, 144, 57, 0.15);
+}
+
+.j-spacing-bottom { 
+    margin-bottom: 2.2rem !important; 
+}
+
+.j-filter-card {
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(247, 144, 57, 0.08);
+}
+
+.j-table-card { 
+    overflow: hidden; 
+}
+
+/* --- Layout Filter --- */
+.j-filter-form {
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center; 
+    justify-content: space-between; 
+    gap: 1.5rem; 
+    width: 100%;
+}
+
+.j-filter-left {
+    display: flex; 
+    align-items: center; 
+    gap: 1.5rem; 
+    flex: 1 1 auto; 
+    flex-wrap: wrap;
+}
+
+.j-filter-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+}
+
+.j-filter-title { 
+    font-weight: 700; 
+    color: var(--c-main-dark); 
+    font-size: 0.95rem; 
+    text-transform: uppercase; 
+}
+
+.j-filter-controls { 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 0.75rem; 
+    flex: 1 1 auto; 
+}
+
+/* ==========================================================
+   3. INPUT, SELECT, & FORM CONTROLS
+   Elemen interaktif pencarian dan form kustomisasi
+   ========================================================== */
+.j-select-wrapper { 
+    flex: 1 1 200px; 
+    min-width: 180px; 
+    max-width: 300px; 
+}
+
+.j-icon-box {
+    width: 40px; 
+    height: 40px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    border-radius: 12px; 
+    background: linear-gradient(135deg, var(--bg-lvl-1), var(--bg-lvl-2));
+    color: var(--c-main-dark); 
+    font-size: 1.25rem; 
+    border: 1px solid var(--table-border);
+}
+
+.j-select, .kustom-form-control {
+    width: 100%; 
+    font-family: 'Poppins', sans-serif;
+    transition: var(--transisi-halus);
+}
+
+.j-select {
+    border-radius: 50px; 
+    border: 1px solid var(--table-border); 
+    padding: 0.65rem 2.5rem 0.65rem 1.25rem;
+    background-color: var(--bg-lvl-4); 
+    color: #475569; 
+    font-weight: 500; 
+    font-size: 0.85rem; 
+    cursor: pointer;
+}
+
+.kustom-form-control {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--teks-gelap);
+}
+
+.j-select:hover { 
+    background-color: #ffffff; 
+    border-color: var(--c-main-light); 
+}
+
+.j-select:focus, .kustom-form-control:focus { 
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(247, 144, 57, 0.15); 
+    border-color: var(--warna-utama); 
+}
+
+.kustom-form-group {
+    margin-bottom: 15px;
+}
+
+.kustom-form-group label {
+    display: block;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+}
+
+/* ==========================================================
+   4. BUTTONS & ACTIONS (TOMBOL)
+   Pengelompokan gaya tombol untuk header, modal, dan tabel
+   ========================================================== */
+/* --- 4A. Tombol Filter (Primary, Light, Excel, PDF) --- */
+.j-filter-actions { 
+    display: flex; 
+    gap: 0.75rem; 
+    flex-wrap: wrap; 
+}
+
+.j-btn-primary, .j-btn-light, .j-btn-excel, .j-btn-pdf {
+    border-radius: 50px; 
+    padding: 0.65rem 1.25rem; 
+    font-size: 0.85rem; 
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center; 
+    font-weight: 600; 
+    transition: var(--transisi-halus); 
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.j-btn-primary { 
+    background: linear-gradient(135deg, var(--warna-utama), var(--c-main-dark)); 
+    color: white; 
+}
+.j-btn-primary:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 14px rgba(247, 144, 57, 0.3); 
+}
+
+.j-btn-light { 
+    background-color: #ffffff; 
+    color: var(--c-main-dark); 
+    border-color: var(--table-border); 
+}
+.j-btn-light:hover { 
+    background-color: var(--bg-lvl-2); 
+    transform: translateY(-1px); 
+}
+
+.j-btn-excel { background-color: #f0fdf4; color: #15803d; border-color: #bbf7d0; gap: 5px; }
+.j-btn-excel:hover { background-color: #16a34a; color: white; transform: translateY(-1px); border-color: #16a34a; }
+
+.j-btn-pdf { background-color: #fef2f2; color: #b91c1c; border-color: #fecaca; gap: 5px; }
+.j-btn-pdf:hover { background-color: #dc2626; color: white; transform: translateY(-1px); border-color: #dc2626; }
+
+/* --- 4B. Tombol Ikon (Tabel & Modal) --- */
+.j-btn-icon, .btn-mata-modern, .btn-edit-modern, .wa-btn-send {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: var(--transisi-halus);
+}
+
+.j-btn-icon {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    font-size: 1rem;
+}
+.j-btn-icon:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.08); }
+
+.btn-mata-modern, .btn-edit-modern {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn-mata-modern { background-color: #e0f2fe; color: #0284c7; }
+.btn-mata-modern:hover { background-color: #bae6fd; transform: translateY(-1px); }
+
+.btn-edit-modern { background-color: #fefce8; color: #b45309; margin-left: 5px; }
+.btn-edit-modern:hover { background-color: #fef08a; transform: translateY(-1px); }
+
+/* Varian Warna Ikon Tabel */
+.j-icon-main { background-color: var(--bg-lvl-1); color: var(--c-main-dark); }
+.j-icon-green { background-color: #e6f8ec; color: #15803d; }
+.j-icon-yellow { background-color: #fef5d8; color: #b45309; }
+.j-icon-gray { background-color: #f1f5f9; color: #475569; }
+
+/* --- 4C. Tombol Aksi Kustom (Modal Footer) --- */
+.btn-tutup-kustom, .btn-batal-kustom, .btn-simpan-kustom, .btn-copy-lalu {
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transisi-halus);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-tutup-kustom, .btn-batal-kustom {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+.btn-tutup-kustom:hover, .btn-batal-kustom:hover { background: #f1f5f9; color: var(--teks-gelap); }
+
+.btn-simpan-kustom {
+    background: var(--warna-utama);
+    border: 1px solid var(--warna-utama);
+    color: #ffffff;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    gap: 8px;
+}
+.btn-simpan-kustom:hover { background: #ff9a48; color: #ffffff; border-color: var(--c-main-dark); }
+
+.btn-copy-lalu {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    gap: 4px;
+}
+.btn-copy-lalu:hover { background: var(--warna-utama); color: #ffffff; border-color: var(--warna-utama); }
+
+/* ==========================================================
+   5. TABEL (MODERN DATA GRID) & BADGES
+   Struktur tabel hierarki dan label status
+   ========================================================== */
+.j-scrollable { 
+    max-height: 72vh; 
+    overflow: auto; /* Menggabungkan overflow-x dan overflow-y */
+}
+
+.j-modern-table { 
+    border-collapse: collapse; 
+    border-spacing: 0; 
+    font-size: 0.85rem; 
+}
+
+.j-modern-table thead th {
+    position: sticky; 
+    top: 0; 
+    z-index: 10; 
+    background-color: var(--warna-utama); 
+    color: #ffffff;
+    font-weight: 600; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    padding: 1.1rem 1rem;
+    border: 1px solid var(--c-main-dark); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.j-modern-table tbody td {
+    padding: 1.1rem 1rem;
+    vertical-align: middle;
+    border: 1px solid var(--table-border); 
+    color: #334155;
+    line-height: 1.4;
+}
+
+/* --- Hierarki Baris (Level 1 - 5) --- */
+.j-modern-table tbody tr { transition: background-color 0.2s; }
+.j-row-lvl-1 td { background-color: var(--bg-lvl-1); font-weight: 700; color: #0f172a; }
+.j-row-lvl-2 td { background-color: var(--bg-lvl-2); font-weight: 600; color: #1e293b; }
+.j-row-lvl-3 td { background-color: var(--bg-lvl-3); font-weight: 600; color: #334155; }
+.j-row-lvl-4 td { background-color: var(--bg-lvl-4); font-weight: 500; color: #475569; }
+.j-row-lvl-5 td { background-color: var(--bg-lvl-5); font-weight: 400; color: #475569; }
+.j-row-lvl-5:hover td { background-color: var(--bg-lvl-3); }
+
+/* --- Indentasi Hierarki Teks --- */
+.j-indent { display: flex; align-items: flex-start; }
+.j-indent-lvl-1 { padding-left: 0; }
+.j-indent-lvl-2 { padding-left: 1.2rem; }
+.j-indent-lvl-3 { padding-left: 2.4rem; }
+.j-indent-lvl-4 { padding-left: 3.6rem; }
+.j-indent-lvl-5 { padding-left: 4.8rem; }
+
+.j-dash-modern { 
+    display: inline-block; 
+    width: 12px; 
+    height: 2px; 
+    background-color: var(--c-main-light); 
+    margin-right: 8px; 
+    margin-top: 9px; 
+}
+
+/* --- Badge & Teks Indikator --- */
+.j-target-text {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    display: inline-block;
+}
+
+.j-badge {
+    padding: 0.6em 1em;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 1px solid transparent;
+    font-size: 0.72rem;
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+.j-badge i { font-size: 0.8rem; }
+
+.j-bg-orange { background: var(--bg-lvl-1); color: var(--c-main-dark); border-color: var(--table-border); }
+.j-bg-blue   { background: #eff6ff; color: #1d4ed8; border-color: #bfdbfe; }
+.j-bg-red    { background: #fef2f2; color: #b91c1c; border-color: #fecaca; }
+.j-bg-yellow { background: #fefce8; color: #b45309; border-color: #fef08a; }
+.j-bg-green  { background: #f0fdf4; color: #15803d; border-color: #bbf7d0; }
+.j-bg-gray   { background: #f8fafc; color: #64748b; border-color: #e2e8f0; }
+
+/* ==========================================================
+   6. BADGE PROFIL PEGAWAI & INPUT TAG
+   Elemen kapsul nama pegawai dan dropdown pencarian
+   ========================================================== */
+.btn-profil-pjk {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    padding: 5px 14px; 
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1; 
+    border-radius: 30px; 
+    color: #4b5563; 
+    font-size: 0.75rem; 
+    font-weight: 500; 
+    cursor: pointer; 
+    transition: var(--transisi-halus);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.btn-profil-pjk:hover { 
+    background-color: var(--warna-utama); 
+    color: #ffffff; 
+    border-color: var(--warna-utama); 
+    transform: translateY(-1px); 
+}
+.btn-profil-pjk:hover i { color: #ffffff; }
+.btn-profil-pjk i { font-size: 14px; color: #9ca3af; transition: color 0.2s; }
+
+.btn-profil-pjk.ada-data { 
+    background: rgba(247, 144, 57, 0.1); 
+    color: var(--warna-utama); 
+    border-color: rgba(247, 144, 57, 0.4); 
+    font-weight: 600; 
+}
+.btn-profil-pjk.ada-data:hover { background: var(--warna-utama); color: #fff; }
+
+/* --- Input Tag (Modal Edit) TERBARU --- */
+.pj-wrapper { position: relative; }
+.pj-tag-container {
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    padding: 6px 10px;
+    background: #ffffff;
+    min-height: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    cursor: text;
+}
+.pj-tag-container:focus-within {
+    border-color: var(--warna-utama);
+    box-shadow: 0 0 0 3px rgba(247, 144, 57, 0.15);
+}
+
+/* Desain Kapsul/Bubble Tag */
+.pj-tag {
+    background-color: #f1f5f9; /* Warna abu kebiruan modern */
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 4px 12px;
+    border-radius: 20px; /* Bentuk pill/kapsul */
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    white-space: nowrap;
+}
+
+/* Tombol (x) di dalam Bubble */
+.pj-tag .remove-tag {
+    margin-left: 8px;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.pj-tag .remove-tag:hover { 
+    color: #ef4444; /* Berubah menjadi merah */
+    transform: scale(1.2); 
+}
+
+/* Kolom input saat mengetik */
+.pj-search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    min-width: 180px;
+    font-size: 0.9rem;
+    padding: 2px 0;
+    background: transparent;
+    color: #475569;
+}
+
+/* Dropdown hasil pencarian pegawai */
+.pj-dropdown {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-height: 180px;
+    overflow-y: auto;
+    z-index: 999;
+    display: none;
+    margin-top: 4px;
+}
+.pj-dropdown-item {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f5f9;
+}
+.pj-dropdown-item:hover { background: var(--bg-lvl-3); color: var(--c-main-dark); }
+
+.kustom-badge-pj {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f8fafc;
+    color: #ea580c;
+    border: 1px solid #fed7aa;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: var(--transisi-halus);
+}
+.kustom-badge-pj:hover {
+    background-color: #ffedd5;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================
+   7. MODAL COMPONENTS (PROFIL & FORM KUSTOM)
+   Pengaturan jendela pop-up dan tata letak grid modal
+   ========================================================== */
+/* --- 7A. Background Overlay (Digabung) --- */
+.modal-overlay,
+.kustom-modal-overlay {
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(4px);
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 10000;
+}
+.kustom-modal-overlay { display: none; padding: 20px; z-index: 99999; }
+.kustom-modal-overlay.tampil { display: flex; }
+
+/* --- 7B. Modal Profil Pegawai --- */
+.modal-profil {
+    max-width: 380px !important; 
+    width: 95%; 
+    background: #ffffff;
+    border-radius: 12px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: none;
+}
+.modal-profil .header-orange {
+    padding: 16px 20px;
+    background-color: var(--warna-utama); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.modal-profil .header-orange .modal-title { font-size: 1.15rem; font-weight: 700; color: #ffffff; margin: 0; }
+.modal-profil .header-orange .tutup-modal { font-size: 1.6rem; cursor: pointer; color: #ffffff; line-height: 1; font-weight: bold; transition: 0.2s; }
+.modal-profil .header-orange .tutup-modal:hover { color: #fce7d3; }
+.modal-profil .modal-body { padding: 30px 24px; text-align: center; }
+
+.nama-pegawai { margin: 0; font-size: 1.1rem; color: #111827; font-weight: 800; }
+.nip-pegawai { margin: 4px 0 20px 0; font-size: 0.85rem; color: var(--teks-abu); }
+
+.detail-profil {
+    text-align: left; 
+    background: #f8fafc; 
+    border-radius: 12px;
+    padding: 18px 16px; 
+    border: 1px solid #e2e8f0;
+}
+.detail-profil .info-item {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 14px; 
+    margin-bottom: 14px;
+    padding-bottom: 14px; 
+    border-bottom: 1px dashed #cbd5e1;
+}
+.detail-profil .info-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.detail-profil .info-item i { font-size: 1.25rem; color: #475569; }
+
+.ikon-box { width: 24px; text-align: center; margin-top: 2px; }
+.info-teks { display: flex; flex-direction: column; gap: 4px; }
+.info-teks small { font-size: 0.65rem; color: #94a3b8; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; line-height: 1; }
+.info-teks span { font-weight: 700; color: #334155; font-size: 0.9rem; line-height: 1.3; }
+
+.wa-kapsul {
+    display: inline-block; 
+    background: #25D366; 
+    padding: 4px 14px;
+    border-radius: 20px; 
+    text-decoration: none; 
+    margin-top: 2px;
+    width: fit-content; 
+    transition: 0.2s ease; 
+    border: none;
+}
+.wa-kapsul:hover { background: #1da851; }
+.wa-kapsul span { color: #ffffff !important; font-size: 0.85rem; font-weight: 700; }
+
+/* --- 7C. Modal LKE Kustom (Detail & Edit) --- */
+.kustom-modal-container {
+    background: #ffffff;
+    width: 90%;
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.kustom-modal-header {
+    padding: 15px 25px;
+    background-color: var(--warna-utama) !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.kustom-modal-header h5 { margin: 0; font-size: 1.1rem; font-weight: 700; color: #ffffff !important; }
+.kustom-btn-tutup-x { background: none; border: none; font-size: 1.5rem; color: #ffffff !important; cursor: pointer; line-height: 1; opacity: 0.8; transition: 0.2s; }
+.kustom-btn-tutup-x:hover { opacity: 1; }
+.kustom-modal-body { padding: 25px; overflow-y: auto; }
+.kustom-modal-footer {
+    padding: 16px 24px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.kustom-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+@media (max-width: 992px) { .kustom-grid-2 { grid-template-columns: 1fr; } }
+
+.kustom-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+.kustom-card-title {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* Tipografi Warna Spesifik Modal */
+.title-biru { color: #0284c7; }
+.title-hijau { color: #059669; }
+.title-ungu { color: #7c3aed; }
+.title-orange { color: #ea580c; }
+.title-abu { color: #475569; }
+
+/* Tabel Info Modal */
+.kustom-table-info { width: 100%; border-collapse: collapse; }
+.kustom-table-info td { padding: 8px 5px; vertical-align: top; font-size: 0.9rem; border-bottom: 1px dashed #f1f5f9; }
+.kustom-table-info tr:last-child td { border-bottom: none; }
+.td-label { color: #64748b; width: 30%; font-weight: 500; }
+.td-titik { width: 2%; text-align: center; }
+.td-value { font-weight: 400; color: #1e293b; word-break: break-word; }
+
+/* ==========================================================
+   8. COMPONENTS KHUSUS (BULAN PILL, TIMELINE, IFRAME)
+   ========================================================== */
+/* --- 8A. Pilihan Bulan Modern --- */
+.modern-month-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+.modern-month-label {
+    display: block;
+    text-align: center;
+    padding: 8px 0;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #64748b;
+    transition: var(--transisi-halus);
+    user-select: none;
+}
+.modern-month-check input { display: none; }
+.modern-month-check input:checked + .modern-month-label {
+    background: var(--warna-utama);
+    color: #ffffff;
+    border-color: var(--warna-utama);
+    box-shadow: 0 2px 4px rgba(247, 144, 57, 0.3);
+    font-weight: 700;
+}
+
+/* --- 8B. Timeline Progress Chart --- */
+.timeline-wrapper { 
+    position: relative; 
+    padding: 20px 0 10px; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+.timeline-bg-line { position: absolute; top: 35px; left: 10%; width: 80%; height: 4px; background: #e2e8f0; z-index: 1;}
+.timeline-progress-line { position: absolute; top: 35px; left: 10%; height: 4px; background: #059669; z-index: 2; transition: width 0.4s ease;}
+
+.timeline-step { 
+    position: relative; 
+    z-index: 3; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: 20%; 
+    text-align: center;
+}
+.timeline-circle { 
+    width: 30px; height: 30px; 
+    border-radius: 50%; 
+    background: #ffffff; 
+    border: 3px solid #e2e8f0; 
+    display: flex; justify-content: center; align-items: center; 
+    font-weight: bold; font-size: 0.8rem; color: #94a3b8; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 0 0 3px #ffffff;
+}
+.timeline-label { margin-top: 10px; font-size: 0.8rem; color: #64748b; font-weight: 500; line-height: 1.2; }
+
+/* Status Timeline */
+.timeline-step.completed .timeline-circle { background: #059669; border-color: #059669; color: #ffffff; }
+.timeline-step.completed .timeline-label { color: #059669; font-weight: 700; }
+.timeline-step.active .timeline-circle { background: #0284c7; border-color: #0284c7; color: #ffffff; box-shadow: 0 0 0 3px #bae6fd; }
+.timeline-step.active .timeline-label { color: #0284c7; font-weight: 700; }
+.timeline-step.error .timeline-circle { background: #dc2626; border-color: #dc2626; color: #ffffff; box-shadow: 0 0 0 3px #fecaca; }
+.timeline-step.error .timeline-label { color: #dc2626; font-weight: 700; }
+
+/* --- 8C. Bukti Iframe --- */
+.iframe-container { 
+    width: 100%; height: 350px; 
+    border-radius: 6px; border: 1px solid #e2e8f0; 
+    background: #f1f5f9; 
+    display: flex; justify-content: center; align-items: center; 
+    overflow: hidden; 
+}
+.iframe-container iframe { width: 100%; height: 100%; border: none; }
+
+/* ==========================================================
+   9. CHAT INTERFACES (WhatsApp & Legacy Kustom)
+   ========================================================== */
+/* --- 9A. WhatsApp Style Chat Container (Utama) --- */
+.wa-header {
+    background-color: #f0f2f5;
+    padding: 12px 16px;
+    border-bottom: 1px solid #d1d7db;
+    display: flex; align-items: center; color: #111b21;
+}
+.wa-chat-container {
+    flex-grow: 1; height: 400px;
+    overflow-y: auto;
+    padding: 20px 5%;
+    background-color: #efeae2;
+    background-image: url('https://w0.peakpx.com/wallpaper/818/148/HD-wallpaper-whatsapp-background-cool-dark-green-new-theme-whatsapp.jpg');
+    background-blend-mode: overlay;
+    background-size: cover;
+    display: flex; flex-direction: column; gap: 12px;
+}
+.wa-chat-container::-webkit-scrollbar { width: 6px; }
+.wa-chat-container::-webkit-scrollbar-thumb { background-color: #bcc0c4; border-radius: 10px; }
+
+/* Modul Bubble Chat WA */
+.wa-msg { display: flex; align-items: flex-end; max-width: 85%; animation: fadeIn 0.3s ease-in-out; }
+.wa-msg.me { align-self: flex-end; flex-direction: row-reverse; }
+.wa-msg.other { align-self: flex-start; }
+
+.wa-bubble {
+    padding: 6px 10px 8px 10px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 1px 0.5px rgba(11,20,26,.13);
+    font-size: 0.85rem; line-height: 1.4;
+    display: flex; flex-direction: column; color: #111b21;
+}
+.wa-msg.me .wa-bubble { background-color: #d9fdd3; border-top-right-radius: 0; margin-right: 8px; }
+.wa-msg.other .wa-bubble { background-color: #ffffff; border-top-left-radius: 0; margin-left: 8px; }
+
+.wa-sender-name { font-size: 0.7rem; font-weight: bold; color: #0284c7; margin-bottom: 3px; }
+.wa-text { word-wrap: break-word; white-space: pre-wrap; }
+.wa-time { font-size: 0.65rem; color: #667781; align-self: flex-end; margin-top: 4px; margin-left: 20px; display: flex; align-items: center; }
+
+/* Avatar WA */
+.wa-avatar {
+    width: 32px; height: 32px; border-radius: 50%; overflow: hidden; flex-shrink: 0;
+    background-color: #94a3b8; display: flex; align-items: center; justify-content: center;
+}
+.wa-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.wa-avatar-text { color: #ffffff; font-size: 0.8rem; font-weight: bold; }
+
+/* Area Input WA */
+.wa-input-area { background-color: #f0f2f5; padding: 10px 15px; display: flex; align-items: center; gap: 12px; }
+.wa-input-field {
+    flex-grow: 1; border: none; border-radius: 24px; padding: 12px 20px;
+    font-size: 0.9rem; outline: none; box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+}
+.wa-btn-send {
+    background-color: #00a884; color: white; border-radius: 50%;
+    width: 42px; height: 42px; flex-shrink: 0;
+}
+.wa-btn-send:hover { background-color: #008f6f; }
+
+/* --- 9B. Legacy Chat Component (Opsional / Cadangan) --- */
+.chat-container-kustom { height: 100%; min-height: 400px; max-height: 450px; background: #f8fafc; }
+.chat-header { padding-bottom: 10px; margin-bottom: 0 !important; background: #ffffff; }
+.chat-messages {
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+.chat-messages::-webkit-scrollbar { width: 6px; }
+.chat-messages::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+
+.chat-avatar { width: 32px; height: 32px; font-size: 0.75rem; background-color: #64748b; }
+.chat-sender { font-size: 0.7rem; font-weight: 600; margin-bottom: 3px; }
+.chat-time { font-size: 0.65rem; }
+
+.chat-bubble-left, .chat-bubble-right {
+    padding: 8px 12px; font-size: 0.85rem; max-width: 95%;
+}
+.chat-bubble-left { background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 0px 12px 12px 12px; color: #334155; }
+.chat-bubble-right { background-color: #2563eb; color: #ffffff; border-radius: 12px 0px 12px 12px; }
+
+.chat-input-area .form-control { font-size: 0.85rem; border-radius: 20px 0 0 20px; }
+.chat-input-area .btn-primary { border-radius: 0 20px 20px 0; background-color: #2563eb; border-color: #2563eb; }
+.chat-placeholder { width: 100%; height: 350px; border-radius: 6px; border: 1px dashed #cbd5e1; background: #f8fafc; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #64748b; }
+
+/* ==========================================================
+   10. UTILITIES & THIRD PARTY OVERRIDES
+   ========================================================== */
+.j-chip-link {
+    display: inline-flex; align-items: center; gap: 6px; 
+    background-color: #ffffff; color: #334155;
+    font-size: 0.7rem; font-weight: 500; 
+    padding: 4px 10px; border-radius: 30px; 
+    border: 1px solid var(--table-border); text-decoration: none;
+}
+.j-chip-link:hover { background-color: var(--bg-lvl-1); color: var(--c-main-dark); }
+.chip-klik { cursor: pointer !important; transition: transform 0.1s; }
+.chip-klik:hover { transform: scale(1.05); box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+
+/* Animasi Global */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Override Vendor */
+.swal2-container { z-index: 99999 !important; }
+
+.tooltip-inner {
+    background: rgba(15, 23, 42, 0.85) !important; 
+    backdrop-filter: blur(6px); color: #ffffff;
+    font-size: 0.75rem; font-weight: 500; 
+    padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.bs-tooltip-top .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before { border-top-color: rgba(15, 23, 42, 0.85) !important; }
+.bs-tooltip-bottom .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before { border-bottom-color: rgba(15, 23, 42, 0.85) !important; }
+.bs-tooltip-start .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before { border-left-color: rgba(15, 23, 42, 0.85) !important; }
+.bs-tooltip-end .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before { border-right-color: rgba(15, 23, 42, 0.85) !important; }

@@ -13,15 +13,7 @@ class JazirahHasil extends Model
     protected $table = 'jazirah_hasil';
     protected $primaryKey = 'id';
 
-    protected $fillable = [
-        'satker',
-        'tahun',
-        'id_indikator',
-        'link_buktidukung',
-        'status_approval',
-        'status_tindaklanjut',
-        'keterangan',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'created_at' => 'datetime',

@@ -1,225 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <!-- Responsive -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Poppins Google -->
+    <title>BuPeSta - {{ $data['judul'] }}</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('assets-jazirah/img/favicon.png') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
         rel="stylesheet">
-    <!-- Icon Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Fitral CSS -->
 
-    <link rel="stylesheet" href="{{ asset('assets-jazirah/') }}/load/load.css">
-    <script src="{{ asset('assets-jazirah/') }}/load/load.js"></script>
-    <title>BuPeSta - {{ $data['judul'] }}</title>
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets-jazirah/') }}/img/favicon.png">
+    <link rel="stylesheet" href="{{ asset('assets-se2026/load/load.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-jazirah/style/jazirah-dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets-jazirah/style/potrait-warning.css') }}">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-61TSDP49BB"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', 'G-61TSDP49BB');
-    </script>
-    <link rel="stylesheet" href="{{ asset('assets-jazirah/') }}/style/header.css">
-    <link rel="stylesheet" href="{{ asset('assets-jazirah/') }}/style/jazirah.css">
-    <link rel="stylesheet" href="{{ asset('assets-jazirah/') }}/style/potrait-warning.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <style>
-        .embed-responsive {
-            position: relative;
-            padding-top: 56.25%;
-        }
-
-        .embed-responsive iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-    </style>
-
-    <!-- DataTables + FixedColumns CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.3.0/css/fixedColumns.dataTables.min.css">
-
-    <!-- Select2 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
-
-    <style>
-        .toolbar {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            margin-bottom: 10px;
-            flex-wrap: wrap
-        }
-
-        .toolbar label {
-            font-weight: 600;
-            color: #374151
-        }
-
-        #info {
-            margin: 4px 0 10px;
-            color: #4b5563
-        }
-
-        .wrap {
-            max-width: 100%;
-            overflow: auto
-        }
-
-        /* Select2: sederhana & rapi */
-        .tri-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 6px 10px;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            background: #fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
-        }
-
-        .tri-wrap:focus-within {
-            outline: 2px solid #93c5fd;
-            outline-offset: 2px
-        }
-
-        .tri-wrap .select2-container {
-            min-width: 240px;
-        }
-
-        .select2-container--default .select2-selection--single {
-            height: 40px;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            padding: 0 8px;
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__rendered {
-            color: #111827;
-            font-weight: 700;
-            line-height: 38px;
-        }
-
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-            height: 100%;
-        }
-
-        .select2-dropdown {
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-        }
-
-        /* Tint wrapper sesuai triwulan (diubah via JS) */
-        .tri-wrap.tri-1 {
-            background: #dcfce7;
-            border-color: #86efac
-        }
-
-        .tri-wrap.tri-2 {
-            background: #e0f2fe;
-            border-color: #93c5fd
-        }
-
-        .tri-wrap.tri-3 {
-            background: #ffedd5;
-            border-color: #fdba74
-        }
-
-        a .tri-wrap.tri-4 {
-            background: #efe9ff;
-            border-color: #c4b5fd
-        }
-
-        /* Tabel simple + warna lembut */
-        table.dataTable thead th {
-            background: linear-gradient(90deg, #e8f8e8, #e8f0ff);
-            color: #1f2937;
-            font-weight: 700;
-            text-align: center;
-        }
-
-        table.dataTable td,
-        table.dataTable th {
-            font-size: 11px;
-            white-space: nowrap;
-            text-align: center;
-            padding: 8px 10px !important;
-        }
-
-        .col-indikator {
-            background: #fff8e6;
-            font-weight: 700;
-            border-left: 3px solid #60a5fa !important
-        }
-
-        .col-pilar {
-            background: #f3faf3;
-            font-weight: 700
-        }
-
-        .cell-num {
-            font-weight: 700
-        }
-
-        .cell-empty {
-            background: #ffe5e5 !important;
-            color: #7f1d1d !important;
-            font-weight: 700
-        }
-
-        table.dataTable {
-            border-collapse: separate !important;
-            border-spacing: 0
-        }
-
-        table.dataTable tbody td {
-            border-right: 1px solid #f0f0f0
-        }
-
-        table.dataTable tbody tr:nth-child(odd) {
-            background: #fafafa
-        }
-
-        /* Samakan lebar semua kolom kode_satker (th & td) */
-        #tbl th.satker-col,
-        #tbl td.satker-col {
-            width: 50px;
-            min-width: 50px;
-            max-width: 50px;
-        }
-    </style>
-
+    <script src="{{ asset('assets-se2026/load/load.js') }}"></script>
 </head>
 
 <body>
+    {{-- AWAL BLOK OPTIMASI LOGIKA & DATA REUSABLE --}}
+    @php
+        $userActive = $data['user_active'] ?? null;
+        $userRole = $userActive->bupesta ?? '';
+        $userNip = $userActive->nip_pegawai ?? '';
+        $userSatker = $userActive->kode_Satker ?? '';
 
-    <!-- Peringatan Landscape -->
+        $isAdmin = $userRole === 'admin';
+        $isAdminOrKepala = in_array($userRole, ['admin', 'kepala-umum']);
+
+        // Cek Role Admin Jazirah
+        $isJazirahAdmin = isset($data['role']) && strtolower($data['role']) === 'admin';
+
+        $opsiPegawaiHtml = '<option value="">-- Pilih Pegawai / PJK --</option>';
+        if (!empty($data['pegawai_prov'])) {
+            foreach ($data['pegawai_prov'] as $pegawai) {
+                $opsiPegawaiHtml .= '<option value="' . $pegawai->nip_pegawai . '">' . $pegawai->name . '</option>';
+            }
+        }
+    @endphp
+
     <div id="orientation-warning" style="display: none;">
         <h1>Putar Perangkat Anda</h1>
         <p>Untuk pengalaman terbaik, silakan ubah ke <strong>mode landscape</strong>.</p>
-
-        <!-- Animasi HP diputar -->
         <div class="phone-wrapper">
             <div class="screen"></div>
             <div class="button"></div>
         </div>
     </div>
+
     <div id="loading">
         <div id="loader-wrapper">
             <div id="loader"></div>
@@ -227,537 +61,498 @@
             <div class="loader-section section-right"></div>
         </div>
     </div>
-    <div id="page" style="display: block;">
-        <header>
-            @include('layout2.navbar-jazirah')
-        </header>
+
+    <div id="page">
+        <header>@include('layout2.navbar-se2026')</header>
 
         <div class="konten">
-            <!-- <img style="width:100%;" src="fitral/img/gedung1.jpg"> -->
-            <?php include 'fitral/php/animasitextbps.php'; ?>
-
+            @include('layout2.animasitextbps')
             <br>
 
             <div class="posisitengah">
+                <div class="posisitengah" style="width: 95%; max-width: 95%; margin: 0 auto;">
+                    <div class="jazirah-container">
 
-                @php
-                    $tahun = (int) request('tahun', 2025); // default 2025
-                @endphp
-
-                <div class="mt-2">
-                    @if ($tahun === 2025)
-                        <main class="grid h-scroll">
-
-                            <a class="link-card" target="_blank"
-                                href="https://us02web.zoom.us/j/89332701548?pwd=bROlzcdevFoiaRb4UX1Tw1GQ3Z1hPy.1
-"
-                                aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="3" y="6" width="14" height="12" rx="3" />
-                                        <path d="M15 9l6-3v12l-6-3z" />
-                                    </svg>
+                        {{-- 1. BANNER & TYPEWRITER --}}
+                        {{-- <div class="welcome-banner">
+                            <div class="welcome-content">
+                                <div class="character-container">
+                                    <img src="{{ asset('assets-se2026/img/bungitung.gif') }}" class="char-animation"
+                                        alt="Maskot BPS">
                                 </div>
-                                <div class="label">Seulanga</div>
-                                <div class="hint"></div>
-                            </a>
+                                <h2><span id="typewriter"></span><span class="cursor">|</span></h2>
+                            </div>
+                        </div> --}}
 
-                            <a class="link-card" target="_blank" href="/form-jazirah" aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="3" y="3" width="12" height="18" rx="2" />
-                                        <rect x="5.2" y="6" width="3.2" height="3.2" />
-                                        <rect x="9.6" y="6" width="3.2" height="3.2" />
-                                        <rect x="5.2" y="10.4" width="3.2" height="3.2" />
-                                        <rect x="9.6" y="10.4" width="3.2" height="3.2" />
-                                        <path d="M14.5 13.8l4-4 2.7 2.7-4 4-2.8.6z" />
-                                    </svg>
-                                </div>
-                                <div class="label">Pengisian Matriks Aksi</div>
-                                <div class="hint"></div>
-                            </a>
+                        {{-- 2. TOMBOL TAMBAH MENU (Terpisah dari slider agar statis) --}}
+                        @if ($isJazirahAdmin)
+                            <div style="text-align: right; margin-bottom: 10px;">
+                                <button class="btn-tambah-menu" onclick="openMenuModal()">
+                                    <i class="fa-solid fa-plus"></i> Tambah Menu
+                                </button>
+                            </div>
+                        @endif
 
-                            <!-- Ganti href sesuai kebutuhan Anda -->
-                            <a class="link-card" target="_blank"
-                                href="https://sites.google.com/view/pedomanevaluazi2025/pemenuhan"
-                                aria-label="Pengguna">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="5" y="3" width="13" height="18" rx="2" />
-                                        <rect x="4" y="3" width="2" height="18" />
-                                        <path d="M12 3v7l2-1 2 1V3z" />
-                                    </svg>
-                                </div>
-                                <div class="label">Pedoman ZI</div>
-                                <div class="hint"></div>
-                            </a>
+                        {{-- 3. MENU DINAMIS DARI DATABASE --}}
+                        <div class="jazirah-menu-wrapper modern-scrollbar">
+                            <div class="jazirah-menu-container">
+                                @foreach ($data['menus'] ?? [] as $menu)
+                                    <div class="jazirah-menu-card-wrapper" style="position: relative;">
+                                        <a href="{{ $menu->url }}" class="jazirah-menu-card">
+                                            <div class="jazirah-menu-icon" style="background: {{ $menu->bg }};">
+                                                {!! $menu->icon !!}
+                                            </div>
+                                            <h3 class="jazirah-menu-title">{{ $menu->title }}</h3>
+                                        </a>
 
-                            <a class="link-card" target="_blank" href="https://s.bps.go.id/11sop_aceh"
-                                aria-label="Pengguna">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <title>SOP</title>
-                                        <!-- Dokumen -->
-                                        <rect x="4" y="3" width="12" height="16" rx="2" />
-                                        <rect x="6.5" y="6" width="7.5" height="1.8" />
-                                        <rect x="6.5" y="9.5" width="7.5" height="1.8" />
-                                        <rect x="6.5" y="13" width="5.5" height="1.8" />
-                                        <!-- “Gear/Nut” sederhana -->
-                                        <path d="M18 12.5l2.4 1.4v2.8L18 18.1l-2.4-1.4v-2.8z" />
-                                        <circle cx="18" cy="15.3" r="1.1" fill="#fff" />
-                                    </svg>
-                                </div>
-                                <div class="label">SOP</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" target="_blank"
-                                href="https://drive.google.com/drive/folders/1842s9o3Y22mhLvFEOUHM1-ErO55d_LSx"
-                                aria-label="Booking">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="4" y="3" width="12" height="16" rx="2" />
-                                        <rect x="6" y="6" width="8" height="2" />
-                                        <rect x="6" y="10" width="6" height="2" />
-                                        <circle cx="17.5" cy="17.5" r="3.5" />
-                                        <path d="M16.1 17.5l1.1 1.1 2-2-1-1z" fill="#fff" />
-                                    </svg>
-                                </div>
-                                <div class="label">LHE TPP ZI 2024</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" target="_blank"
-                                href="https://drive.google.com/drive/folders/158hgrrwQuDhxpDE4MWMV6MckdX0mYAoQ?usp=sharing"
-                                aria-label="Booking">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <path d="M8 3h8v3H8z" />
-                                        <rect x="5" y="5" width="14" height="16" rx="2" />
-                                        <rect x="7" y="9" width="2" height="2" />
-                                        <rect x="10.5" y="9" width="6.5" height="2" />
-                                        <rect x="7" y="13" width="2" height="2" />
-                                        <rect x="10.5" y="13" width="5" height="2" />
-                                        <rect x="7" y="17" width="2" height="2" />
-                                        <rect x="10.5" y="17" width="4" height="2" />
-                                    </svg>
-                                </div>
-                                <div class="label">LKE Satker 2024</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" target="_blank"
-                                href="https://drive.google.com/drive/folders/1CgaY-FdPXj3hZe38YvtOxqnyrZd0lvnE?usp=sharing"
-                                aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="3" y="5" width="18" height="14" rx="2" />
-                                        <rect x="3" y="8" width="18" height="2" />
-                                        <rect x="7" y="3" width="2" height="4" />
-                                        <rect x="15" y="3" width="2" height="4" />
-                                        <path d="M15 16l-1.2.7.3-1.3L13 14.5l1.4-.1L15 13l.6 1.4 1.4.1-1.1.9.3 1.3z" />
-                                    </svg>
-                                </div>
-                                <div class="label">Event Jazirah</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" target="_blank"
-                                href="https://drive.google.com/drive/folders/1IyTMgAG8jUhOKPRzgchftq6RnPPhLkbm?usp=sharing"
-                                aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <path d="M12 2l7 4v6c0 5-4.2 8-7 10-2.8-2-7-5-7-10V6z" />
-                                        <path d="M9 12l2 2 4-4 1.6 1.6-5.6 5.6L7.4 13.6z" fill="#fff" />
-                                    </svg>
-                                </div>
-                                <div class="label">Satker Lolos TPI</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" target="_blank" href="/qna-jazirah" aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <path d="M4 4h10a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H9l-3 3V6a2 2 0 0 1 2-2z" />
-                                        <path d="M10 13h6a2 2 0 0 1 2 2v5l-3-3h-5a2 2 0 0 1-2-2v-1" />
-                                        <path
-                                            d="M9.8 7.8a2.2 2.2 0 1 1 3.7 1.6c-.5.4-1 .7-1 .9v.7h-1.6v-.9c0-.9.7-1.4 1.2-1.8.3-.2.5-.5.5-.8a.6.6 0 0 0-.6-.6c-.4 0-.6.2-.9.4z"
-                                            fill="#fff" />
-                                        <rect x="11" y="12.7" width="1.6" height="1.6" rx=".3"
-                                            fill="#fff" />
-                                    </svg>
-                                </div>
-                                <div class="label">QNA</div>
-                                <div class="hint"></div>
-                            </a>
-
-                            <a class="link-card" href="/narahubung-jazirah" aria-label="Kamar">
-                                <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24">
-                                        <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z" />
-                                    </svg></span>
-                                <div class="icon-xl">
-                                    <svg viewBox="0 0 24 24" role="img">
-                                        <rect x="5" y="3" width="14" height="18" rx="2" />
-                                        <rect x="3" y="5" width="2" height="3" />
-                                        <rect x="3" y="10.5" width="2" height="3" />
-                                        <rect x="3" y="16" width="2" height="3" />
-                                        <circle cx="12" cy="10" r="3" fill="#fff" />
-                                        <path d="M8.5 16.5a4.5 4.5 0 0 1 7 0V19H8.5z" fill="#fff" />
-                                    </svg>
-                                </div>
-                                <div class="label">Narahubung</div>
-                                <div class="hint"></div>
-                            </a>
-
-                        </main>
-
-                        <br>
-
-                        <div class="card shadow-sm">
-                            <div class="card-body p-0">
-                                <div class="toolbar">
-                                    <label for="triSelect">Data:</label>
-                                    <div id="triWrap" class="tri-wrap tri-1">
-                                        <select id="triSelect">
-                                            <option value="1" selected>Pengisian Link</option>
-                                            {{-- <option value="2">Triwulan 2</option> --}}
-                                            {{-- <option value="3">Triwulan 3</option> --}}
-                                            <option value="4">Target - Realisasi</option>
-                                            <option value="5">Progress Evaluasi</option>
-                                            {{-- <option value="6">Evaluasi Tr 2</option> --}}
-                                            {{-- <option value="7">Evaluasi Tr 3</option> --}}
-                                            {{-- <option value="8">Progress Evaluasi</option> --}}
-                                            <option value="9">Validasi Dokumen</option>
-                                            {{-- <option value="10">Tindak Lanjut Tr 2</option> --}}
-                                            {{-- <option value="11">Tindak Lanjut Tr 3</option> --}}
-                                            {{-- <option value="12">Progress Tindak Lanjut</option> --}}
-                                        </select>
+                                        {{-- Aksi Edit/Delete Khusus Admin --}}
+                                        @if ($isJazirahAdmin)
+                                            <div class="admin-menu-actions">
+                                                <button type="button" class="btn-aksi btn-edit-menu"
+                                                    onclick="editMenu({{ json_encode($menu) }})" title="Edit Menu"><i
+                                                        class="fa-solid fa-pen"></i></button>
+                                                <form action="{{ url('/jazirah-menu/' . $menu->id) }}" method="POST"
+                                                    style="display:inline;"
+                                                    onsubmit="return confirm('Hapus menu ini?');">
+                                                    @csrf @method('DELETE')
+                                                    <button type="submit" class="btn-aksi btn-delete-menu"
+                                                        title="Hapus Menu"><i class="fa-solid fa-trash"></i></button>
+                                                </form>
+                                            </div>
+                                        @endif
                                     </div>
-                                </div>
-
-                                <div class="wrap">
-                                    <div id="info">Memuat data…</div>
-                                    <table id="tbl" class="display nowrap compact" style="width:100%">
-                                        <thead></thead>
-                                        <tbody></tbody>
-                                    </table>
-                                </div>
-
-                                <!-- jQuery -->
-                                <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-                                <!-- DataTables + FixedColumns JS -->
-                                <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-                                <script src="https://cdn.datatables.net/fixedcolumns/4.3.0/js/dataTables.fixedColumns.min.js"></script>
-
-                                <!-- Select2 JS -->
-                                <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-                                <script>
-                                    const ENDPOINT =
-                                        "https://script.google.com/macros/s/AKfycbxXE6T-yd5VWK1mXE69bCzw0FCqyuri2X7doO2NHQWu6_kgu4yqnMx-nok0mhxXxvmAfg/exec";
-
-                                    /* 24 kolom kode_satker */
-                                    const ALL_SATKERS = [
-                                        "1100", "1101", "1102", "1103", "1104", "1105", "1106", "1107", "1108", "1109",
-                                        "1110", "1111", "1112", "1113", "1114", "1115", "1116", "1117", "1118",
-                                        "1171", "1172", "1173", "1174", "1175"
-                                    ];
-                                    const SATKER_TARGETS = ALL_SATKERS.map((_, i) => i + 2); // kolom 2..akhir adalah satker
-                                    const TRI_FIELDS = {
-                                        1: 'nilai_1',
-                                        2: 'nilai_2',
-                                        3: 'nilai_3',
-                                        4: 'nilai_4',
-                                        5: 'eval_1',
-                                        6: 'eval_2',
-                                        7: 'eval_3',
-                                        8: 'eval_4',
-                                        9: 'tl_1',
-                                        10: 'tl_2',
-                                        11: 'tl_3',
-                                        12: 'tl_4'
-                                    };
-
-                                    const clean = s => String(s ?? "").trim();
-
-                                    function romanToInt(r) {
-                                        const m = {
-                                            I: 1,
-                                            V: 5,
-                                            X: 10,
-                                            L: 50,
-                                            C: 100,
-                                            D: 500,
-                                            M: 1000
-                                        };
-                                        let n = 0;
-                                        for (let i = 0; i < r.length; i++) {
-                                            const v = m[r[i]] || 0,
-                                                vn = m[r[i + 1]] || 0;
-                                            n += v < vn ? -v : v;
-                                        }
-                                        return n || 999;
-                                    }
-
-                                    function asNumber(x) {
-                                        const n = typeof x === "number" ? x : parseFloat(String(x).replace(",", "."));
-                                        if (!Number.isFinite(n)) {
-                                            return null;
-                                        }
-                                        return Math.min(n, 100); // batasi maksimum 100
-                                    }
-
-                                    /* gradasi: 0=merah, 50=kuning, 100=hijau */
-                                    function heatColor(v) {
-                                        const val = Math.max(0, Math.min(100, v));
-                                        if (val <= 50) {
-                                            const t = val / 50;
-                                            const r = 255;
-                                            const g = Math.round(229 + (255 - 229) * t);
-                                            const b = Math.round(229 * (1 - t));
-                                            return `rgb(${r},${g},${b})`;
-                                        } else {
-                                            const t = (val - 50) / 50;
-                                            const r = Math.round(255 * (1 - t));
-                                            const g = 255;
-                                            const b = Math.round(0 + (230 - 0) * t);
-                                            return `rgb(${r},${g},${b})`;
-                                        }
-                                    }
-
-                                    let dt = null;
-                                    let inds = [],
-                                        pilars = [];
-                                    let idx = new Map(); // key -> {nilai_1..nilai_4}
-
-                                    async function loadData() {
-                                        const res = await fetch(ENDPOINT);
-                                        if (!res.ok) throw new Error("HTTP " + res.status);
-                                        const raw = await res.json();
-                                        let rows = Array.isArray(raw) ? raw : (Array.isArray(raw.data) ? raw.data : [raw]);
-
-                                        // mapping (ubah jika nama field berbeda)
-                                        rows = rows.map(r => ({
-                                            kode_satker: clean(r.kode_satker ?? r.kode ?? r.satker ?? r.KODE_SATKER),
-                                            indikator: clean(r.indikator ?? r.ind ?? r.group ?? r.kelompok ?? "A"),
-                                            pilar: clean(r.pilar ?? r.PILAR ?? r.level ?? r.tahap),
-                                            nilai_1: r.nilai_1 ?? r.nilai ?? r.value ?? r.NILAI_1,
-                                            nilai_2: r.nilai_2 ?? r.NILAI_2 ?? null,
-                                            nilai_3: r.nilai_3 ?? r.NILAI_3 ?? null,
-                                            nilai_4: r.nilai_4 ?? r.NILAI_4 ?? null,
-                                            eval_1: r.eval_1 ?? r.EVAL_1 ?? null,
-                                            eval_2: r.eval_2 ?? r.EVAL_2 ?? null,
-                                            eval_3: r.eval_3 ?? r.EVAL_3 ?? null,
-                                            eval_4: r.eval_4 ?? r.EVAL_4 ?? null,
-                                            tl_1: r.tl_1 ?? r.TL_1 ?? null,
-                                            tl_2: r.tl_2 ?? r.TL_2 ?? null,
-                                            tl_3: r.tl_3 ?? r.TL_3 ?? null,
-                                            tl_4: r.tl_4 ?? r.TL_4 ?? null
-                                        }));
-
-                                        inds = Array.from(new Set(rows.map(r => r.indikator))).sort(); // A, B
-                                        pilars = Array.from(new Set(rows.map(r => r.pilar))).sort((a, b) => romanToInt(a) - romanToInt(b));
-
-                                        idx = new Map();
-                                        for (const r of rows) {
-                                            const key = `${r.kode_satker}|${r.indikator}|${r.pilar}`;
-                                            idx.set(key, {
-                                                nilai_1: r.nilai_1,
-                                                nilai_2: r.nilai_2,
-                                                nilai_3: r.nilai_3,
-                                                nilai_4: r.nilai_4,
-                                                eval_1: r.eval_1 * 100,
-                                                eval_2: r.eval_2 * 100,
-                                                eval_3: r.eval_3 * 100,
-                                                eval_4: r.eval_4 * 100,
-                                                tl_1: r.tl_1 * 100,
-                                                tl_2: r.tl_2 * 100,
-                                                tl_3: r.tl_3 * 100,
-                                                tl_4: r.tl_4 * 100
-                                            });
-                                        }
-
-                                        // Header statis
-                                        const thead = document.querySelector("#tbl thead");
-                                        thead.innerHTML = `<tr>
-                                                <th>Indikator</th>
-                                                <th>Pilar</th>
-                                                ${ALL_SATKERS.map(s=>`<th>${s}</th>`).join("")}
-                                            </tr>`;
-                                    }
-
-                                    function makeDataForTri(tri) {
-                                        const field = TRI_FIELDS[tri] || 'nilai_1';
-                                        const data = [];
-                                        for (const ind of inds) {
-                                            for (const p of pilars) {
-                                                const row = [ind, p];
-                                                for (const s of ALL_SATKERS) {
-                                                    const rec = idx.get(`${s}|${ind}|${p}`);
-                                                    const val = rec ? rec[field] : undefined;
-                                                    if (val === undefined || val === null || val === "" || String(val).toLowerCase().includes(
-                                                            "belum")) {
-                                                        row.push("Belum Isi");
-                                                    } else {
-                                                        const n = asNumber(val);
-                                                        row.push(n === null ? "Belum Isi" : Number(n.toFixed(2)));
-                                                    }
-                                                }
-                                                data.push(row);
-                                            }
-                                        }
-                                        return data;
-                                    }
-
-                                    function initOrUpdateTable(data) {
-                                        if (!dt) {
-                                            dt = new DataTable('#tbl', {
-                                                data,
-                                                ordering: false,
-                                                paging: false,
-                                                searching: false,
-                                                info: false,
-                                                scrollX: true,
-                                                autoWidth: false,
-                                                fixedColumns: {
-                                                    leftColumns: 2
-                                                },
-                                                columnDefs: [{
-                                                        targets: 0,
-                                                        className: 'col-indikator'
-                                                    },
-                                                    {
-                                                        targets: 1,
-                                                        className: 'col-pilar'
-                                                    },
-                                                    {
-                                                        targets: SATKER_TARGETS,
-                                                        className: 'satker-col',
-                                                        width: '84px'
-                                                    }
-                                                ],
-                                                createdRow: function(row, rowData) {
-                                                    for (let i = 2; i < rowData.length; i++) {
-                                                        const td = row.children[i];
-                                                        const v = rowData[i];
-                                                        if (typeof v === "number") {
-                                                            td.classList.add('cell-num');
-                                                            td.style.background = heatColor(v);
-                                                        } else {
-                                                            td.classList.add('cell-empty');
-                                                            td.textContent = "Belum Isi";
-                                                        }
-                                                    }
-                                                }
-                                            });
-                                        } else {
-                                            dt.clear();
-                                            dt.rows.add(data);
-                                            dt.draw(false);
-                                        }
-                                    }
-
-                                    function setTriTint(tri) {
-                                        const wrap = document.getElementById('triWrap');
-                                        wrap.classList.remove('tri-1', 'tri-2', 'tri-3', 'tri-4');
-                                        wrap.classList.add(`tri-${tri}`);
-                                    }
-
-                                    $(async function() {
-                                        // Inisialisasi Select2 (simple)
-                                        $('#triSelect').select2({
-                                            width: 'resolve',
-                                            minimumResultsForSearch: Infinity, // sembunyikan kotak pencarian (hanya 4 opsi)
-                                            dropdownAutoWidth: true
-                                        });
-
-                                        try {
-                                            await loadData();
-                                            const tri = parseInt($('#triSelect').val(), 10) || 1;
-                                            setTriTint(tri);
-                                            const data = makeDataForTri(tri);
-                                            initOrUpdateTable(data);
-                                            $('#info').text(`Tabel Monitoring ZI`);
-                                        } catch (e) {
-                                            $('#info').text('Gagal memuat: ' + e.message);
-                                            console.error(e);
-                                        }
-
-                                        // Ganti triwulan -> rebuild data
-                                        $('#triSelect').on('change', function() {
-                                            const tri = parseInt(this.value, 10) || 1;
-                                            setTriTint(tri);
-                                            const data = makeDataForTri(tri);
-                                            initOrUpdateTable(data);
-                                            $('#info').text(`Tabel Monitoring ZI`);
-                                        });
-                                    });
-                                </script>
-
+                                @endforeach
                             </div>
                         </div>
-                    @elseif ($tahun === 2024)
-                        <main class="grid">
-                            <!-- Ganti href sesuai kebutuhan Anda -->
+                        <br>
 
-                        </main>
-                    @else
-                        <p>Silakan pilih tahun.</p>
-                    @endif
+                        {{-- 4. KONTROL FILTER TABEL --}}
+                        <div class="jazirah-controls">
+                            <form method="GET" action="{{ url()->current() }}" class="jazirah-form-filter"
+                                id="form-filter">
+                                <input type="hidden" name="tahun" value="{{ request('tahun', '2026') }}">
+
+                                <div class="jazirah-input-group">
+                                    <label for="mode">Mode:</label>
+                                    <select name="mode" id="mode" onchange="this.form.submit()"
+                                        class="jazirah-select">
+                                        <option value="rekap_satker"
+                                            {{ request('mode', 'rekap_satker') == 'rekap_satker' ? 'selected' : '' }}>
+                                            Rekap Detail Per Satker</option>
+                                        <option value="lintas_satker"
+                                            {{ request('mode') == 'lintas_satker' ? 'selected' : '' }}>Rekap Lintas
+                                            Satker (Se-Provinsi)</option>
+                                    </select>
+                                </div>
+
+                                <div class="jazirah-input-group">
+                                    <label for="periode">Periode:</label>
+                                    <select name="periode" id="periode" onchange="this.form.submit()"
+                                        class="jazirah-select">
+                                        <option value="bulan_berjalan"
+                                            {{ request('periode', 'bulan_berjalan') == 'bulan_berjalan' ? 'selected' : '' }}>
+                                            Bulan Berjalan</option>
+                                        <option value="tw1" {{ request('periode') == 'tw1' ? 'selected' : '' }}>
+                                            Triwulan 1</option>
+                                        <option value="tw2" {{ request('periode') == 'tw2' ? 'selected' : '' }}>
+                                            Triwulan 2</option>
+                                        <option value="tw3" {{ request('periode') == 'tw3' ? 'selected' : '' }}>
+                                            Triwulan 3</option>
+                                        <option value="tw4" {{ request('periode') == 'tw4' ? 'selected' : '' }}>
+                                            Triwulan 4</option>
+                                    </select>
+                                </div>
+
+                                @if (request('mode', 'rekap_satker') == 'lintas_satker')
+                                    <div class="jazirah-input-group">
+                                        <label for="jenis_data">Pilih Data:</label>
+                                        <select name="jenis_data" id="jenis_data" onchange="this.form.submit()"
+                                            class="jazirah-select">
+                                            <optgroup label="Data Metrik (Jumlah)">
+                                                <option value="target_setahun"
+                                                    {{ request('jenis_data') == 'target_setahun' ? 'selected' : '' }}>
+                                                    Jumlah Target Setahun</option>
+                                                <option value="target_periode"
+                                                    {{ request('jenis_data') == 'target_periode' ? 'selected' : '' }}>
+                                                    Jumlah Target Periode</option>
+                                                <option value="realisasi_periode"
+                                                    {{ request('jenis_data') == 'realisasi_periode' ? 'selected' : '' }}>
+                                                    Jumlah Realisasi</option>
+                                                <option value="perlu_di_periksa"
+                                                    {{ request('jenis_data') == 'perlu_di_periksa' ? 'selected' : '' }}>
+                                                    Jumlah Perlu Diperiksa</option>
+                                                <option value="perlu_tindak_lanjut"
+                                                    {{ request('jenis_data') == 'perlu_tindak_lanjut' ? 'selected' : '' }}>
+                                                    Jumlah Perlu Tindak Lanjut</option>
+                                                <option value="sudah_validasi"
+                                                    {{ request('jenis_data') == 'sudah_validasi' ? 'selected' : '' }}>
+                                                    Jumlah Sudah Validasi</option>
+                                            </optgroup>
+                                            <optgroup label="Data Kinerja (Persentase)">
+                                                <option value="persentase_penetapan_target"
+                                                    {{ request('jenis_data', 'persentase_penetapan_target') == 'persentase_penetapan_target' ? 'selected' : '' }}>
+                                                    % Penetapan Target</option>
+                                                <option value="persentase_realisasi"
+                                                    {{ request('jenis_data') == 'persentase_realisasi' ? 'selected' : '' }}>
+                                                    % Realisasi</option>
+                                                <option value="persentase_evaluasi"
+                                                    {{ request('jenis_data') == 'persentase_evaluasi' ? 'selected' : '' }}>
+                                                    % Evaluasi</option>
+                                                <option value="persentase_tindaklanjut"
+                                                    {{ request('jenis_data') == 'persentase_tindaklanjut' ? 'selected' : '' }}>
+                                                    % Tindak Lanjut</option>
+                                                <option value="persentase_dokumen_selesai"
+                                                    {{ request('jenis_data') == 'persentase_dokumen_selesai' ? 'selected' : '' }}>
+                                                    % Dokumen Selesai/Validasi</option>
+                                            </optgroup>
+                                        </select>
+                                    </div>
+                                @elseif(request('mode', 'rekap_satker') == 'rekap_satker')
+                                    <div class="jazirah-input-group">
+                                        <label for="selected_satker">Satker:</label>
+                                        <select name="selected_satker" id="selected_satker"
+                                            onchange="this.form.submit()" class="jazirah-select">
+                                            @foreach ($data['satkers'] ?? [] as $satker)
+                                                <option value="{{ $satker }}"
+                                                    {{ request('selected_satker', $data['selected_satker'] ?? '') == $satker ? 'selected' : '' }}>
+                                                    {{ $satker }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                @endif
+                            </form>
+
+                            <button id="downloadBtn" class="jazirah-btn-download">
+                                <i class="fa-solid fa-download"></i>
+                                <span>Download Image</span>
+                            </button>
+                        </div>
+
+                        {{-- 5. TABEL MONITORING (SEMUA KOLOM) --}}
+                        <div class="jazirah-table-responsive" id="tabel-monitoring">
+                            @php
+                                $isPercentage = str_contains(
+                                    $data['jenis_data'] ?? 'persentase_penetapan_target',
+                                    'persentase',
+                                );
+
+                                $getBadgeClass = function ($val, $targetSetahun = 1, $targetPeriode = 1) use (
+                                    $isPercentage,
+                                ) {
+                                    if ($targetSetahun > 0 && $targetPeriode == 0) {
+                                        return 'badge-notarget';
+                                    }
+                                    if ($val === null) {
+                                        return 'badge-belum-isi';
+                                    }
+
+                                    if ($isPercentage) {
+                                        if ($val >= 100) {
+                                            return 'badge-sempurna';
+                                        }
+                                        if ($val > 0 && $val < 100) {
+                                            return 'badge-sebagian';
+                                        }
+                                        if ($val === '0' || $val === 0 || $val === '0.00') {
+                                            return 'badge-nol';
+                                        }
+                                    } else {
+                                        return 'badge-sebagian';
+                                    }
+                                    return 'badge-kosong';
+                                };
+
+                                $getTeks = function ($val, $targetSetahun = 1, $targetPeriode = 1) use ($isPercentage) {
+                                    if ($targetSetahun > 0 && $targetPeriode == 0) {
+                                        return 'Tidak Ada Target';
+                                    }
+                                    if ($val === null) {
+                                        return 'Belum Isi';
+                                    }
+                                    if ($val === '') {
+                                        return '-';
+                                    }
+
+                                    return $isPercentage ? $val . '%' : $val;
+                                };
+                            @endphp
+
+                            @if ($data['mode'] === 'lintas_satker')
+                                <table id="dataTableMonitoring" class="jazirah-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Kode</th>
+                                            <th rowspan="2" style="text-align: left;">Pilar</th>
+                                            <th colspan="{{ count($data['satkers'] ?? []) }}">Satuan Kerja</th>
+                                        </tr>
+                                        <tr>
+                                            @foreach ($data['satkers'] ?? [] as $satker)
+                                                <th>{{ $satker }}</th>
+                                            @endforeach
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($data['pivotData'] ?? [] as $row)
+                                            <tr>
+                                                <td><strong>{{ $row['indikator'] === 'I.' ? 'Pemenuhan' : 'Reform' }}</strong>
+                                                </td>
+                                                <td style="text-align: left;"><strong>{{ $row['pilar'] }}</strong>
+                                                </td>
+                                                @foreach ($data['satkers'] ?? [] as $satker)
+                                                    @php $valNilai = $row[$satker] ?? null; @endphp
+                                                    <td class="{{ $getBadgeClass($valNilai) }}">
+                                                        {{ $getTeks($valNilai) }}
+                                                    </td>
+                                                @endforeach
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            @elseif($data['mode'] === 'rekap_satker')
+                                <table id="dataTableMonitoring" class="jazirah-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2">Kode</th>
+                                            <th rowspan="2" style="text-align: left; vertical-align: middle;">Pilar
+                                            </th>
+                                            <th colspan="8"
+                                                style="border-bottom: 1px solid rgba(255,255,255,0.2);">Monitoring
+                                                Evaluasi</th>
+                                        </tr>
+                                        <tr>
+                                            <th title="Jumlah Target Setahun">T. Setahun</th>
+                                            <th title="Jumlah Target Sampai Periode Ini">T. Periode</th>
+                                            <th title="Jumlah Realisasi">Realisasi</th>
+                                            <th title="% Realisasi Periode Ini">% Realisasi</th>
+                                            <th title="Jumlah Dokumen Yang Perlu Diperiksa Validator">Perlu Diperiksa
+                                            </th>
+                                            <th title="Jumlah Dokumen Yang Perlu Ditindaklanjuti">Perlu T. Lanjut</th>
+                                            <th title="Jumlah Dokumen Valid">Valid</th>
+                                            <th title="% Validasi Periode Ini">% Validasi</th>
+
+                                            {{-- <th title="% Penetapan Target">% Penetapan</th> --}}
+                                            {{-- <th title="% Evaluasi Periode Ini">% Evaluasi</th> --}}
+                                            {{-- <th title="% Tindak Lanjut Periode Ini">% T. Lanjut</th> --}}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($data['rekapData'] ?? [] as $item)
+                                            <tr>
+                                                <td><strong>{{ $item->kode_2 === 'I.' ? 'Pemenuhan' : 'Reform' }}</strong>
+                                                </td>
+                                                <td style="text-align: left;"><strong>{{ $item->kode_3 }}</strong>
+                                                </td>
+
+                                                <td style="text-align: center; font-weight: 500;">
+                                                    {{ $item->target_setahun }}</td>
+                                                <td style="text-align: center; font-weight: 500;">
+                                                    {{ $item->target_periode }}</td>
+                                                <td style="text-align: center; font-weight: 500;">
+                                                    {{ $item->realisasi_periode }}</td>
+                                                <td
+                                                    class="{{ $getBadgeClass($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}">
+                                                    {{ $getTeks($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}
+                                                </td>
+                                                <td style="text-align: center; font-weight: 500; color: #d97706;">
+                                                    {{ $item->perlu_di_periksa }}</td>
+                                                <td style="text-align: center; font-weight: 500; color: #dc2626;">
+                                                    {{ $item->perlu_tindak_lanjut }}</td>
+                                                <td style="text-align: center; font-weight: 500; color: #059669;">
+                                                    {{ $item->sudah_validasi }}</td>
+                                                <td
+                                                    class="{{ $getBadgeClass($item->persentase_dokumen_selesai, $item->target_setahun, $item->target_periode) }}">
+                                                    {{ $getTeks($item->persentase_dokumen_selesai, $item->target_setahun, $item->target_periode) }}
+                                                </td>
+
+                                                {{-- <td
+                                                    class="{{ $getBadgeClass($item->persentase_penetapan_target, 1, 1) }}">
+                                                    {{ $getTeks($item->persentase_penetapan_target, 1, 1) }}
+                                                </td> --}}
+                                                {{-- <td
+                                                    class="{{ $getBadgeClass($item->persentase_evaluasi, $item->target_setahun, $item->target_periode) }}">
+                                                    {{ $getTeks($item->persentase_evaluasi, $item->target_setahun, $item->target_periode) }}
+                                                </td>
+                                                <td
+                                                    class="{{ $getBadgeClass($item->persentase_tindaklanjut, $item->target_setahun, $item->target_periode) }}">
+                                                    {{ $getTeks($item->persentase_tindaklanjut, $item->target_setahun, $item->target_periode) }}
+                                                </td> --}}
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="13"
+                                                    style="text-align: center; font-style: italic; color: #718096; padding: 25px;">
+                                                    Tidak ada data untuk Satker ini.
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            @endif
+
+                            @php
+                                $modeTampil = request('mode', 'rekap_satker');
+                                $namaSatker =
+                                    $modeTampil === 'rekap_satker'
+                                        ? request('selected_satker', $data['satkers'][0] ?? 'Satker')
+                                        : 'Se-Provinsi Aceh';
+
+                                $periodeRaw = request('periode', 'bulan_berjalan');
+                                $periodeLabels = [
+                                    'bulan_berjalan' => 'Bulan Berjalan',
+                                    'tw1' => 'Triwulan 1',
+                                    'tw2' => 'Triwulan 2',
+                                    'tw3' => 'Triwulan 3',
+                                    'tw4' => 'Triwulan 4',
+                                ];
+                                $periodeLabel = $periodeLabels[$periodeRaw] ?? 'Bulan Berjalan';
+
+                                \Carbon\Carbon::setLocale('id');
+                                $waktuTarikData = \Carbon\Carbon::now('Asia/Jakarta')->translatedFormat('l, d F Y H:i');
+                            @endphp
+
+                            <div
+                                style="text-align: right; margin-top: 12px; font-size: 12px; font-style: italic; color: #718096; padding-right: 5px;">
+                                * Data <strong>{{ $namaSatker }}</strong> Periode
+                                <strong>{{ $periodeLabel }}</strong> pada {{ $waktuTarikData }} WIB.
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-
             </div>
+
+            {{-- Modal Lengkapi Profil --}}
+            @if ($userActive && empty($userActive->no_hp))
+                <div id="modalLengkapiProfil" class="modal-overlay" style="display: flex;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Lengkapi Profil Anda</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p style="margin-bottom: 15px; color: #e53e3e; font-size: 0.9rem;">* Mohon lengkapi nomor
+                                HP dan data profil Anda sebelum melanjutkan.</p>
+                            <form action="{{ route('profil.updateLengkap') }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <div class="grup-input">
+                                    <label for="no_hp">Nomor HP</label>
+                                    <input type="text" id="no_hp" name="no_hp" class="input-form"
+                                        placeholder="Contoh: 08123456789" required>
+                                </div>
+                                <div class="grup-input">
+                                    <label>Nama Lengkap</label>
+                                    <input type="text" class="input-form" value="{{ $userActive->name }}"
+                                        disabled>
+                                </div>
+                                <div class="grup-input">
+                                    <label>Username</label>
+                                    <input type="text" class="input-form" value="{{ $userActive->username }}"
+                                        disabled>
+                                </div>
+                                <input type="hidden" name="nip_pegawai" value="{{ $userNip }}">
+                                <div class="modal-footer"
+                                    style="margin-top: 20px; text-align: right; border-top: 1px solid #e2e8f0; padding-top: 15px;">
+                                    <button type="submit" class="btn-simpan">Simpan Profil</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Modal Form Menu (Khusus Admin) --}}
+            @if ($isJazirahAdmin)
+                <div class="modal-overlay" id="modalMenuForm" style="display: none;">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="menuModalTitle">Tambah Menu Baru</h3>
+                        </div>
+                        <form id="formMenuAction" action="{{ url('/jazirah-menu') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" id="menuMethod" value="POST">
+                            <div class="modal-body" style="padding-top: 5px;">
+                                <div class="grup-input">
+                                    <label>Judul Menu</label>
+                                    <input type="text" name="title" id="menuTitle" class="input-form"
+                                        placeholder="Contoh: Lembar Kerja" required>
+                                </div>
+                                <div class="grup-input">
+                                    <label>URL / Tautan</label>
+                                    <input type="text" name="url" id="menuUrl" class="input-form"
+                                        placeholder="{{ url('/path-tujuan') }}" required>
+                                </div>
+                                <div class="grup-input">
+                                    <label>Pilih Background Warna (Gradient)</label>
+                                    <select name="bg" id="menuBg" class="input-form" required
+                                        style="cursor: pointer; appearance: auto;">
+                                        <option value="">-- Pilih Warna Background --</option>
+                                        <option value="linear-gradient(135deg, #3b82f6, #06b6d4)">🔵 Biru Cyan</option>
+                                        <option value="linear-gradient(135deg, #fbbf24, #eab308)">🟡 Kuning Emas
+                                        </option>
+                                        <option value="linear-gradient(135deg, #6366f1, #2563eb)">🟦 Biru Indigo
+                                        </option>
+                                        <option value="linear-gradient(135deg, #a855f7, #6366f1)">🟪 Ungu Muda</option>
+                                        <option value="linear-gradient(135deg, #34d399, #14b8a6)">🟩 Hijau Tosca
+                                        </option>
+                                        <option value="linear-gradient(135deg, #fb7185, #ef4444)">🟥 Merah Pink
+                                        </option>
+                                        <option value="linear-gradient(135deg, #d946ef, #9333ea)">🟪 Ungu Tua</option>
+                                        <option value="linear-gradient(135deg, #fb923c, #c2410c)">🟧 Oranye Merah
+                                        </option>
+                                        <option value="linear-gradient(135deg, #22d3ee, #3b82f6)">🌐 Biru Langit
+                                        </option>
+                                        <option value="linear-gradient(135deg, #4ade80, #059669)">🌿 Hijau Segar
+                                        </option>
+                                        <option value="linear-gradient(135deg, #2dd4bf, #10b981)">🌲 Hijau Emerald
+                                        </option>
+                                        <option value="linear-gradient(135deg, #475569, #1e293b)">⬛ Abu-Abu Gelap
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="grup-input">
+                                    <label>Icon (Script HTML FontAwesome)</label>
+                                    <input type="text" name="icon" id="menuIcon" class="input-form"
+                                        placeholder='<i class="fa-solid fa-star"></i>' required>
+                                </div>
+                                <div class="grup-input">
+                                    <label>Urutan Tampil</label>
+                                    <input type="number" name="urutan" id="menuUrutan" class="input-form"
+                                        value="0" required>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="padding: 15px 30px; border-top: 1px solid #f3f4f6;">
+                                <button type="button"
+                                    style="background: #94a3b8; color: white; padding: 10px 22px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-right: 10px;"
+                                    onclick="closeMenuModal()">Batal</button>
+                                <button type="submit" class="btn-simpan">Simpan Menu</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            @endif
+
+            <br>
         </div>
-        <br>
-        <br>
-
+        <footer>
+            <p><i class="fa-solid fa-mug-hot"></i>&nbsp Tim Pengolahan dan TI - BPS Provinsi Aceh </p>
+        </footer>
     </div>
+
+    {{-- Bridge PHP to JS (Disempurnakan) --}}
+    <script>
+        window.BupestaConfig = {
+            userName: "{{ $userActive->name ?? 'Guest' }}",
+            successMessage: "{{ session('success') }}",
+            opsiPegawaiHtml: `{!! $opsiPegawaiHtml !!}`
+        };
+        window.userActiveNip = "{{ $userNip }}";
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>
+    <script src="{{ asset('assets-jazirah/style/jazirah-dashboard.js') }}"></script>
+
 </body>
-
-<script src="{{ asset('assets-jazirah/') }}/style/potrait-warning.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script>
-    document.addEventListener('click', function(e) {
-        const el = e.target.closest('a.coming-soon');
-        if (!el) return; // klik bukan pada link coming-soon
-        e.preventDefault(); // cegah pindah halaman
-        Swal.fire({
-            title: 'Mohon maaf',
-            text: el.dataset.msg || 'Link belum tersedia.',
-            icon: 'info',
-            confirmButtonText: 'OK'
-        });
-    });
-</script>
 
 </html>
