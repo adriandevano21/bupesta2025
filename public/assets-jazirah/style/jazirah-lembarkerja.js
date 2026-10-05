@@ -1143,3 +1143,21 @@ function batalValidasi(btn) {
         }
     });
 }
+
+// Fungsi untuk membuka modal Kritik & Saran
+        function openKritikModal() {
+            document.getElementById('modalKritikSaran').style.display = 'flex';
+        }
+
+        // Fungsi untuk menutup modal Kritik & Saran
+        function closeKritikModal() {
+            document.getElementById('modalKritikSaran').style.display = 'none';
+        }
+
+        // Opsional: Menutup modal jika user mengklik area luar modal (overlay)
+        window.onclick = function(event) {
+            const modalKritik = document.getElementById('modalKritikSaran');
+            if (event.target === modalKritik) {
+                closeKritikModal();
+            }
+        }

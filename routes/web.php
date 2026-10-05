@@ -40,30 +40,32 @@ Route::controller(DashboardActivityController::class)->group(function () {
 });
 
 Route::controller(JazirahController::class)->group(function () {
-    Route::get('/newjazirah-dashboard', 'dashboard')->name('newjazirah.dashboard');
+    Route::get('/jazirah-dashboard', 'dashboard')->name('newjazirah.dashboard');
     Route::post('/jazirah-menu', 'storeMenu');
     Route::put('/jazirah-menu/{id}', 'updateMenu');
     Route::delete('/jazirah-menu/{id}', 'destroyMenu');
-    Route::get('/newjazirah-lembarkerja', 'lembarkerja')->name('newjazirah.lembarkerja');
+    Route::get('/jazirah-lembarkerja', 'lembarkerja')->name('newjazirah.lembarkerja');
     Route::put('/lke/update-isian', 'updatelke')->name('lke.update_isian');
     Route::post('/jazirah/komentar/store', 'storeKomentar')->name('jazirah.komentar.store');
     Route::delete('/jazirah/komentar/{id}', 'destroyKomentar')->name('jazirah.komentar.destroy');
     Route::post('/jazirah/validasi', 'validasiDokumen')->name('jazirah.validasi');
     Route::post('/jazirah/batal-validasi', 'batalValidasiDokumen')->name('jazirah.batal_validasi');
+    // Di routes/web.php
+    Route::post('/jazirah-kritiksaran', 'storeKritikSaran')->name('jazirah.kritiksaran.store');
 });
 
-Route::controller(Jazirah2Controller::class)->group(function () {
-    Route::get('/jazirah', 'index');
-    Route::get('/jazirah-lembarkerja', 'lembarkerja')->name('jazirah.lembarkerja');
-    Route::get('/jazirah-dashboard', 'dashboard')->name('jazirah.dashboard');
-    Route::put('/isian/{id}', 'update')->name('isian.update');
-    // Route::get('/newjazirah-lembarkerja', 'newlembarkerja')->name('newjazirah.lembarkerja');
-    Route::get('/admin-jazirah', 'admin')->name('admin.jazirah');
-    Route::post('/setting-evaluator', 'settingevaluator')->name('setting.evaluator');
-    Route::post('/google-drive/files', 'getFileList');
+// Route::controller(Jazirah2Controller::class)->group(function () {
+//     Route::get('/jazirah', 'index');
+//     Route::get('/jazirah-lembarkerja', 'lembarkerja')->name('jazirah.lembarkerja');
+//     Route::get('/jazirah-dashboard', 'dashboard')->name('jazirah.dashboard');
+//     Route::put('/isian/{id}', 'update')->name('isian.update');
+//     // Route::get('/newjazirah-lembarkerja', 'newlembarkerja')->name('newjazirah.lembarkerja');
+//     Route::get('/admin-jazirah', 'admin')->name('admin.jazirah');
+//     Route::post('/setting-evaluator', 'settingevaluator')->name('setting.evaluator');
+//     Route::post('/google-drive/files', 'getFileList');
 
-    Route::get('/jazirah-lk', 'jazirahlk')->name('jazirah.jazirahlk');
-});
+//     Route::get('/jazirah-lk', 'jazirahlk')->name('jazirah.jazirahlk');
+// });
 
 Route::controller(SE2026Controller::class)->group(function () {
     Route::get('/SE2026', 'index');

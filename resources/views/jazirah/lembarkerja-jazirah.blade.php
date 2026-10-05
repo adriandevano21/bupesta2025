@@ -831,6 +831,45 @@
     </div>
     <!-- AKHIR MODAL EDIT KUSTOM -->
 
+    <button type="button" class="btn-floating-kritik" onclick="openKritikModal()" aria-label="Kritik dan Saran">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    {{-- MODAL FORM KRITIK & SARAN --}}
+    <div class="modal-overlay" id="modalKritikSaran" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sampaikan Kritik, Saran & Masukan</h3>
+            </div>
+            <form action="{{ url('/jazirah-kritiksaran') }}" method="POST">
+                @csrf
+                <input type="hidden" name="nip_pegawai" value="{{ $userNip }}">
+                <div class="modal-body" style="padding-top: 15px;">
+                    <div class="grup-input">
+                        <label for="jenis">Jenis Masukan</label>
+                        <select name="jenis" id="jenis" class="input-form" required
+                            style="cursor: pointer; appearance: auto;">
+                            <option value="masukan">Masukan</option>
+                            <option value="saran">Saran</option>
+                            <option value="kritik">Kritik</option>
+                        </select>
+                    </div>
+                    <div class="grup-input">
+                        <label for="pesan">Isi Pesan</label>
+                        <textarea name="pesan" id="pesan" class="input-form" rows="5"
+                            placeholder="Tuliskan kritik, saran, atau masukan Anda di sini..." required style="resize: vertical;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding: 15px 30px; border-top: 1px solid #f3f4f6;">
+                    <button type="button"
+                        style="background: #94a3b8; color: white; padding: 10px 22px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-right: 10px;"
+                        onclick="closeKritikModal()">Batal</button>
+                    <button type="submit" class="btn-simpan">Kirim Pesan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     {{-- Script Komunikasi Bridge JS-PHP --}}
     <script>
         window.BupestaConfig = {
@@ -888,6 +927,7 @@
             });
         </script>
     @endif
+
 
     <!-- Script Inisialisasi Tooltip & Update Hover -->
     <script>

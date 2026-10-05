@@ -73,18 +73,7 @@
                 <div class="posisitengah" style="width: 95%; max-width: 95%; margin: 0 auto;">
                     <div class="jazirah-container">
 
-                        {{-- 1. BANNER & TYPEWRITER --}}
-                        {{-- <div class="welcome-banner">
-                            <div class="welcome-content">
-                                <div class="character-container">
-                                    <img src="{{ asset('assets-se2026/img/bungitung.gif') }}" class="char-animation"
-                                        alt="Maskot BPS">
-                                </div>
-                                <h2><span id="typewriter"></span><span class="cursor">|</span></h2>
-                            </div>
-                        </div> --}}
-
-                        {{-- 2. TOMBOL TAMBAH MENU (Terpisah dari slider agar statis) --}}
+                        {{-- 2. TOMBOL TAMBAH MENU --}}
                         @if ($isJazirahAdmin)
                             <div style="text-align: right; margin-bottom: 10px;">
                                 <button class="btn-tambah-menu" onclick="openMenuModal()">
@@ -109,14 +98,18 @@
                                         @if ($isJazirahAdmin)
                                             <div class="admin-menu-actions">
                                                 <button type="button" class="btn-aksi btn-edit-menu"
-                                                    onclick="editMenu({{ json_encode($menu) }})" title="Edit Menu"><i
-                                                        class="fa-solid fa-pen"></i></button>
+                                                    onclick="editMenu({{ json_encode($menu) }})" title="Edit Menu">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </button>
                                                 <form action="{{ url('/jazirah-menu/' . $menu->id) }}" method="POST"
                                                     style="display:inline;"
                                                     onsubmit="return confirm('Hapus menu ini?');">
-                                                    @csrf @method('DELETE')
+                                                    @csrf
+                                                    @method('DELETE')
                                                     <button type="submit" class="btn-aksi btn-delete-menu"
-                                                        title="Hapus Menu"><i class="fa-solid fa-trash"></i></button>
+                                                        title="Hapus Menu">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
                                                 </form>
                                             </div>
                                         @endif
@@ -229,7 +222,7 @@
                             </button>
                         </div>
 
-                        {{-- 5. TABEL MONITORING (SEMUA KOLOM) --}}
+                        {{-- 5. TABEL MONITORING --}}
                         <div class="jazirah-table-responsive" id="tabel-monitoring">
                             @php
                                 $isPercentage = str_contains(
@@ -273,7 +266,6 @@
                                     if ($val === '') {
                                         return '-';
                                     }
-
                                     return $isPercentage ? $val . '%' : $val;
                                 };
                             @endphp
@@ -330,10 +322,6 @@
                                             <th title="Jumlah Dokumen Yang Perlu Ditindaklanjuti">Perlu T. Lanjut</th>
                                             <th title="Jumlah Dokumen Valid">Valid</th>
                                             <th title="% Validasi Periode Ini">% Validasi</th>
-
-                                            {{-- <th title="% Penetapan Target">% Penetapan</th> --}}
-                                            {{-- <th title="% Evaluasi Periode Ini">% Evaluasi</th> --}}
-                                            {{-- <th title="% Tindak Lanjut Periode Ini">% T. Lanjut</th> --}}
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -354,9 +342,11 @@
                                                     class="{{ $getBadgeClass($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}">
                                                     {{ $getTeks($item->persentase_realisasi, $item->target_setahun, $item->target_periode) }}
                                                 </td>
+
+                                                {{-- 🎯 KOLOM PERLU DIPERIKSA DENGAN FILTER KODE 2 DITAMBAHKAN --}}
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     @if ($item->perlu_di_periksa > 0)
-                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=2,4"
+                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&kode_2={{ urlencode($item->kode_2) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=2,4"
                                                             class="link-rekap link-rekap-periksa"
                                                             title="Klik untuk cek dokumen yang perlu diperiksa">
                                                             {{ $item->perlu_di_periksa }} <i
@@ -368,9 +358,11 @@
                                                             style="font-weight: 500; color: #d97706;">{{ $item->perlu_di_periksa }}</span>
                                                     @endif
                                                 </td>
+
+                                                {{-- 🎯 KOLOM PERLU TINDAK LANJUT DENGAN FILTER KODE 2 DITAMBAHKAN --}}
                                                 <td style="text-align: center; vertical-align: middle;">
                                                     @if ($item->perlu_tindak_lanjut > 0)
-                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=4"
+                                                        <a href="{{ url('/newjazirah-lembarkerja') }}?tahun={{ request('tahun', '2026') }}&satker={{ urlencode(request('selected_satker', $data['selected_satker'] ?? '')) }}&kode_2={{ urlencode($item->kode_2) }}&pilar={{ urlencode($item->kode_3) }}&status_dokumen=4"
                                                             class="link-rekap link-rekap-tindaklanjut"
                                                             title="Klik untuk cek dokumen yang perlu ditindaklanjuti">
                                                             {{ $item->perlu_tindak_lanjut }} <i
@@ -382,25 +374,13 @@
                                                             style="font-weight: 500; color: #dc2626;">{{ $item->perlu_tindak_lanjut }}</span>
                                                     @endif
                                                 </td>
+
                                                 <td style="text-align: center; font-weight: 500; color: #059669;">
                                                     {{ $item->sudah_validasi }}</td>
                                                 <td
                                                     class="{{ $getBadgeClass($item->persentase_dokumen_selesai, $item->target_setahun, $item->target_periode) }}">
                                                     {{ $getTeks($item->persentase_dokumen_selesai, $item->target_setahun, $item->target_periode) }}
                                                 </td>
-
-                                                {{-- <td
-                                                    class="{{ $getBadgeClass($item->persentase_penetapan_target, 1, 1) }}">
-                                                    {{ $getTeks($item->persentase_penetapan_target, 1, 1) }}
-                                                </td> --}}
-                                                {{-- <td
-                                                    class="{{ $getBadgeClass($item->persentase_evaluasi, $item->target_setahun, $item->target_periode) }}">
-                                                    {{ $getTeks($item->persentase_evaluasi, $item->target_setahun, $item->target_periode) }}
-                                                </td>
-                                                <td
-                                                    class="{{ $getBadgeClass($item->persentase_tindaklanjut, $item->target_setahun, $item->target_periode) }}">
-                                                    {{ $getTeks($item->persentase_tindaklanjut, $item->target_setahun, $item->target_periode) }}
-                                                </td> --}}
                                             </tr>
                                         @empty
                                             <tr>
@@ -558,12 +538,52 @@
 
             <br>
         </div>
+
         <footer>
-            <p><i class="fa-solid fa-mug-hot"></i>&nbsp Tim Pengolahan dan TI - BPS Provinsi Aceh </p>
+            <p><i class="fa-solid fa-mug-hot"></i>&nbsp; Tim Pengolahan dan TI - BPS Provinsi Aceh </p>
         </footer>
     </div>
 
-    {{-- Bridge PHP to JS (Disempurnakan) --}}
+    <button type="button" class="btn-floating-kritik" onclick="openKritikModal()" aria-label="Kritik dan Saran">
+        <i class="fa-solid fa-comment-dots"></i>
+    </button>
+
+    {{-- MODAL FORM KRITIK & SARAN --}}
+    <div class="modal-overlay" id="modalKritikSaran" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Sampaikan Kritik, Saran & Masukan</h3>
+            </div>
+            <form action="{{ url('/jazirah-kritiksaran') }}" method="POST">
+                @csrf
+                <input type="hidden" name="nip_pegawai" value="{{ $userNip }}">
+                <div class="modal-body" style="padding-top: 15px;">
+                    <div class="grup-input">
+                        <label for="jenis">Jenis Masukan</label>
+                        <select name="jenis" id="jenis" class="input-form" required
+                            style="cursor: pointer; appearance: auto;">
+                            <option value="masukan">Masukan</option>
+                            <option value="saran">Saran</option>
+                            <option value="kritik">Kritik</option>
+                        </select>
+                    </div>
+                    <div class="grup-input">
+                        <label for="pesan">Isi Pesan</label>
+                        <textarea name="pesan" id="pesan" class="input-form" rows="5"
+                            placeholder="Tuliskan kritik, saran, atau masukan Anda di sini..." required style="resize: vertical;"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer" style="padding: 15px 30px; border-top: 1px solid #f3f4f6;">
+                    <button type="button"
+                        style="background: #94a3b8; color: white; padding: 10px 22px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-right: 10px;"
+                        onclick="closeKritikModal()">Batal</button>
+                    <button type="submit" class="btn-simpan">Kirim Pesan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{-- Bridge PHP to JS --}}
     <script>
         window.BupestaConfig = {
             userName: "{{ $userActive->name ?? 'Guest' }}",
@@ -576,7 +596,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="{{ asset('assets-jazirah/style/potrait-warning.js') }}"></script>
     <script src="{{ asset('assets-jazirah/style/jazirah-dashboard.js') }}"></script>
-
 </body>
 
 </html>

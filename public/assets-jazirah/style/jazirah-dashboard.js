@@ -1,123 +1,184 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Efek Typewriter
-    const element = document.getElementById("typewriter");
-    if (element && typeof window.BupestaConfig !== 'undefined' && window.BupestaConfig.userName) {
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. EFEK TYPEWRITER
+    const typeWriterElement = document.getElementById("typewriter");
+    if (typeWriterElement && window.BupestaConfig?.userName) {
         const fullText = `Halo, ${window.BupestaConfig.userName}! Selamat Datang..`;
         const chars = Array.from(fullText);
         let i = 0;
         let isDeleting = false;
 
-        function type() {
+        const type = () => {
             if (!isDeleting) {
-                i++;
-                element.textContent = chars.slice(0, i).join('');
+                typeWriterElement.textContent = chars.slice(0, ++i).join('');
                 if (i === chars.length) {
                     isDeleting = true;
                     setTimeout(type, 2000);
                     return;
                 }
             } else {
-                i--;
-                element.textContent = chars.slice(0, i).join('');
+                typeWriterElement.textContent = chars.slice(0, --i).join('');
                 if (i <= 0) {
                     i = 0;
                     isDeleting = false;
                 }
             }
             setTimeout(type, isDeleting ? 50 : 100);
-        }
+        };
         type();
     }
 
-    // 2. DataTables
+    // 2. DATATABLES
     if (typeof jQuery !== 'undefined' && $.fn.DataTable) {
-        if ($.fn.DataTable.isDataTable('#dataTableMonitoring')) {
-            $('#dataTableMonitoring').DataTable().destroy();
+        const $table =$('#dataTableMonitoring');
+        if ($table.length) {
+            if ($.fn.DataTable.isDataTable($table)) {$table.DataTable().destroy();
+            }
+            $table.DataTable({
+                paging: false, 
+                info: false, 
+                searching: true,
+                order: [[0, 'asc'], [1, 'asc']],
+                columnDefs: [
+                    { targets: [0, 1], orderable: true }, 
+                    { targets: '_all', orderable: false }
+                ]
+            });
         }
-        $('#dataTableMonitoring').DataTable({
-            paging: false, info: false, searching: true,
-            order: [[0, 'asc'], [1, 'asc']],
-            columnDefs: [ { targets: [0, 1], orderable: true }, { targets: '_all', orderable: false } ]
-        });
     }
 
-    // 3. html2canvas Download Image
+    // 3. HTML2CANVAS DOWNLOAD IMAGE (FIXED EXPORT LENGKAP)
     const downloadBtn = document.getElementById("downloadBtn");
     const tabelMonitoring = document.getElementById("tabel-monitoring");
 
     if (downloadBtn && tabelMonitoring) {
-        downloadBtn.addEventListener("click", function () {
+        downloadBtn.addEventListener("click", () => {
             const originalContent = downloadBtn.innerHTML;
             downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memproses...';
             downloadBtn.disabled = true;
 
-            html2canvas(tabelMonitoring, { scale: 2, backgroundColor: "#ffffff", useCORS: true })
-            .then(function (canvas) {
-                let link = document.createElement("a");
+            // Simpan gaya CSS asli sebelum dirender
+            const originalOverflow = tabelMonitoring.style.overflow;
+            const originalWidth = tabelMonitoring.style.width;
+
+            // Ubah gaya sementara agar seluruh tabel membentang penuh tanpa scroll
+            tabelMonitoring.style.overflow = 'visible';
+            tabelMonitoring.style.width = tabelMonitoring.scrollWidth + 'px';
+
+            html2canvas(tabelMonitoring, { 
+                scale: 2, 
+                backgroundColor: "#ffffff", 
+                useCORS: true,
+                width: tabelMonitoring.scrollWidth,
+                windowWidth: tabelMonitoring.scrollWidth
+            }).then((canvas) => {
+                // Eksekusi proses unduh
+                const link = document.createElement("a");
                 link.download = "Monitoring_Jazirah.png";
                 link.href = canvas.toDataURL("image/png");
                 link.click();
-                downloadBtn.innerHTML = originalContent;
-                downloadBtn.disabled = false;
-            }).catch(function(error) {
+            }).catch((error) => {
+                console.error("Error html2canvas:", error);
                 alert("Gagal mengunduh gambar.");
+            }).finally(() => {
+                // Kembalikan semua state seperti semula, terlepas sukses atau gagal
+                tabelMonitoring.style.overflow = originalOverflow;
+                tabelMonitoring.style.width = originalWidth;
                 downloadBtn.innerHTML = originalContent;
                 downloadBtn.disabled = false;
             });
         });
     }
 
-    // 4. Modal Kunci Layar Profil
+    // 4. MODAL KUNCI LAYAR PROFIL
     const modalProfil = document.getElementById('modalLengkapiProfil');
     if (modalProfil) {
         document.body.style.overflow = 'hidden';
         document.body.style.height = '100vh';
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") { event.preventDefault(); event.stopPropagation(); }
+        
+        document.addEventListener('keydown', (event) => {
+            if (event.key === "Escape") { 
+                event.preventDefault(); 
+                event.stopPropagation(); 
+            }
         }, true);
     }
 });
 
+
 // 5. GLOBAL CRUD MENU LOGIC UNTUK ADMIN
-const modalMenu = document.getElementById('modalMenuForm');
-const formMenu = document.getElementById('formMenuAction');
+// Helper untuk mengelompokkan elemen DOM Menu Modal agar kode lebih rapi
+const getMenuElements = () => ({
+    modal: document.getElementById('modalMenuForm'),
+    form: document.getElementById('formMenuAction'),
+    title: document.getElementById('menuModalTitle'),
+    method: document.getElementById('menuMethod'),
+    inputTitle: document.getElementById('menuTitle'),
+    inputUrl: document.getElementById('menuUrl'),
+    inputBg: document.getElementById('menuBg'),
+    inputIcon: document.getElementById('menuIcon'),
+    inputUrutan: document.getElementById('menuUrutan'),
+});
 
 function openMenuModal() {
-    if(!modalMenu) return;
-    document.getElementById('menuModalTitle').innerText = 'Tambah Menu Baru';
-    formMenu.reset();
-    formMenu.action = '/jazirah-menu';
-    document.getElementById('menuMethod').value = 'POST';
-    modalMenu.style.display = 'flex';
+    const els = getMenuElements();
+    if (!els.modal) return;
+    
+    els.title.innerText = 'Tambah Menu Baru';
+    els.form.reset();
+    els.form.action = '/jazirah-menu';
+    els.method.value = 'POST';
+    
+    els.modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
 function editMenu(menuData) {
-    if(!modalMenu) return;
-    document.getElementById('menuModalTitle').innerText = 'Edit Menu (' + menuData.title + ')';
-    formMenu.action = '/jazirah-menu/' + menuData.id;
-    document.getElementById('menuMethod').value = 'PUT';
+    const els = getMenuElements();
+    if (!els.modal) return;
     
-    document.getElementById('menuTitle').value = menuData.title;
-    document.getElementById('menuUrl').value = menuData.url;
+    els.title.innerText = `Edit Menu (${menuData.title})`;
+    els.form.action = `/jazirah-menu/${menuData.id}`;
+    els.method.value = 'PUT';
     
-    // Auto-select dropdown background
-    let bgSelect = document.getElementById('menuBg');
-    if(bgSelect) {
-        bgSelect.value = menuData.bg;
-    }
+    els.inputTitle.value = menuData.title;
+    els.inputUrl.value = menuData.url;
+    if (els.inputBg) els.inputBg.value = menuData.bg;
+    els.inputIcon.value = menuData.icon;
+    els.inputUrutan.value = menuData.urutan;
     
-    document.getElementById('menuIcon').value = menuData.icon;
-    document.getElementById('menuUrutan').value = menuData.urutan;
-    
-    modalMenu.style.display = 'flex';
+    els.modal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
 
 function closeMenuModal() {
-    if(modalMenu) { modalMenu.style.display = 'none'; document.body.style.overflow = 'auto'; }
+    const modal = document.getElementById('modalMenuForm');
+    if (modal) { 
+        modal.style.display = 'none'; 
+        document.body.style.overflow = 'auto'; 
+    }
 }
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === "Escape" && modalMenu && modalMenu.style.display === 'flex') closeMenuModal();
+document.addEventListener('keydown', (event) => {
+    const modal = document.getElementById('modalMenuForm');
+    if (event.key === "Escape" && modal && modal.style.display === 'flex') {
+        closeMenuModal();
+    }
 });
+
+// Fungsi untuk membuka modal Kritik & Saran
+        function openKritikModal() {
+            document.getElementById('modalKritikSaran').style.display = 'flex';
+        }
+
+        // Fungsi untuk menutup modal Kritik & Saran
+        function closeKritikModal() {
+            document.getElementById('modalKritikSaran').style.display = 'none';
+        }
+
+        // Opsional: Menutup modal jika user mengklik area luar modal (overlay)
+        window.onclick = function(event) {
+            const modalKritik = document.getElementById('modalKritikSaran');
+            if (event.target === modalKritik) {
+                closeKritikModal();
+            }
+        }

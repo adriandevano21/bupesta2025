@@ -8,7 +8,12 @@
 <div class="posisitengah">
     <div class="logobps">
         <a href="/">
-            <img src="{{ asset('assets-se2026/img/Logo-SE2026.png') }}" alt="Logo SE2026">
+            @if ($data['id_judul'] === '3')
+                <img src="{{ asset('assets-jazirah/img/logo-jazirah.png') }}" alt="Logo Jazirah">
+                <img src="{{ asset('assets-jazirah/img/WBBM1100.png') }}" alt="Logo WBBM">
+            @else
+                <img src="{{ asset('assets-se2026/img/Logo-SE2026.png') }}" alt="Logo SE2026">
+            @endif
         </a>
     </div>
 

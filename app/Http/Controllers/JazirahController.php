@@ -7,6 +7,8 @@ use App\Models\Jazirah2_Hasil;
 use App\Models\Jazirah2_Indikator;
 use App\Models\Jazirah2_Komentar;
 use App\Models\Jazirah2_User;
+use App\Models\Jazirah_Kritiksaran;
+use App\Models\UserActivity;
 use App\Models\Satker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
@@ -17,7 +19,7 @@ class JazirahController extends Controller
     private function getUserActive()
     {
         // --- MODE LOKAL (development) ---
-        return Bupesta_User::where('nip_pegawai', '198605172008012002')->first();
+        return Bupesta_User::where('nip_pegawai', '199906212022011001')->first();
 
         // --- MODE PRODUKSI (aktifkan baris ini & nonaktifkan baris di atas setelah deploy) ---
         // return Bupesta_User::where('nip_pegawai', auth()->user()->nip_pegawai)->first();
@@ -25,82 +27,103 @@ class JazirahController extends Controller
 
     public function dashboard(Request $request)
     {
-        // Jika ada model log activity, abaikan jika tidak pakai
-        // UserActivity::log("https://bupesta.web.bps.go.id/timkerja"); 
+        UserActivity::log("https://bupesta.web.bps.go.id/jazirah-dashboard");
+
+        // 1. Ambil Parameter dari Request (atau nilai default)
+        $tahun          = $request->input('tahun', '2026');
+        $mode           = $request->input('mode', 'rekap_satker');
+        $periode        = $request->input('periode', 'bulan_berjalan');
+        $jenisDataParam = $request->input('jenis_data', 'persentase_penetapan_target');
         
-        $tahun = $request->input('tahun', '2026');
-        $data = [];
-
-        $data["judul"] = "New Jazirah - Dashboard";
-        $data["id_judul"] = "3";
-        
-        $data["user_active"] = $this->getUserActive();
-        $data["role"] = $data["user_active"] ? $data["user_active"]->jazirah : null;
-
-        // Ambil Data Menu dari Database
-        $data["menus"] = DB::table('jazirah_menus')->orderBy('urutan', 'asc')->get();
-
-        $mode = $request->input('mode', 'rekap_satker');
-        $periode = $request->input('periode', 'bulan_berjalan');
-
-        $data['mode'] = $mode;
-        $data['periode'] = $periode;
+        $userActive = $this->getUserActive();
+        $userSatker = $userActive->kode_satker ?? null;
 
         $viewName = 'monitoring_jazirah_' . $periode;
-        $rawData = DB::table($viewName)->where('tahun', $tahun)->get();
+        $sufX     = ($periode === 'bulan_berjalan') ? '_bb' : '_' . $periode;
 
-        $data['satkers'] = $rawData->pluck('satker')->unique()->sort()->values();
+        // 2. Ambil List Satker secara Kondisional
+        $satkerQuery = DB::table($viewName)
+            ->select('satker')
+            ->where('tahun', $tahun);
 
-        $sufX = ($periode === 'bulan_berjalan') ? '_bb' : '_' . $periode;
+        // Batasi list satker HANYA JIKA mode-nya rekap_satker dan user bukan admin (1100)
+        if ($mode === 'rekap_satker' && $userSatker !== '1100') {
+            $satkerQuery->where('satker', $userSatker);
+        }
 
-        if ($mode === 'lintas_satker') {
-            $jenisDataParam = $request->input('jenis_data', 'persentase_penetapan_target');
-            $data['jenis_data'] = $jenisDataParam;
+        $satkers = $satkerQuery
+            ->distinct()
+            ->pluck('satker')
+            ->sort()
+            ->values();
 
-            $jenisDataKolom = '';
-            switch ($jenisDataParam) {
-                case 'persentase_penetapan_target':
-                case 'target_setahun':
-                    $jenisDataKolom = $jenisDataParam;
-                    break;
-                case 'target_periode':
-                    $jenisDataKolom = ($periode === 'bulan_berjalan') ? 'target_bulan_berjalan' : 'target_triwulan_' . $periode;
-                    break;
-                case 'realisasi_periode':
-                    $jenisDataKolom = ($periode === 'bulan_berjalan') ? 'realisasi_bulan_berjalan' : 'realisasi_triwulan_' . $periode;
-                    break;
-                case 'perlu_di_periksa':
-                case 'perlu_tindak_lanjut':
-                case 'sudah_validasi':
-                case 'persentase_realisasi':
-                case 'persentase_evaluasi':
-                case 'persentase_tindaklanjut':
-                case 'persentase_dokumen_selesai':
-                    $jenisDataKolom = $jenisDataParam . $sufX;
-                    break;
-                default:
-                    $jenisDataKolom = 'persentase_penetapan_target';
+        // 3. Tentukan Selected Satker dengan Proteksi
+        if ($mode === 'rekap_satker' && $userSatker !== '1100') {
+            $selectedSatker = $userSatker; // Paksa kunci ke satker user sendiri
+        } else {
+            // Jika 1100 (Bebas milih) ATAU mode lintas_satker
+            $selectedSatker = $request->input('selected_satker');
+            
+            // Proteksi: Jika request kosong atau mencoba inject satker di luar daftar
+            if (!$selectedSatker || !$satkers->contains($selectedSatker)) {
+                $selectedSatker = $satkers->first();
             }
+        }
 
-            $data['pivotData'] = [];
+        // 4. Siapkan Array Data Global (Dikirim ke View)
+        $data = [
+            'judul'           => 'New Jazirah - Dashboard',
+            'id_judul'        => '3',
+            'user_active'     => $userActive,
+            'role'            => $userActive->jazirah ?? null,
+            'menus'           => DB::table('jazirah_menus')->orderBy('urutan', 'asc')->get(),
+            'mode'            => $mode,
+            'periode'         => $periode,
+            'satkers'         => $satkers,
+            'jenis_data'      => $jenisDataParam,
+            'selected_satker' => $selectedSatker,
+        ];
+
+        // 5. Olah Data Berdasarkan Mode
+        if ($mode === 'lintas_satker') {
+            
+            $jenisDataKolom = match ($jenisDataParam) {
+                'persentase_penetapan_target', 'target_setahun' => $jenisDataParam,
+                'target_periode'    => ($periode === 'bulan_berjalan') ? 'target_bulan_berjalan' : 'target_triwulan_' . $periode,
+                'realisasi_periode' => ($periode === 'bulan_berjalan') ? 'realisasi_bulan_berjalan' : 'realisasi_triwulan_' . $periode,
+                'perlu_di_periksa', 'perlu_tindak_lanjut', 'sudah_validasi', 
+                'persentase_realisasi', 'persentase_evaluasi', 
+                'persentase_tindaklanjut', 'persentase_dokumen_selesai' => $jenisDataParam . $sufX,
+                default => 'persentase_penetapan_target',
+            };
+
+            $rawData = DB::table($viewName)->where('tahun', $tahun)->get();
+            $pivotData = [];
+
             foreach ($rawData as $item) {
                 $key = $item->kode_2 . '|' . $item->kode_3;
 
-                if (!isset($data['pivotData'][$key])) {
-                    $data['pivotData'][$key] = [
+                if (!isset($pivotData[$key])) {
+                    $pivotData[$key] = [
                         'indikator' => $item->kode_2,
-                        'pilar' => $item->kode_3,
+                        'pilar'     => $item->kode_3,
                     ];
-                    foreach ($data['satkers'] as $satker) {
-                        $data['pivotData'][$key][$satker] = null;
+                    
+                    foreach ($satkers as $satker) {
+                        $pivotData[$key][$satker] = null;
                     }
                 }
-                $data['pivotData'][$key][$item->satker] = $item->$jenisDataKolom ?? null;
+                
+                $pivotData[$key][$item->satker] = $item->$jenisDataKolom ?? null;
             }
+            $data['pivotData'] = array_values($pivotData);
 
-        } else if ($mode === 'rekap_satker') {
-            $selectedSatker = $request->input('selected_satker', $data['satkers']->first());
-            $data['selected_satker'] = $selectedSatker;
+        } elseif ($mode === 'rekap_satker') {
+            
+            $rawData = DB::table($viewName)
+                ->where('tahun', $tahun)
+                ->where('satker', $selectedSatker) 
+                ->get();
 
             $tCol = ($periode === 'bulan_berjalan') ? 'target_bulan_berjalan' : 'target_triwulan_' . $periode;
             $rCol = ($periode === 'bulan_berjalan') ? 'realisasi_bulan_berjalan' : 'realisasi_triwulan_' . $periode;
@@ -114,23 +137,26 @@ class JazirahController extends Controller
             $pTL_pct = 'persentase_tindaklanjut' . $sufX;
             $pDok    = 'persentase_dokumen_selesai' . $sufX;
 
-            $data['rekapData'] = $rawData->where('satker', $selectedSatker)->map(function ($item) use ($tCol, $rCol, $pDiperiksa, $pTL, $sValid, $pReal, $pEval, $pTL_pct, $pDok) {
+            // Pastikan kode_2 (indikator) terbawa di Object Collection
+            $data['rekapData'] = $rawData->map(function ($item) use (
+                $tCol, $rCol, $pDiperiksa, $pTL, $sValid, $pReal, $pEval, $pTL_pct, $pDok
+            ) {
                 return (object) [
-                    'kode_2' => $item->kode_2,
-                    'kode_3' => $item->kode_3,
-                    'target_setahun' => $item->target_setahun ?? 0,
-                    'target_periode' => $item->$tCol ?? 0,
-                    'realisasi_periode' => $item->$rCol ?? 0,
-                    'perlu_di_periksa' => $item->$pDiperiksa ?? 0,
-                    'perlu_tindak_lanjut' => $item->$pTL ?? 0,
-                    'sudah_validasi' => $item->$sValid ?? 0,
+                    'kode_2'                      => $item->kode_2,
+                    'kode_3'                      => $item->kode_3,
+                    'target_setahun'              => $item->target_setahun ?? 0,
+                    'target_periode'              => $item->$tCol ?? 0,
+                    'realisasi_periode'           => $item->$rCol ?? 0,
+                    'perlu_di_periksa'            => $item->$pDiperiksa ?? 0,
+                    'perlu_tindak_lanjut'         => $item->$pTL ?? 0,
+                    'sudah_validasi'              => $item->$sValid ?? 0,
                     'persentase_penetapan_target' => $item->persentase_penetapan_target ?? null,
-                    'persentase_realisasi' => $item->$pReal ?? null,
-                    'persentase_evaluasi' => $item->$pEval ?? null,
-                    'persentase_tindaklanjut' => $item->$pTL_pct ?? null,
-                    'persentase_dokumen_selesai' => $item->$pDok ?? null,
+                    'persentase_realisasi'        => $item->$pReal ?? null,
+                    'persentase_evaluasi'         => $item->$pEval ?? null,
+                    'persentase_tindaklanjut'     => $item->$pTL_pct ?? null,
+                    'persentase_dokumen_selesai'  => $item->$pDok ?? null,
                 ];
-            })->values();
+            });
         }
         
         return view('jazirah.dashboard-jazirah', compact('data'));
@@ -168,8 +194,11 @@ class JazirahController extends Controller
 
     public function lembarkerja(Request $request)
     {
+        UserActivity::log("https://bupesta.web.bps.go.id/jazirah-lembarkerja");
+
         // 1. Validasi Input Parameter
         $request->validate([
+            'kode_2'         => ['nullable', 'string'], // Menangkap parameter kode_2 (misal: "I." atau "II.")
             'pilar'          => ['nullable', 'in:I,II,III,IV,V,VI'],
             'satker'         => ['nullable', 'string', 'max:50'],
             'tugas_saya'     => ['nullable', 'in:0,1'],
@@ -185,12 +214,12 @@ class JazirahController extends Controller
         $tahunLalu  = $tahun - 1;
 
         // 3. Penentuan Satker Selected
-        // Disederhanakan menggunakan ternary operator
         $satkerSelected = ($userRole === 'admin' || $userActive->kode_satker === '1100') 
             ? $request->input('satker', '1100') 
             : $userActive->kode_satker;
 
         // 4. Inisialisasi Filter
+        $kode2Selected    = $request->input('kode_2');
         $pilarSelected    = $request->input('pilar');
         $subpilarSelected = $request->input('subpilar');
         $filterTugasSaya  = $request->input('tugas_saya');
@@ -201,7 +230,12 @@ class JazirahController extends Controller
 
         // 5. Query Builder Indikator
         $indikator = Jazirah2_Indikator::query()
-            // --- A. Filter Tugas Saya ---
+            // --- A. Filter Kode 2 (Pemenuhan / Reform) ---
+            ->when($kode2Selected, function ($query) use ($kode2Selected) {
+                $query->where('kode_2', $kode2Selected);
+            })
+
+            // --- B. Filter Tugas Saya ---
             ->when($filterTugasSaya == '1' && !empty($username), function ($query) use ($username, $satkerSelected, $tahun) {
                 $query->whereHas('isian', function ($q) use ($username, $satkerSelected, $tahun) {
                     $q->where('satker', $satkerSelected)
@@ -213,14 +247,14 @@ class JazirahController extends Controller
                 });
             })
             
-            // --- B. Filter Pilar Utama ---
+            // --- C. Filter Pilar Utama ---
             ->when($pilarSelected, function ($query) use ($pilarSelected) {
                 $query->where(function($sub) use ($pilarSelected) {
                     $sub->where('kode_3', $pilarSelected)->orWhere('level', 2);
                 });
             })
             
-            // --- C. Filter Sub-Pilar ---
+            // --- D. Filter Sub-Pilar ---
             ->when($subpilarSelected, function ($query) use ($subpilarSelected, $pilarSelected) {
                 $query->where(function($group) use ($subpilarSelected, $pilarSelected) {
                     $group->where('kode_4', $subpilarSelected)
@@ -231,8 +265,7 @@ class JazirahController extends Controller
                 });
             })
 
-            // --- D. Filter Status Dokumen (Dari Rekap Dashboard) ---
-            // Memastikan hanya baris indikator yang memiliki isian dengan status ini yang ditarik
+            // --- E. Filter Status Dokumen (Dari Rekap Dashboard) ---
             ->when(!empty($statusArray), function ($query) use ($statusArray, $satkerSelected, $tahun) {
                 $query->whereHas('isian', function ($q) use ($statusArray, $satkerSelected, $tahun) {
                     $q->where('satker', $satkerSelected)
@@ -241,7 +274,7 @@ class JazirahController extends Controller
                 });
             })
             
-            // --- E. Relasi & Eager Loading ---
+            // --- F. Relasi & Eager Loading ---
             ->with(['isian' => function ($q) use ($satkerSelected, $tahun, $tahunLalu, $statusArray) {
                 $q->where('satker', $satkerSelected)
                 ->where('tahun', $tahun)
@@ -277,10 +310,11 @@ class JazirahController extends Controller
             'user_active'             => $userActive,
             'data_subpilar'           => Jazirah2_Indikator::select('kode_3', 'kode_4', 'rencana_kerja', 'level')->where('level', 4)->get(),
             'satker_selected'         => $satkerSelected,
+            'kode_2_selected'         => $kode2Selected, // Dikirim ke view untuk indikator filter aktif
             'pilar_selected'          => $pilarSelected,
             'subpilar_selected'       => $subpilarSelected,
             'tugas_saya_selected'     => $filterTugasSaya, 
-            'status_dokumen_selected' => $statusDokumen, // Dilempar ke blade jika Anda butuh alert/indikator visual bahwa filter aktif
+            'status_dokumen_selected' => $statusDokumen, 
             'tahun'                   => $tahun,
             'satker'                  => Satker::select('kode_satker', 'nama_satker')->orderBy('kode_satker')->get(),
             'all_users'               => Cache::remember('all_users_grouped', 1440, fn() => DB::table('bupesta_user')->orderBy('name', 'asc')->get()->groupBy('kode_satker')),
@@ -498,5 +532,30 @@ class JazirahController extends Controller
         ]);
 
         return response()->json(['success' => true, 'message' => 'Validasi berhasil dibatalkan.']);
+    }
+
+    public function storeKritikSaran(Request $request)
+    {
+        // 1. Validasi input
+        $request->validate([
+            'nip_pegawai' => 'required|string',
+            'jenis'       => 'required|in:kritik,saran,masukan',
+            'pesan'       => 'required|string|max:2500',
+        ], [
+            'nip_pegawai.required' => 'Identitas pegawai (NIP) tidak terdeteksi.',
+            'jenis.required'       => 'Pilih jenis masukan terlebih dahulu.',
+            'pesan.required'       => 'Isi pesan tidak boleh kosong.',
+            'pesan.max'            => 'Pesan maksimal 2500 karakter.',
+        ]);
+
+        // 2. Simpan ke database menggunakan Model Jazirah_Kritiksaran
+        Jazirah_Kritiksaran::create([
+            'nip_pegawai' => $request->nip_pegawai,
+            'jenis'       => $request->jenis,
+            'pesan'       => $request->pesan,
+        ]);
+
+        // 3. Kembali ke halaman sebelumnya dengan pesan sukses
+        return redirect()->back()->with('success', 'Terima kasih! Kritik, saran, atau masukan Anda berhasil dikirim.');
     }
 }
